@@ -6,6 +6,8 @@ OJGuard 自有代码使用 Apache License 2.0。下列项目由各自作者拥�
 | 项目 | 用途 | 许可证 / 边界 |
 |---|---|---|
 | AgentTeams v1.2.0 | 多 Agent 编排、Matrix、共享文件 | Apache-2.0；独立部署，不复制其源码 |
+| Kubernetes kind v0.31.0 | 本地独立 Kubernetes 集群 | Apache-2.0；运行时下载并校验，不随仓库分发 |
+| Helm v3.20.2 | 安装官方 AgentTeams Chart | Apache-2.0；运行时下载并校验，不随仓库分发 |
 | Model Context Protocol Python SDK | MCP 服务端与客户端协议 | MIT |
 | FastAPI、Pydantic、Uvicorn | 后端 API 与数据模型 | MIT / BSD-3-Clause |
 | Vue、Vue Router、Pinia、Vite | 前端应用与构建 | MIT |

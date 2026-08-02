@@ -1,0 +1,21 @@
+apiVersion: agentteams.io/v1beta1
+kind: Manager
+metadata:
+  name: default
+  labels:
+    agentteams.io/controller: agentteams-controller
+spec:
+  model: deepseek-chat
+  runtime: openclaw
+  image: higress-registry.cn-hangzhou.cr.aliyuncs.com/agentteams/agentteams-manager:v1.2.0
+  config:
+    # Keep the platform coordination check available without consuming a
+    # small demonstration budget every hour.
+    heartbeatInterval: 24h
+  resources:
+    requests:
+      cpu: 250m
+      memory: 512Mi
+    limits:
+      cpu: "1"
+      memory: 2Gi

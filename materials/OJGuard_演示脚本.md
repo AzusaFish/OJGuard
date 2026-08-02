@@ -3,7 +3,7 @@
 ## 演示目标
 
 让评审在最短时间内看到三件事：多 Agent 有真实分工、关键结论有确定性证据、自动修复
-不能绕过人工审批。最终录制必须补入 AgentTeams Element 房间的原始协作轨迹。
+不能绕过人工审批。最终录制使用 `OJGUARD-DEMO-002` 的 AgentTeams Element 原始协作轨迹。
 
 ## 录制前准备
 
@@ -28,8 +28,8 @@ Checker 找到语义缺陷。OJGuard 让 Agent 提出可证伪风险，再由沙
 画面：架构页快速展示五个 Agent，然后切到 Element 原始房间。
 
 讲解：Judge Manager 将任务拆给规格审计、程序分析、对抗测试和 Checker 审计四个
-Worker。指出一条任务分派、一条 Worker 回复和一条补充验证或冲突处理消息，并展示共享
-任务文件引用。不要只停留在架构图。
+Worker。指出一条任务分派、一条 Worker 回复和一条证据完整性复核消息，并展示对应的
+Evidence ID。最后展示 4/4 回复和 Leader 的 `OJGUARD_DEMO_COMPLETE` 汇总。不要只停留在架构图。
 
 ### 0:55～1:55：执行主演示
 
@@ -72,7 +72,8 @@ Oracle、错误程序和 Checker 攻击五项回归。全部通过仍不能发�
 
 画面：架构页或设置页。
 
-讲解：七个 Skill 与八个 MCP 工具可供不同 Agent、CI 或外部适配器复用；DeepSeek 使用
+讲解：七个 Skill 与八个 MCP 工具可供不同 Agent、CI 或外部适配器复用；AgentTeams 使用
+K8s 后端且不挂载宿主 Docker Socket。本轮 DeepSeek 保守成本上限约 1.70 元，仍保留
 6 元提醒、8 元停止保护；RAG 在 8010 预留但初赛明确关闭。
 
 ### 4:35～4:55：收束

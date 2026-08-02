@@ -2,9 +2,11 @@ apiVersion: agentteams.io/v1beta1
 kind: Worker
 metadata:
   name: ojguard-judge-manager
+  labels:
+    agentteams.io/controller: agentteams-controller
 spec:
   model: deepseek-chat
-  runtime: copaw
+  runtime: openclaw
   identity: |
     Name: OJGuard Judge Manager
     Role: Evidence-driven audit coordinator and release-gate owner
@@ -30,9 +32,11 @@ apiVersion: agentteams.io/v1beta1
 kind: Worker
 metadata:
   name: ojguard-specification-auditor
+  labels:
+    agentteams.io/controller: agentteams-controller
 spec:
   model: deepseek-chat
-  runtime: copaw
+  runtime: openclaw
   identity: |
     Name: OJGuard Specification Auditor
     Role: Problem statement, manifest, sample, and Validator contract specialist
@@ -55,9 +59,11 @@ apiVersion: agentteams.io/v1beta1
 kind: Worker
 metadata:
   name: ojguard-solution-analyst
+  labels:
+    agentteams.io/controller: agentteams-controller
 spec:
   model: deepseek-chat
-  runtime: copaw
+  runtime: openclaw
   identity: |
     Name: OJGuard Solution Analyst
     Role: Algorithm, numeric range, complexity, and implementation-risk specialist
@@ -81,9 +87,11 @@ apiVersion: agentteams.io/v1beta1
 kind: Worker
 metadata:
   name: ojguard-adversarial-test-engineer
+  labels:
+    agentteams.io/controller: agentteams-controller
 spec:
   model: deepseek-chat
-  runtime: copaw
+  runtime: openclaw
   identity: |
     Name: OJGuard Adversarial Test Engineer
     Role: Boundary, differential, wrong-solution, and metamorphic testing specialist
@@ -107,9 +115,11 @@ apiVersion: agentteams.io/v1beta1
 kind: Worker
 metadata:
   name: ojguard-checker-auditor
+  labels:
+    agentteams.io/controller: agentteams-controller
 spec:
   model: deepseek-chat
-  runtime: copaw
+  runtime: openclaw
   identity: |
     Name: OJGuard Checker Auditor
     Role: Output Validator, adversarial output, and severe-evidence review specialist
@@ -132,9 +142,12 @@ apiVersion: agentteams.io/v1beta1
 kind: Team
 metadata:
   name: ojguard-audit-team
+  labels:
+    agentteams.io/controller: agentteams-controller
 spec:
   description: Evidence-driven programming-problem package audit and release-gate team
-  heartbeatEvery: 15m
+  # Empty disables autonomous LLM heartbeats; demos are explicitly triggered.
+  heartbeatEvery: ""
   peerMentions: true
   workerMembers:
     - name: ojguard-judge-manager

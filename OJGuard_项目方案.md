@@ -274,10 +274,18 @@ OJGuard 不只在架构图中提到 AgentTeams，而按其运行方式实现以�
 | Worker 隔离 | 每个 Worker 在独立容器内运行，只持有受限工具权限 |
 | 人工介入 | 用户可暂停、追加约束、批准补丁、要求重试或拒绝发布 |
 | 状态追踪 | Manager 更新任务元数据和 OJGuard 状态机 |
-| Heartbeat | Worker 超时后由 Manager 查询状态、重派或转人工 |
+| Heartbeat | 已验证平台 Heartbeat；为保护 10 元预算，Team 自主心跳默认关闭、平台 Manager 调整为 24 小时 |
 | 原始轨迹证明 | Vue 提供到对应 Element 房间的入口，评审可核验原始协作消息 |
 
-### 6.1 共享任务目录
+### 6.1 安全部署实况
+
+当前使用 AgentTeams v1.2.0 官方 Helm Chart 和独立 kind/Kubernetes 集群，Controller 的
+`workerBackend` 为 `k8s`。平台 Manager、OJGuard Team Leader 与四个专业 Worker 均为真实
+Pod；Controller、Manager、Worker 都没有挂载 Docker、Podman 或 containerd Socket。
+v1.2.0 的 CoPaw 镜像在 Kubernetes 后端存在工作区路径与 MinIO 同步不兼容，因此当前采用
+官方 Chart 的稳定 OpenClaw Runtime，并在材料中明确记录该兼容性选择。
+
+### 6.2 共享任务目录
 
 ```text
 shared/tasks/{task_id}/
@@ -293,7 +301,7 @@ shared/tasks/{task_id}/
 
 Matrix 消息只传递摘要、状态和文件引用，不在 Agent 之间反复发送完整题包或无限长对话。
 
-### 6.2 TaskContext
+### 6.3 TaskContext
 
 ```yaml
 task_id: T-001
@@ -660,25 +668,26 @@ clean_package: false
 - [x] **[Codex]** 预留 `8010` RAG 契约并保持默认关闭；
 - [x] **[Codex]** 完成 README、CI 与第三方依赖边界说明。
 
-**现有验收证据：** 31 项后端测试通过；前端类型检查与正式构建通过；真实 Docker 主 Demo
+**现有验收证据：** 自动化测试通过；前端类型检查与正式构建通过；真实 Docker 主 Demo
 稳定发现四类缺陷并生成 4 条 Finding、4 份 Evidence 和 `BLOCKED` 报告；补丁闭环已验证
-原题包哈希不变；确定性基准 8/8 缺陷命中、0/2 干净题包误阻断、LLM 调用为 0。
+原题包哈希不变；确定性基准 8/8 缺陷命中、0/2 干净题包误阻断、基准 LLM 调用为 0；
+AgentTeams 真实协作已产生四角色回复、证据哈希复验和 Leader 汇总标记。
 
 ### P1：AgentTeams 真实协作链路
 
-- [x] **[Codex]** 固定 AgentTeams v1.2.0，完成一个 Manager、四个专业 Worker、Team、MCP 和资源限制清单；
-- [ ] **[你]** 决定 AgentTeams Manager 是否允许挂载本机 Docker Socket。官方本地安装方式会赋予 Manager 创建和删除容器的高权限；
-- [ ] **[Codex]** 在获得选择后安装/启动 AgentTeams，应用 Team 清单，验证 Matrix、共享文件与 Heartbeat；
-- [ ] **[Codex]** 通过 AgentTeams 执行主 Demo，保存原始 Matrix 轨迹、共享任务文件和工具调用记录；
-- [ ] **[Codex]** 将 AgentTeams 事件接入 OJGuard 时间线；若不能稳定提供事件 API，则保留 Vue 到 Element 原始房间的可核验链接；
+- [x] **[Codex]** 固定 AgentTeams v1.2.0，完成平台 Manager、Team Leader、四个专业 Worker、Team、MCP 和资源限制清单；
+- [x] **[你]** 选择方案 B：AgentTeams 不挂载本机 Docker Socket；
+- [x] **[Codex]** 安装独立 kind/Kubernetes 环境并验证 Matrix、MinIO、Element、K8s Worker 与 Heartbeat；
+- [x] **[Codex]** 通过 AgentTeams 完成真实协作 Demo，保存脱敏 Matrix 轨迹、工具调用、四角色回复和 Leader 汇总；
+- [x] **[Codex]** Vue 架构与设置页显示 K8s 安全状态，并提供 Element 原始房间入口；
 - [ ] **[共同]** 评估真实协作结果是否足以证明不是顺序脚本，并选择演示中最清晰的一条冲突/重派路径。
 
 ### P2：模型集成与成本评估
 
 - [x] **[Codex]** 完成 DeepSeek 环境变量、模型选择和 6/8 元预算门禁设计；
-- [ ] **[你]** 确认允许开始真实 API 评测，并核对 `.env` 中密钥有效、余额可用；
-- [ ] **[Codex]** 使用最小提示和缓存完成小样本调用，先估算单题包成本；
-- [ ] **[Codex]** 达到累计 6 元前主动报告，达到 8 元停止非必要调用；
+- [x] **[你]** 确认允许开始真实 API 评测，并核对 `.env` 中密钥有效、余额可用；
+- [x] **[Codex]** 复用确定性 run 完成小样本调用，记录缓存命中与 Token；
+- [x] **[Codex]** 本轮保守成本上限估算约 1.70 元，未达到 6 元提醒阈值；
 - [ ] **[共同]** 判断模型输出对规格提取、风险假设与任务分派是否带来可展示的增益；若没有增益，不把模型效果作为核心卖点。
 
 ### P3：提交材料与最终演示
@@ -696,7 +705,7 @@ clean_package: false
 
 项目完成不是“页面能打开”，而是同时满足：AgentTeams 真实协作可核验、主 Demo 可重放、
 补丁双审批不越权、基准数字可重算、报告与代码一致、材料无密钥和虚假结论，并由你完成
-高权限安装、模型费用与最终提交三类人工确认。
+安全部署方案、模型费用与最终提交三类人工确认。
 
 ---
 
@@ -735,9 +744,9 @@ clean_package: false
 
 Agent 永不持有 Docker Socket。只有独立 Runner 具有受限的执行容器创建能力，对外只暴露白名单任务接口。
 
-### 16.4 AgentTeams 集成耗时
+### 16.4 AgentTeams 运行兼容性
 
-第一天优先完成真实 Manager–Worker POC。若专业逻辑尚未完成，先用固定 Skill 返回结构验证消息、共享文件和人工介入链路。
+v1.2.0 CoPaw Kubernetes 镜像的工作区与 MinIO 同步路径不一致，当前显式回退到官方 OpenClaw Runtime。演示前先用零模型 MCP 调用验证 Runner 链路，真实协作复用已生成 run，减少模型工具循环和费用。
 
 ### 16.5 题意契约提取过度承诺
 
@@ -817,20 +826,20 @@ OJGuard 解决的不是“让 AI 帮忙做题”，而是：
 
 ## 二十一、赛题要求符合性审阅
 
-本表区分“已有本地证据”“配置已完成但待联调”和“仍需参赛者确认”。不得把确定性基线
-结果表述为 AgentTeams 或大模型效果。
+本表区分“已有本地证据”和“仍需参赛者确认”。不得把确定性基线结果表述为 AgentTeams
+或大模型效果。
 
 ### 21.1 硬性要求
 
 | 赛题要求 | OJGuard 对应内容 | 方案状态 | 提交前证据 |
 |---|---|---|---|
-| 至少 3 个不同职能 Agent | 1 个 Manager + 4 个专业 Worker | Identity 与清单已完成 | 待补 Matrix 真实协作截图 |
-| 以 AgentTeams 为协同基点 | Manager–Workers、Matrix、MinIO、Heartbeat、Element | v1.2.0 清单完成，运行待安全授权 | 待补原始房间轨迹、共享任务文件 |
+| 至少 3 个不同职能 Agent | Team Leader + 4 个专业 Worker，另有平台 Manager | 5 个角色均真实运行并完成协作 | Matrix 四角色回复与 Leader 汇总已保存 |
+| 以 AgentTeams 为协同基点 | Manager–Workers、Matrix、MinIO、Heartbeat、Element | v1.2.0 K8s 环境已运行 | Element 房间、MinIO 工作区和 Pod 状态可现场核验 |
 | Agent Identity 清单 | 身份、边界、I/O、Skill、权限、失败与人工介入 | 5 份 YAML 已完成并测试 | 材料中导出正式表格 |
-| Skill 必选 | 7 个核心 Skill、统一返回、版本和回滚 | 7 份 `SKILL.md` 已完成并验证 | 补 AgentTeams 真实调用记录 |
-| MCP 或等价工具契约 | 本地 OJGuard MCP Server | 8 个工具已实现，HTTP 冒烟通过 | 补 AgentTeams 端调用 Trace |
-| 至少两项上下文能力 | 共享状态管理 + 轨迹可观测 | SQLite、Evidence、JSONL Trace 已运行 | 补 Matrix/共享文件证据 |
-| 端到端任务闭环 | 上传—分析—验证—审批—修复—回归—确认—沉淀 | 非 LLM 主 Demo 与双审批闭环已通过 | 补 AgentTeams 协同段和视频 |
+| Skill 必选 | 7 个核心 Skill、统一返回、版本和回滚 | 7 份 `SKILL.md` 已完成并验证 | 演示中调用 OJGuard MCP 并按角色约束回复 |
+| MCP 或等价工具契约 | 本地 OJGuard MCP Server | 8 个工具已实现，AgentTeams 端真实调用通过 | `get_run_bundle` 与 `verify_run_evidence` 轨迹已保存 |
+| 至少两项上下文能力 | 共享状态管理 + 轨迹可观测 | SQLite、Evidence、JSONL Trace、Matrix 已运行 | 提交结构化摘要并现场打开 Element |
+| 端到端任务闭环 | 上传—分析—验证—审批—修复—回归—确认—沉淀 | 确定性闭环与 AgentTeams 协同段均通过 | 视频中连接协同段与人工审批段 |
 | 结果验证 | 编译、Validator、Oracle、差分和 Checker 探测 | 真实 Docker 执行通过 | 提交可重放反例与命令 |
 | 执行证据 | Finding、Evidence、哈希、Trace、报告 | 4 Finding、4 Evidence、JSON/HTML 报告已生成 | 截图并打包脱敏产物 |
 | 审批、回滚和审计 | 三级权限、双审批、工作副本和完整回归 | 已验证，原题包哈希不变 | 用真人审批重录最终 Demo |
@@ -842,8 +851,8 @@ OJGuard 解决的不是“让 AI 帮忙做题”，而是：
 |---|---|---|
 | 项目名称约 20 字 | 符合：OJGuard——多智能体编程题包发布门禁 | 保持统一名称 |
 | 500 字以内简介 | 已按真实进展更新 | 提交平台粘贴后复核字数 |
-| 方案 PPT/PDF | 14 页 PDF 已生成并逐页检查 | AgentTeams 联调后替换状态页并加入真实轨迹截图 |
-| AgentTeams 代码包 | Team/Worker/MCP 配置已完成 | 安全授权后补真实部署证据 |
+| 方案 PPT/PDF | 14 页 PDF 已生成并逐页检查 | 用真实 AgentTeams 证据更新状态页后终审 |
+| AgentTeams 代码包 | K8s、Team/Worker/MCP 配置和复现脚本已完成 | 提交前执行一次干净复现 |
 | 样例输入输出和证据 | 已生成真实 Demo 产物 | 选择脱敏产物纳入提交包 |
 | 开源协议与边界 | Apache-2.0 与第三方 NOTICE 已完成 | 发布前扫描间接依赖 |
 
@@ -852,16 +861,16 @@ OJGuard 解决的不是“让 AI 帮忙做题”，而是：
 | 评分维度 | 当前方案判断 | 主要补强证据 |
 |---|---|---|
 | 场景价值与行业可复制性 25% | 主场景收敛，已有原创基准 | 仍需用户/访谈证据或真实题包案例 |
-| 多 Agent 协同与自主闭环 25% | 架构与配置较强，真实协作证据缺失 | 最高优先级补 Matrix、并行、冲突与重派 |
-| Skill 工程体系与生态复用 25% | 7 个 Skill 与 8 个 MCP 工具已实现 | 补真实 Agent 调用与外部复用示例 |
+| 多 Agent 协同与自主闭环 25% | 真实五角色协作、并行回复与 Leader 汇总已完成 | 视频突出 4/4 分工、证据复核和人工门禁 |
+| Skill 工程体系与生态复用 25% | 7 个 Skill、8 个 MCP 工具与真实调用已完成 | 补外部题包适配示例 |
 | 工程落地、安全与可审计 20% | Runner、Trace、报告、审批和前端已有证据 | 补干净环境一键复现与异常视频 |
 | 开放与开源贡献 5% | 许可证、CI、Demo 和基准边界清晰 | 推送后检查仓库可访问性和 NOTICE |
 
 ### 21.4 审阅结论
 
 OJGuard 的场景、五 Agent 分工、七个 Skill、两项上下文能力、确定性验证、证据、双审批、
-回归和开源边界均符合赛题方向，Runner、MCP、前端、主 Demo 与基准已有本地运行证据。
-当前唯一会直接影响“基于 AgentTeams 的真实多 Agent 协作”硬性证明的缺口，是 AgentTeams
-尚未实际启动，因此还没有 Matrix 房间、共享文件、Heartbeat 和原始协作轨迹。该缺口必须
-在提交前补齐；否则方案可以证明是完整的 Agent Infra 工程原型，但不能充分证明 AgentTeams
-协同已经真实运行。PPT 和视频中必须继续明确区分确定性基线、AgentTeams 结果和模型结果。
+回归和开源边界符合赛题方向。AgentTeams v1.2.0 已在无宿主 Socket 的 Kubernetes 后端
+真实运行，Matrix 中存在四角色回复、MCP 工具调用、证据完整性复核和 Leader 汇总。
+当前技术硬性缺口已由“真实协作未启动”转为“提交材料尚未全部换成真实轨迹截图”；此外仍需
+参赛者提供主体信息、复核对外表述、录制视频并完成平台上传。PPT 和视频必须继续明确区分
+确定性基线、AgentTeams 协作结果和模型输出，不能把 8/8 基准命中率写成 LLM 指标。

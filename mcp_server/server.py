@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Any
 
 from mcp.server.fastmcp import FastMCP
+from mcp.server.transport_security import TransportSecuritySettings
 
 from backend.app.config import get_settings
 from mcp_server.tools import OJGuardTools
@@ -21,6 +22,14 @@ mcp = FastMCP(
     streamable_http_path="/mcp",
     stateless_http=True,
     json_response=True,
+    transport_security=TransportSecuritySettings(
+        enable_dns_rebinding_protection=True,
+        allowed_hosts=[
+            f"127.0.0.1:{settings.mcp_port}",
+            f"localhost:{settings.mcp_port}",
+            f"host.docker.internal:{settings.mcp_port}",
+        ],
+    ),
 )
 
 

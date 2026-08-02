@@ -36,7 +36,14 @@ def system_info(settings: Settings = Depends(get_settings)) -> dict[str, object]
         "budget_stop_cny": settings.llm_budget_stop_cny,
         "rag": {"enabled": settings.rag_enabled, "port": settings.rag_port},
         "mcp": {"host": settings.mcp_host, "port": settings.mcp_port, "path": "/mcp"},
-        "agentteams": {"version": "v1.2.0", "team": "ojguard-audit-team"},
+        "agentteams": {
+            "version": "v1.2.0",
+            "team": "ojguard-audit-team",
+            "deployment": "kubernetes-kind",
+            "worker_backend": "k8s",
+            "host_socket_exposed": False,
+            "element_url": "http://127.0.0.1:18080",
+        },
     }
 
 

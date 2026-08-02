@@ -719,8 +719,8 @@ Agent 可以直接删除数据、部署代码、发送通知或修改生产环�
 | 结果验证 | 编译运行、差分测试、Validator、Checker 和可复现反例 |
 | 执行证据 | 测试输入、程序输出、日志、Trace、补丁和审计报告 |
 | 审批与回滚 | 题包修改先作用于沙箱副本，批准后应用，失败自动回滚 |
-| 上下文能力 | 共享状态、RAG 和轨迹可观测 |
-| 工具集成 | problemtools、编译器、testlib、Docker Sandbox |
+| 上下文能力 | 共享状态管理与轨迹可观测；RAG 接口预留但默认关闭 |
+| 工具集成 | OJGuard MCP、编译器、Docker Runner、SQLite 与 Evidence Store |
 | 行业可复制性 | OJ、教育平台、招聘测评、开发者认证和企业内部考试 |
 | 开源价值 | Agent 配置、Skill、题包适配器、沙箱执行器和 Demo 数据集 |
 
