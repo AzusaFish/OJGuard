@@ -1,0 +1,7 @@
+interface:
+  display_name: Audit Problem Package
+  short_description: Verify package and Checker contracts during incident analysis
+  default_prompt: Use $audit-problem-package only when package or Checker behavior is an active incident hypothesis.
+dependencies:
+  tools:
+    - {type: mcp, value: ojguard, description: Immutable package audit tools, transport: streamable_http, url: "http://ojguard-mcp:8020/mcp"}

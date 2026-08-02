@@ -1,0 +1,228 @@
+{"kind":"deck","id":"pr/07jder","name":"Deck"}
+{"kind":"layout","layoutId":"/ppt/slideMasters/slideMaster1.xml","name":"","type":"master"}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout1.xml","name":"DEFAULT"}
+{"kind":"layout","layoutId":"/ppt/slideMasters/slideMaster2.xml","name":"","type":"master"}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout2.xml","name":"DEFAULT"}
+{"kind":"slide","id":"sl/gukjrv","slide":1,"title":"GOAI世界人工智能开源大赛","textShapes":4}
+{"kind":"shape","id":"sh/ix8zmtwf","slide":1,"name":"Shape 0","bbox":[988.8,-134.4,432,432]}
+{"kind":"shape","id":"sh/3yhgvyx0","slide":1,"name":"Shape 1","bbox":[1113.6,441.6,307.2,307.2]}
+{"kind":"shape","id":"sh/s3qhs3eh","slide":1,"name":"Shape 2","bbox":[-86.4,518.4,288,288]}
+{"kind":"textbox","id":"sh/d4ji18v2","slide":1,"name":"Text 3","text":"GOAI世界人工智能开源大赛 ","textPreview":"GOAI世界人工智能开源大赛","textChars":15,"textLines":1,"bbox":[62.4,163.2,768,38.4]}
+{"kind":"textbox","id":"sh/q18zqtwr","slide":1,"name":"Text 4","text":"初赛方案 PPT\n内容框架模板","textPreview":"初赛方案 PPT | 内容框架模板","textChars":15,"textLines":2,"bbox":[62.4,206.4,912,182.4]}
+{"kind":"textbox","id":"sh/h8ji1sjy","slide":1,"name":"Text 16","text":"Datawhale · 参赛选手参考资料","textPreview":"Datawhale · 参赛选手参考资料","textChars":20,"textLines":1,"bbox":[62.4,648,768,33.6]}
+{"kind":"textbox","id":"sh/g7a1872d","slide":1,"name":"文本框 18","text":"Agent Infra 新智基座 初赛 · 方案 PPT 模板","textPreview":"Agent Infra 新智基座 初赛 · 方案 PPT 模板","textChars":31,"textLines":1,"bbox":[62.4,401.73,640,33.8]}
+{"kind":"notes","id":"nt/gukjrv","slide":1,"text":""}
+{"kind":"slide","id":"sl/glvwwj","slide":2,"title":"P0 · 一页纸速览","textShapes":21}
+{"kind":"textbox","id":"sh/mx4zex0r","slide":2,"name":"Text 0","text":"P0 · 一页纸速览","textPreview":"P0 · 一页纸速览","textChars":10,"textLines":1,"bbox":[62.4,40.32,720,30.72]}
+{"kind":"textbox","id":"sh/7yd0n2hc","slide":2,"name":"Text 1","text":"作品简介","textPreview":"作品简介","textChars":4,"textLines":1,"bbox":[62.4,69.12,787.2,67.2]}
+{"kind":"shape","id":"sh/hofitcze","slide":2,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/ul4zih03","slide":2,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/vmd0r2ho","slide":2,"name":"Text 5","text":"项目名称","textPreview":"项目名称","textChars":4,"textLines":1,"bbox":[115.2,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/4r61ory5","slide":2,"name":"Text 6","text":"≤ 20 字。一句话说清「为谁、解决什么」。","textPreview":"≤ 20 字。一句话说清「为谁、解决什么」。","textChars":22,"textLines":1,"bbox":[89.28,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/5sfixwzq","slide":2,"name":"Text 7","text":"【在此填写项目名称】","textPreview":"【在此填写项目名称】","textChars":10,"textLines":1,"bbox":[89.28,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/54za18ra","slide":2,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/436983ap","slide":2,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/j2xszy94","slide":2,"name":"Text 10","text":"问题与场景","textPreview":"问题与场景","textChars":5,"textLines":1,"bbox":[509.86,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/i1or6tsz","slide":2,"name":"Text 11","text":"目标用户是谁、在什么场景、现实痛点是什么。","textPreview":"目标用户是谁、在什么场景、现实痛点是什么。","textChars":21,"textLines":1,"bbox":[483.94,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/tsza58rm","slide":2,"name":"Text 12","text":"【描述真实场景与核心痛点】","textPreview":"【描述真实场景与核心痛点】","textChars":13,"textLines":1,"bbox":[483.94,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/srq9c3a1","slide":2,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/r6hs3y9g","slide":2,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/658ratsv","slide":2,"name":"Text 15","text":"核心解决方案","textPreview":"核心解决方案","textChars":6,"textLines":1,"bbox":[904.51,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/9wfqt4r2","slide":2,"name":"Text 16","text":"一句话讲清整体思路：用多 Agent + Skill 怎么解。","textPreview":"一句话讲清整体思路：用多 Agent + Skill 怎么解。","textChars":31,"textLines":1,"bbox":[878.59,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/8vm90jah","slide":2,"name":"Text 17","text":"【概述端到端解决方案】","textPreview":"【概述端到端解决方案】","textChars":11,"textLines":1,"bbox":[878.59,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/0fq9gjid","slide":2,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/lgza9ozy","slide":2,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/yd8re90n","slide":2,"name":"Text 20","text":"创新点与差异化","textPreview":"创新点与差异化","textChars":7,"textLines":1,"bbox":[115.2,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/zehs7ehs","slide":2,"name":"Text 21","text":"对比现有做法，你独特/更优在哪。","textPreview":"对比现有做法，你独特/更优在哪。","textChars":16,"textLines":1,"bbox":[89.28,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/8ja9kjip","slide":2,"name":"Text 22","text":"【列 1–2 个关键差异化优势】","textPreview":"【列 1–2 个关键差异化优势】","textChars":16,"textLines":1,"bbox":[89.28,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/9kjadoza","slide":2,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/mhsrit0j","slide":2,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/ni1sbeh4","slide":2,"name":"Text 25","text":"开放 / 复用价值","textPreview":"开放 / 复用价值","textChars":9,"textLines":1,"bbox":[509.86,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/w7a9o3il","slide":2,"name":"Text 26","text":"可复用成果、能迁移到哪些场景。","textPreview":"可复用成果、能迁移到哪些场景。","textChars":15,"textLines":1,"bbox":[483.94,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/x8jah8z6","slide":2,"name":"Text 27","text":"【说明复用与迁移价值】","textPreview":"【说明复用与迁移价值】","textChars":11,"textLines":1,"bbox":[483.94,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/rep43m5k","slide":2,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/qdw3u1oz","slide":2,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/dg7m5wnq","slide":2,"name":"Text 30","text":"当前进展","textPreview":"当前进展","textChars":4,"textLines":1,"bbox":[904.51,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/sfylwr65","slide":2,"name":"Text 31","text":"做到了什么程度、有无可运行成果。","textPreview":"做到了什么程度、有无可运行成果。","textChars":16,"textLines":1,"bbox":[878.59,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/jq54zm5o","slide":2,"name":"Text 32","text":"【说明当前完成度与里程碑】","textPreview":"【说明当前完成度与里程碑】","textChars":13,"textLines":1,"bbox":[878.59,511.68,317.86,36.48]}
+{"kind":"textbox","id":"sh/ipw3qho3","slide":2,"name":"Text 33","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"notes","id":"nt/glvwwj","slide":2,"text":""}
+{"kind":"slide","id":"sl/p6udwh","slide":3,"title":"目录","textShapes":17}
+{"kind":"shape","id":"sh/5cn2po7m","slide":3,"name":"Shape 0","bbox":[1017.6,-144,432,432]}
+{"kind":"shape","id":"sh/kbe1gj61","slide":3,"name":"Shape 1","bbox":[-96,499.2,307.2,307.2]}
+{"kind":"textbox","id":"sh/alcja9oz","slide":3,"name":"Text 3","text":"目录","textPreview":"目录","textChars":2,"textLines":1,"bbox":[62.4,110.4,960,67.2]}
+{"kind":"shape","id":"sh/xonil47a","slide":3,"name":"Shape 4","bbox":[62.4,216,553.58,82.56]}
+{"kind":"shape","id":"sh/wnu1cz65","slide":3,"name":"Shape 5","bbox":[83.52,241.92,30.72,30.72]}
+{"kind":"textbox","id":"sh/nil0fup8","slide":3,"name":"Text 6","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[83.52,241.92,30.72,30.72]}
+{"kind":"textbox","id":"sh/mhcj6pon","slide":3,"name":"Text 7","text":"场景与价值","textPreview":"场景与价值","textChars":5,"textLines":1,"bbox":[127.68,216,471.98,82.56]}
+{"kind":"shape","id":"sh/s7il8vqh","slide":3,"name":"Shape 8","bbox":[663.98,216,553.58,82.56]}
+{"kind":"shape","id":"sh/t8b21g72","slide":3,"name":"Shape 9","bbox":[685.1,241.92,30.72,30.72]}
+{"kind":"textbox","id":"sh/6l036l8b","slide":3,"name":"Text 10","text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[685.1,241.92,30.72,30.72]}
+{"kind":"textbox","id":"sh/r69kzqpw","slide":3,"name":"Text 11","text":"工程落地、运行验证与安全可审计","textPreview":"工程落地、运行验证与安全可审计","textChars":15,"textLines":1,"bbox":[729.26,216,471.98,82.56]}
+{"kind":"shape","id":"sh/4jil4bql","slide":3,"name":"Shape 12","bbox":[62.4,325.44,553.58,82.56]}
+{"kind":"shape","id":"sh/5kr2xg7q","slide":3,"name":"Shape 13","bbox":[83.52,351.36,30.72,30.72]}
+{"kind":"textbox","id":"sh/ih03218f","slide":3,"name":"Text 14","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[83.52,351.36,30.72,30.72]}
+{"kind":"textbox","id":"sh/ji9kv6p0","slide":3,"name":"Text 15","text":"方案总览","textPreview":"方案总览","textChars":4,"textLines":1,"bbox":[127.68,325.44,471.98,82.56]}
+{"kind":"shape","id":"sh/ofml0fqp","slide":3,"name":"Shape 16","bbox":[663.98,325.44,553.58,82.56]}
+{"kind":"shape","id":"sh/pgvm9k7a","slide":3,"name":"Shape 17","bbox":[685.1,351.36,30.72,30.72]}
+{"kind":"textbox","id":"sh/dk7uxgv2","slide":3,"name":"Text 18","text":"6","textPreview":"6","textChars":1,"textLines":1,"bbox":[685.1,351.36,30.72,30.72]}
+{"kind":"textbox","id":"sh/cjyt4buh","slide":3,"name":"Text 19","text":"开源开放计划","textPreview":"开源开放计划","textChars":6,"textLines":1,"bbox":[729.26,325.44,471.98,82.56]}
+{"kind":"shape","id":"sh/bipcv6dw","slide":3,"name":"Shape 20","bbox":[62.4,434.88,553.58,82.56]}
+{"kind":"shape","id":"sh/qhgb21wb","slide":3,"name":"Shape 21","bbox":[83.52,460.8,30.72,30.72]}
+{"kind":"textbox","id":"sh/pgnutwv6","slide":3,"name":"Text 22","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[83.52,460.8,30.72,30.72]}
+{"kind":"textbox","id":"sh/ofet0rel","slide":3,"name":"Text 23","text":"多Agent协同设计","textPreview":"多Agent协同设计","textChars":10,"textLines":1,"bbox":[127.68,434.88,471.98,82.56]}
+{"kind":"shape","id":"sh/3u5crmd0","slide":3,"name":"Shape 24","bbox":[663.98,434.88,553.58,82.56]}
+{"kind":"shape","id":"sh/2twby1wf","slide":3,"name":"Shape 25","bbox":[685.1,460.8,30.72,30.72]}
+{"kind":"textbox","id":"sh/1snapwvu","slide":3,"name":"Text 26","text":"7","textPreview":"7","textChars":1,"textLines":1,"bbox":[685.1,460.8,30.72,30.72]}
+{"kind":"textbox","id":"sh/gretwre9","slide":3,"name":"Text 27","text":"落地计划与进展","textPreview":"落地计划与进展","textChars":7,"textLines":1,"bbox":[729.26,434.88,471.98,82.56]}
+{"kind":"shape","id":"sh/6xsr6xc7","slide":3,"name":"Shape 28","bbox":[62.4,544.32,553.58,82.56]}
+{"kind":"shape","id":"sh/ryl8z2ts","slide":3,"name":"Shape 29","bbox":[83.52,570.24,30.72,30.72]}
+{"kind":"textbox","id":"sh/szu98nud","slide":3,"name":"Text 30","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[83.52,570.24,30.72,30.72]}
+{"kind":"textbox","id":"sh/t03q1sby","slide":3,"name":"Text 31","text":"Skills工具体系","textPreview":"Skills工具体系","textChars":10,"textLines":1,"bbox":[127.68,544.32,471.98,82.56]}
+{"kind":"shape","id":"sh/itsr2dcb","slide":3,"name":"Shape 32","bbox":[663.98,544.32,553.58,82.56]}
+{"kind":"shape","id":"sh/ju18vitg","slide":3,"name":"Shape 33","bbox":[685.1,570.24,30.72,30.72]}
+{"kind":"textbox","id":"sh/4va94nu1","slide":3,"name":"Text 34","text":"8","textPreview":"8","textChars":1,"textLines":1,"bbox":[685.1,570.24,30.72,30.72]}
+{"kind":"textbox","id":"sh/5wjqxsbm","slide":3,"name":"Text 35","text":"Demo视频（如有）","textPreview":"Demo视频（如有）","textChars":10,"textLines":1,"bbox":[729.26,544.32,471.98,82.56]}
+{"kind":"notes","id":"nt/p6udwh","slide":3,"text":""}
+{"kind":"slide","id":"sl/zznxn9","slide":4,"title":"第一章","textShapes":6}
+{"kind":"textbox","id":"sh/czex8ryh","slide":4,"name":"Text 0","text":"第一章","textPreview":"第一章","textChars":3,"textLines":1,"bbox":[62.4,311.05,720,30.72]}
+{"kind":"textbox","id":"sh/d07yhwf2","slide":4,"name":"Text 1","text":"场景与价值","textPreview":"场景与价值","textChars":5,"textLines":1,"bbox":[62.4,339.85,787.2,67.2]}
+{"kind":"shape","id":"sh/ylgfa1gn","slide":4,"name":"Shape 2","bbox":[771.17,38.2,470.4,82.56]}
+{"kind":"textbox","id":"sh/zmpgj6xs","slide":4,"name":"Text 3","text":"对应评分维度","textPreview":"对应评分维度","textChars":6,"textLines":1,"bbox":[792.29,47.8,326.4,24.96]}
+{"kind":"textbox","id":"sh/0nyxcryd","slide":4,"name":"Text 4","text":"场景价值与行业可复制性","textPreview":"场景价值与行业可复制性","textChars":11,"textLines":1,"bbox":[792.29,70.84,326.4,42.24]}
+{"kind":"shape","id":"sh/lo7ylwfy","slide":4,"name":"Shape 5","bbox":[1131.17,55.48,91.2,48]}
+{"kind":"textbox","id":"sh/mpgfe1gj","slide":4,"name":"Text 6","text":"25%","textPreview":"25%","textChars":3,"textLines":1,"bbox":[1131.17,55.48,91.2,48]}
+{"kind":"textbox","id":"sh/rydovelc","slide":4,"name":"Text 34","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"notes","id":"nt/zznxn9","slide":4,"text":"【可考虑从以下维度展开】\n"}
+{"kind":"slide","id":"sl/loegji","slide":5,"title":"第一章","textShapes":4}
+{"kind":"textbox","id":"sh/g7mx47y1","slide":5,"name":"Text 0","text":"第一章","textPreview":"第一章","textChars":3,"textLines":1,"bbox":[35.73,28.85,720,30.72]}
+{"kind":"textbox","id":"sh/3adgzmxs","slide":5,"name":"Text 1","text":"场景与价值","textPreview":"场景与价值","textChars":5,"textLines":1,"bbox":[35.73,57.65,787.2,67.2]}
+{"kind":"textbox","id":"sh/294f6hg7","slide":5,"name":"文本框 4","text":"建议覆盖目标用户与核心痛点、真实场景、可量化的价值收益、行业可复制性，以及你的创新点与差异化优势。","textPreview":"建议覆盖目标用户与核心痛点、真实场景、可量化的价值收益、行业可复制性，以及你的创新点与差异化优势。","textChars":49,"textLines":1,"bbox":[25.67,124.87,841.27,67.73]}
+{"kind":"textbox","id":"sh/4vmx8ryd","slide":5,"name":"文本框 6","text":"（示例）","textPreview":"（示例）","textChars":4,"textLines":1,"bbox":[416.6,585.2,426.67,38.67]}
+{"kind":"image","id":"im/2xwzutoz","slide":5,"name":"图片 5","bbox":[35.73,251,583.73,328.33]}
+{"kind":"image","id":"im/3y5gny5k","slide":5,"name":"图片 7","bbox":[637.53,251,575.93,325.6]}
+{"kind":"notes","id":"nt/loegji","slide":5,"text":""}
+{"kind":"slide","id":"sl/lahgdh","slide":6,"title":"第二章","textShapes":3}
+{"kind":"textbox","id":"sh/vy1sru9s","slide":6,"name":"Text 0","text":"第二章","textPreview":"第二章","textChars":3,"textLines":1,"bbox":[62.4,311.05,720,30.72]}
+{"kind":"textbox","id":"sh/uxsbip87","slide":6,"name":"Text 1","text":"方案总览","textPreview":"方案总览","textChars":4,"textLines":1,"bbox":[62.4,339.85,787.2,67.2]}
+{"kind":"textbox","id":"sh/qpc7at8z","slide":6,"name":"Text 34","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"notes","id":"nt/lahgdh","slide":6,"text":"【可考虑从以下维度展开】\n"}
+{"kind":"slide","id":"sl/yzhfb6","slide":7,"title":"第二章 · 承上启下","textShapes":4}
+{"kind":"textbox","id":"sh/y9w7ix4v","slide":7,"name":"Text 0","text":"第二章 · 承上启下","textPreview":"第二章 · 承上启下","textChars":10,"textLines":1,"bbox":[62.4,40.32,720,30.72]}
+{"kind":"textbox","id":"sh/za5or2lg","slide":7,"name":"Text 1","text":"方案总览","textPreview":"方案总览","textChars":4,"textLines":1,"bbox":[62.4,69.12,787.2,67.2]}
+{"kind":"textbox","id":"sh/x4321kn2","slide":7,"name":"Text 30","text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"textbox","id":"sh/za1krqpo","slide":7,"name":"文本框 37","text":"建议用一张架构图呈现整体方案，说明端到端主流程和关键技术选型的必要性。","textPreview":"建议用一张架构图呈现整体方案，说明端到端主流程和关键技术选型的必要性。","textChars":35,"textLines":1,"bbox":[55.2,126.47,841.27,38.67]}
+{"kind":"image","id":"im/947qtsna","slide":7,"name":"图片 38","bbox":[228.6,189.13,822.87,463.87]}
+{"kind":"notes","id":"nt/yzhfb6","slide":7,"text":""}
+{"kind":"slide","id":"sl/867v04","slide":8,"title":"4","textShapes":6}
+{"kind":"textbox","id":"sh/vipwb6h8","slide":8,"name":"Text 34","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"textbox","id":"sh/7uhkr6pc","slide":8,"name":"Text 0","text":"第三章","textPreview":"第三章","textChars":3,"textLines":1,"bbox":[62.4,311.52,720,30.72]}
+{"kind":"textbox","id":"sh/svqlkbqx","slide":8,"name":"Text 1","text":"多 Agent 协同设计","textPreview":"多 Agent 协同设计","textChars":12,"textLines":1,"bbox":[62.4,340.32,787.2,67.2]}
+{"kind":"shape","id":"sh/twz2tg7i","slide":8,"name":"Shape 2","bbox":[747.17,48,470.4,82.56]}
+{"kind":"textbox","id":"sh/mx4j6h8n","slide":8,"name":"Text 3","text":"对应评分维度","textPreview":"对应评分维度","textChars":6,"textLines":1,"bbox":[768.29,57.6,326.4,24.96]}
+{"kind":"textbox","id":"sh/nydkfmp8","slide":8,"name":"Text 4","text":"多 Agent 协同与自主闭环能力","textPreview":"多 Agent 协同与自主闭环能力","textChars":17,"textLines":1,"bbox":[768.29,80.64,326.4,42.24]}
+{"kind":"shape","id":"sh/vq5c7mts","slide":8,"name":"Shape 5","bbox":[1107.17,65.28,91.2,48]}
+{"kind":"textbox","id":"sh/upwbehc7","slide":8,"name":"Text 6","text":"25%","textPreview":"25%","textChars":3,"textLines":1,"bbox":[1107.17,65.28,91.2,48]}
+{"kind":"notes","id":"nt/867v04","slide":8,"text":"【可考虑从以下维度展开】\n"}
+{"kind":"slide","id":"sl/5ecb8c","slide":9,"title":"第三章","textShapes":3}
+{"kind":"textbox","id":"sh/nud8rml8","slide":9,"name":"Text 0","text":"第三章","textPreview":"第三章","textChars":3,"textLines":1,"bbox":[62.4,40.32,720,30.72]}
+{"kind":"textbox","id":"sh/2t4ryhkn","slide":9,"name":"Text 1","text":"多 Agent 协同设计","textPreview":"多 Agent 协同设计","textChars":12,"textLines":1,"bbox":[62.4,69.12,787.2,67.2]}
+{"kind":"textbox","id":"sh/cj2p4nyh","slide":9,"name":"文本框 37","text":"建议覆盖 Agent 分工、任务拆解、上下文传递与状态流转、异常与冲突处理，以及高风险动作的安全边界。","textPreview":"建议覆盖 Agent 分工、任务拆解、上下文传递与状态流转、异常与冲突处理，以及高风险动作的安全边界。","textChars":51,"textLines":1,"bbox":[55.2,126.47,841.27,67.73]}
+{"kind":"image","id":"im/epsf614z","slide":9,"name":"图片 36","bbox":[55.2,241.93,554.67,311.2]}
+{"kind":"image","id":"im/2d8julk3","slide":9,"name":"图片 38","bbox":[670.8,241.93,554.93,311.2]}
+{"kind":"notes","id":"nt/5ecb8c","slide":9,"text":""}
+{"kind":"slide","id":"sl/v2yx3n","slide":10,"title":"4","textShapes":6}
+{"kind":"textbox","id":"sh/k3idwzex","slide":10,"name":"Text 34","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"textbox","id":"sh/psfqlszi","slide":10,"name":"Text 0","text":"第四章","textPreview":"第四章","textChars":3,"textLines":1,"bbox":[62.4,311.59,720,30.72]}
+{"kind":"textbox","id":"sh/4r69cnyx","slide":10,"name":"Text 1","text":"Skill 工程体系","textPreview":"Skill 工程体系","textChars":10,"textLines":1,"bbox":[62.4,340.39,787.2,67.2]}
+{"kind":"shape","id":"sh/rux8n2h8","slide":10,"name":"Shape 2","bbox":[747.17,48,470.4,82.56]}
+{"kind":"textbox","id":"sh/q9czqho3","slide":10,"name":"Text 3","text":"对应评分维度","textPreview":"对应评分维度","textChars":6,"textLines":1,"bbox":[768.29,57.6,326.4,24.96]}
+{"kind":"textbox","id":"sh/ral0jm5o","slide":10,"name":"Text 4","text":"Skill 工程体系与生态复用","textPreview":"Skill 工程体系与生态复用","textChars":15,"textLines":1,"bbox":[768.29,80.64,326.4,42.24]}
+{"kind":"shape","id":"sh/0zehwb6l","slide":10,"name":"Shape 5","bbox":[1107.17,65.28,91.2,48]}
+{"kind":"textbox","id":"sh/10nipgnq","slide":10,"name":"Text 6","text":"25%","textPreview":"25%","textChars":3,"textLines":1,"bbox":[1107.17,65.28,91.2,48]}
+{"kind":"notes","id":"nt/v2yx3n","slide":10,"text":"【可考虑从以下维度展开】\n"}
+{"kind":"slide","id":"sl/48x9ib","slide":11,"title":"第四章 · 本赛题必选项","textShapes":4}
+{"kind":"textbox","id":"sh/5sf69wba","slide":11,"name":"Text 0","text":"第四章 · 本赛题必选项","textPreview":"第四章 · 本赛题必选项","textChars":12,"textLines":1,"bbox":[62.4,40.32,720,30.72]}
+{"kind":"textbox","id":"sh/4r6p0rap","slide":11,"name":"Text 1","text":"Skill 工程体系","textPreview":"Skill 工程体系","textChars":10,"textLines":1,"bbox":[62.4,69.12,787.2,67.2]}
+{"kind":"shape","id":"sh/svqp4bal","slide":11,"name":"Shape 5","bbox":[1107.17,65.28,91.2,48]}
+{"kind":"textbox","id":"sh/fihoz6tc","slide":11,"name":"Text 6","text":"25%","textPreview":"25%","textChars":3,"textLines":1,"bbox":[1107.17,65.28,91.2,48]}
+{"kind":"textbox","id":"sh/a14bilk7","slide":11,"name":"文本框 37","text":"建议覆盖 Skill 清单与任务覆盖、单个 Skill 的规格（输入输出/依赖/失败处理）、复用性、生命周期管理，以及对官方 Skills 的复用。","textPreview":"建议覆盖 Skill 清单与任务覆盖、单个 Skill 的规格（输入输出/依赖/失败处理）、复用性、生命周期管理，以及对官方 Skills 的复用。","textChars":74,"textLines":1,"bbox":[55.2,126.47,841.27,67.73]}
+{"kind":"image","id":"im/wvaxsrqd","slide":11,"name":"图片 36","bbox":[338.6,249.6,602.8,339.67]}
+{"kind":"notes","id":"nt/48x9ib","slide":11,"text":""}
+{"kind":"slide","id":"sl/wuuh7r","slide":12,"title":"4","textShapes":6}
+{"kind":"textbox","id":"sh/8vy5kzq5","slide":12,"name":"Text 34","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"textbox","id":"sh/6d4jutcr","slide":12,"name":"Text 0","text":"第五章","textPreview":"第五章","textChars":3,"textLines":1,"bbox":[62.4,314.12,720,30.72]}
+{"kind":"textbox","id":"sh/tgvi5ov2","slide":12,"name":"Text 1","text":"工程落地、运行验证与安全可审计","textPreview":"工程落地、运行验证与安全可审计","textChars":15,"textLines":1,"bbox":[62.4,342.92,787.2,67.2]}
+{"kind":"shape","id":"sh/sfm1wjuh","slide":12,"name":"Shape 2","bbox":[747.17,48,470.4,82.56]}
+{"kind":"textbox","id":"sh/jad0zed0","slide":12,"name":"Text 3","text":"对应评分维度","textPreview":"对应评分维度","textChars":6,"textLines":1,"bbox":[768.29,57.6,326.4,24.96]}
+{"kind":"textbox","id":"sh/i9kjq9cf","slide":12,"name":"Text 4","text":"工程落地与安全可审计","textPreview":"工程落地与安全可审计","textChars":10,"textLines":1,"bbox":[768.29,80.64,326.4,42.24]}
+{"kind":"shape","id":"sh/wb69s329","slide":12,"name":"Shape 5","bbox":[1107.17,65.28,91.2,48]}
+{"kind":"textbox","id":"sh/xcfq18ju","slide":12,"name":"Text 6","text":"20%","textPreview":"20%","textChars":3,"textLines":1,"bbox":[1107.17,65.28,91.2,48]}
+{"kind":"notes","id":"nt/wuuh7r","slide":12,"text":"【可考虑从以下维度展开】\n"}
+{"kind":"slide","id":"sl/afumw1","slide":13,"title":"第五章","textShapes":3}
+{"kind":"textbox","id":"sh/yhsbuxor","slide":13,"name":"Text 0","text":"第五章","textPreview":"第五章","textChars":3,"textLines":1,"bbox":[62.4,40.32,720,30.72]}
+{"kind":"textbox","id":"sh/zi1s32pc","slide":13,"name":"Text 1","text":"工程落地、运行验证与安全可审计","textPreview":"工程落地、运行验证与安全可审计","textChars":15,"textLines":1,"bbox":[62.4,69.12,787.2,67.2]}
+{"kind":"textbox","id":"sh/z6tgnmh8","slide":13,"name":"文本框 37","text":"建议覆盖可运行性、运行证据、可观测与检索链路、安全治理机制，以及云产品选型的必要性与边界。","textPreview":"建议覆盖可运行性、运行证据、可观测与检索链路、安全治理机制，以及云产品选型的必要性与边界。","textChars":45,"textLines":1,"bbox":[55.2,126.47,841.27,67.73]}
+{"kind":"image","id":"im/xsvmdgz6","slide":13,"name":"图片 36","bbox":[221.33,208.8,402.11,226.77]}
+{"kind":"image","id":"im/1wb2lcfy","slide":13,"name":"图片 39","bbox":[649.4,209.6,402.86,226.77]}
+{"kind":"image","id":"im/0vi1cryd","slide":13,"name":"图片 40","bbox":[221.33,450.2,402.97,226.77]}
+{"kind":"image","id":"im/fa9kjmxs","slide":13,"name":"图片 41","bbox":[649.4,451.8,402.29,226.77]}
+{"kind":"notes","id":"nt/afumw1","slide":13,"text":""}
+{"kind":"slide","id":"sl/3grwol","slide":14,"title":"4","textShapes":6}
+{"kind":"textbox","id":"sh/i58ju9cz","slide":14,"name":"Text 34","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"textbox","id":"sh/76hg32d8","slide":14,"name":"Text 0","text":"第六章","textPreview":"第六章","textChars":3,"textLines":1,"bbox":[62.4,313.25,720,30.72]}
+{"kind":"textbox","id":"sh/658zuxcn","slide":14,"name":"Text 1","text":"开放 / 开源计划","textPreview":"开放 / 开源计划","textChars":9,"textLines":1,"bbox":[62.4,342.05,787.2,67.2]}
+{"kind":"shape","id":"sh/4vmhcf2x","slide":14,"name":"Shape 2","bbox":[747.17,48,470.4,82.56]}
+{"kind":"textbox","id":"sh/5wvylkji","slide":14,"name":"Text 3","text":"对应评分维度","textPreview":"对应评分维度","textChars":6,"textLines":1,"bbox":[768.29,57.6,326.4,24.96]}
+{"kind":"textbox","id":"sh/yx0fylkn","slide":14,"name":"Text 4","text":"开放 / 开源贡献","textPreview":"开放 / 开源贡献","textChars":9,"textLines":1,"bbox":[768.29,80.64,326.4,42.24]}
+{"kind":"shape","id":"sh/jy9g7ql8","slide":14,"name":"Shape 5","bbox":[1107.17,65.28,91.2,48]}
+{"kind":"textbox","id":"sh/n2pwfm10","slide":14,"name":"Text 6","text":"5%","textPreview":"5%","textChars":2,"textLines":1,"bbox":[1107.17,65.28,91.2,48]}
+{"kind":"notes","id":"nt/3grwol","slide":14,"text":"【可考虑从以下维度展开】\n"}
+{"kind":"slide","id":"sl/svf2ec","slide":15,"title":"P0 · 一页纸速览","textShapes":21}
+{"kind":"textbox","id":"sh/apo7q14j","slide":15,"name":"Text 0","text":"P0 · 一页纸速览","textPreview":"P0 · 一页纸速览","textChars":10,"textLines":1,"bbox":[62.4,40.32,720,30.72]}
+{"kind":"textbox","id":"sh/bqhoz654","slide":15,"name":"Text 1","text":"作品简介","textPreview":"作品简介","textChars":4,"textLines":1,"bbox":[62.4,69.12,787.2,67.2]}
+{"kind":"shape","id":"sh/lgzq5gn6","slide":15,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/yt87u14f","slide":15,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/zuho3650","slide":15,"name":"Text 5","text":"项目名称","textPreview":"项目名称","textChars":4,"textLines":1,"bbox":[115.2,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/0j6pk7mh","slide":15,"name":"Text 6","text":"≤ 20 字。一句话说清「为谁、解决什么」。","textPreview":"≤ 20 字。一句话说清「为谁、解决什么」。","textChars":22,"textLines":1,"bbox":[89.28,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/1kf6tcn2","slide":15,"name":"Text 7","text":"【在此填写项目名称】","textPreview":"【在此填写项目名称】","textChars":10,"textLines":1,"bbox":[89.28,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/x4fuhkze","slide":15,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/w36d8fit","slide":15,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/v2xcfah8","slide":15,"name":"Text 10","text":"问题与场景","textPreview":"问题与场景","textChars":5,"textLines":1,"bbox":[509.86,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/a1ov6p03","slide":15,"name":"Text 11","text":"目标用户是谁、在什么场景、现实痛点是什么。","textPreview":"目标用户是谁、在什么场景、现实痛点是什么。","textChars":21,"textLines":1,"bbox":[483.94,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/58zul4zq","slide":15,"name":"Text 12","text":"【描述真实场景与核心痛点】","textPreview":"【描述真实场景与核心痛点】","textChars":13,"textLines":1,"bbox":[483.94,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/k7qdczy5","slide":15,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/j6xcjuhk","slide":15,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/i5ovapgz","slide":15,"name":"Text 15","text":"核心解决方案","textPreview":"核心解决方案","textChars":6,"textLines":1,"bbox":[904.51,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/tczep4zm","slide":15,"name":"Text 16","text":"一句话讲清整体思路：用多 Agent + Skill 怎么解。","textPreview":"一句话讲清整体思路：用多 Agent + Skill 怎么解。","textChars":31,"textLines":1,"bbox":[878.59,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/sbqdgzy1","slide":15,"name":"Text 17","text":"【概述端到端解决方案】","textPreview":"【概述端到端解决方案】","textChars":11,"textLines":1,"bbox":[878.59,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/sfyxsn6d","slide":15,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/dg7el87y","slide":15,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/qdgfqdo7","slide":15,"name":"Text 20","text":"创新点与差异化","textPreview":"创新点与差异化","textChars":7,"textLines":1,"bbox":[115.2,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/repwjips","slide":15,"name":"Text 21","text":"对比现有做法，你独特/更优在哪。","textPreview":"对比现有做法，你独特/更优在哪。","textChars":16,"textLines":1,"bbox":[89.28,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/0jixwn69","slide":15,"name":"Text 22","text":"【列 1–2 个关键差异化优势】","textPreview":"【列 1–2 个关键差异化优势】","textChars":16,"textLines":1,"bbox":[89.28,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/14ryps7u","slide":15,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/ehgfudoj","slide":15,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/fi9gnipo","slide":15,"name":"Text 25","text":"开放 / 复用价值","textPreview":"开放 / 复用价值","textChars":9,"textLines":1,"bbox":[509.86,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/gnexk365","slide":15,"name":"Text 26","text":"可复用成果、能迁移到哪些场景。","textPreview":"可复用成果、能迁移到哪些场景。","textChars":15,"textLines":1,"bbox":[483.94,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/h8nedo7q","slide":15,"name":"Text 27","text":"【说明复用与迁移价值】","textPreview":"【说明复用与迁移价值】","textChars":11,"textLines":1,"bbox":[483.94,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/jed8fqdk","slide":15,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/id4r6lcz","slide":15,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/5gfq10va","slide":15,"name":"Text 30","text":"当前进展","textPreview":"当前进展","textChars":4,"textLines":1,"bbox":[904.51,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/kf698vu5","slide":15,"name":"Text 31","text":"做到了什么程度、有无可运行成果。","textPreview":"做到了什么程度、有无可运行成果。","textChars":16,"textLines":1,"bbox":[878.59,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/vad8bqd8","slide":15,"name":"Text 32","text":"【说明当前完成度与里程碑】","textPreview":"【说明当前完成度与里程碑】","textChars":13,"textLines":1,"bbox":[878.59,511.68,317.86,36.48]}
+{"kind":"textbox","id":"sh/a94r2lcn","slide":15,"name":"Text 33","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"notes","id":"nt/svf2ec","slide":15,"text":""}
+{"kind":"slide","id":"sl/7ut1z6","slide":16,"title":"4","textShapes":3}
+{"kind":"textbox","id":"sh/nuhgr61c","slide":16,"name":"Text 34","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"textbox","id":"sh/2h8be9cv","slide":16,"name":"Text 0","text":"第七章 · 对应「当前进展」与整体可行性","textPreview":"第七章 · 对应「当前进展」与整体可行性","textChars":20,"textLines":1,"bbox":[62.4,314.19,720,30.72]}
+{"kind":"textbox","id":"sh/nihcnutg","slide":16,"name":"Text 1","text":"落地计划与进展","textPreview":"落地计划与进展","textChars":7,"textLines":1,"bbox":[62.4,342.99,787.2,67.2]}
+{"kind":"notes","id":"nt/7ut1z6","slide":16,"text":"【可考虑从以下维度展开】\n"}
+{"kind":"slide","id":"sl/ln12bx","slide":17,"title":"第七章 · 对应「当前进展」与整体可行性","textShapes":4}
+{"kind":"textbox","id":"sh/w7a9kn69","slide":17,"name":"Text 0","text":"第七章 · 对应「当前进展」与整体可行性","textPreview":"第七章 · 对应「当前进展」与整体可行性","textChars":20,"textLines":1,"bbox":[62.4,40.32,720,30.72]}
+{"kind":"textbox","id":"sh/x8jqts7u","slide":17,"name":"Text 1","text":"落地计划与进展","textPreview":"落地计划与进展","textChars":7,"textLines":1,"bbox":[62.4,69.12,787.2,67.2]}
+{"kind":"textbox","id":"sh/i547utgf","slide":17,"name":"Text 31","text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"textbox","id":"sh/t0bqxofy","slide":17,"name":"文本框 37","text":"建议覆盖当前进展、里程碑与落地计划，以及风险控制。","textPreview":"建议覆盖当前进展、里程碑与落地计划，以及风险控制。","textChars":25,"textLines":1,"bbox":[62.4,136.33,841.27,38.67]}
+{"kind":"image","id":"im/vqx0vahc","slide":17,"name":"图片 34","bbox":[97.6,244.47,515.67,290.67]}
+{"kind":"image","id":"im/ba58jm5o","slide":17,"name":"图片 35","bbox":[669.73,258.13,559.27,260.6]}
+{"kind":"notes","id":"nt/ln12bx","slide":17,"text":""}

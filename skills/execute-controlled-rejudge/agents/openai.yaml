@@ -1,0 +1,7 @@
+interface:
+  display_name: Execute Controlled Rejudge
+  short_description: Run approved, idempotent rejudge batches
+  default_prompt: Use $execute-controlled-rejudge only for the approved incident batches and stop on any failed gate.
+dependencies:
+  tools:
+    - {type: mcp, value: ojguard, description: Approval-gated rejudge tools, transport: streamable_http, url: "http://ojguard-mcp:8020/mcp"}

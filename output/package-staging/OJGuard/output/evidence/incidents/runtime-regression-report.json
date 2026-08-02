@@ -1,0 +1,251 @@
+{
+  "incident_id": "INC-B3ECC998DE",
+  "title": "Java 运行时回归导致批量异常超时",
+  "incident_type": "runtime_regression",
+  "severity": "SEV2",
+  "stage": "RESOLVED",
+  "generated_at": "2026-08-02T15:30:35.807713Z",
+  "root_cause": "Java 运行镜像或启动参数导致性能回归",
+  "impact": {
+    "candidate_count": 703,
+    "submission_count": 742,
+    "projected_score_change_count": 703,
+    "projected_advancement_change_count": 72,
+    "problems": [
+      "PROB-01",
+      "PROB-02",
+      "PROB-03",
+      "PROB-04"
+    ],
+    "languages": [
+      "java"
+    ]
+  },
+  "remediation": [
+    "回滚 Java 运行时镜像",
+    "控制组、灰度组、全量组分批重评"
+  ],
+  "approvals": [
+    {
+      "action": "APPROVE_REMEDIATION",
+      "level": "L2",
+      "decision": "APPROVED",
+      "role_context": "technical_approver",
+      "actor": "single-team-demo-operator",
+      "reason": "确定性演示审批"
+    },
+    {
+      "action": "RUN_CANARY_REJUDGE",
+      "level": "L2",
+      "decision": "APPROVED",
+      "role_context": "technical_approver",
+      "actor": "single-team-demo-operator",
+      "reason": "确定性演示审批"
+    },
+    {
+      "action": "RUN_BULK_REJUDGE",
+      "level": "L3",
+      "decision": "APPROVED",
+      "role_context": "business_approver",
+      "actor": "single-team-demo-operator",
+      "reason": "控制组与灰度批次均通过"
+    },
+    {
+      "action": "CLOSE_INCIDENT",
+      "level": "L3",
+      "decision": "APPROVED",
+      "role_context": "business_approver",
+      "actor": "single-team-demo-operator",
+      "reason": "闭环验证通过"
+    }
+  ],
+  "rejudge": {
+    "batch_count": 4,
+    "planned_count": 742,
+    "completed_count": 742,
+    "coverage_rate": 1.0,
+    "complete": true
+  },
+  "verification": {
+    "id": "VERIFY-B5A796688D",
+    "incident_id": "INC-B3ECC998DE",
+    "status": "RESOLVED",
+    "checks": {
+      "all_batches_completed": true,
+      "impact_scope_covered": true,
+      "no_cross_scope_rejudge": true,
+      "no_duplicate_rejudge": true,
+      "score_changes_recalculated": true
+    },
+    "coverage_rate": 1.0,
+    "duplicate_rejudge_count": 0,
+    "missing_rejudge_count": 0,
+    "cross_scope_regression_count": 0,
+    "summary": "影响集合已完整、无重复且无越界地完成可信重评，成绩与晋级变化已重算。",
+    "evidence_ids": [],
+    "created_at": "2026-08-02T15:30:35.718564Z"
+  },
+  "score_change_samples": [
+    {
+      "candidate_id": "CAND-00002",
+      "before_score": 75.0,
+      "after_score": 100.0,
+      "before_rank": 3059,
+      "after_rank": 2,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "CAND-00004",
+      "before_score": 75.0,
+      "after_score": 100.0,
+      "before_rank": 3060,
+      "after_rank": 4,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "CAND-00017",
+      "before_score": 75.0,
+      "after_score": 100.0,
+      "before_rank": 3062,
+      "after_rank": 15,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "CAND-00027",
+      "before_score": 50.0,
+      "after_score": 75.0,
+      "before_rank": 4662,
+      "after_rank": 3610,
+      "advancement_changed": false
+    },
+    {
+      "candidate_id": "CAND-00031",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 4663,
+      "after_rank": 25,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "CAND-00033",
+      "before_score": 75.0,
+      "after_score": 100.0,
+      "before_rank": 3066,
+      "after_rank": 27,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "CAND-00035",
+      "before_score": 75.0,
+      "after_score": 100.0,
+      "before_rank": 3067,
+      "after_rank": 29,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "CAND-00038",
+      "before_score": 50.0,
+      "after_score": 75.0,
+      "before_rank": 4664,
+      "after_rank": 3611,
+      "advancement_changed": false
+    },
+    {
+      "candidate_id": "CAND-00048",
+      "before_score": 50.0,
+      "after_score": 75.0,
+      "before_rank": 4666,
+      "after_rank": 3614,
+      "advancement_changed": false
+    },
+    {
+      "candidate_id": "CAND-00061",
+      "before_score": 75.0,
+      "after_score": 100.0,
+      "before_rank": 3075,
+      "after_rank": 45,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "CAND-00067",
+      "before_score": 75.0,
+      "after_score": 100.0,
+      "before_rank": 3076,
+      "after_rank": 51,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "CAND-00070",
+      "before_score": 75.0,
+      "after_score": 100.0,
+      "before_rank": 3077,
+      "after_rank": 54,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "CAND-00072",
+      "before_score": 75.0,
+      "after_score": 100.0,
+      "before_rank": 3078,
+      "after_rank": 56,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "CAND-00074",
+      "before_score": 75.0,
+      "after_score": 100.0,
+      "before_rank": 3080,
+      "after_rank": 57,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "CAND-00076",
+      "before_score": 75.0,
+      "after_score": 100.0,
+      "before_rank": 3081,
+      "after_rank": 58,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "CAND-00080",
+      "before_score": 75.0,
+      "after_score": 100.0,
+      "before_rank": 3083,
+      "after_rank": 61,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "CAND-00088",
+      "before_score": 75.0,
+      "after_score": 100.0,
+      "before_rank": 3087,
+      "after_rank": 66,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "CAND-00093",
+      "before_score": 50.0,
+      "after_score": 75.0,
+      "before_rank": 4668,
+      "after_rank": 3626,
+      "advancement_changed": false
+    },
+    {
+      "candidate_id": "CAND-00103",
+      "before_score": 75.0,
+      "after_score": 100.0,
+      "before_rank": 3093,
+      "after_rank": 75,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "CAND-00124",
+      "before_score": 75.0,
+      "after_score": 100.0,
+      "before_rank": 3099,
+      "after_rank": 90,
+      "advancement_changed": true
+    }
+  ],
+  "operation_note": "本演示由单人团队操作；技术审批与业务审批是可审计的角色上下文切换，不代表真实多人组织签批。"
+}

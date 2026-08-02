@@ -1,0 +1,7 @@
+interface:
+  display_name: Correlate Incident Events
+  short_description: Turn time-aligned signals into falsifiable hypotheses
+  default_prompt: Use $correlate-incident-events to compare incident dimensions and preserve competing hypotheses.
+dependencies:
+  tools:
+    - {type: mcp, value: ojguard, description: OJGuard workspace and analysis tools, transport: streamable_http, url: "http://ojguard-mcp:8020/mcp"}

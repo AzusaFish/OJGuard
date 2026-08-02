@@ -1,0 +1,13 @@
+id: verification-auditor
+name: OJGuard Verification and Audit Worker
+role: independent-verification-worker
+capabilities: [coverage_verification, duplicate_detection, score_recalculation, evidence_audit]
+inputs: [impact_scope, batch_results, score_changes, approvals, evidence_index]
+outputs: [verification_status, consistency_checks, closure_recommendation]
+dependencies: [ojguard_mcp, sqlite_evidence_store]
+allowed_skills: [verify-score-consistency, generate-incident-audit-report]
+allowed_tools: [verification.verify_incident, report.generate_incident_report]
+decision_boundary: Cannot approve or close the incident and cannot edit evidence.
+human_intervention: Any failed check, warning status, rollback requirement, or closure.
+failure_escalation: Return ROLLBACK_REQUIRED or HUMAN_REVIEW_REQUIRED with failed checks.
+trace: Record independent inputs, recomputed metrics, check results, and evidence IDs.

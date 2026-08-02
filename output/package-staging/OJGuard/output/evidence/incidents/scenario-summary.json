@@ -1,0 +1,89 @@
+{
+  "deterministic_seed": 20260802,
+  "scenarios": [
+    {
+      "incident_type": "runtime_regression",
+      "incident_id": "INC-B3ECC998DE",
+      "stage": "RESOLVED",
+      "root_cause": "Java 运行镜像或启动参数导致性能回归",
+      "impact": {
+        "candidate_count": 703,
+        "submission_count": 742,
+        "projected_score_change_count": 703,
+        "projected_advancement_change_count": 72,
+        "problems": [
+          "PROB-01",
+          "PROB-02",
+          "PROB-03",
+          "PROB-04"
+        ],
+        "languages": [
+          "java"
+        ]
+      },
+      "rejudge": {
+        "batch_count": 4,
+        "planned_count": 742,
+        "completed_count": 742,
+        "coverage_rate": 1.0,
+        "complete": true
+      },
+      "verification_status": "RESOLVED"
+    },
+    {
+      "incident_type": "node_degradation",
+      "incident_id": "INC-A9B8F1ECD8",
+      "stage": "RESOLVED",
+      "root_cause": "judge-node-03 资源退化导致运行错误",
+      "impact": {
+        "candidate_count": 118,
+        "submission_count": 119,
+        "projected_score_change_count": 118,
+        "projected_advancement_change_count": 14,
+        "problems": [
+          "NODE-PROB-1",
+          "NODE-PROB-2"
+        ],
+        "languages": [
+          "cpp",
+          "java",
+          "python"
+        ]
+      },
+      "rejudge": {
+        "batch_count": 3,
+        "planned_count": 119,
+        "completed_count": 119,
+        "coverage_rate": 1.0,
+        "complete": true
+      },
+      "verification_status": "RESOLVED"
+    },
+    {
+      "incident_type": "checker_defect",
+      "incident_id": "INC-EA737B287A",
+      "stage": "RESOLVED",
+      "root_cause": "Checker 新版本违反输出契约",
+      "impact": {
+        "candidate_count": 71,
+        "submission_count": 73,
+        "projected_score_change_count": 71,
+        "projected_advancement_change_count": 8,
+        "problems": [
+          "P-CHECKER-001"
+        ],
+        "languages": [
+          "cpp"
+        ]
+      },
+      "rejudge": {
+        "batch_count": 3,
+        "planned_count": 73,
+        "completed_count": 73,
+        "coverage_rate": 1.0,
+        "complete": true
+      },
+      "verification_status": "RESOLVED"
+    }
+  ]
+}

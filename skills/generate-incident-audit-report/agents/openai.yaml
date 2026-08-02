@@ -1,0 +1,7 @@
+interface:
+  display_name: Generate Incident Audit Report
+  short_description: Produce the evidence-linked incident handoff report
+  default_prompt: Use $generate-incident-audit-report to summarize the persisted incident without overstating closure.
+dependencies:
+  tools:
+    - {type: mcp, value: ojguard, description: OJGuard incident report tools, transport: streamable_http, url: "http://ojguard-mcp:8020/mcp"}
