@@ -21,6 +21,20 @@ class ApiTests(unittest.TestCase):
         self.assertEqual(response.status_code, 503)
         self.assertEqual(response.json()["code"], "RAG_DISABLED")
 
+    def test_system_contract_exposes_ports_but_not_secret(self) -> None:
+        response = self.client.get("/api/v1/system")
+        self.assertEqual(response.status_code, 200)
+        payload = response.json()
+        self.assertEqual(payload["rag"]["port"], 8010)
+        self.assertEqual(payload["mcp"]["port"], 8020)
+        self.assertEqual(payload["agentteams"]["version"], "v1.2.0")
+        self.assertNotIn("api_key", response.text.casefold())
+
+    def test_benchmark_report_is_served(self) -> None:
+        response = self.client.get("/api/v1/benchmark/report")
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json()["case_count"], 10)
+
     def test_run_transition_contract(self) -> None:
         response = self.client.post("/api/v1/runs", json={"package_id": "PKG-001"})
         self.assertEqual(response.status_code, 201)

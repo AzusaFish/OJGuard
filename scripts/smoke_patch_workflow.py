@@ -1,6 +1,7 @@
 import hashlib
 from pathlib import Path
 
+from backend.app.domain import PatchStatus
 from backend.app.runner import DockerRunner
 from backend.app.services.demo_verifier import DemoVerifier
 from backend.app.services.evidence import EvidenceStore
@@ -55,11 +56,15 @@ def main() -> None:
     if before != after:
         raise RuntimeError("immutable original Demo changed during patch workflow")
     context = repository.get_run(audit.context.run_id)
+    persisted_patch = repository.get_patch(patch.id)
+    if persisted_patch is None or persisted_patch.status != PatchStatus.RELEASE_CONFIRMED:
+        raise RuntimeError("patch did not reach RELEASE_CONFIRMED")
     print(f"run_id={audit.context.run_id}")
     print(f"patch_id={patch.id}")
     print(f"regression_checks={len(regression.checks)}")
     print(f"original_unchanged={before == after}")
     print(f"final_stage={context.stage.value if context else 'MISSING'}")
+    print(f"patch_status={persisted_patch.status.value}")
     print("patch_workflow_smoke=PASS")
 
 

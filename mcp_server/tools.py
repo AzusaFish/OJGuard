@@ -13,7 +13,6 @@ from backend.app.services.patch_workflow import PatchWorkflow
 from backend.app.services.repository import SQLiteRepository
 from backend.app.services.trace import TraceWriter
 
-
 SAFE_ID = re.compile(r"^[A-Za-z0-9_.-]{1,100}$")
 
 

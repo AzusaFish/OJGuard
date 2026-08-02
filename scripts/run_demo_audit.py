@@ -1,4 +1,3 @@
-import json
 from pathlib import Path
 
 from backend.app.runner import DockerRunner
@@ -20,12 +19,7 @@ def main() -> None:
         trace_writer=TraceWriter(root / "artifacts"),
     )
     result = verifier.audit(root / "demo" / "maximum_segment_score")
-    report_path = root / "artifacts" / result.context.package_id / result.context.run_id / "report.json"
-    report_path.parent.mkdir(parents=True, exist_ok=True)
-    report_path.write_text(
-        json.dumps(result.model_dump(mode="json"), ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
+    report_path = root / "artifacts" / result.context.package_id / result.context.run_id / "report.html"
     print(f"run_id={result.context.run_id}")
     print(f"decision={result.release_gate.decision.value}")
     print(f"findings={len(result.findings)}")

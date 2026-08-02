@@ -33,6 +33,11 @@ include = ["backend*", "mcp_server*"]
 [tool.ruff]
 line-length = 100
 target-version = "py312"
+extend-exclude = [".runtime", ".test-tmp", "artifacts", "data", "frontend"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"backend/app/api/*.py" = ["B008"]

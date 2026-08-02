@@ -8,7 +8,6 @@ from mcp.server.fastmcp import FastMCP
 from backend.app.config import get_settings
 from mcp_server.tools import OJGuardTools
 
-
 settings = get_settings()
 tools = OJGuardTools(Path.cwd())
 mcp = FastMCP(

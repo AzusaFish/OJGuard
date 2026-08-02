@@ -17,7 +17,6 @@ from backend.app.services.patch_workflow import (
 from backend.app.services.repository import SQLiteRepository
 from backend.app.services.trace import TraceWriter
 
-
 router = APIRouter(prefix="/workflow", tags=["workflow"])
 
 

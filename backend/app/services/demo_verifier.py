@@ -18,9 +18,10 @@ from backend.app.domain import (
 from backend.app.domain.release import ReleaseGateResult
 from backend.app.runner import ExecutionStatus, ResourceLimits
 from backend.app.runner.models import CompileResult, ExecutionResult
-from backend.app.services.baseline_audit import BaselineAuditReport, BaselineAuditor
+from backend.app.services.baseline_audit import BaselineAuditor, BaselineAuditReport
 from backend.app.services.evidence import EvidenceStore
 from backend.app.services.release_gate import ReleaseGate
+from backend.app.services.reporting import AuditReportWriter
 from backend.app.services.repository import SQLiteRepository
 from backend.app.services.state_machine import transition
 from backend.app.services.trace import TraceWriter
@@ -132,13 +133,15 @@ class DemoVerifier:
             f"Release gate decision: {gate.decision.value}",
             gate.blocking_finding_ids,
         )
-        return DemoAuditResult(
+        result = DemoAuditResult(
             context=context,
             baseline=baseline,
             findings=findings,
             evidence=evidence,
             release_gate=gate,
         )
+        AuditReportWriter(self.evidence_store.root).write(result)
+        return result
 
     def _run_probes(self, *, package_id: str, run_id: str) -> list[Evidence]:
         overflow_input = f"3000\n{' '.join(['1000000'] * 3000)}\n".encode()

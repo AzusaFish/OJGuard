@@ -87,7 +87,8 @@ class BaselineAuditor:
 
         test_paths = sorted((package_root / "tests").glob("*.in"))
         inspected.extend(path.relative_to(package_root).as_posix() for path in test_paths)
-        if test_paths and not self._contains_negative_test_value(test_paths):
+        input_min = int(manifest.get("input", {}).get("a_i", {}).get("min", 0))
+        if input_min < 0 and test_paths and not self._contains_negative_test_value(test_paths):
             hypotheses.append(
                 Hypothesis(
                     id="H-COVERAGE-001",

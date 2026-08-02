@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from backend.app.domain import RunStage, TaskContext
 
@@ -56,5 +56,5 @@ def transition(context: TaskContext, target: RunStage) -> TaskContext:
         raise InvalidTransitionError(f"cannot transition from {context.stage} to {target}")
     updated = context.model_copy(deep=True)
     updated.stage = target
-    updated.updated_at = datetime.now(timezone.utc)
+    updated.updated_at = datetime.now(UTC)
     return updated

@@ -3,7 +3,7 @@ from __future__ import annotations
 import difflib
 import hashlib
 import shutil
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from uuid import uuid4
 
@@ -164,7 +164,7 @@ class PatchWorkflow:
 
         patch.status = PatchStatus.APPLIED
         patch.working_copy_path = working_root.relative_to(self.workspaces_root).as_posix()
-        patch.updated_at = datetime.now(timezone.utc)
+        patch.updated_at = datetime.now(UTC)
         self.repository.save_patch(patch)
         approval = ApprovalRecord(
             id=f"APPROVAL-{uuid4().hex.upper()}",
@@ -191,7 +191,7 @@ class PatchWorkflow:
         if context is None or context.stage is not RunStage.PATCH_PENDING_APPROVAL:
             raise PatchWorkflowError("run is not waiting for first approval")
         patch.status = PatchStatus.REJECTED
-        patch.updated_at = datetime.now(timezone.utc)
+        patch.updated_at = datetime.now(UTC)
         self.repository.save_patch(patch)
         self.repository.save_approval(
             ApprovalRecord(
@@ -286,7 +286,7 @@ class PatchWorkflow:
         patch.status = (
             PatchStatus.REGRESSION_PASSED if result.passed else PatchStatus.REGRESSION_FAILED
         )
-        patch.updated_at = datetime.now(timezone.utc)
+        patch.updated_at = datetime.now(UTC)
         self.repository.save_patch(patch)
         if not result.passed:
             updated = transition(context, RunStage.BLOCKED)
@@ -312,6 +312,9 @@ class PatchWorkflow:
             reason=reason,
             after_sha256=self._aggregate_after_hash(patch),
         )
+        patch.status = PatchStatus.RELEASE_CONFIRMED
+        patch.updated_at = datetime.now(UTC)
+        self.repository.save_patch(patch)
         self.repository.save_approval(approval)
         updated = transition(context, RunStage.READY_FOR_RELEASE)
         updated.approval_state = ApprovalState.APPROVED
