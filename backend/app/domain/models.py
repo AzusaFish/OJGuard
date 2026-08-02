@@ -57,6 +57,21 @@ class ApprovalAction(StrEnum):
     ACCEPT_RISK = "ACCEPT_RISK"
 
 
+class PatchStatus(StrEnum):
+    CANDIDATE = "CANDIDATE"
+    APPROVED = "APPROVED"
+    APPLIED = "APPLIED"
+    REJECTED = "REJECTED"
+    REGRESSION_PASSED = "REGRESSION_PASSED"
+    REGRESSION_FAILED = "REGRESSION_FAILED"
+
+
+class PatchRisk(StrEnum):
+    LOW = "LOW"
+    MEDIUM = "MEDIUM"
+    HIGH = "HIGH"
+
+
 class ReleaseDecision(StrEnum):
     PASS = "PASS"
     WARNING = "WARNING"
@@ -162,3 +177,27 @@ class ApprovalRecord(BaseModel):
     before_sha256: str | None = None
     after_sha256: str | None = None
     created_at: datetime = Field(default_factory=utc_now)
+
+
+class PatchFileChange(BaseModel):
+    relative_path: str
+    before_sha256: str | None = None
+    after_sha256: str
+    unified_diff: str
+    after_content: str
+
+
+class PatchCandidate(BaseModel):
+    id: str
+    package_id: str
+    run_id: str
+    title: str
+    rationale: str
+    risk: PatchRisk
+    finding_ids: list[str]
+    regression_scope: list[str]
+    changes: list[PatchFileChange]
+    status: PatchStatus = PatchStatus.CANDIDATE
+    working_copy_path: str | None = None
+    created_at: datetime = Field(default_factory=utc_now)
+    updated_at: datetime = Field(default_factory=utc_now)

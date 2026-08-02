@@ -6,7 +6,14 @@ from contextlib import contextmanager
 from pathlib import Path
 from typing import Iterator
 
-from backend.app.domain import AgentEvent, ApprovalRecord, Evidence, Finding, TaskContext
+from backend.app.domain import (
+    AgentEvent,
+    ApprovalRecord,
+    Evidence,
+    Finding,
+    PatchCandidate,
+    TaskContext,
+)
 
 
 class SQLiteRepository:
@@ -82,6 +89,16 @@ class SQLiteRepository:
                     document_json TEXT NOT NULL
                 );
                 CREATE INDEX IF NOT EXISTS idx_approvals_run ON approvals(run_id, created_at);
+
+                CREATE TABLE IF NOT EXISTS patch_candidates (
+                    id TEXT PRIMARY KEY,
+                    run_id TEXT NOT NULL,
+                    status TEXT NOT NULL,
+                    created_at TEXT NOT NULL,
+                    document_json TEXT NOT NULL
+                );
+                CREATE INDEX IF NOT EXISTS idx_patches_run
+                    ON patch_candidates(run_id, created_at);
                 """
             )
 
@@ -223,3 +240,40 @@ class SQLiteRepository:
                 (run_id,),
             ).fetchall()
         return [ApprovalRecord.model_validate_json(row["document_json"]) for row in rows]
+
+    def save_patch(self, patch: PatchCandidate) -> None:
+        with self.connect() as connection:
+            connection.execute(
+                """
+                INSERT INTO patch_candidates(id, run_id, status, created_at, document_json)
+                VALUES (?, ?, ?, ?, ?)
+                ON CONFLICT(id) DO UPDATE SET
+                    status=excluded.status,
+                    document_json=excluded.document_json
+                """,
+                (
+                    patch.id,
+                    patch.run_id,
+                    patch.status.value,
+                    patch.created_at.isoformat(),
+                    self._json(patch),
+                ),
+            )
+
+    def get_patch(self, patch_id: str) -> PatchCandidate | None:
+        with self.connect() as connection:
+            row = connection.execute(
+                "SELECT document_json FROM patch_candidates WHERE id = ?", (patch_id,)
+            ).fetchone()
+        return PatchCandidate.model_validate_json(row["document_json"]) if row else None
+
+    def list_patches(self, run_id: str) -> list[PatchCandidate]:
+        with self.connect() as connection:
+            rows = connection.execute(
+                """
+                SELECT document_json FROM patch_candidates
+                WHERE run_id = ? ORDER BY created_at ASC
+                """,
+                (run_id,),
+            ).fetchall()
+        return [PatchCandidate.model_validate_json(row["document_json"]) for row in rows]

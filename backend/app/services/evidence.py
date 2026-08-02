@@ -63,6 +63,39 @@ class EvidenceStore:
             outputs=outputs or [],
         )
 
+    def write_bytes(
+        self,
+        *,
+        evidence_id: str,
+        package_id: str,
+        run_id: str,
+        evidence_type: str,
+        producer: str,
+        relative_path: str,
+        payload: bytes,
+        tool_version: str,
+        seed: int | None = None,
+        inputs: list[str] | None = None,
+        outputs: list[str] | None = None,
+    ) -> Evidence:
+        """Persist an arbitrary replay artifact with the same integrity metadata as JSON."""
+        target = self._safe_path(package_id, run_id, relative_path)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(payload)
+        return Evidence(
+            id=evidence_id,
+            package_id=package_id,
+            run_id=run_id,
+            type=evidence_type,
+            producer=producer,
+            artifact_path=target.relative_to(self.root).as_posix(),
+            sha256=self.sha256_bytes(payload),
+            tool_version=tool_version,
+            seed=seed,
+            inputs=inputs or [],
+            outputs=outputs or [],
+        )
+
     def verify(self, evidence: Evidence) -> bool:
         path = (self.root / evidence.artifact_path).resolve()
         if self.root not in path.parents or not path.is_file():

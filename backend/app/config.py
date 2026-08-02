@@ -33,6 +33,9 @@ class Settings(BaseSettings):
     rag_port: int = Field(default=8010, ge=1024, le=65535)
     rag_api_prefix: str = "/api/v1/rag"
 
+    mcp_host: str = "127.0.0.1"
+    mcp_port: int = Field(default=8020, ge=1024, le=65535)
+
     cors_origins: str = "http://127.0.0.1:5173,http://localhost:5173"
 
     @property
