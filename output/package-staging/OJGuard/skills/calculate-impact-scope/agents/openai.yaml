@@ -1,0 +1,7 @@
+interface:
+  display_name: Calculate Impact Scope
+  short_description: Freeze the exact affected set and projected outcomes
+  default_prompt: Use $calculate-impact-scope to compute the exact affected set under the incident playbook.
+dependencies:
+  tools:
+    - {type: mcp, value: ojguard, description: Deterministic impact and score tools, transport: streamable_http, url: "http://ojguard-mcp:8020/mcp"}

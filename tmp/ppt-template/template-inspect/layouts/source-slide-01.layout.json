@@ -1,0 +1,413 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/y90nupkv",
+    "id": "y90nupkv",
+    "slide": 1,
+    "layoutId": "/ppt/slideLayouts/slideLayout1.xml",
+    "layoutName": "DEFAULT",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+    "backgroundColor": "#1B1F3B",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Office",
+    "colors": {
+      "accent1": "#4472C4",
+      "accent2": "#ED7D31",
+      "accent3": "#A5A5A5",
+      "accent4": "#FFC000",
+      "accent5": "#5B9BD5",
+      "accent6": "#70AD47",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#44546A",
+      "lt2": "#E7E6E6",
+      "hlink": "#0563C1",
+      "folHlink": "#954F72"
+    },
+    "fontScheme": {
+      "name": "Office",
+      "majorFont": {
+        "latinTypeface": "Calibri Light"
+      },
+      "minorFont": {
+        "latinTypeface": "Calibri"
+      }
+    },
+    "typefaces": [
+      "Calibri",
+      "Calibri Light",
+      "微软雅黑"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout1.xml",
+      "name": "DEFAULT",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster1.xml",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/547294r6",
+      "id": "2",
+      "name": "Shape 0",
+      "bbox": [
+        988.8,
+        -134.4,
+        432,
+        432
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#2A2F5B"
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/k3yl0zql",
+      "id": "3",
+      "name": "Shape 1",
+      "bbox": [
+        1113.6,
+        441.6,
+        307.2,
+        307.2
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#2A2F5B"
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7qp4be9c",
+      "id": "4",
+      "name": "Shape 2",
+      "bbox": [
+        -86.4,
+        518.4,
+        288,
+        288
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#2A2F5B"
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/65g3298r",
+      "id": "5",
+      "name": "Text 3",
+      "bbox": [
+        62.4,
+        163.2,
+        768,
+        38.4
+      ],
+      "geometry": "rect",
+      "text": "GOAI世界人工智能开源大赛 ",
+      "textPreview": "GOAI世界人工智能开源大赛",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "GOAI世界人工智能开源大赛"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "GOAI世界人工智能开源大赛 ",
+          "runs": [
+            {
+              "index": 1,
+              "text": "GOAI",
+              "fontSize": 20,
+              "typeface": "微软雅黑",
+              "color": "#FF6B35",
+              "bold": true
+            },
+            {
+              "index": 2,
+              "text": "世界人工智能开源大赛",
+              "fontSize": 20,
+              "typeface": "微软雅黑",
+              "color": "#FF6B35",
+              "bold": true
+            },
+            {
+              "index": 3,
+              "text": " ",
+              "fontSize": 20,
+              "typeface": "微软雅黑",
+              "color": "#FF6B35",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ts7md4r2",
+      "id": "6",
+      "name": "Text 4",
+      "bbox": [
+        62.4,
+        206.4,
+        912,
+        182.4
+      ],
+      "geometry": "rect",
+      "text": "初赛方案 PPT\n内容框架模板",
+      "textPreview": "初赛方案 PPT | 内容框架模板",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "初赛方案 PPT"
+          },
+          {
+            "index": 2,
+            "text": "内容框架模板"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "初赛方案 PPT",
+          "lineSpacingPercent": 102000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "初赛方案 PPT",
+              "fontSize": 61.33,
+              "typeface": "微软雅黑",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "内容框架模板",
+          "lineSpacingPercent": 102000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "内容框架模板",
+              "fontSize": 61.33,
+              "typeface": "微软雅黑",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/sfqdkrep",
+      "id": "18",
+      "name": "Text 16",
+      "bbox": [
+        62.4,
+        648,
+        768,
+        33.6
+      ],
+      "geometry": "rect",
+      "text": "Datawhale · 参赛选手参考资料",
+      "textPreview": "Datawhale · 参赛选手参考资料",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Datawhale · 参赛选手参考资料"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Datawhale · 参赛选手参考资料",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Datawhale · 参赛选手参考资料",
+              "fontSize": 14.67,
+              "typeface": "微软雅黑",
+              "color": "#AEB6D6"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/dgzetcfa",
+      "id": "19",
+      "name": "文本框 18",
+      "bbox": [
+        62.4,
+        401.73,
+        640,
+        33.8
+      ],
+      "geometry": "rect",
+      "text": "Agent Infra 新智基座 初赛 · 方案 PPT 模板",
+      "textPreview": "Agent Infra 新智基座 初赛 · 方案 PPT 模板",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "resizeShapeToFitText",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Agent Infra 新智基座 初赛 · 方案 PPT 模板"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Agent Infra 新智基座 初赛 · 方案 PPT 模板",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Agent Infra ",
+              "fontSize": 20,
+              "typeface": "微软雅黑",
+              "color": "#FF6B35",
+              "bold": true
+            },
+            {
+              "index": 2,
+              "text": "新智基座",
+              "fontSize": 20,
+              "typeface": "微软雅黑",
+              "color": "#FF6B35",
+              "bold": true
+            },
+            {
+              "index": 3,
+              "text": " ",
+              "fontSize": 20,
+              "typeface": "微软雅黑",
+              "color": "#FF6B35",
+              "bold": true
+            },
+            {
+              "index": 4,
+              "text": "初赛 · 方案 PPT 模板",
+              "fontSize": 20,
+              "typeface": "微软雅黑",
+              "color": "#FF6B35",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ]
+    }
+  ],
+  "composeRuns": []
+}

@@ -1,0 +1,13 @@
+id: incident-manager
+name: OJGuard Incident Manager
+role: incident-team-leader
+capabilities: [task_decomposition, state_coordination, conflict_resolution, report_synthesis]
+inputs: [incident_context, worker_results, evidence_references, approval_state]
+outputs: [task_assignments, state_transition_requests, incident_report]
+dependencies: [agentteams, ojguard_mcp, sqlite_evidence_store]
+allowed_skills: [normalize-judge-signals, correlate-incident-events, generate-incident-audit-report]
+allowed_tools: [incident.list_signals, incident.get_workspace, report.generate_incident_report]
+decision_boundary: Cannot approve rejudge, score writeback, notification, or incident closure.
+human_intervention: Approval rejection, inconclusive root cause, conflicting evidence, or closure request.
+failure_escalation: Pause the workflow, preserve state, and route to HUMAN_REVIEW_REQUIRED.
+trace: Record assignment, dependency, input evidence IDs, decision summary, and resulting state.

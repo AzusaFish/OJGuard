@@ -1,0 +1,67 @@
+{
+  "source": "runtime_regression/ControlWorkload.java",
+  "iterations": 12000000,
+  "time_limit_ms": 80,
+  "normal_runs": [
+    {
+      "status": "OK",
+      "exit_code": 0,
+      "stdout": "2232029553493472\n",
+      "stderr": "",
+      "duration_ms": 39,
+      "timed_out": false,
+      "output_truncated": false
+    },
+    {
+      "status": "OK",
+      "exit_code": 0,
+      "stdout": "2232029553493472\n",
+      "stderr": "",
+      "duration_ms": 45,
+      "timed_out": false,
+      "output_truncated": false
+    },
+    {
+      "status": "OK",
+      "exit_code": 0,
+      "stdout": "2232029553493472\n",
+      "stderr": "",
+      "duration_ms": 61,
+      "timed_out": false,
+      "output_truncated": false
+    }
+  ],
+  "degraded_runs": [
+    {
+      "status": "TIME_LIMIT_EXCEEDED",
+      "exit_code": -9,
+      "stdout": "",
+      "stderr": "",
+      "duration_ms": 92,
+      "timed_out": true,
+      "output_truncated": false
+    },
+    {
+      "status": "TIME_LIMIT_EXCEEDED",
+      "exit_code": -9,
+      "stdout": "",
+      "stderr": "",
+      "duration_ms": 91,
+      "timed_out": true,
+      "output_truncated": false
+    },
+    {
+      "status": "TIME_LIMIT_EXCEEDED",
+      "exit_code": -9,
+      "stdout": "",
+      "stderr": "",
+      "duration_ms": 83,
+      "timed_out": true,
+      "output_truncated": false
+    }
+  ],
+  "normal_pass_rate": 1.0,
+  "degraded_timeout_rate": 1.0,
+  "conclusion": "同一源码和资源限制下，正常运行时全部通过、退化运行时全部超时，运行时回归假设获得可复现的隔离对照证据。",
+  "passed": true
+}

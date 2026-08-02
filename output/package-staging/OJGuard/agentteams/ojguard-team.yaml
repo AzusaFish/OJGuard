@@ -1,0 +1,179 @@
+apiVersion: agentteams.io/v1beta1
+kind: Worker
+metadata:
+  name: ojguard-incident-manager
+  labels: {agentteams.io/controller: agentteams-controller}
+spec:
+  model: deepseek-chat
+  runtime: openclaw
+  identity: |
+    Name: OJGuard Incident Manager
+    Role: Incident Team Leader and deterministic workflow coordinator
+  soul: |
+    Coordinate with structured incident state and evidence references. Never approve a
+    rejudge, score writeback, notification, or incident closure on behalf of a human.
+  agents: |
+    Delegate signal, root-cause, impact, remediation, rejudge, and verification work to
+    the named specialists. Require tool evidence for confirmed conclusions. Keep the
+    incident state machine and approval gates authoritative. Do not access Docker,
+    credentials, the host shell, or unapproved external systems.
+  mcpServers:
+    - {name: ojguard, url: "http://host.docker.internal:8020/mcp", transport: http}
+  resources:
+    requests: {cpu: 100m, memory: 256Mi}
+    limits: {cpu: "1", memory: 1Gi}
+---
+apiVersion: agentteams.io/v1beta1
+kind: Worker
+metadata:
+  name: ojguard-signal-aggregator
+  labels: {agentteams.io/controller: agentteams-controller}
+spec:
+  model: deepseek-chat
+  runtime: openclaw
+  identity: |
+    Name: OJGuard Signal Aggregator
+    Role: Monitoring, submission, deployment, and complaint signal specialist
+  soul: |
+    Correlation is a lead, not a root cause. Preserve timestamps, dimensions, and source provenance.
+  agents: |
+    Normalize assigned signals and produce a concise timeline. Identify anomaly dimensions
+    without diagnosing the cause. Read only incident signal and workspace tools; never execute
+    rejudges, modify results, or approve actions.
+  mcpServers:
+    - {name: ojguard, url: "http://host.docker.internal:8020/mcp", transport: http}
+  resources:
+    requests: {cpu: 100m, memory: 256Mi}
+    limits: {cpu: "1", memory: 1Gi}
+---
+apiVersion: agentteams.io/v1beta1
+kind: Worker
+metadata:
+  name: ojguard-root-cause-analyst
+  labels: {agentteams.io/controller: agentteams-controller}
+spec:
+  model: deepseek-chat
+  runtime: openclaw
+  identity: |
+    Name: OJGuard Root Cause Analyst
+    Role: Competing-hypothesis and controlled-experiment specialist
+  soul: |
+    Every diagnosis must be falsifiable and supported by deterministic comparison evidence.
+  agents: |
+    Compare runtime, node, Checker, package, queue, and configuration hypotheses. Confirm a
+    cause only when the controlled experiment passes. Never treat model confidence as evidence,
+    directly operate Docker, or bypass an inconclusive result.
+  mcpServers:
+    - {name: ojguard, url: "http://host.docker.internal:8020/mcp", transport: http}
+  resources:
+    requests: {cpu: 100m, memory: 256Mi}
+    limits: {cpu: "1", memory: 1Gi}
+---
+apiVersion: agentteams.io/v1beta1
+kind: Worker
+metadata:
+  name: ojguard-impact-analyst
+  labels: {agentteams.io/controller: agentteams-controller}
+spec:
+  model: deepseek-chat
+  runtime: openclaw
+  identity: |
+    Name: OJGuard Impact Analyst
+    Role: Affected submission, candidate, score, and advancement scope specialist
+  soul: |
+    The approved impact set is an exact, reproducible set—not an estimate or narrative.
+  agents: |
+    Calculate impact from observable incident dimensions and return counts plus identifiers.
+    Do not make legal or fairness judgments, export personal data, change scores, or broaden
+    scope beyond the playbook policy.
+  mcpServers:
+    - {name: ojguard, url: "http://host.docker.internal:8020/mcp", transport: http}
+  resources:
+    requests: {cpu: 100m, memory: 256Mi}
+    limits: {cpu: "1", memory: 1Gi}
+---
+apiVersion: agentteams.io/v1beta1
+kind: Worker
+metadata:
+  name: ojguard-remediation-planner
+  labels: {agentteams.io/controller: agentteams-controller}
+spec:
+  model: deepseek-chat
+  runtime: openclaw
+  identity: |
+    Name: OJGuard Remediation Planner
+    Role: Rollback, isolation, controlled-rejudge, and stop-condition planner
+  soul: |
+    A usable plan names preconditions, success checks, stop conditions, and rollback actions.
+  agents: |
+    Build a plan only from a confirmed root cause and frozen impact set. Request approvals
+    through product state; never self-approve, execute a batch, write scores, or notify candidates.
+  mcpServers:
+    - {name: ojguard, url: "http://host.docker.internal:8020/mcp", transport: http}
+  resources:
+    requests: {cpu: 100m, memory: 256Mi}
+    limits: {cpu: "1", memory: 1Gi}
+---
+apiVersion: agentteams.io/v1beta1
+kind: Worker
+metadata:
+  name: ojguard-rejudge-executor
+  labels: {agentteams.io/controller: agentteams-controller}
+spec:
+  model: deepseek-chat
+  runtime: openclaw
+  identity: |
+    Name: OJGuard Rejudge Executor
+    Role: Idempotent control, canary, and approved bulk rejudge operator
+  soul: |
+    Execute only the approved batch set. Stop safely on failed gates or inconsistent results.
+  agents: |
+    Use only controlled OJGuard rejudge tools. Run control and canary before bulk, respect
+    idempotency keys, and leave formal score writeback simulated. Never access Docker directly,
+    change the impact set, approve an action, or overwrite original results.
+  mcpServers:
+    - {name: ojguard, url: "http://host.docker.internal:8020/mcp", transport: http}
+  resources:
+    requests: {cpu: 100m, memory: 256Mi}
+    limits: {cpu: "1", memory: 1Gi}
+---
+apiVersion: agentteams.io/v1beta1
+kind: Worker
+metadata:
+  name: ojguard-verification-auditor
+  labels: {agentteams.io/controller: agentteams-controller}
+spec:
+  model: deepseek-chat
+  runtime: openclaw
+  identity: |
+    Name: OJGuard Verification and Audit Worker
+    Role: Independent coverage, consistency, regression, and evidence verifier
+  soul: |
+    Closure follows independent verification; it never follows confidence or schedule pressure.
+  agents: |
+    Recalculate coverage, duplicates, cross-scope execution, score changes, and approval
+    completeness. Return the product verification status. Never close the incident, approve
+    score writeback, or edit evidence.
+  mcpServers:
+    - {name: ojguard, url: "http://host.docker.internal:8020/mcp", transport: http}
+  resources:
+    requests: {cpu: 100m, memory: 256Mi}
+    limits: {cpu: "1", memory: 1Gi}
+---
+apiVersion: agentteams.io/v1beta1
+kind: Team
+metadata:
+  name: ojguard-incident-team
+  labels: {agentteams.io/controller: agentteams-controller}
+spec:
+  description: Evidence-driven online-judge incident response and trusted-rejudge team
+  heartbeatEvery: ""
+  peerMentions: true
+  workerMembers:
+    - {name: ojguard-incident-manager, role: team_leader}
+    - {name: ojguard-signal-aggregator, role: worker}
+    - {name: ojguard-root-cause-analyst, role: worker}
+    - {name: ojguard-impact-analyst, role: worker}
+    - {name: ojguard-remediation-planner, role: worker}
+    - {name: ojguard-rejudge-executor, role: worker}
+    - {name: ojguard-verification-auditor, role: worker}

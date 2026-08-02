@@ -1,0 +1,23 @@
+OJGuard 提交文件清单
+
+平台字段建议：
+- 作品名称：OJGuard——在线测评事故响应与可信重评
+- 代码仓库：https://github.com/AzusaFish/OJGuard
+- Demo 链接：由参赛者录制并填写
+- 作品附件：OJGuard_submission.zip
+
+附件中的主要材料：
+- OJGuard_项目介绍.pptx：17 页可编辑项目介绍
+- OJGuard_项目介绍.pdf：17 页便于预览的项目介绍
+- OJGuard_作品简介.txt：可直接粘贴到报名页面
+- OJGuard_赛题符合性报告.md：赛题维度、证据与边界自检
+- README.md：安装、启动、体验与复现说明
+- OJGuard_项目方案.md：完整项目方案
+- materials/OJGuard_演示脚本.md：7—9 分钟录屏脚本
+- output/evidence/：Java Runner、AgentTeams、三类事故报告与界面截图
+
+需要参赛者完成：
+1. 在平台填写个人/队伍信息。
+2. 将 develop 分支推送到 GitHub，并确认仓库可访问。
+3. 按演示脚本录制 Demo，上传后填写 Demo 链接。
+4. 上传 OJGuard_submission.zip，并在上传后再次下载检查。

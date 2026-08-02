@@ -1,0 +1,27 @@
+Communication job
+By the end, preliminary-round judges should understand that OJGuard solves a real online-judge incident-response problem through AgentTeams, reusable Skills and deterministic evidence, and should believe the project is executable, generalizable and auditable.
+
+Source structure
+- 17 slides, 16:9, 1280 x 720.
+- Slide 1: dark navy title pattern with orange accent and circular decoration.
+- Slide 2: six-cell one-page summary.
+- Slide 3: dark navy contents page with eight numbered rows.
+- Slides 4/6/8/10/12/14/16: section dividers; some include scoring-weight callouts.
+- Slides 5/7/9/11/13/17: content patterns with inherited text and image slots.
+- Slide 15 has no usable content slot, so the output open-source detail slide will reuse source slide 2.
+
+Visual rules
+- Preserve navy #1B1F3B, orange accent, white section canvases and existing spacing.
+- Preserve source typography, sizes, line spacing, insets and alignment exactly.
+- Keep title and section slides low-density.
+- Replace inherited sample images with authentic OJGuard diagrams or screenshots only after implementation evidence exists.
+- Do not copy OpsPilot wording, screenshots, brands or example claims.
+
+Narrative
+1 title; 2 one-page summary; 3 contents; 4-5 scenario/value; 6-7 solution/generalization; 8-9 multi-Agent closed loop; 10-11 Skill engineering; 12-13 execution evidence/safety; 14-15 open source/reuse; 16-17 progress/demo and final proof.
+
+Insertion contract
+- Duplicate mapped source slides; edit inherited text and image objects in place.
+- Do not add new slide-local panels over blank space.
+- Rewrite page markers intentionally during final authoring.
+- All externally sourced non-trivial claims receive [Sources] blocks in notes.

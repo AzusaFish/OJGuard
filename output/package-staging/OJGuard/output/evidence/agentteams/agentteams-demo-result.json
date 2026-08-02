@@ -1,0 +1,78 @@
+﻿{
+    "task_id":  "OJGUARD-FINAL-20260802",
+    "incident_id":  "INC-67AAB2379B",
+    "completed":  true,
+    "team":  "ojguard-incident-team",
+    "team_phase":  "Active",
+    "leader":  "@ojguard-incident-manager:agentteams-tuwunel.agentteams-system.svc.cluster.local",
+    "worker_response_count":  6,
+    "started_at_utc":  "2026-08-02T15:47:00.0000000Z",
+    "completed_at_utc":  "2026-08-02T15:52:19.7390000Z",
+    "model":  "deepseek-chat",
+    "budget_contract":  "six worker responses plus leader report and final consolidation",
+    "worker_responses":  [
+                             {
+                                 "event_id":  "$eiZQ4BUipV9v0HuoNaYmL2Lw1xzgLfjw3VfDhSybTQ8",
+                                 "sender":  "@ojguard-impact-analyst:agentteams-tuwunel.agentteams-system.svc.cluster.local",
+                                 "member_name":  "ojguard-impact-analyst",
+                                 "role":  "worker",
+                                 "origin_server_ts":  1785685639446,
+                                 "timestamp_utc":  "2026-08-02T15:47:19.4460000Z",
+                                 "body":  "* WORKER_COMPLETE role=impact incident_id=INC-67AAB2379B\n\nImpact scope calculated (ID IMPACT-C93783F6CF):\n- Affected candidates: 703\n- Affected submissions: 742\n- Projected score changes: 703\n- Projected advancement changes: 72\n\nScope: problems PROB-01..04, language java, batch BACKEND-2026-A."
+                             },
+                             {
+                                 "event_id":  "$t5BYNC7Q6Irr1i60HmBxcoNngqRop_o3GP8l2p8NWvE",
+                                 "sender":  "@ojguard-rejudge-executor:agentteams-tuwunel.agentteams-system.svc.cluster.local",
+                                 "member_name":  "ojguard-rejudge-executor",
+                                 "role":  "worker",
+                                 "origin_server_ts":  1785685643566,
+                                 "timestamp_utc":  "2026-08-02T15:47:23.5660000Z",
+                                 "body":  "* WORKER_COMPLETE role=rejudge\n\nCalled score.calculate_changes exactly once for incident_id=INC-67AAB2379B. Calculated change count: 703 score-change entries (sample shows candidates like CAND-00002 moving from 75→100, rank 3059→2, advancement_changed=true). No formal score writeback was performed — results are simulated/calculated only, with original scores untouched."
+                             },
+                             {
+                                 "event_id":  "$UtQ-vnHaAqVvXma59CvoG7Dp4HlaaWXqX941YJ9AbHs",
+                                 "sender":  "@ojguard-remediation-planner:agentteams-tuwunel.agentteams-system.svc.cluster.local",
+                                 "member_name":  "ojguard-remediation-planner",
+                                 "role":  "worker",
+                                 "origin_server_ts":  1785685635851,
+                                 "timestamp_utc":  "2026-08-02T15:47:15.8510000Z",
+                                 "body":  "* WORKER_COMPLETE role=remediation\n\nCalled rejudge.create_plan for INC-67AAB2379B (plan PLAN-4FC0DEF300, approved impact IMPACT-C93783F6CF).\n\nGates:\n- Control: control-group results must restore to baseline and show no cross-scope regression before proceeding.\n- Canary: canary batch must complete with zero failures and no out-of-impact score drift before bulk begins.\n- Bulk: bulk phases require technical approval first, and business approval before full rollout; coverage must reach 100% with no duplicates or out-of-scope rejudges.\n\nStop conditions:\n- Any new error in the control group or infrastructure unavailable → halt.\n- Canary failure rate \u003e 0 → halt.\n- Score changes exceeding the frozen impact set → halt.\n- Rollback: pause remaining batches, keep original score snapshots, restore verified\n\nimage.\n\nControl(20), canary(38), bulk(500+184) all currently COMPLETED with 0 failures."
+                             },
+                             {
+                                 "event_id":  "$_qcR5UQlk43KJrkcLODKzrQDs09BMHkLVvSbnxiUs_g",
+                                 "sender":  "@ojguard-root-cause-analyst:agentteams-tuwunel.agentteams-system.svc.cluster.local",
+                                 "member_name":  "ojguard-root-cause-analyst",
+                                 "role":  "worker",
+                                 "origin_server_ts":  1785685629596,
+                                 "timestamp_utc":  "2026-08-02T15:47:09.5960000Z",
+                                 "body":  "* WORKER_COMPLETE role=root_cause\n\nReplayed submission for INC-67AAB2379B exactly once with repetitions=3. replay_mode=recorded_real_runner_evidence. Normal runs: 3/3 OK (exit 0, durations 39/45/61ms), normal_pass_rate=1. Degraded runs: 3/3 TIME_LIMIT_EXCEEDED (exit -9, durations 92/91/83ms), degraded_timeout_rate=1. Reproducibility: 100% — every normal run passed, every degraded run timed out under identical source and resource limits. Conclusion: runtime regression hypothesis confirmed with reproducible, isolated control evidence. passed=true, evidence_sha256=43df3e1a43b0f484adaf96aa5678f2926655ed86ac3de3cf15e7b0a81314186a."
+                             },
+                             {
+                                 "event_id":  "$OOyhdH4vvckeE3-2uRG1lOPMMElTBWYG3QyzPx1M9u0",
+                                 "sender":  "@ojguard-signal-aggregator:agentteams-tuwunel.agentteams-system.svc.cluster.local",
+                                 "member_name":  "ojguard-signal-aggregator",
+                                 "role":  "worker",
+                                 "origin_server_ts":  1785685640417,
+                                 "timestamp_utc":  "2026-08-02T15:47:20.4170000Z",
+                                 "body":  "* WORKER_COMPLETE role=signal\n\nINC-67AAB2379B (stage: RESOLVED). Normalized signal timeline:\n- **Metric** (SIG-36763F92A6, simulated-monitoring, 12:00Z): scoped failure rate rose from 8.3% to 41.4% (delta +0.3314, scoped submissions 2239).\n- **Deployment** (SIG-8E2F5E5D40, simulated-deployment, 14:00Z): java-runtime changed v2.3.0 → v2.3.1 (component: java-runtime).\n- **Complaints** (simulated-support): 21 signals, all category `same_code_different_result` — \"same Java code times out after image change\" — first at 14:21Z, recurring every minute through 14:40Z.\n\nAnomaly dimensions (correlation only, no diagnosis): metric precedes deployment by 2h; complaints begin 21 min after deployment and cluster tightly in a 20-min window; all complaints share one category/dimension."
+                             },
+                             {
+                                 "event_id":  "$6uGouZAGVEewmlSM6FemLm5tI2IYh94Np9_C91q3CyQ",
+                                 "sender":  "@ojguard-verification-auditor:agentteams-tuwunel.agentteams-system.svc.cluster.local",
+                                 "member_name":  "ojguard-verification-auditor",
+                                 "role":  "worker",
+                                 "origin_server_ts":  1785685638976,
+                                 "timestamp_utc":  "2026-08-02T15:47:18.9760000Z",
+                                 "body":  "* WORKER_COMPLETE role=verification\nIncident INC-67AAB2379B verified. Status: RESOLVED. Coverage: 100% (coverage_rate 1.0). Duplicates: 0. Missing: 0. Cross-scope: 0. All checks passed: all batches completed, impact scope covered, no cross-scope rejudge, no duplicate rejudge, score changes recalculated. Independent verification confirms the incident is ready for closure per evidence; I have not closed the incident, approved score writeback, or edited evidence — those remain for the authorized owner."
+                             }
+                         ],
+    "leader_final":  {
+                         "event_id":  "$5F79HAZnrsvT91gH3iuH4zOh96vLOiQZSsI8Feagbro",
+                         "sender":  "@ojguard-incident-manager:agentteams-tuwunel.agentteams-system.svc.cluster.local",
+                         "member_name":  "ojguard-incident-manager",
+                         "role":  "team_leader",
+                         "origin_server_ts":  1785685939739,
+                         "timestamp_utc":  "2026-08-02T15:52:19.7390000Z",
+                         "body":  "* task_id=OJGUARD-FINAL-20260802\nincident_id=INC-67AAB2379B\nstage=RESOLVED\n\n六角色结论：\n1. 信号聚合：失败率 8.3%→41.4%，与 java-runtime v2.3.0→v2.3.1 部署及同代码超时投诉时间对齐。\n2. 根因分析：对照实验可复现——正常 3/3 OK、降级 3/3 TLE，镜像 SHA 43df3e 确证运行时回归。\n3. 影响分析：候选 703、提交 742，4 题（PROB-01..04），预计成绩变化 703、晋级变化 72。\n4. 处置规划：回滚镜像(L2)；控制/灰度/全量分批重评，灰度失败\u003e0 即停，全量需 L3 业务审批。\n5. 重评执行：批次 20/38/500/184 全部完成（742/742=100%），703 项成绩变化已计算，未做正式写回。\n6. 验证审计：VERIFY RESOLVED，覆盖率 100%，重复/缺失/越界均为 0。\n\n披露：Single operator switched technical/business role contexts; this is not real multi-person approval. 我未代表人类批准或关闭事故，重评成绩未写回正式库。\n\nOJGUARD_DEMO_COMPLETE"
+                     }
+}

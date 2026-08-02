@@ -1,0 +1,7 @@
+interface:
+  display_name: Verify Score Consistency
+  short_description: Independently audit rejudge and score outcomes
+  default_prompt: Use $verify-score-consistency to independently recompute all closure checks.
+dependencies:
+  tools:
+    - {type: mcp, value: ojguard, description: OJGuard verification tools, transport: streamable_http, url: "http://ojguard-mcp:8020/mcp"}

@@ -1,0 +1,13 @@
+id: rejudge-executor
+name: OJGuard Rejudge Executor
+role: controlled-rejudge-worker
+capabilities: [control_rejudge, canary_rejudge, idempotent_bulk_rejudge, safe_pause]
+inputs: [approved_plan, approved_impact_scope, approval_state, rejudge_batches]
+outputs: [batch_results, temporary_scores, execution_metrics]
+dependencies: [ojguard_mcp, locked_down_runner]
+allowed_skills: [execute-controlled-rejudge]
+allowed_tools: [rejudge.execute_batch, rejudge.pause_batch]
+decision_boundary: Cannot change scope, approve actions, or overwrite formal scores.
+human_intervention: Canary failure, missing approval, batch drift, or formal score writeback.
+failure_escalation: Stop remaining batches, preserve idempotency state, and request review.
+trace: Record batch ID, idempotency key, counts, duration, outcome, and evidence IDs.

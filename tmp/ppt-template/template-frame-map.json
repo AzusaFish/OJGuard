@@ -1,0 +1,166 @@
+{
+  "outputSlides": [
+    {
+      "outputSlide": 1,
+      "sourceSlide": 1,
+      "narrativeRole": "opening thesis",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementIds": ["sh/65g3298r", "sh/ts7md4r2", "sh/sfqdkrep", "sh/dgzetcfa"]}
+      ]
+    },
+    {
+      "outputSlide": 2,
+      "sourceSlide": 2,
+      "narrativeRole": "one-page project summary",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementIds": ["sh/9072xkry", "sh/ozy1ofad", "sh/w3i1sfa9", "sh/r65knqtk", "sh/q5wjelsz", "sh/mtwrmxg7", "sh/nu58f2hs", "sh/wjy9sry9", "sh/bip8jmho", "sh/cnupgny5", "sh/do3q9szq", "sh/76twva5c", "sh/65kfmpor", "sh/hcvy14ne", "sh/u94fqp4n", "sh/p0vy54na", "sh/4zmxwzmp", "sh/onydsbmd", "sh/9o7ulg3y", "sh/a9gvulkj", "sh/ba9cn6l4"]}
+      ]
+    },
+    {
+      "outputSlide": 3,
+      "sourceSlide": 3,
+      "narrativeRole": "contents",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementIds": ["sh/3ah8rqlg", "sh/m5cra54z", "sh/n6ls3alk", "sh/943mhgre", "sh/83ulovat", "sh/x8nml0ra", "sh/w7ulsvqp", "sh/e10f2twf", "sh/f29gbyx0", "sh/6d0fytg3", "sh/re9g7yxo", "sh/a9kfadwn", "sh/batgjixs", "sh/z2d07mh4", "sh/y14jehgj", "sh/byd032h8", "sh/ax4zax0n"]}
+      ]
+    },
+    {
+      "outputSlide": 4,
+      "sourceSlide": 4,
+      "narrativeRole": "scenario and value divider",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementIds": ["sh/1cj2d8b6", "sh/0ba143al", "sh/ql8jytsj", "sh/doj29oba", "sh/3ihk3et8", "sh/wzex4z2p"]}
+      ]
+    },
+    {
+      "outputSlide": 5,
+      "sourceSlide": 5,
+      "narrativeRole": "incident stakes and measurable value",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementIds": ["sh/cf2tcr61", "sh/z2tcnm5s", "sh/yhkbe1o7", "sh/032tgr6d"]},
+        {"action": "replace", "sourceElementIds": ["im/apobah8v", "im/bqxsjm9g"]}
+      ]
+    },
+    {
+      "outputSlide": 6,
+      "sourceSlide": 6,
+      "narrativeRole": "solution divider",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementIds": ["sh/yhg7epsj", "sh/zi98nu94", "sh/hcrqlcj6"]}
+      ]
+    },
+    {
+      "outputSlide": 7,
+      "sourceSlide": 7,
+      "narrativeRole": "generic incident architecture",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementIds": ["sh/cb2tkvap", "sh/dcbud0ra", "sh/nyh4jupo", "sh/lsj6t47m"]},
+        {"action": "replace", "sourceElementId": "im/zi5kjqlw"}
+      ]
+    },
+    {
+      "outputSlide": 8,
+      "sourceSlide": 8,
+      "narrativeRole": "multi-agent divider",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementIds": ["sh/07atgnmp", "sh/6h0fypgb", "sh/tkby9kzm", "sh/je9g3ahk", "sh/id0fu50z", "sh/98rehwve"]}
+      ]
+    },
+    {
+      "outputSlide": 9,
+      "sourceSlide": 9,
+      "narrativeRole": "agent identities and conflict-resolution flow",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementIds": ["sh/1cfmhgne", "sh/0b65obm9", "sh/qtkf21ob"]},
+        {"action": "replace", "sourceElementIds": ["im/47atkjyh", "im/03edcnip"]}
+      ]
+    },
+    {
+      "outputSlide": 10,
+      "sourceSlide": 10,
+      "narrativeRole": "skill engineering divider",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementIds": ["sh/0zu9ora5", "sh/xc3mho32", "sh/cbu58j2h", "sh/q5gb21kb", "sh/r6pcv6lw", "sh/1cru1g3y"]}
+      ]
+    },
+    {
+      "outputSlide": 11,
+      "sourceSlide": 11,
+      "narrativeRole": "skill catalog and reusable contract",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementIds": ["sh/xcryxg7y", "sh/wbih4b6d", "sh/72t03qp0", "sh/ydcfq1kb"]},
+        {"action": "replace", "sourceElementId": "im/sj6l83a5"}
+      ]
+    },
+    {
+      "outputSlide": 12,
+      "sourceSlide": 12,
+      "narrativeRole": "engineering evidence divider",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementIds": ["sh/ojutgjah", "sh/q903ad4n", "sh/dcbm583y", "sh/b6d4f2lc", "sh/a543mx4r", "sh/xw3q94ne"]}
+      ]
+    },
+    {
+      "outputSlide": 13,
+      "sourceSlide": 13,
+      "narrativeRole": "runtime evidence safety and audit",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementIds": ["sh/q50nydsj", "sh/bq9orito", "sh/7i107edk"]},
+        {"action": "replace", "sourceElementIds": ["im/t4rmdo3i", "im/poji5gju", "im/4na1wb29", "im/3m10361o"]}
+      ]
+    },
+    {
+      "outputSlide": 14,
+      "sourceSlide": 14,
+      "narrativeRole": "open source divider",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementIds": ["sh/kzy5on2p", "sh/xc7eds76", "sh/wbydknq1", "sh/z650byxo", "sh/0buh8zy5", "sh/hsvy50re"]}
+      ]
+    },
+    {
+      "outputSlide": 15,
+      "sourceSlide": 2,
+      "narrativeRole": "open source scope and reuse",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementIds": ["sh/9072xkry", "sh/ozy1ofad", "sh/w3i1sfa9", "sh/r65knqtk", "sh/q5wjelsz", "sh/mtwrmxg7", "sh/nu58f2hs", "sh/wjy9sry9", "sh/bip8jmho", "sh/cnupgny5", "sh/do3q9szq", "sh/76twva5c", "sh/65kfmpor", "sh/hcvy14ne", "sh/u94fqp4n", "sh/p0vy54na", "sh/4zmxwzmp", "sh/onydsbmd", "sh/9o7ulg3y", "sh/a9gvulkj", "sh/ba9cn6l4"]}
+      ]
+    },
+    {
+      "outputSlide": 16,
+      "sourceSlide": 16,
+      "narrativeRole": "progress and demo divider",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementIds": ["sh/j6947i9w", "sh/ytkf2h8j", "sh/zutgvm94"]}
+      ]
+    },
+    {
+      "outputSlide": 17,
+      "sourceSlide": 17,
+      "narrativeRole": "verified progress demo and close",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementIds": ["sh/1c7e50ni", "sh/gbedwfmx", "sh/p0j6dcvy", "sh/658nudwf"]},
+        {"action": "replace", "sourceElementIds": ["im/orudgnqh", "im/4j2d07mh"]}
+      ]
+    }
+  ],
+  "omittedSourceSlides": [
+    {"sourceSlide": 15, "reason": "No inherited content frame for the open-source detail content."}
+  ]
+}

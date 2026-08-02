@@ -1,0 +1,7 @@
+interface:
+  display_name: Normalize Judge Signals
+  short_description: Build a provenance-preserving incident signal timeline
+  default_prompt: Use $normalize-judge-signals to normalize the assigned OJ incident signals without diagnosing the cause.
+dependencies:
+  tools:
+    - {type: mcp, value: ojguard, description: OJGuard incident signal tools, transport: streamable_http, url: "http://ojguard-mcp:8020/mcp"}
