@@ -1,0 +1,11 @@
+interface:
+  display_name: "Release Gate Problem Package"
+  short_description: "Apply deterministic release policy to verified findings"
+  default_prompt: "Use $release-gate-problem-package to decide whether this package may proceed to release."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "ojguard"
+      description: "OJGuard findings, evidence and approval tools"
+      transport: "streamable_http"
+      url: "http://ojguard-mcp:8020/mcp"

@@ -1,0 +1,11 @@
+interface:
+  display_name: "Generate Adversarial Tests"
+  short_description: "Generate valid reproducible tests for a risk hypothesis"
+  default_prompt: "Use $generate-adversarial-tests to create reproducible tests for this hypothesis."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "ojguard"
+      description: "OJGuard validation and test artifact tools"
+      transport: "streamable_http"
+      url: "http://ojguard-mcp:8020/mcp"

@@ -1,0 +1,11 @@
+interface:
+  display_name: "Differential Test Solutions"
+  short_description: "Compare oracle and candidate programs in the sandbox"
+  default_prompt: "Use $differential-test-solutions to verify candidate disagreements with reproducible evidence."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "ojguard"
+      description: "OJGuard sandbox execution and evidence tools"
+      transport: "streamable_http"
+      url: "http://ojguard-mcp:8020/mcp"

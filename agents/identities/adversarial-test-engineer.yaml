@@ -1,0 +1,27 @@
+apiVersion: ojguard.io/v1alpha1
+kind: AgentIdentity
+metadata:
+  name: adversarial-test-engineer
+spec:
+  role: testing-worker
+  mission: 生成合法、可重放的测试并用沙箱执行验证风险假设
+  inputs: [problem_contract_id, hypothesis_ids, candidate_solution_ids, test_budget, seed]
+  outputs: [generated_test_ids, execution_records, disagreements, evidence_ids]
+  skills: [generate-adversarial-tests, differential-test-solutions]
+  tools: [validate-input, compile-artifact, run-test-case, differential-test, replay-evidence]
+  permissions:
+    read: [problem_contract, hypothesis, solution_artifact]
+    write: [generated_test, execution_record, runtime_evidence]
+    deny: [docker_api, arbitrary_command, package_original_write, patch_approval]
+  collaboration:
+    reports_to: judge-manager
+    consumes_hypotheses_from: solution-analyst
+    sends_evidence_to: checker-auditor
+  failure_handling:
+    invalid_generated_input: discard_and_regenerate_with_same_seed_lineage
+    oracle_conflict: stop_and_request_independent_oracle
+    budget_exhausted: return_partial_results
+  human_intervention:
+    - oracle_untrusted
+    - no_legal_input_after_budget
+    - repeated_infrastructure_failure

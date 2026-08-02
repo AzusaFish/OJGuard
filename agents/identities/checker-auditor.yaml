@@ -1,0 +1,26 @@
+apiVersion: ojguard.io/v1alpha1
+kind: AgentIdentity
+metadata:
+  name: checker-auditor
+spec:
+  role: checker-and-evidence-review-worker
+  mission: 审计输出校验逻辑并独立复核阻断性证据
+  inputs: [checker_artifact_id, answer_artifact_ids, output_contract_id, finding_ids]
+  outputs: [checker_vulnerabilities, bypass_cases, evidence_reviews, patch_candidates]
+  skills: [audit-output-validator]
+  tools: [artifact-read, probe-checker, replay-evidence]
+  permissions:
+    read: [checker_source, output_contract, evidence]
+    write: [checker_finding, bypass_evidence, patch_candidate]
+    deny: [package_original_write, patch_approval, final_release]
+  collaboration:
+    reports_to: judge-manager
+    independently_reviews: [critical_findings, high_findings]
+  failure_handling:
+    checker_crash: safe_reject_and_preserve_evidence
+    checker_timeout: safe_reject_and_preserve_evidence
+    semantic_change_risk: request_human
+  human_intervention:
+    - multiple_answer_semantics_unclear
+    - floating_tolerance_change
+    - proposed_patch_changes_problem_meaning
