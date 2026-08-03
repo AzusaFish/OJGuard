@@ -12,6 +12,9 @@ OJGuard 面向企业招聘考试、在线教育、开发者认证和算法竞赛
 - Java 运行时回归、评测节点退化、Checker 缺陷三类确定性场景；
 - 真实 Java 17 正常/退化镜像对照实验，相同代码和时限下复现 OK/TLE 差异；
 - 影响集合计算、幂等批次、控制组/灰度/全量重评、暂停门禁与独立闭环验证；
+- 同一调查状态下生成多个合法实验候选，由 Incident Manager 选择；不充分实验保持 `INVESTIGATING`，可继续改选补充实验；
+- 灰度失败进入 `PAUSED`，自动隔离失败批次并生成新版本恢复计划，撤销旧审批，重新审批后执行 `canary_retry`；
+- `AgentRun` 与顺序化 `AgentRunEvent` 持久化，提供快照、增量事件查询和 SSE 事件流接口；
 - 成绩、排名和晋级变化重算，以及 JSON/HTML 事故报告；
 - AgentTeams Team Leader + 6 个专业 Worker、9 个可复用 Skill、12 个 MCP 工具；
 - Vue 3 + TypeScript 业务界面：事故总览、事故列表、事故工作台、审批与重评；
@@ -78,6 +81,14 @@ npm --prefix frontend run dev
 
 证据位于 `output/evidence/`。Java 对照实验在相同 80ms 时限下，正常镜像 3/3 为 OK，退化镜像 3/3 为 TLE。
 
+零成本复现“多候选动态路由 + 灰度失败恢复”证据：
+
+```powershell
+.\.venv\Scripts\python.exe -m scripts.generate_orchestration_recovery_evidence
+```
+
+输出位于 `output/evidence/agentteams/deterministic-recovery-evidence.json`，明确标记为确定性策略与恢复测试，`model_calls=0`、`paid_api_cost=0`，不冒充真实大模型协作记录。
+
 ## 自动化验证
 
 ```powershell
@@ -86,7 +97,7 @@ npm --prefix frontend run dev
 npm --prefix frontend run build
 ```
 
-测试覆盖事故状态门禁、场景生成、影响计算、幂等重评、越界/重复检查、MCP 工具、Skill 合约、AgentTeams 配置和 Java Runner。
+当前 63 项测试覆盖事故状态门禁、多候选路由合同、事件幂等与顺序、灰度失败恢复、场景生成、影响计算、幂等重评、越界/重复检查、MCP 工具、Skill 合约、AgentTeams 配置和 Java Runner。
 
 ## AgentTeams 与 DeepSeek
 
@@ -97,7 +108,7 @@ Copy-Item .env.example .env
 # 在 .env 中填写 DEEPSEEK_API_KEY，且不要提交该文件
 ```
 
-部署和演练入口见 `agentteams/README.md`。演练脚本要求传入现有事故 ID，且为每个 Worker 限制一次工具调用，避免无意义消耗。密钥不会写入报告、前端、日志或仓库。
+部署和演练入口见 `agentteams/README.md`。演练脚本默认创建一个没有预计算根因、影响面或处置计划的 `TRIAGING` 事故；后端给出带 Worker、实验、证据、预期状态和失败出口的合法路由合同，Team Leader 从中选择，而不是由宿主预先指定唯一动作。正常主链最多接受 20 条模型响应；显式失败恢复演练需要更高上限，默认只运行零成本确定性证据。确定性工具结果才是业务真相，密钥不会写入报告、前端、日志或仓库。
 
 ## 目录
 
@@ -124,3 +135,9 @@ output/        运行证据与提交材料
 - DeepSeek 是外部商业服务，不属于 Apache-2.0 开源范围。
 
 完整方案见 [OJGuard_项目方案.md](OJGuard_项目方案.md)，第三方边界见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+
+赛题技术材料：
+
+- [Agent Identity 清单](materials/Agent_Identity_清单.md)
+- [MCP 工具契约与迁移说明](materials/MCP_工具契约与迁移说明.md)
+- [上下文与可观测性说明](materials/上下文与可观测性说明.md)

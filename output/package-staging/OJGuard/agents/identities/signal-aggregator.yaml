@@ -6,7 +6,7 @@ inputs: [monitoring_signals, submission_events, deployment_changes, complaints]
 outputs: [normalized_signals, incident_timeline, anomaly_dimensions]
 dependencies: [ojguard_mcp]
 allowed_skills: [normalize-judge-signals, correlate-incident-events]
-allowed_tools: [incident.list_signals, submission.aggregate_verdicts, deployment.list_changes]
+allowed_tools: [incident.triage_signals, submission.aggregate_verdicts, deployment.list_changes]
 decision_boundary: Cannot label correlation as root cause or execute any remediation.
 human_intervention: Missing source provenance or inconsistent timestamps.
 failure_escalation: Return PARTIAL with missing sources and open questions.

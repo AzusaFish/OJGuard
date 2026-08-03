@@ -16,4 +16,8 @@ Inputs: normalized signals, playbook dimensions, deployment events. Outputs: cor
 3. Propose at least one competing hypothesis and a falsification test for each.
 4. Mark correlations as leads until deterministic comparison evidence exists.
 
+## Dependencies and collaboration
+
+Dependent tools: `incident.triage_signals`, `submission.aggregate_verdicts`, and `deployment.list_changes`. Agent collaboration: the Signal Aggregator produces the normalized timeline; the Root Cause Analyst turns its correlations into competing hypotheses and controlled experiments; the Incident Manager retains open questions when evidence conflicts. Reuse value: the correlation matrix is dimension-driven, so new judge backends and incident types can add dimensions through a Playbook instead of creating a new orchestration flow.
+
 Invocation condition: normalized signals exist. Errors: `INSUFFICIENT_DATA`, `CONFLICTING_WINDOWS`, `HUMAN_REVIEW`. Safety: read-only and no causal assertion without experiment evidence. Idempotency key: hash of signal IDs plus playbook version. Acceptance: every hypothesis names observable support, a control, and a rejection condition.

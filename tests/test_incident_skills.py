@@ -20,6 +20,9 @@ class IncidentSkillTests(unittest.TestCase):
             "Safety",
             "Idempotency key:",
             "Acceptance:",
+            "Dependent tools:",
+            "Agent collaboration:",
+            "Reuse value:",
         )
         for path in skill_files:
             text = path.read_text(encoding="utf-8")

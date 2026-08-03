@@ -1,4 +1,5 @@
 import unittest
+from uuid import uuid4
 
 from fastapi.testclient import TestClient
 
@@ -45,6 +46,29 @@ class ApiTests(unittest.TestCase):
         )
         self.assertEqual(transitioned.status_code, 200)
         self.assertEqual(transitioned.json()["stage"], "BASELINE_VALIDATING")
+
+    def test_agent_run_snapshot_and_event_query_contract(self) -> None:
+        task_id = f"API-AGENT-RUN-{uuid4().hex[:8]}"
+        created = self.client.post(
+            "/api/v1/agent-runs",
+            json={
+                "incident_type": "node_degradation",
+                "task_id": task_id,
+                "max_model_responses": 8,
+            },
+        )
+        self.assertEqual(created.status_code, 201)
+        payload = created.json()
+        run_id = payload["run"]["run_id"]
+        self.assertEqual(payload["incident"]["stage"], "TRIAGING")
+        self.assertEqual(payload["legal_options"][0]["action"], "triage")
+
+        snapshot = self.client.get(f"/api/v1/agent-runs/{run_id}")
+        self.assertEqual(snapshot.status_code, 200)
+        self.assertEqual(snapshot.json()["run"]["task_id"], task_id)
+        events = self.client.get(f"/api/v1/agent-runs/{run_id}/events")
+        self.assertEqual(events.status_code, 200)
+        self.assertEqual(events.json()[0]["event_type"], "RUN_CREATED")
 
 
 if __name__ == "__main__":

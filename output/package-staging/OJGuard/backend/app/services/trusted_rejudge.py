@@ -165,15 +165,54 @@ def complete_batch(batch: RejudgeBatch) -> RejudgeBatch:
     return updated
 
 
+def fail_batch(batch: RejudgeBatch, reason: str) -> RejudgeBatch:
+    if batch.state == RejudgeBatchState.COMPLETED:
+        raise ValueError("completed batch cannot be failed")
+    updated = batch.model_copy(deep=True)
+    updated.state = RejudgeBatchState.FAILED
+    updated.completed_count = max(0, updated.planned_count - 1)
+    updated.failed_count = 1 if updated.planned_count else 0
+    updated.skipped_count = 0
+    updated.failure_reason = reason
+    updated.updated_at = datetime.now(UTC)
+    return updated
+
+
+def plan_recovery_canary_batch(
+    incident_id: str,
+    plan_id: str,
+    failed_batch: RejudgeBatch,
+) -> RejudgeBatch:
+    return RejudgeBatch(
+        id=f"BATCH-{uuid4().hex[:10].upper()}",
+        incident_id=incident_id,
+        plan_id=plan_id,
+        sequence=failed_batch.sequence,
+        kind="canary_retry",
+        idempotency_key=_idempotency_key(
+            incident_id,
+            f"canary-retry-{failed_batch.attempt + 1}",
+            failed_batch.submission_ids,
+        ),
+        submission_ids=list(failed_batch.submission_ids),
+        planned_count=failed_batch.planned_count,
+        attempt=failed_batch.attempt + 1,
+        supersedes_batch_id=failed_batch.id,
+    )
+
+
 def verify_rejudge(
     incident_id: str,
     impact: ImpactAssessment,
     batches: list[RejudgeBatch],
     score_changes: list[ScoreChange],
 ) -> IncidentVerification:
+    active_batches = [
+        batch for batch in batches if batch.state != RejudgeBatchState.ROLLED_BACK
+    ]
     completed_ids = [
         submission_id
-        for batch in batches
+        for batch in active_batches
         if batch.state == RejudgeBatchState.COMPLETED
         for submission_id in batch.submission_ids
     ]
@@ -185,7 +224,7 @@ def verify_rejudge(
     coverage_rate = len(completed & expected) / len(expected) if expected else 1.0
     checks = {
         "all_batches_completed": all(
-            item.state == RejudgeBatchState.COMPLETED for item in batches
+            item.state == RejudgeBatchState.COMPLETED for item in active_batches
         ),
         "impact_scope_covered": missing_count == 0,
         "no_duplicate_rejudge": duplicate_count == 0,

@@ -1,0 +1,216 @@
+{
+  "evidence_class": "deterministic_policy_and_recovery_test",
+  "model_calls": 0,
+  "paid_api_cost": 0,
+  "incident_id": "INC-C1CE2A171D",
+  "scenario": "node_degradation",
+  "initial_experiment_candidate_count": 3,
+  "route_decisions": [
+    {
+      "action": "experiment_cross_image",
+      "worker": "ojguard-root-cause-analyst",
+      "reason": "Deterministic test selects cross_image_replay.",
+      "evidence_refs": [
+        "HYP-95990735F3",
+        "HYP-0829E64D4D"
+      ],
+      "experiment_kind": "cross_image_replay",
+      "expected_result": "在固定节点上比较基线镜像与观测镜像",
+      "failure_action": "human_review"
+    },
+    {
+      "action": "experiment_cross_node",
+      "worker": "ojguard-root-cause-analyst",
+      "reason": "Deterministic test selects cross_node_replay.",
+      "evidence_refs": [
+        "HYP-95990735F3",
+        "HYP-0829E64D4D"
+      ],
+      "experiment_kind": "cross_node_replay",
+      "expected_result": "在固定运行环境下比较健康节点与异常节点",
+      "failure_action": "human_review"
+    }
+  ],
+  "experiment_results": [
+    {
+      "kind": "cross_image_replay",
+      "state": "INCONCLUSIVE",
+      "stage_after": "INVESTIGATING"
+    },
+    {
+      "kind": "cross_node_replay",
+      "state": "PASSED",
+      "stage_after": "IMPACT_ASSESSING"
+    }
+  ],
+  "impact": {
+    "assessment_id": "IMPACT-73785D9B70",
+    "submission_count": 119,
+    "candidate_count": 118,
+    "scope_sha256": "ed5ba007017f3ff1cfaa2d23752bd308532783b7db3cd332ed2bd37bf343f17a",
+    "reported_stage": "REMEDIATION_PLANNING"
+  },
+  "canary_failure": {
+    "stage_after": "PAUSED",
+    "rolled_back_failed_batches": [
+      "BATCH-34D7C78660"
+    ],
+    "recovery_route": {
+      "action": "recovery_plan",
+      "worker": "ojguard-remediation-planner",
+      "tool": "rejudge.create_plan",
+      "arguments": {
+        "incident_id": "INC-C1CE2A171D",
+        "mode": "recovery"
+      },
+      "expected_stages": [
+        "APPROVAL_PENDING"
+      ],
+      "evidence_refs": [
+        "BATCH-34D7C78660"
+      ],
+      "experiment_kind": null,
+      "expected_result": "隔离失败环境并创建需要重新审批的恢复计划",
+      "failure_action": "human_review"
+    }
+  },
+  "plan_versions": [
+    {
+      "id": "PLAN-1B0460D318",
+      "revision": 1,
+      "supersedes_plan_id": null
+    },
+    {
+      "id": "PLAN-E606A5DDDC",
+      "revision": 2,
+      "supersedes_plan_id": "PLAN-1B0460D318"
+    }
+  ],
+  "fresh_technical_approval": {
+    "revoked_before_reapproval": {
+      "execute_plan": "REVOKED",
+      "run_canary_rejudge": "REVOKED"
+    },
+    "after_reapproval": {
+      "execute_plan": "APPROVED",
+      "run_canary_rejudge": "APPROVED"
+    }
+  },
+  "batch_results": [
+    {
+      "id": "BATCH-BF02DA553A",
+      "incident_id": "INC-C1CE2A171D",
+      "plan_id": "PLAN-1B0460D318",
+      "sequence": 1,
+      "kind": "control",
+      "idempotency_key": "INC-C1CE2A171D:control:6441e304f5712e56",
+      "state": "COMPLETED",
+      "planned_count": 20,
+      "completed_count": 20,
+      "failed_count": 0,
+      "skipped_count": 0,
+      "evidence_ids": [],
+      "attempt": 1,
+      "supersedes_batch_id": null,
+      "superseded_by_batch_id": null,
+      "failure_reason": null,
+      "created_at": "2026-08-03T06:21:51.774308Z",
+      "updated_at": "2026-08-03T06:21:51.894456Z"
+    },
+    {
+      "id": "BATCH-34D7C78660",
+      "incident_id": "INC-C1CE2A171D",
+      "plan_id": "PLAN-1B0460D318",
+      "sequence": 2,
+      "kind": "canary",
+      "idempotency_key": "INC-C1CE2A171D:canary:e64291a3c5668c19",
+      "state": "ROLLED_BACK",
+      "planned_count": 10,
+      "completed_count": 9,
+      "failed_count": 1,
+      "skipped_count": 0,
+      "evidence_ids": [],
+      "attempt": 1,
+      "supersedes_batch_id": null,
+      "superseded_by_batch_id": "BATCH-00E8908D54",
+      "failure_reason": "injected canary mismatch for recovery verification",
+      "created_at": "2026-08-03T06:21:51.774329Z",
+      "updated_at": "2026-08-03T06:21:51.942118Z"
+    },
+    {
+      "id": "BATCH-6ED198C52A",
+      "incident_id": "INC-C1CE2A171D",
+      "plan_id": "PLAN-1B0460D318",
+      "sequence": 3,
+      "kind": "bulk",
+      "idempotency_key": "INC-C1CE2A171D:bulk:4ffcd0f3c8ad9f3e",
+      "state": "COMPLETED",
+      "planned_count": 89,
+      "completed_count": 89,
+      "failed_count": 0,
+      "skipped_count": 0,
+      "evidence_ids": [],
+      "attempt": 1,
+      "supersedes_batch_id": null,
+      "superseded_by_batch_id": null,
+      "failure_reason": null,
+      "created_at": "2026-08-03T06:21:51.774340Z",
+      "updated_at": "2026-08-03T06:21:52.148634Z"
+    },
+    {
+      "id": "BATCH-00E8908D54",
+      "incident_id": "INC-C1CE2A171D",
+      "plan_id": "PLAN-E606A5DDDC",
+      "sequence": 2,
+      "kind": "canary_retry",
+      "idempotency_key": "INC-C1CE2A171D:canary-retry-2:e64291a3c5668c19",
+      "state": "COMPLETED",
+      "planned_count": 10,
+      "completed_count": 10,
+      "failed_count": 0,
+      "skipped_count": 0,
+      "evidence_ids": [],
+      "attempt": 2,
+      "supersedes_batch_id": "BATCH-34D7C78660",
+      "superseded_by_batch_id": null,
+      "failure_reason": null,
+      "created_at": "2026-08-03T06:21:51.942093Z",
+      "updated_at": "2026-08-03T06:21:52.063305Z"
+    }
+  ],
+  "recovery_canary_passed": true,
+  "verification": {
+    "id": "VERIFY-BCD0EBC2E3",
+    "incident_id": "INC-C1CE2A171D",
+    "status": "RESOLVED",
+    "checks": {
+      "all_batches_completed": true,
+      "impact_scope_covered": true,
+      "no_cross_scope_rejudge": true,
+      "no_duplicate_rejudge": true,
+      "score_changes_recalculated": true
+    },
+    "coverage_rate": 1.0,
+    "duplicate_rejudge_count": 0,
+    "missing_rejudge_count": 0,
+    "cross_scope_regression_count": 0,
+    "summary": "影响集合已完整、无重复且无越界地完成可信重评，成绩与晋级变化已重算。",
+    "evidence_ids": [],
+    "created_at": "2026-08-03T06:21:53.610294Z"
+  },
+  "final_stage": "RESOLVED",
+  "assertions": {
+    "multiple_legal_experiments": true,
+    "first_experiment_inconclusive": true,
+    "manager_can_choose_second_experiment": true,
+    "canary_failure_pauses": true,
+    "recovery_plan_is_new_revision": true,
+    "fresh_approval_required": true,
+    "recovery_canary_passes": true,
+    "verification_has_full_coverage": true,
+    "no_duplicate_rejudge": true,
+    "no_missing_rejudge": true,
+    "no_cross_scope_rejudge": true,
+    "resolved": true
+  }
+}

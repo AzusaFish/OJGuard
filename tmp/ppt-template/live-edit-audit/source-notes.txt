@@ -1,0 +1,8 @@
+Source presentation: C:\Users\AzusaFish\Downloads\82ae920b-0cbe-48a4-a253-338b0828e5c3.pptx
+Use: user-supplied official preliminary-round content framework and visual template.
+
+Competition manual: D:\Desktop\6e21b053-f18b-4857-83e2-835bd96d5434.pdf
+Use: scoring weights, AgentTeams requirement, Skill requirement, context capability rule, evidence and submission requirements.
+
+Project evidence source: D:\AzusaFish\Codes\Development\OJGuard
+Use: implemented architecture, tests, screenshots, traces, metrics, open-source scope and demo results. Only verified outputs may appear as completed results.

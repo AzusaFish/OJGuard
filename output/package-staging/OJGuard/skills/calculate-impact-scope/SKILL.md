@@ -18,4 +18,8 @@ Invocation condition: a root cause is confirmed or an explicit risk-acceptance r
 3. Recalculate projected score and rank changes independently.
 4. Freeze and hash the proposed set before requesting bulk approval.
 
+## Dependencies and collaboration
+
+Dependent tools: `impact.calculate_scope`, `score.calculate_changes`, the submission snapshot adapter, and the SQLite evidence store. Agent collaboration: the Impact Analyst consumes the Root Cause Analyst's confirmed conclusion, freezes the affected set for the Remediation Planner and Rejudge Executor, and supplies an independently checkable set hash to the Verification Auditor. Reuse value: policy-driven set calculation supports runtime, node, package, Checker, queue, and configuration incidents without embedding scenario-specific labels.
+
 Errors: `ROOT_CAUSE_REQUIRED`, `POLICY_MISMATCH`, `EMPTY_SCOPE`, `HUMAN_REVIEW`. Safety: no personal-data export, legal judgment, score write, or scope expansion. Idempotency key: incident ID, policy version, and submission snapshot hash. Acceptance: counts match IDs, repeated calculation is stable, and the approved set can be compared exactly with executed batches.

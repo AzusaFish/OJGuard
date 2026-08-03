@@ -9,8 +9,8 @@ OJGuard 符合 Agent Infra 赛题对场景价值、多 Agent 协同、Skill 工�
 | 评分维度 | OJGuard 对应实现 | 可核验证据 |
 |---|---|---|
 | 场景价值与行业可复制性（25%） | 面向招聘考试、在线教育、认证与竞赛 OJ 的批量误判事故；覆盖运行时回归、节点退化、Checker 缺陷 | `output/evidence/incidents/` 三类完整报告；主演示 703/742 个受影响提交 |
-| 多 Agent 协同与自主闭环能力（25%） | Team Leader 编排信号、根因、影响、计划、执行、核验 6 个 Worker；共享事故状态并汇总证据 | `agentteams/ojguard-team.yaml`；`output/evidence/agentteams/agentteams-demo-result.json` |
-| Skill 工程体系与生态复用（25%） | 9 个 Skill 声明输入输出、依赖、失败处理与审批边界；12 个 MCP 工具提供确定性事实与动作 | `skills/`、`mcp_server/`、Skill/MCP 自动化测试 |
+| 多 Agent 协同与自主闭环能力（25%） | Team Leader 从 `TRIAGING` 状态开始，在多个合法 RouteOption 中选择 6 个 Worker 与实验；不充分实验可补选，灰度失败进入版本化恢复计划、重新审批和恢复灰度 | `materials/Agent_Identity_清单.md`；`agentteams/ojguard-team.yaml`；真实协作证据与确定性恢复证据 |
+| Skill 工程体系与生态复用（25%） | 9 个 Skill 声明输入输出、依赖工具、失败处理、安全边界、复用价值和 Agent 协作关系；12 个 MCP 工具提供确定性事实与动作 | `skills/`、`materials/MCP_工具契约与迁移说明.md`、Skill/MCP 自动化测试 |
 | 工程落地与安全可审计（20%） | Vue3 前端、FastAPI 后端、SQLite 台账、十阶段状态机、审批闸门、幂等批次、关闭核验、JSON/HTML 报告 | 浏览器全链路截图、Java Runner 对照证据、事故报告与测试 |
 | 开放 / 开源贡献（5%） | 完整源码、运行说明、复现脚本、场景数据、Skill 与 MCP 工具开放 | Apache-2.0；GitHub `AzusaFish/OJGuard` |
 
@@ -20,7 +20,18 @@ OJGuard 符合 Agent Infra 赛题对场景价值、多 Agent 协同、Skill 工�
 - 评测节点退化：影响 118/119 个提交，预计 14 个晋级变化。
 - Checker 缺陷：影响 71/73 个提交，预计 8 个晋级变化。
 - 主演示依次完成控制组 20、灰度 38、全量 500 与 184 四个批次；最终覆盖率 100%，重复、遗漏和越界均为 0，状态为 `RESOLVED`。
-- AgentTeams 实际运行中 6 个 Worker 均完成任务，主管理器生成统一闭环结论。
+- AgentTeams 真实运行从 `TRIAGING` 开始，而非读取预先完成的事故结果；Team Leader 完成 11 次动态路由，6 个 Worker 产生 8 次结构化工具写入，共记录 20 次模型响应。
+- 根因阶段先保存 2 个竞争假设，再由 Team Leader 选择二维对照实验；每次 Worker 写回后均由确定性状态机验证，实验、技术审批、业务审批和关闭审批均留下独立证据。
+- 运行记录明确标记 `orchestration_mode=live_dynamic_routing`、`posthoc_review=false`，最终从 `TRIAGING` 推进至 `RESOLVED`。
+- 节点退化确定性验收同时产生 3 个实验候选：首选跨镜像实验为 `INCONCLUSIVE`，Manager 改选跨节点实验后才推进；模型调用和付费成本均为 0。
+- 灰度失败验收进入 `PAUSED`，旧灰度 `ROLLED_BACK`，恢复计划 revision 2 撤销旧技术审批；重新审批后的 `canary_retry` 与全量重评通过，覆盖率 100%，重复、遗漏、越界均为 0。
+
+## Skill、MCP、RAG 与可观测性
+
+- 9 个版本化 Skill 均定义名称、用途、输入输出、调用条件、依赖工具、错误处理、安全边界、幂等键、验收、复用价值和多 Agent 协作关系。
+- 12 个 MCP 工具使用 Streamable HTTP 和结构化 Schema，状态变更受事故状态机、审批、冻结范围和幂等键约束；协议、错误、审计和迁移成本见 `materials/MCP_工具契约与迁移说明.md`。
+- 当前不声明已实现 RAG。项目以共享 `IncidentContext` 和全链路 Trace 满足非 RAG 路径的两项上下文能力，并使用 AgentTeams 历史作为辅助记忆。
+- 可观测证据覆盖 Trace、Log、Metrics：SQLite `AgentRun` / `AgentRunEvent` 按递增序号记录路由、Worker、工具、状态、人工门禁、暂停、恢复和报告，API 支持快照、增量事件和 SSE；事故报告记录失败率、实验、影响、批次、覆盖和一致性指标。
 
 ## 真实性与边界
 
@@ -36,5 +47,6 @@ OJGuard 符合 Agent Infra 赛题对场景价值、多 Agent 协同、Skill 工�
 - PPT：17 页，基于赛方模板编辑，模板一致性检查通过，未残留示例占位文本。
 - PDF：17 页、16:9，逐页渲染抽检通过。
 - 前端：Vue 类型检查通过，浏览器端已完成创建事故至关闭核验的全链路实测。
-- 后端与工具：Ruff 检查通过；41 项自动化测试曾完整通过。当前最终复跑受本机 Windows 临时目录权限限制，未将该环境限制描述为测试通过。
+- 后端与工具：Ruff 检查通过；最终完整复跑 63 项自动化测试全部通过。
+- 前端构建：Vue TypeScript 检查和 Vite 生产构建通过，共转换 1604 个模块。
 - 密钥：提交包不包含 `.env`、真实 API Key、虚拟环境、依赖缓存或 Git 历史。

@@ -11,6 +11,10 @@ from pydantic import BaseModel
 
 from backend.app.domain import (
     AgentEvent,
+    AgentRun,
+    AgentRunEvent,
+    AgentRunEventType,
+    AgentRunStatus,
     ApprovalRecord,
     Evidence,
     Finding,
@@ -140,6 +144,39 @@ class SQLiteRepository:
                 );
                 CREATE INDEX IF NOT EXISTS idx_incident_entities_lookup
                     ON incident_entities(incident_id, entity_type, created_at);
+
+                CREATE TABLE IF NOT EXISTS orchestration_runs (
+                    run_id TEXT PRIMARY KEY,
+                    task_id TEXT NOT NULL,
+                    incident_id TEXT NOT NULL,
+                    status TEXT NOT NULL,
+                    created_at TEXT NOT NULL,
+                    updated_at TEXT NOT NULL,
+                    document_json TEXT NOT NULL,
+                    FOREIGN KEY(incident_id) REFERENCES incidents(incident_id)
+                        ON DELETE CASCADE
+                );
+                CREATE UNIQUE INDEX IF NOT EXISTS idx_orchestration_runs_task
+                    ON orchestration_runs(task_id);
+                CREATE INDEX IF NOT EXISTS idx_orchestration_runs_incident
+                    ON orchestration_runs(incident_id, created_at DESC);
+
+                CREATE TABLE IF NOT EXISTS orchestration_events (
+                    id TEXT PRIMARY KEY,
+                    run_id TEXT NOT NULL,
+                    incident_id TEXT NOT NULL,
+                    sequence INTEGER NOT NULL,
+                    event_type TEXT NOT NULL,
+                    created_at TEXT NOT NULL,
+                    document_json TEXT NOT NULL,
+                    UNIQUE(run_id, sequence),
+                    FOREIGN KEY(run_id) REFERENCES orchestration_runs(run_id)
+                        ON DELETE CASCADE,
+                    FOREIGN KEY(incident_id) REFERENCES incidents(incident_id)
+                        ON DELETE CASCADE
+                );
+                CREATE INDEX IF NOT EXISTS idx_orchestration_events_stream
+                    ON orchestration_events(run_id, sequence ASC);
                 """
             )
 
@@ -202,6 +239,173 @@ class SQLiteRepository:
                 (run_id,),
             ).fetchall()
         return [AgentEvent.model_validate_json(row["document_json"]) for row in rows]
+
+    def save_agent_run(self, run: AgentRun) -> None:
+        with self.connect() as connection:
+            connection.execute(
+                """
+                INSERT INTO orchestration_runs(
+                    run_id, task_id, incident_id, status, created_at, updated_at,
+                    document_json
+                ) VALUES (?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(run_id) DO UPDATE SET
+                    task_id=excluded.task_id,
+                    incident_id=excluded.incident_id,
+                    status=excluded.status,
+                    updated_at=excluded.updated_at,
+                    document_json=excluded.document_json
+                """,
+                (
+                    run.run_id,
+                    run.task_id,
+                    run.incident_id,
+                    run.status.value,
+                    run.created_at.isoformat(),
+                    run.updated_at.isoformat(),
+                    self._json(run),
+                ),
+            )
+
+    def get_agent_run(self, run_id: str) -> AgentRun | None:
+        with self.connect() as connection:
+            row = connection.execute(
+                "SELECT document_json FROM orchestration_runs WHERE run_id = ?",
+                (run_id,),
+            ).fetchone()
+        return AgentRun.model_validate_json(row["document_json"]) if row else None
+
+    def get_agent_run_by_task(self, task_id: str) -> AgentRun | None:
+        with self.connect() as connection:
+            row = connection.execute(
+                "SELECT document_json FROM orchestration_runs WHERE task_id = ?",
+                (task_id,),
+            ).fetchone()
+        return AgentRun.model_validate_json(row["document_json"]) if row else None
+
+    def get_latest_agent_run_for_incident(self, incident_id: str) -> AgentRun | None:
+        with self.connect() as connection:
+            row = connection.execute(
+                """
+                SELECT document_json FROM orchestration_runs
+                WHERE incident_id = ? ORDER BY created_at DESC LIMIT 1
+                """,
+                (incident_id,),
+            ).fetchone()
+        return AgentRun.model_validate_json(row["document_json"]) if row else None
+
+    def list_agent_runs(self, limit: int = 100) -> list[AgentRun]:
+        with self.connect() as connection:
+            rows = connection.execute(
+                """
+                SELECT document_json FROM orchestration_runs
+                ORDER BY created_at DESC LIMIT ?
+                """,
+                (limit,),
+            ).fetchall()
+        return [AgentRun.model_validate_json(row["document_json"]) for row in rows]
+
+    def append_agent_run_event(self, event: AgentRunEvent) -> AgentRunEvent:
+        response_event_types = {
+            AgentRunEventType.ROUTE_DECISION.value,
+            AgentRunEventType.WORKER_RESULT.value,
+            AgentRunEventType.FINAL_REPORT.value,
+        }
+        with self.connect() as connection:
+            existing = connection.execute(
+                "SELECT document_json FROM orchestration_events WHERE id = ?",
+                (event.id,),
+            ).fetchone()
+            if existing:
+                return AgentRunEvent.model_validate_json(existing["document_json"])
+
+            run_row = connection.execute(
+                "SELECT document_json FROM orchestration_runs WHERE run_id = ?",
+                (event.run_id,),
+            ).fetchone()
+            if run_row is None:
+                raise ValueError("agent run not found")
+            run = AgentRun.model_validate_json(run_row["document_json"])
+            next_sequence = connection.execute(
+                """
+                SELECT COALESCE(MAX(sequence), 0) + 1 AS next_sequence
+                FROM orchestration_events WHERE run_id = ?
+                """,
+                (event.run_id,),
+            ).fetchone()["next_sequence"]
+            stored = event.model_copy(update={"sequence": next_sequence})
+            connection.execute(
+                """
+                INSERT INTO orchestration_events(
+                    id, run_id, incident_id, sequence, event_type, created_at,
+                    document_json
+                ) VALUES (?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    stored.id,
+                    stored.run_id,
+                    stored.incident_id,
+                    stored.sequence,
+                    stored.event_type.value,
+                    stored.created_at.isoformat(),
+                    self._json(stored),
+                ),
+            )
+
+            updated = run.model_copy(deep=True)
+            updated.last_event_sequence = stored.sequence
+            updated.current_agent = stored.worker or stored.agent
+            updated.current_action = stored.action
+            updated.updated_at = stored.created_at
+            if stored.event_type == AgentRunEventType.RUN_STARTED:
+                updated.status = AgentRunStatus.RUNNING
+                updated.started_at = updated.started_at or stored.created_at
+            elif stored.event_type == AgentRunEventType.RUN_PAUSED:
+                updated.status = AgentRunStatus.PAUSED
+                updated.failure_reason = stored.summary
+            elif stored.event_type == AgentRunEventType.RUN_RESUMED:
+                updated.status = AgentRunStatus.RUNNING
+                updated.failure_reason = None
+            elif stored.event_type == AgentRunEventType.FINAL_REPORT:
+                updated.status = AgentRunStatus.COMPLETED
+                updated.completed_at = stored.created_at
+            elif stored.event_type == AgentRunEventType.ERROR:
+                updated.status = AgentRunStatus.FAILED
+                updated.failure_reason = stored.summary
+                updated.completed_at = stored.created_at
+            if stored.event_type.value in response_event_types:
+                updated.model_response_count += 1
+            connection.execute(
+                """
+                UPDATE orchestration_runs
+                SET status = ?, updated_at = ?, document_json = ?
+                WHERE run_id = ?
+                """,
+                (
+                    updated.status.value,
+                    updated.updated_at.isoformat(),
+                    self._json(updated),
+                    updated.run_id,
+                ),
+            )
+        return stored
+
+    def list_agent_run_events(
+        self,
+        run_id: str,
+        *,
+        after_sequence: int = 0,
+        limit: int = 500,
+    ) -> list[AgentRunEvent]:
+        with self.connect() as connection:
+            rows = connection.execute(
+                """
+                SELECT document_json FROM orchestration_events
+                WHERE run_id = ? AND sequence > ?
+                ORDER BY sequence ASC LIMIT ?
+                """,
+                (run_id, max(after_sequence, 0), min(max(limit, 1), 2_000)),
+            ).fetchall()
+        return [AgentRunEvent.model_validate_json(row["document_json"]) for row in rows]
 
     def save_finding(self, finding: Finding) -> None:
         with self.connect() as connection:

@@ -3,7 +3,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.app.api import artifacts, health, incidents, rag, runs, system, workflow
+from backend.app.api import agent_runs, artifacts, health, incidents, rag, runs, system, workflow
 from backend.app.config import get_settings
 
 
@@ -30,6 +30,7 @@ app.add_middleware(
 )
 app.include_router(health.router, prefix=settings.api_prefix)
 app.include_router(runs.router, prefix=settings.api_prefix)
+app.include_router(agent_runs.router, prefix=settings.api_prefix)
 app.include_router(incidents.router, prefix=settings.api_prefix)
 app.include_router(artifacts.router, prefix=settings.api_prefix)
 app.include_router(rag.router, prefix=settings.api_prefix)

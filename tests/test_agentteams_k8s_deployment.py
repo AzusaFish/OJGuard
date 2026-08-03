@@ -66,7 +66,10 @@ class AgentTeamsKubernetesDeploymentTests(unittest.TestCase):
         self.assertNotIn('$env:MCP_HOST = "0.0.0.0"', start_script)
         self.assertIn("enable_dns_rebinding_protection=True", server)
         self.assertIn("host.docker.internal", server)
-        self.assertIn("All six workers replied", demo_script)
+        self.assertNotIn("prepare_demo", demo_script)
+        self.assertIn("agentteams_runtime_control", demo_script)
+        self.assertIn("ROUTE_DECISION", demo_script)
+        self.assertIn("stage_history", demo_script)
         self.assertIn("ojguard-incident-team", demo_script)
         self.assertIn("OJGUARD_DEMO_COMPLETE", demo_script)
 

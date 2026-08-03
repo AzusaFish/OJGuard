@@ -109,6 +109,31 @@ class IncidentApprovalDecision(StrEnum):
     REVOKED = "REVOKED"
 
 
+class AgentRunStatus(StrEnum):
+    QUEUED = "QUEUED"
+    RUNNING = "RUNNING"
+    PAUSED = "PAUSED"
+    HUMAN_REVIEW_REQUIRED = "HUMAN_REVIEW_REQUIRED"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+    CANCELLED = "CANCELLED"
+
+
+class AgentRunEventType(StrEnum):
+    RUN_CREATED = "RUN_CREATED"
+    RUN_STARTED = "RUN_STARTED"
+    ROUTE_DECISION = "ROUTE_DECISION"
+    WORKER_STARTED = "WORKER_STARTED"
+    WORKER_RESULT = "WORKER_RESULT"
+    TOOL_RESULT = "TOOL_RESULT"
+    STATE_TRANSITION = "STATE_TRANSITION"
+    HUMAN_GATE = "HUMAN_GATE"
+    RUN_PAUSED = "RUN_PAUSED"
+    RUN_RESUMED = "RUN_RESUMED"
+    FINAL_REPORT = "FINAL_REPORT"
+    ERROR = "ERROR"
+
+
 class IncidentProfile(BaseModel):
     incident_type: IncidentType
     title: str = Field(min_length=1, max_length=160)
@@ -182,6 +207,15 @@ class IncidentExperiment(BaseModel):
     created_at: datetime = Field(default_factory=utc_now)
 
 
+class ExperimentCandidate(BaseModel):
+    kind: str
+    title: str
+    hypothesis_ids: list[str]
+    dimensions: list[str]
+    expected_discrimination: str
+    evidence_refs: list[str] = Field(default_factory=list)
+
+
 class ImpactAssessment(BaseModel):
     id: str
     incident_id: str
@@ -224,6 +258,9 @@ class RemediationPlan(BaseModel):
     steps: list[RemediationStep]
     approved_impact_id: str
     evidence_ids: list[str] = Field(default_factory=list)
+    revision: int = Field(default=1, ge=1)
+    supersedes_plan_id: str | None = None
+    reason: str | None = None
     created_at: datetime = Field(default_factory=utc_now)
 
 
@@ -255,6 +292,10 @@ class RejudgeBatch(BaseModel):
     failed_count: int = Field(default=0, ge=0)
     skipped_count: int = Field(default=0, ge=0)
     evidence_ids: list[str] = Field(default_factory=list)
+    attempt: int = Field(default=1, ge=1)
+    supersedes_batch_id: str | None = None
+    superseded_by_batch_id: str | None = None
+    failure_reason: str | None = None
     created_at: datetime = Field(default_factory=utc_now)
     updated_at: datetime = Field(default_factory=utc_now)
 
@@ -316,3 +357,62 @@ class IncidentContext(BaseModel):
     rejudge_complete: bool = False
     created_at: datetime = Field(default_factory=utc_now)
     updated_at: datetime = Field(default_factory=utc_now)
+
+
+class RouteOption(BaseModel):
+    action: str
+    worker: str
+    tool: str | None = None
+    arguments: dict[str, str | int | float | bool] = Field(default_factory=dict)
+    expected_stages: list[IncidentStage]
+    evidence_refs: list[str] = Field(default_factory=list)
+    experiment_kind: str | None = None
+    expected_result: str
+    failure_action: str = "human_review"
+
+
+class RouteDecision(BaseModel):
+    action: str
+    worker: str
+    reason: str
+    evidence_refs: list[str] = Field(default_factory=list)
+    experiment_kind: str | None = None
+    expected_result: str
+    failure_action: str = "human_review"
+
+
+class AgentRun(BaseModel):
+    run_id: str
+    task_id: str
+    incident_id: str
+    status: AgentRunStatus = AgentRunStatus.QUEUED
+    orchestration_mode: str = "live_dynamic_routing"
+    model: str = "deepseek-chat"
+    max_model_responses: int = Field(default=20, ge=0, le=100)
+    model_response_count: int = Field(default=0, ge=0)
+    current_agent: str | None = None
+    current_action: str | None = None
+    last_event_sequence: int = Field(default=0, ge=0)
+    failure_reason: str | None = None
+    created_at: datetime = Field(default_factory=utc_now)
+    started_at: datetime | None = None
+    completed_at: datetime | None = None
+    updated_at: datetime = Field(default_factory=utc_now)
+
+
+class AgentRunEvent(BaseModel):
+    id: str
+    run_id: str
+    incident_id: str
+    sequence: int = Field(default=0, ge=0)
+    event_type: AgentRunEventType
+    agent: str
+    action: str | None = None
+    worker: str | None = None
+    tool: str | None = None
+    summary: str
+    evidence_refs: list[str] = Field(default_factory=list)
+    before_stage: IncidentStage | None = None
+    after_stage: IncidentStage | None = None
+    metadata: dict[str, Any] = Field(default_factory=dict)
+    created_at: datetime = Field(default_factory=utc_now)

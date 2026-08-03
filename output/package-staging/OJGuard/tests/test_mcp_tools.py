@@ -8,6 +8,7 @@ from pathlib import Path
 from backend.app.domain import (
     IncidentApprovalAction,
     IncidentApprovalDecision,
+    IncidentStage,
     IncidentType,
 )
 from backend.app.services.package_ingest import PackageIngestor
@@ -52,7 +53,7 @@ class MCPToolsTests(unittest.TestCase):
         with self.temporary_directory() as directory:
             tools = OJGuardTools(Path(directory))
             with self.assertRaises(MCPToolError):
-                tools.incident_list_signals("INC-UNKNOWN")
+                tools.incident_triage_signals("INC-UNKNOWN")
 
     def test_runtime_replay_reuses_hashed_real_runner_evidence(self) -> None:
         with self.temporary_directory() as directory:
@@ -75,19 +76,41 @@ class MCPToolsTests(unittest.TestCase):
     def test_twelve_incident_tools_follow_approval_gates(self) -> None:
         with self.temporary_directory() as directory:
             tools = OJGuardTools(Path(directory))
-            incident = tools.workflow.prepare_demo(IncidentType.NODE_DEGRADATION)
+            incident = tools.workflow.start_triage_demo(IncidentType.NODE_DEGRADATION)
             incident_id = incident.incident_id
 
-            self.assertTrue(tools.incident_list_signals(incident_id)["signals"])
+            self.assertEqual(incident.stage, IncidentStage.TRIAGING)
+            self.assertFalse(tools.repository.list_root_cause_hypotheses(incident_id))
+            self.assertFalse(tools.repository.list_impact_assessments(incident_id))
+            self.assertFalse(tools.repository.list_remediation_plans(incident_id))
+            with self.assertRaises(MCPToolError):
+                tools.impact_calculate_scope(incident_id)
+
+            triage = tools.incident_triage_signals(incident_id)
+            self.assertTrue(triage["signals"])
+            self.assertEqual(triage["stage"], "INVESTIGATING")
             self.assertGreater(
                 tools.submission_aggregate_verdicts(incident_id)["failure_rate_delta"], 0
             )
             self.assertTrue(tools.deployment_list_changes(incident_id)["changes"])
-            self.assertEqual(tools.judge_replay_submission(incident_id)["state"], "PASSED")
+            hypotheses = tools.judge_replay_submission(incident_id, mode="hypotheses")
+            self.assertEqual(hypotheses["stage"], "INVESTIGATING")
+            self.assertFalse(hypotheses["experiment_executed"])
+            self.assertEqual(len(hypotheses["hypotheses"]), 2)
+            self.assertFalse(tools.repository.list_incident_experiments(incident_id))
+            diagnosis = tools.judge_replay_submission(incident_id, mode="experiment")
+            self.assertEqual(diagnosis["state"], "PASSED")
+            self.assertEqual(diagnosis["stage"], "IMPACT_ASSESSING")
+            self.assertEqual(
+                len(tools.repository.list_root_cause_hypotheses(incident_id)), 2
+            )
             impact = tools.impact_calculate_scope(incident_id)
             self.assertGreater(impact["affected_submission_count"], 0)
             self.assertNotIn("submission_ids", impact)
-            self.assertTrue(tools.rejudge_create_plan(incident_id)["batches"])
+            self.assertEqual(impact["stage"], "REMEDIATION_PLANNING")
+            plan = tools.rejudge_create_plan(incident_id)
+            self.assertTrue(plan["batches"])
+            self.assertEqual(plan["stage"], "APPROVAL_PENDING")
 
             with self.assertRaises(MCPToolError):
                 tools.rejudge_execute_batch(incident_id, "control_canary")
@@ -133,7 +156,7 @@ class MCPToolsTests(unittest.TestCase):
         self.assertEqual(
             names,
             {
-                "incident.list_signals",
+                "incident.triage_signals",
                 "submission.aggregate_verdicts",
                 "deployment.list_changes",
                 "judge.replay_submission",

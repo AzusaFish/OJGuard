@@ -5,7 +5,7 @@ from reportlab.pdfgen import canvas
 
 
 ROOT = Path(__file__).resolve().parents[2]
-SLIDES = ROOT / "tmp" / "ppt-template" / "rendered"
+SLIDES = ROOT / "tmp" / "ppt-template" / "qa-live-final-render"
 OUTPUT = ROOT / "output" / "submission" / "OJGuard_项目介绍.pdf"
 PAGE_WIDTH = 960.0
 PAGE_HEIGHT = 540.0

@@ -11,7 +11,7 @@ Inputs: `incident_id`, source records, time window, source system. Outputs: norm
 
 ## Workflow
 
-1. Read signals with `incident.list_signals`; never read arbitrary paths.
+1. At `TRIAGING`, call `incident.triage_signals`; it reads bounded signals and advances the shared incident to `INVESTIGATING` without precomputing a diagnosis.
 2. Normalize timestamps to UTC and keep the original source identifier.
 3. Deduplicate by source event ID and content hash.
 4. Separate metric, submission, deployment, complaint, package, and queue signals.
@@ -19,7 +19,7 @@ Inputs: `incident_id`, source records, time window, source system. Outputs: norm
 
 ## Dependencies and collaboration
 
-Dependent tools: `incident.list_signals`, `submission.aggregate_verdicts`, and `deployment.list_changes`. Agent collaboration: the Signal Aggregator invokes this Skill first and publishes a provenance-preserving timeline to shared IncidentContext; the Root Cause Analyst and Incident Manager consume only those normalized records and evidence IDs. Reuse value: source adapters can normalize monitoring, ticket, log, submission, deployment, or billing events into one stable signal contract without changing downstream Agents.
+Dependent tools: `incident.triage_signals`, `submission.aggregate_verdicts`, and `deployment.list_changes`. Agent collaboration: the Signal Aggregator invokes this Skill first and publishes a provenance-preserving timeline to shared IncidentContext; the Root Cause Analyst and Incident Manager consume only those normalized records and evidence IDs. Reuse value: source adapters can normalize monitoring, ticket, log, submission, deployment, or billing events into one stable signal contract without changing downstream Agents.
 
 Invocation condition: an incident has source records but no trusted signal timeline. Error states: `PARTIAL` for missing sources, `FAILED` for invalid timestamps, `HUMAN_REVIEW` for contradictory provenance.
 
