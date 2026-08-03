@@ -1,0 +1,131 @@
+{
+  "benchmark_version": 1,
+  "scope": "deterministic_baseline_only",
+  "case_count": 10,
+  "defect_count": 8,
+  "metrics": {
+    "true_positive": 8,
+    "false_positive": 0,
+    "false_negative": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "clean_package_false_block_rate": 0.0,
+    "mean_duration_ms": 1.946,
+    "p95_duration_ms": 2.06,
+    "llm_calls": 0
+  },
+  "cases": [
+    {
+      "package_id": "BENCH-001",
+      "clean_package": false,
+      "expected": [
+        "integer_overflow"
+      ],
+      "observed": [
+        "integer_overflow"
+      ],
+      "matched": true,
+      "duration_ms": 2.709
+    },
+    {
+      "package_id": "BENCH-002",
+      "clean_package": false,
+      "expected": [
+        "integer_overflow"
+      ],
+      "observed": [
+        "integer_overflow"
+      ],
+      "matched": true,
+      "duration_ms": 2.044
+    },
+    {
+      "package_id": "BENCH-003",
+      "clean_package": false,
+      "expected": [
+        "statement_validator_mismatch"
+      ],
+      "observed": [
+        "statement_validator_mismatch"
+      ],
+      "matched": true,
+      "duration_ms": 1.854
+    },
+    {
+      "package_id": "BENCH-004",
+      "clean_package": false,
+      "expected": [
+        "statement_validator_mismatch"
+      ],
+      "observed": [
+        "statement_validator_mismatch"
+      ],
+      "matched": true,
+      "duration_ms": 1.74
+    },
+    {
+      "package_id": "BENCH-005",
+      "clean_package": false,
+      "expected": [
+        "missing_negative_cases"
+      ],
+      "observed": [
+        "missing_negative_cases"
+      ],
+      "matched": true,
+      "duration_ms": 2.06
+    },
+    {
+      "package_id": "BENCH-006",
+      "clean_package": false,
+      "expected": [
+        "missing_negative_cases"
+      ],
+      "observed": [
+        "missing_negative_cases"
+      ],
+      "matched": true,
+      "duration_ms": 1.972
+    },
+    {
+      "package_id": "BENCH-007",
+      "clean_package": false,
+      "expected": [
+        "checker_trailing_output"
+      ],
+      "observed": [
+        "checker_trailing_output"
+      ],
+      "matched": true,
+      "duration_ms": 1.901
+    },
+    {
+      "package_id": "BENCH-008",
+      "clean_package": false,
+      "expected": [
+        "checker_trailing_output"
+      ],
+      "observed": [
+        "checker_trailing_output"
+      ],
+      "matched": true,
+      "duration_ms": 1.736
+    },
+    {
+      "package_id": "BENCH-009",
+      "clean_package": true,
+      "expected": [],
+      "observed": [],
+      "matched": true,
+      "duration_ms": 1.6
+    },
+    {
+      "package_id": "BENCH-010",
+      "clean_package": true,
+      "expected": [],
+      "observed": [],
+      "matched": true,
+      "duration_ms": 1.849
+    }
+  ]
+}

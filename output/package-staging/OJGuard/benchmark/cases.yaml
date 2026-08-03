@@ -1,0 +1,72 @@
+version: 1
+cases:
+  - package_id: BENCH-001
+    title: Extreme subarray overflow A
+    defects: [integer_overflow]
+    value_min: -1000000000
+    value_max: 1000000000
+    theoretical_max: 200000000000000
+    reference_uses_int: true
+    test_has_negative: true
+  - package_id: BENCH-002
+    title: Extreme subarray overflow B
+    defects: [integer_overflow]
+    value_min: -500000000
+    value_max: 500000000
+    theoretical_max: 50000000000000
+    reference_uses_int: true
+    test_has_negative: true
+  - package_id: BENCH-003
+    title: Validator upper bound mismatch
+    defects: [statement_validator_mismatch]
+    value_min: -1000000000
+    value_max: 1000000000
+    validator_limit: 1000000
+    test_has_negative: true
+  - package_id: BENCH-004
+    title: Validator narrow signed range
+    defects: [statement_validator_mismatch]
+    value_min: -100000
+    value_max: 100000
+    validator_limit: 99999
+    test_has_negative: true
+  - package_id: BENCH-005
+    title: Missing negative counterexample A
+    defects: [missing_negative_cases]
+    value_min: -1000
+    value_max: 1000
+    test_has_negative: false
+  - package_id: BENCH-006
+    title: Missing negative counterexample B
+    defects: [missing_negative_cases]
+    value_min: -1000000
+    value_max: 1000000
+    test_has_negative: false
+  - package_id: BENCH-007
+    title: Checker accepts trailing tokens A
+    defects: [checker_trailing_output]
+    value_min: -1000
+    value_max: 1000
+    checker_checks_eof: false
+    test_has_negative: true
+  - package_id: BENCH-008
+    title: Checker accepts trailing tokens B
+    defects: [checker_trailing_output]
+    value_min: -1000000
+    value_max: 1000000
+    checker_checks_eof: false
+    test_has_negative: true
+  - package_id: BENCH-009
+    title: Clean nonnegative package
+    defects: []
+    clean_package: true
+    value_min: 0
+    value_max: 1000000
+    test_has_negative: false
+  - package_id: BENCH-010
+    title: Clean signed package
+    defects: []
+    clean_package: true
+    value_min: -1000000
+    value_max: 1000000
+    test_has_negative: true
