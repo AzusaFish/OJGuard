@@ -1,0 +1,251 @@
+{
+  "incident_id": "INC-A9B8F1ECD8",
+  "title": "评测节点退化导致运行错误集中",
+  "incident_type": "node_degradation",
+  "severity": "SEV2",
+  "stage": "RESOLVED",
+  "generated_at": "2026-08-02T15:30:37.683974Z",
+  "root_cause": "judge-node-03 资源退化导致运行错误",
+  "impact": {
+    "candidate_count": 118,
+    "submission_count": 119,
+    "projected_score_change_count": 118,
+    "projected_advancement_change_count": 14,
+    "problems": [
+      "NODE-PROB-1",
+      "NODE-PROB-2"
+    ],
+    "languages": [
+      "cpp",
+      "java",
+      "python"
+    ]
+  },
+  "remediation": [
+    "隔离退化评测节点",
+    "控制组、灰度组、全量组分批重评"
+  ],
+  "approvals": [
+    {
+      "action": "APPROVE_REMEDIATION",
+      "level": "L2",
+      "decision": "APPROVED",
+      "role_context": "technical_approver",
+      "actor": "single-team-demo-operator",
+      "reason": "确定性演示审批"
+    },
+    {
+      "action": "RUN_CANARY_REJUDGE",
+      "level": "L2",
+      "decision": "APPROVED",
+      "role_context": "technical_approver",
+      "actor": "single-team-demo-operator",
+      "reason": "确定性演示审批"
+    },
+    {
+      "action": "RUN_BULK_REJUDGE",
+      "level": "L3",
+      "decision": "APPROVED",
+      "role_context": "business_approver",
+      "actor": "single-team-demo-operator",
+      "reason": "控制组与灰度批次均通过"
+    },
+    {
+      "action": "CLOSE_INCIDENT",
+      "level": "L3",
+      "decision": "APPROVED",
+      "role_context": "business_approver",
+      "actor": "single-team-demo-operator",
+      "reason": "闭环验证通过"
+    }
+  ],
+  "rejudge": {
+    "batch_count": 3,
+    "planned_count": 119,
+    "completed_count": 119,
+    "coverage_rate": 1.0,
+    "complete": true
+  },
+  "verification": {
+    "id": "VERIFY-9061B51818",
+    "incident_id": "INC-A9B8F1ECD8",
+    "status": "RESOLVED",
+    "checks": {
+      "all_batches_completed": true,
+      "impact_scope_covered": true,
+      "no_cross_scope_rejudge": true,
+      "no_duplicate_rejudge": true,
+      "score_changes_recalculated": true
+    },
+    "coverage_rate": 1.0,
+    "duplicate_rejudge_count": 0,
+    "missing_rejudge_count": 0,
+    "cross_scope_regression_count": 0,
+    "summary": "影响集合已完整、无重复且无越界地完成可信重评，成绩与晋级变化已重算。",
+    "evidence_ids": [],
+    "created_at": "2026-08-02T15:30:37.606835Z"
+  },
+  "score_change_samples": [
+    {
+      "candidate_id": "NODE-CAND-00009",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 1289,
+      "after_rank": 9,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "NODE-CAND-00018",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 1291,
+      "after_rank": 17,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "NODE-CAND-00021",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 1293,
+      "after_rank": 19,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "NODE-CAND-00026",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 1294,
+      "after_rank": 24,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "NODE-CAND-00043",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 1295,
+      "after_rank": 41,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "NODE-CAND-00045",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 1296,
+      "after_rank": 43,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "NODE-CAND-00046",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 1297,
+      "after_rank": 44,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "NODE-CAND-00047",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 1298,
+      "after_rank": 45,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "NODE-CAND-00049",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 1299,
+      "after_rank": 47,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "NODE-CAND-00056",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 1300,
+      "after_rank": 54,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "NODE-CAND-00086",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 1307,
+      "after_rank": 78,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "NODE-CAND-00087",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 1308,
+      "after_rank": 79,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "NODE-CAND-00116",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 1309,
+      "after_rank": 108,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "NODE-CAND-00121",
+      "before_score": 0.0,
+      "after_score": 50.0,
+      "before_rank": 1492,
+      "after_rank": 1410,
+      "advancement_changed": false
+    },
+    {
+      "candidate_id": "NODE-CAND-00136",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 1310,
+      "after_rank": 127,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "NODE-CAND-00186",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 1315,
+      "after_rank": 173,
+      "advancement_changed": false
+    },
+    {
+      "candidate_id": "NODE-CAND-00213",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 1318,
+      "after_rank": 198,
+      "advancement_changed": false
+    },
+    {
+      "candidate_id": "NODE-CAND-00214",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 1319,
+      "after_rank": 199,
+      "advancement_changed": false
+    },
+    {
+      "candidate_id": "NODE-CAND-00238",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 1323,
+      "after_rank": 220,
+      "advancement_changed": false
+    },
+    {
+      "candidate_id": "NODE-CAND-00243",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 1324,
+      "after_rank": 225,
+      "advancement_changed": false
+    }
+  ],
+  "operation_note": "本演示由单人团队操作；技术审批与业务审批是可审计的角色上下文切换，不代表真实多人组织签批。"
+}

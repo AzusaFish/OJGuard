@@ -1,0 +1,248 @@
+{
+  "incident_id": "INC-EA737B287A",
+  "title": "Checker 缺陷导致判定结果漂移",
+  "incident_type": "checker_defect",
+  "severity": "SEV2",
+  "stage": "RESOLVED",
+  "generated_at": "2026-08-02T15:30:39.016883Z",
+  "root_cause": "Checker 新版本违反输出契约",
+  "impact": {
+    "candidate_count": 71,
+    "submission_count": 73,
+    "projected_score_change_count": 71,
+    "projected_advancement_change_count": 8,
+    "problems": [
+      "P-CHECKER-001"
+    ],
+    "languages": [
+      "cpp"
+    ]
+  },
+  "remediation": [
+    "冻结问题并切换 Checker 副本",
+    "控制组、灰度组、全量组分批重评"
+  ],
+  "approvals": [
+    {
+      "action": "APPROVE_REMEDIATION",
+      "level": "L2",
+      "decision": "APPROVED",
+      "role_context": "technical_approver",
+      "actor": "single-team-demo-operator",
+      "reason": "确定性演示审批"
+    },
+    {
+      "action": "RUN_CANARY_REJUDGE",
+      "level": "L2",
+      "decision": "APPROVED",
+      "role_context": "technical_approver",
+      "actor": "single-team-demo-operator",
+      "reason": "确定性演示审批"
+    },
+    {
+      "action": "RUN_BULK_REJUDGE",
+      "level": "L3",
+      "decision": "APPROVED",
+      "role_context": "business_approver",
+      "actor": "single-team-demo-operator",
+      "reason": "控制组与灰度批次均通过"
+    },
+    {
+      "action": "CLOSE_INCIDENT",
+      "level": "L3",
+      "decision": "APPROVED",
+      "role_context": "business_approver",
+      "actor": "single-team-demo-operator",
+      "reason": "闭环验证通过"
+    }
+  ],
+  "rejudge": {
+    "batch_count": 3,
+    "planned_count": 73,
+    "completed_count": 73,
+    "coverage_rate": 1.0,
+    "complete": true
+  },
+  "verification": {
+    "id": "VERIFY-C4C3DD1E15",
+    "incident_id": "INC-EA737B287A",
+    "status": "RESOLVED",
+    "checks": {
+      "all_batches_completed": true,
+      "impact_scope_covered": true,
+      "no_cross_scope_rejudge": true,
+      "no_duplicate_rejudge": true,
+      "score_changes_recalculated": true
+    },
+    "coverage_rate": 1.0,
+    "duplicate_rejudge_count": 0,
+    "missing_rejudge_count": 0,
+    "cross_scope_regression_count": 0,
+    "summary": "影响集合已完整、无重复且无越界地完成可信重评，成绩与晋级变化已重算。",
+    "evidence_ids": [],
+    "created_at": "2026-08-02T15:30:38.938325Z"
+  },
+  "score_change_samples": [
+    {
+      "candidate_id": "CHECK-CAND-00011",
+      "before_score": 0.0,
+      "after_score": 50.0,
+      "before_rank": 728,
+      "after_rank": 430,
+      "advancement_changed": false
+    },
+    {
+      "candidate_id": "CHECK-CAND-00012",
+      "before_score": 0.0,
+      "after_score": 50.0,
+      "before_rank": 729,
+      "after_rank": 431,
+      "advancement_changed": false
+    },
+    {
+      "candidate_id": "CHECK-CAND-00025",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 410,
+      "after_rank": 13,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "CHECK-CAND-00059",
+      "before_score": 0.0,
+      "after_score": 50.0,
+      "before_rank": 736,
+      "after_rank": 451,
+      "advancement_changed": false
+    },
+    {
+      "candidate_id": "CHECK-CAND-00062",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 427,
+      "after_rank": 28,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "CHECK-CAND-00068",
+      "before_score": 0.0,
+      "after_score": 100.0,
+      "before_rank": 739,
+      "after_rank": 30,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "CHECK-CAND-00090",
+      "before_score": 0.0,
+      "after_score": 50.0,
+      "before_rank": 741,
+      "after_rank": 465,
+      "advancement_changed": false
+    },
+    {
+      "candidate_id": "CHECK-CAND-00093",
+      "before_score": 0.0,
+      "after_score": 50.0,
+      "before_rank": 743,
+      "after_rank": 466,
+      "advancement_changed": false
+    },
+    {
+      "candidate_id": "CHECK-CAND-00103",
+      "before_score": 0.0,
+      "after_score": 50.0,
+      "before_rank": 744,
+      "after_rank": 472,
+      "advancement_changed": false
+    },
+    {
+      "candidate_id": "CHECK-CAND-00118",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 453,
+      "after_rank": 53,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "CHECK-CAND-00127",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 459,
+      "after_rank": 57,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "CHECK-CAND-00129",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 461,
+      "after_rank": 58,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "CHECK-CAND-00153",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 470,
+      "after_rank": 72,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "CHECK-CAND-00163",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 473,
+      "after_rank": 80,
+      "advancement_changed": true
+    },
+    {
+      "candidate_id": "CHECK-CAND-00175",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 478,
+      "after_rank": 86,
+      "advancement_changed": false
+    },
+    {
+      "candidate_id": "CHECK-CAND-00178",
+      "before_score": 0.0,
+      "after_score": 50.0,
+      "before_rank": 750,
+      "after_rank": 500,
+      "advancement_changed": false
+    },
+    {
+      "candidate_id": "CHECK-CAND-00185",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 481,
+      "after_rank": 92,
+      "advancement_changed": false
+    },
+    {
+      "candidate_id": "CHECK-CAND-00189",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 482,
+      "after_rank": 95,
+      "advancement_changed": false
+    },
+    {
+      "candidate_id": "CHECK-CAND-00191",
+      "before_score": 50.0,
+      "after_score": 100.0,
+      "before_rank": 484,
+      "after_rank": 96,
+      "advancement_changed": false
+    },
+    {
+      "candidate_id": "CHECK-CAND-00195",
+      "before_score": 100.0,
+      "after_score": 50.0,
+      "before_rank": 86,
+      "after_rank": 506,
+      "advancement_changed": false
+    }
+  ],
+  "operation_note": "本演示由单人团队操作；技术审批与业务审批是可审计的角色上下文切换，不代表真实多人组织签批。"
+}

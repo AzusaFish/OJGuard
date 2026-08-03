@@ -1,0 +1,7 @@
+interface:
+  display_name: Generate Remediation Plan
+  short_description: Plan controlled remediation and its human gates
+  default_prompt: Use $generate-remediation-plan to create a safe, reversible incident plan without executing it.
+dependencies:
+  tools:
+    - {type: mcp, value: ojguard, description: OJGuard remediation and approval status tools, transport: streamable_http, url: "http://ojguard-mcp:8020/mcp"}

@@ -1,0 +1,25 @@
+Source deck
+output/submission/OJGuard_项目介绍.pptx, 17 slides, 1280 × 720.
+
+Structure and reusable patterns
+- Slide 1: dark navy cover with four inherited text slots.
+- Slides 6/8/10/12: chapter divider layouts; slides 8/10/12 include inherited contest-score callouts.
+- Slides 2/15: six-card summary layout with 20 editable text slots plus page marker.
+- Slides 5/7/9/11/13/17: content layouts with inherited title, claim line, and image frames.
+- The current deck already preserves the official template masters, layouts, typography and decorative chrome.
+
+Typography and spacing
+- Keep all inherited font families, sizes, line spacing, text insets and alignment.
+- Keep the existing 62 px main left margin, orange eyebrow labels, navy/orange/blue/green palette and bottom-right page marker.
+- New copy is shortened to fit inherited slots. No font shrinking or parallel overlay design is allowed.
+
+Insertion contract
+- Build all 23 output slides by duplicating a mapped source slide.
+- Rewrite only the inherited text objects declared in template-frame-map.json.
+- Preserve inherited images unless the map explicitly says replace; this expansion does not add new programmatic visuals.
+- Every output page receives a deliberate page number and a [Sources] speaker-note block.
+
+Inherited placeholders
+- Source inspection found no unresolved visible prompt text in the final source deck.
+- Page-number text boxes are rewritten for the new sequence.
+- Masters/layouts are preserved without global mutation.

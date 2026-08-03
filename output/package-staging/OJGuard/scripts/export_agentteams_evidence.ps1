@@ -24,8 +24,14 @@ if (-not $result.completed -or $result.orchestration_mode -ne "live_dynamic_rout
 if ([int]$result.distinct_worker_count -ne 6 -or [int]$result.worker_response_count -lt 6) {
     throw "Evidence must contain responses from all six specialist Workers."
 }
-if ($result.leader_final.body -notmatch "OJGUARD_DEMO_COMPLETE") {
+if ([regex]::Matches([string]$result.leader_final.body, "OJGUARD_DEMO_COMPLETE").Count -ne 1) {
     throw "Evidence is missing the verified final marker."
+}
+if (-not ([string]$result.leader_final.body).Contains([string]$result.incident_id)) {
+    throw "Final report is not bound to the evidence incident_id."
+}
+if ([regex]::Matches([string]$result.leader_final.body, "FINAL_REPORT").Count -ne 1) {
+    throw "Final report contains duplicated streaming fragments."
 }
 if ($raw -match '(?i)(access[_-]?token|api[_-]?key|password)\s*[=:]\s*["''][^"'']+') {
     throw "Evidence appears to contain a secret-like value and will not be exported."

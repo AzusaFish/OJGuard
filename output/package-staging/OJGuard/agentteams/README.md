@@ -34,9 +34,11 @@ kubectl --kubeconfig .runtime/agentteams-kubeconfig -n agentteams-system get wor
 kubectl --kubeconfig .runtime/agentteams-kubeconfig -n agentteams-system get team ojguard-incident-team
 ```
 
-## 受控协作演示
+## 前端主流程与受控协作
 
-直接启动一次有预算上限的在线协作演示：
+Vue 事故列表通过 `POST /api/v1/agent-runs` 创建干净的 `TRIAGING` 事故与 `AgentRun`；事故工作台检查运行环境后，通过 `/agent-runs/{run_id}/launch` 启动本脚本。前端不会调用 `prepare_demo()`，也不会直接执行实验、影响计算、重评或验证。
+
+也可以直接启动一次有预算上限的在线协作：
 
 ```powershell
 .\scripts\run_agentteams_demo.ps1 -TaskId OJGUARD-LIVE-LOCAL -IncidentType runtime_regression
@@ -49,12 +51,14 @@ kubectl --kubeconfig .runtime/agentteams-kubeconfig -n agentteams-system get tea
 3. 被选中的 Worker 调用一个白名单 MCP 工具，将结果与状态变化写回共享上下文；
 4. 调度器重新读取状态并验证预期转换；实验不充分时仍停留在 `INVESTIGATING` 并返回剩余候选，而不是强行确认根因；
 5. 灰度失败时进入 `PAUSED`，Remediation Planner 生成新版本计划并撤销旧技术审批；重新审批后只执行恢复灰度；
-6. 技术审批、业务审批和关闭审批由宿主侧人类角色上下文记录，Agent 无审批工具；
+6. 技术审批、业务审批和关闭审批由宿主侧人类角色上下文记录，Agent 无审批工具；脚本默认暂停等待前端批准或拒绝；
 7. 六个专业 Worker 全部留下过程证据，最终 TeamLeader 才生成事故报告。
 
 完整主链为：`TRIAGING → INVESTIGATING → IMPACT_ASSESSING → REMEDIATION_PLANNING → APPROVAL_PENDING → EXECUTING → REJUDGING → VERIFYING → RESOLVED`。根因阶段会持久化竞争假设与“节点 × 运行时镜像”对照实验；重评、影响计算和一致性验证仍由确定性后端执行。
 
-脱敏的路由决策、状态轨迹、Worker 响应和最终报告写入 `.runtime/agentteams-demo-result.json`；同一过程还写入 SQLite 的 `AgentRun` / `AgentRunEvent`，可通过 `/api/v1/agent-runs/{run_id}`、`/events` 和 `/stream` 查询或订阅。默认成功主链最多接受 20 条 LLM 响应；安装探测与心跳不调用模型。该演示会消耗 DeepSeek 预算，只在最终验收或录制时运行一次。
+脱敏的路由决策、状态轨迹、Worker 响应和最终报告写入 `.runtime/agentteams-demo-result.json`；同一过程还写入 SQLite 的 `AgentRun` / `AgentRunEvent`，可通过 `/api/v1/agent-runs/{run_id}`、`/events` 和 `/stream` 查询或订阅。默认成功主链最多接受 20 条 LLM 响应；安装探测与心跳不调用模型。真实协作会消耗 DeepSeek 预算，只在最终验收时运行一次。
+
+`-AutoApprove` 仅用于隔离的脚本回归，不得用于正式前端主流程或评审证据。失败运行可以通过前端“恢复 AgentTeams”或脚本 `-Resume` 从持久化 `IncidentContext` 和事件序列继续。
 
 不调用 DeepSeek 即可验证多候选选择和失败恢复：
 

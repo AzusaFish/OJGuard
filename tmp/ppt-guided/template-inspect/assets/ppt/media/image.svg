@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+    <rect width="100%" height="100%" rx="24" fill="#F7F9FC"/>
+    <style>
+      text{font-family:'Microsoft YaHei','Noto Sans CJK SC',sans-serif;fill:#1B1F3B}
+      .h{font-size:32px;font-weight:700}.t{font-size:22px;font-weight:600}.b{font-size:19px}.s{font-size:16px;fill:#526074}
+      .card{fill:#FFFFFF;stroke:#D8E0EC;stroke-width:2}.navy{fill:#0B1F3A}.orange{fill:#FF6B35}.green{fill:#0AA37F}.blue{fill:#2F6BFF}.purple{fill:#8A4FFF}
+      .white{fill:#FFFFFF}.muted{fill:#526074}.line{stroke:#C9D5E5;stroke-width:4;fill:none}.dash{stroke-dasharray:10 8}
+    </style>
+    <text x="56" y="68" style="font-family:Microsoft YaHei,sans-serif;fill:#1B1F3B;font-size:32px;font-weight:700">一次运行时回归，污染的不只是判题</text>
+    <text x="56" y="102" style="font-family:Microsoft YaHei,sans-serif;fill:#526074;font-size:16px">固定种子 20260802 · Java 运行时对照实验</text>
+    <rect x="56" y="146" width="250" height="178" rx="18" fill="#FFFFFF" stroke="#D8E0EC" stroke-width="2"/><text x="82" y="194" style="font-family:Microsoft YaHei,sans-serif;fill:#1B1F3B;font-size:22px;font-weight:600">参赛规模</text><text x="82" y="260" style="font-family:Microsoft YaHei,sans-serif;fill:#1B1F3B;font-size:32px;font-weight:700">5,000</text><text x="82" y="294" style="font-family:Microsoft YaHei,sans-serif;fill:#526074;font-size:16px">20,000 次提交</text>
+    <rect x="330" y="146" width="250" height="178" rx="18" fill="#FFFFFF" stroke="#D8E0EC" stroke-width="2"/><text x="356" y="194" style="font-family:Microsoft YaHei,sans-serif;fill:#1B1F3B;font-size:22px;font-weight:600">影响范围</text><text x="356" y="260" style="font-family:Microsoft YaHei,sans-serif;fill:#1B1F3B;font-size:32px;font-weight:700">703 / 742</text><text x="356" y="294" style="font-family:Microsoft YaHei,sans-serif;fill:#526074;font-size:16px">候选人 / 受影响提交</text>
+    <rect x="56" y="350" width="250" height="178" rx="18" fill="#FFFFFF" stroke="#D8E0EC" stroke-width="2"/><text x="82" y="398" style="font-family:Microsoft YaHei,sans-serif;fill:#1B1F3B;font-size:22px;font-weight:600">成绩变化</text><text x="82" y="464" style="font-family:Microsoft YaHei,sans-serif;fill:#1B1F3B;font-size:32px;font-weight:700">703</text><text x="82" y="498" style="font-family:Microsoft YaHei,sans-serif;fill:#526074;font-size:16px">预计晋级变化 72</text>
+    <rect x="330" y="350" width="250" height="178" rx="18" fill="#FFFFFF" stroke="#D8E0EC" stroke-width="2"/><text x="356" y="398" style="font-family:Microsoft YaHei,sans-serif;fill:#1B1F3B;font-size:22px;font-weight:600">可信核验</text><text x="356" y="464" style="font-family:Microsoft YaHei,sans-serif;fill:#1B1F3B;font-size:32px;font-weight:700">100%</text><text x="356" y="498" style="font-family:Microsoft YaHei,sans-serif;fill:#526074;font-size:16px">重/漏/越界均为 0</text>
+    <path d="M650 165 H1135" stroke="#C9D5E5" stroke-width="4" fill="none"/><circle cx="695" cy="165" r="17" fill="#FF6B35"/><circle cx="835" cy="165" r="17" fill="#2F6BFF"/><circle cx="975" cy="165" r="17" fill="#8A4FFF"/><circle cx="1115" cy="165" r="17" fill="#0AA37F"/>
+    <text x="650" y="225" style="font-family:Microsoft YaHei,sans-serif;fill:#1B1F3B;font-size:22px;font-weight:600">信号</text><text x="790" y="225" style="font-family:Microsoft YaHei,sans-serif;fill:#1B1F3B;font-size:22px;font-weight:600">定界</text><text x="930" y="225" style="font-family:Microsoft YaHei,sans-serif;fill:#1B1F3B;font-size:22px;font-weight:600">审批</text><text x="1070" y="225" style="font-family:Microsoft YaHei,sans-serif;fill:#1B1F3B;font-size:22px;font-weight:600">重评</text>
+    <rect x="650" y="290" width="485" height="238" rx="22" fill="#0B1F3A"/>
+    <text x="684" y="340" style="font-family:Microsoft YaHei,sans-serif;fill:#FFFFFF;font-size:22px;font-weight:600">核心价值</text>
+    <text x="684" y="390" style="font-family:Microsoft YaHei,sans-serif;fill:#FFFFFF;font-size:19px">• 把主观排查变成可复核证据链</text>
+    <text x="684" y="430" style="font-family:Microsoft YaHei,sans-serif;fill:#FFFFFF;font-size:19px">• 只重评受影响提交，并保证幂等</text>
+    <text x="684" y="470" style="font-family:Microsoft YaHei,sans-serif;fill:#FFFFFF;font-size:19px">• 关闭前强制校验覆盖率与边界</text></svg>

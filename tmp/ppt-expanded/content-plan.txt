@@ -1,0 +1,41 @@
+Communication job
+By the end, Agent Infra judges should understand that OJGuard is a runnable, evidence-driven multi-Agent incident response system for online judging, and that its dynamic routing, controlled recovery, reusable Skills/MCP contracts, and verifiable execution distinguish it from a single chatbot or post-hoc report generator.
+
+Narrative arc
+1. Establish the operational risk and measurable blast radius.
+2. Explain why a deterministic script or one Agent is insufficient for ambiguous incidents.
+3. Show the shared state machine, multi-Agent decision rights, dynamic experiment selection, and recovery loop.
+4. Show reusable Skill/MCP contracts, observability, governance, and implementation stack.
+5. Separate real AgentTeams evidence from zero-cost deterministic recovery evidence.
+6. Map the implementation to contest requirements and close with a concrete demo route.
+
+Target audience
+Agent Infra competition judges evaluating scenario value, genuine multi-Agent collaboration, Skill engineering, implementation quality, observability, and open reuse.
+
+Visual direction
+Retain the existing contest-template visual language, masters, typography, colors, and inherited content frames. Reuse the current OJGuard deck as the visual source and duplicate its strongest layouts. Expand the narrative without introducing an unrelated theme.
+
+Planned output: 23 slides
+01 Cover
+02 Executive thesis
+03 Incident stakes
+04 Why ordinary response fails
+05 Solution section
+06 End-to-end architecture
+07 Shared incident state machine
+08 Why multiple Agents are necessary
+09 Agent identities and decision rights
+10 Dynamic experiment routing
+11 Inconclusive evidence and re-routing
+12 Canary failure and recovery plan
+13 AgentRun / AgentRunEvent observability
+14 Skill engineering
+15 MCP tool contracts
+16 Context enhancement and RAG boundary
+17 Engineering implementation and deployment
+18 Governance and safe execution
+19 Real AgentTeams run evidence
+20 Deterministic recovery evidence
+21 Generalization and competitive differentiation
+22 Demo path and submission readiness
+23 Closing synthesis

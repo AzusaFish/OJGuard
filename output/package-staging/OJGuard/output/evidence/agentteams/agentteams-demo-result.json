@@ -1,6 +1,7 @@
 ﻿{
-    "task_id":  "OJGUARD-LIVE-FINAL-20260803",
-    "incident_id":  "INC-33E802A300",
+    "task_id":  "OJGUARD-FINAL-ACCEPT-20260803-B",
+    "incident_id":  "INC-D4B166F492",
+    "agent_run_id":  "ARUN-EF5F1CF60AF7",
     "completed":  true,
     "orchestration_mode":  "live_dynamic_routing",
     "posthoc_review":  false,
@@ -22,11 +23,11 @@
     "worker_response_count":  8,
     "leader_decision_count":  11,
     "llm_response_count":  20,
-    "max_llm_responses":  20,
+    "max_llm_responses":  40,
     "model":  "deepseek-chat",
     "budget_contract":  "At most 20 responses in one live run; deterministic tools remain authoritative.",
-    "started_at_utc":  "2026-08-02T17:30:20.2280000Z",
-    "completed_at_utc":  "2026-08-03T04:30:07.9900086Z",
+    "started_at_utc":  "2026-08-03T09:32:00.2360000Z",
+    "completed_at_utc":  "2026-08-03T10:16:53.9821631Z",
     "stage_history":  [
                           {
                               "before_stage":  "TRIAGING",
@@ -34,8 +35,8 @@
                               "worker":  "ojguard-signal-aggregator",
                               "tool":  "incident.triage_signals",
                               "after_stage":  "INVESTIGATING",
-                              "worker_event_id":  "$C4mR89QIuK0KHnakxgjskStBJsEda6slXFnhXE6eR8M",
-                              "timestamp_ms":  1785691820228,
+                              "worker_event_id":  "$y_VgyuqsJX0dAli4S4-VYKLGt7SFbbBD694tnFHPSlE",
+                              "timestamp_ms":  1785749520236,
                               "recovered_after_transport_error":  true
                           },
                           {
@@ -44,18 +45,18 @@
                               "worker":  "ojguard-root-cause-analyst",
                               "tool":  "judge.replay_submission",
                               "after_stage":  "INVESTIGATING",
-                              "worker_event_id":  "$BmwSg0yaLExaf5kl3EqTIIVTT4TPraqi04DmZbByUwM",
-                              "timestamp_ms":  1785730731578,
+                              "worker_event_id":  "$kUgVlOQEs5Chm5Ng0nR9wCMvjuXdYzUJWI8Q2QC_7ig",
+                              "timestamp_ms":  1785749656277,
                               "recovered_after_transport_error":  true
                           },
                           {
                               "before_stage":  "INVESTIGATING",
-                              "action":  "experiment",
+                              "action":  "experiment_two_dimensional",
                               "worker":  "ojguard-root-cause-analyst",
                               "tool":  "judge.replay_submission",
                               "after_stage":  "IMPACT_ASSESSING",
-                              "worker_event_id":  "$IVEWkjL6jG4sqzyQP4iEn10Kbnk5D8D-7ynolCQvFV8",
-                              "timestamp_ms":  1785730751582,
+                              "worker_event_id":  "$Xo0owiH5MTd8PZ3qD1dNrm4mk2aNWEc-G1jydeIsbpU",
+                              "timestamp_ms":  1785749676260,
                               "recovered_after_transport_error":  true
                           },
                           {
@@ -64,8 +65,8 @@
                               "worker":  "ojguard-impact-analyst",
                               "tool":  "impact.calculate_scope",
                               "after_stage":  "REMEDIATION_PLANNING",
-                              "worker_event_id":  "$NuGVrosOrzJ8z4KzSVKekgXEPIVdcfqP87ejkNVciSA",
-                              "timestamp_ms":  1785730761238,
+                              "worker_event_id":  "$JGmI-aLkpzHxXfYzUjEu2bfZKmwuuSIXSEA4IUmkV4E",
+                              "timestamp_ms":  1785749686586,
                               "recovered_after_transport_error":  true
                           },
                           {
@@ -74,19 +75,19 @@
                               "worker":  "ojguard-remediation-planner",
                               "tool":  "rejudge.create_plan",
                               "after_stage":  "APPROVAL_PENDING",
-                              "worker_event_id":  "$zWzZmm44C-QOnPGxcmxCspiTmM1_qfoKNjckIdJeXTw",
-                              "timestamp_ms":  1785730789287,
+                              "worker_event_id":  "$zpThnlYzEJwgaZcqRSwFFsHiB1kSSmgebvu9-ZxVG8I",
+                              "timestamp_ms":  1785749701974,
                               "recovered_after_transport_error":  true
                           },
                           {
                               "before_stage":  "APPROVAL_PENDING",
                               "action":  "request_technical_approval",
-                              "actor":  "demo-operator",
+                              "actor":  "AzusaFish",
                               "actor_type":  "human_role_context",
                               "after_stage":  "APPROVAL_PENDING",
-                              "leader_event_id":  "$cFw6OWvhj81TQXHcMCc5J9sX0NsYn13wy3EuYTEDgQE",
-                              "timestamp_ms":  1785730794793,
-                              "recovered_after_transport_error":  true
+                              "leader_event_id":  "$setHi24Kq0rOGh1XUWzWxIVJ7KGeOyiaXrKq_6Lt0Do",
+                              "timestamp_ms":  1785750564169,
+                              "recovered_from_persisted_run":  true
                           },
                           {
                               "before_stage":  "APPROVAL_PENDING",
@@ -94,19 +95,19 @@
                               "worker":  "ojguard-rejudge-executor",
                               "tool":  "rejudge.execute_batch",
                               "after_stage":  "EXECUTING",
-                              "worker_event_id":  "$rD6Vouc6jWb4V0wLjndarx3q0lo7jC1MXD97UvUetH0",
-                              "timestamp_ms":  1785730814562,
+                              "worker_event_id":  "$P8PdmMrFGCbxUztN-QAHCVsw352KB_1oq1HtdYFu6WQ",
+                              "timestamp_ms":  1785750707388,
                               "recovered_after_transport_error":  true
                           },
                           {
                               "before_stage":  "EXECUTING",
                               "action":  "request_business_approval",
-                              "actor":  "demo-operator",
+                              "actor":  "AzusaFish",
                               "actor_type":  "human_role_context",
                               "after_stage":  "EXECUTING",
-                              "leader_event_id":  "$mZoiOilEldakHdvH167dHzZ3NBedic3DMk-7Floe4bc",
-                              "timestamp_ms":  1785730816733,
-                              "recovered_after_transport_error":  true
+                              "leader_event_id":  "$d6cWd6Itwlw4SraYDoRND0c91dpEcQnvpTG5bHUTkEk",
+                              "timestamp_ms":  1785750713728,
+                              "recovered_from_persisted_run":  true
                           },
                           {
                               "before_stage":  "EXECUTING",
@@ -114,8 +115,8 @@
                               "worker":  "ojguard-rejudge-executor",
                               "tool":  "rejudge.execute_batch",
                               "after_stage":  "REJUDGING",
-                              "worker_event_id":  "$9Mnw5K_c0PUrdnju6EVw7N_VApzWZ9oKCjabbYR1swc",
-                              "timestamp_ms":  1785730839104,
+                              "worker_event_id":  "$skOfnQYw9sLKL3n-7dmsSrgkWnPEUS-BdM2G1oTEzUA",
+                              "timestamp_ms":  1785750785527,
                               "recovered_after_transport_error":  true
                           },
                           {
@@ -124,19 +125,19 @@
                               "worker":  "ojguard-verification-auditor",
                               "tool":  "verification.verify_incident",
                               "after_stage":  "VERIFYING",
-                              "worker_event_id":  "$L-MafIC1WCTANlsh-G-KSDIHmtVi4DDs99d_uKp2wxc",
-                              "timestamp_ms":  1785730857407,
+                              "worker_event_id":  "$HhhibHptiN6YJtrf8OPtmb4u1bY09SR7ralFZdgqR_Q",
+                              "timestamp_ms":  1785750798103,
                               "recovered_after_transport_error":  true
                           },
                           {
                               "before_stage":  "VERIFYING",
                               "action":  "request_close_approval",
-                              "actor":  "demo-operator",
+                              "actor":  "AzusaFish",
                               "actor_type":  "human_role_context",
                               "after_stage":  "RESOLVED",
-                              "leader_event_id":  "$NDIA4K4Nfq_Q5pDLQnMBBdvqW2RdxSR94gWdJtINPHs",
-                              "timestamp_ms":  1785730863901,
-                              "recovered_after_transport_error":  true
+                              "leader_event_id":  "$tAI31ame7XTEl3M3g0PGC3ka8pE3YrnJwYpZCj0wWRM",
+                              "timestamp_ms":  1785750804846,
+                              "recovered_from_persisted_run":  true
                           }
                       ],
     "leader_decisions":  [
@@ -144,72 +145,141 @@
                                  "stage":  "TRIAGING",
                                  "action":  "triage",
                                  "worker":  "ojguard-signal-aggregator",
-                                 "reason":  "stage=TRIAGING, 22 signals 待聚合对齐，先完成信号分类与时间轴校验。",
-                                 "event_id":  "$U5tG3vgMkbeamjETUq-mgCRxSXUyjJJXNUDd1k1q83c",
-                                 "timestamp_ms":  1785691811544,
+                                 "reason":  "Incident INC-D4B166F492 at TRIAGING with 22 signals; run triage to normalize timeline and scope before hypothesis work.",
+                                 "evidence_refs":  [
+                                                       "SIG-2EB847FFB1",
+                                                       "SIG-849F0DCC7A",
+                                                       "SIG-A22DD3C46D",
+                                                       "SIG-6E6E3ED518",
+                                                       "SIG-EC24378909",
+                                                       "SIG-75BBC9C131",
+                                                       "SIG-A33BDC0E51",
+                                                       "SIG-5DE6E32280",
+                                                       "SIG-451E5037B2",
+                                                       "SIG-34C9BAE24C",
+                                                       "SIG-D4436EFB63",
+                                                       "SIG-C5EEFA9933",
+                                                       "SIG-E54004F524",
+                                                       "SIG-5B71CEF47B",
+                                                       "SIG-58CE636B6A",
+                                                       "SIG-2ACC565F08",
+                                                       "SIG-D0BBEB093C",
+                                                       "SIG-B928E4EF86",
+                                                       "SIG-A41BDD0D41",
+                                                       "SIG-AB437E8607"
+                                                   ],
+                                 "event_id":  "$QP--CfJMEhhydS6FJ7wl_2jN8CZTLSaJjlHaFShEyYo",
+                                 "timestamp_ms":  1785749514313,
                                  "recovered":  true
                              },
                              {
                                  "stage":  "INVESTIGATING",
                                  "action":  "hypothesize",
                                  "worker":  "ojguard-root-cause-analyst",
-                                 "reason":  "Triage complete (22 signals, correlation-only: metric precedes deployment, complaints clustered post-image-change). No root cause yet; generate competing hypotheses before any impact analysis.",
-                                 "event_id":  "$aS1WEQF3qqAg8m2bsaU7JjvQPedmkWGKdr4r-ETuJEY",
-                                 "timestamp_ms":  1785730720864,
+                                 "reason":  "Triage complete (22 signals, correlation-only); generate competing falsifiable hypotheses before any experiment/impact work.",
+                                 "evidence_refs":  [
+                                                       "SIG-2EB847FFB1",
+                                                       "SIG-849F0DCC7A",
+                                                       "SIG-A22DD3C46D",
+                                                       "SIG-6E6E3ED518",
+                                                       "SIG-EC24378909",
+                                                       "SIG-75BBC9C131",
+                                                       "SIG-A33BDC0E51",
+                                                       "SIG-5DE6E32280",
+                                                       "SIG-451E5037B2",
+                                                       "SIG-34C9BAE24C",
+                                                       "SIG-D4436EFB63",
+                                                       "SIG-C5EEFA9933",
+                                                       "SIG-E54004F524",
+                                                       "SIG-5B71CEF47B",
+                                                       "SIG-58CE636B6A",
+                                                       "SIG-2ACC565F08",
+                                                       "SIG-D0BBEB093C",
+                                                       "SIG-B928E4EF86",
+                                                       "SIG-A41BDD0D41",
+                                                       "SIG-AB437E8607"
+                                                   ],
+                                 "event_id":  "$u7h7yzPvermV8KvE4pwKHjJmoaCtZPVwb_i4TTy0n1I",
+                                 "timestamp_ms":  1785749649105,
                                  "recovered":  true
                              },
                              {
                                  "stage":  "INVESTIGATING",
-                                 "action":  "experiment",
+                                 "action":  "experiment_two_dimensional",
                                  "worker":  "ojguard-root-cause-analyst",
-                                 "reason":  "Two competing falsifiable hypotheses formed (runtime_image vs judge_node); run cross_image_and_node_replay controlled experiment to discriminate before any impact analysis.",
-                                 "event_id":  "$I-gwojWyDx3kcaKYg8cAg1wQ-gum4rIWtjXmCHrJWbM",
-                                 "timestamp_ms":  1785730740559,
+                                 "reason":  "Two hypotheses compete (runtime_image vs judge_node); cross_image_and_node_replay is the two-dimensional test that best discriminates between them and is what both hypotheses require.",
+                                 "evidence_refs":  [
+                                                       "HYP-9EC6B30FD5",
+                                                       "HYP-A77B4BFFBA"
+                                                   ],
+                                 "event_id":  "$ZAADGtB3mgBcOZ5qHqYdsfX7sonRvGz0aO9BhIMyI_A",
+                                 "timestamp_ms":  1785749665544,
                                  "recovered":  true
                              },
                              {
                                  "stage":  "IMPACT_ASSESSING",
                                  "action":  "impact",
                                  "worker":  "ojguard-impact-analyst",
-                                 "reason":  "Experiment passed deterministically (3/3 OK vs 3/3 TLE); HYP-84CA326A00 confirmed, judge_node rejected. Proceed to impact assessment before any mitigation/rejudge planning.",
-                                 "event_id":  "$0cN6Ndn5OYajZoze_ohTAyBR-pSoWRmfA4lgwXPrhtA",
-                                 "timestamp_ms":  1785730754673,
+                                 "reason":  "Experiment passed (runtime_image confirmed, judge_node rejected); proceed to impact assessment before remediation planning.",
+                                 "evidence_refs":  [
+                                                       "HYP-9EC6B30FD5",
+                                                       "EXP-601F00F005"
+                                                   ],
+                                 "event_id":  "$ltHseTGmwH6-J2zTh7iJK6QFH9ofaqxPARL9sxP9VnE",
+                                 "timestamp_ms":  1785749681780,
                                  "recovered":  true
                              },
                              {
                                  "stage":  "REMEDIATION_PLANNING",
                                  "action":  "plan",
                                  "worker":  "ojguard-remediation-planner",
-                                 "reason":  "Impact frozen (703 candidates, 742 submissions, 72 advancement changes); proceed to remediation planning before any rejudge/notification execution.",
-                                 "event_id":  "$7nPW4e48aJyjHU_GpVy9rNU8pNkMk3QuVyn3sn21iFI",
-                                 "timestamp_ms":  1785730763606,
+                                 "reason":  "Impact frozen (703 candidates, 742 submissions, 72 advancement changes); create remediation plan before approval gates.",
+                                 "evidence_refs":  [
+                                                       "IMPACT-6A162D5D66"
+                                                   ],
+                                 "event_id":  "$M6rbBT5R62VveE9B3Wlq-yBoRedABznRcRy7xffbPn8",
+                                 "timestamp_ms":  1785749692944,
                                  "recovered":  true
                              },
                              {
                                  "stage":  "APPROVAL_PENDING",
                                  "action":  "request_technical_approval",
                                  "worker":  "HUMAN",
-                                 "reason":  "Plan PLAN-827E5CE4F6 created (4 batches planned, none executed); bulk batches require technical approval before any rejudge execution. Requesting human technical approval.",
-                                 "event_id":  "$cFw6OWvhj81TQXHcMCc5J9sX0NsYn13wy3EuYTEDgQE",
-                                 "timestamp_ms":  1785730794793,
+                                 "reason":  "Plan PLAN-D8C0AFDE33 created (4 batches planned, none executed); bulk batches require technical approval before any rejudge execution.",
+                                 "evidence_refs":  [
+                                                       "PLAN-D8C0AFDE33"
+                                                   ],
+                                 "event_id":  "$setHi24Kq0rOGh1XUWzWxIVJ7KGeOyiaXrKq_6Lt0Do",
+                                 "timestamp_ms":  1785750564169,
                                  "recovered":  true
                              },
                              {
                                  "stage":  "APPROVAL_PENDING",
                                  "action":  "control_canary",
                                  "worker":  "ojguard-rejudge-executor",
-                                 "reason":  "Technical approval granted (execute_plan + run_canary_rejudge). Execute control batch and canary rejudge to validate baseline restoration before any bulk rollout.",
-                                 "event_id":  "$hHZ0ldu5k8oNFRuN7yAA1Vx147sqjaeuLC8lkf2DZBY",
-                                 "timestamp_ms":  1785730802846,
+                                 "reason":  "Technical approval granted (execute_plan + run_canary_rejudge); execute control and canary batches to validate baseline before bulk rollout.",
+                                 "evidence_refs":  [
+                                                       "PLAN-D8C0AFDE33",
+                                                       "APPROVAL-318764D7BB",
+                                                       "APPROVAL-054F547B4A"
+                                                   ],
+                                 "event_id":  "$IPrQeNZwYkNJyBYNZ1k9caXMcAl0NyrNMh2plzVEBF8",
+                                 "timestamp_ms":  1785750697479,
                                  "recovered":  true
                              },
                              {
                                  "stage":  "EXECUTING",
                                  "action":  "request_business_approval",
                                  "worker":  "HUMAN",
-                                 "reason":  "Control (20/20) and canary (38/38) passed with zero failures; requesting business approval before executing bulk batches.",
-                                 "event_id":  "$mZoiOilEldakHdvH167dHzZ3NBedic3DMk-7Floe4bc",
-                                 "timestamp_ms":  1785730816733,
+                                 "reason":  "Control (20/20) and canary (38/38) passed cleanly; requesting business approval before executing bulk batches.",
+                                 "evidence_refs":  [
+                                                       "BATCH-1A0CAF8D39",
+                                                       "BATCH-F7708A2BEC",
+                                                       "BATCH-ACEFE0701F",
+                                                       "BATCH-00769A9119"
+                                                   ],
+                                 "event_id":  "$d6cWd6Itwlw4SraYDoRND0c91dpEcQnvpTG5bHUTkEk",
+                                 "timestamp_ms":  1785750713728,
                                  "recovered":  true
                              },
                              {
@@ -217,8 +287,16 @@
                                  "action":  "bulk",
                                  "worker":  "ojguard-rejudge-executor",
                                  "reason":  "Business approval granted (run_bulk_rejudge APPROVED); control and canary passed. Execute the two bulk batches to complete the rejudge.",
-                                 "event_id":  "$TJ3aEYFp2iXNQ0fYFU2PZmFrohNCueFPLmLbB9TF60Y",
-                                 "timestamp_ms":  1785730821521,
+                                 "evidence_refs":  [
+                                                       "BATCH-1A0CAF8D39",
+                                                       "BATCH-F7708A2BEC",
+                                                       "BATCH-ACEFE0701F",
+                                                       "BATCH-00769A9119",
+                                                       "APPROVAL-054F547B4A",
+                                                       "APPROVAL-632207F300"
+                                                   ],
+                                 "event_id":  "$JIvdp8j6rRal7FZH4Jf2LKvIHD_Bw359JZR3NTFEYqk",
+                                 "timestamp_ms":  1785750772450,
                                  "recovered":  true
                              },
                              {
@@ -226,17 +304,26 @@
                                  "action":  "verify",
                                  "worker":  "ojguard-verification-auditor",
                                  "reason":  "Bulk rejudge complete (500/500 + 184/184, zero failures); independent verification of score writebacks and scope before closure.",
-                                 "event_id":  "$yM20QcElGk-vKiAB1snVoihRkhisGyZzDP3cRIqvGiE",
-                                 "timestamp_ms":  1785730844321,
+                                 "evidence_refs":  [
+                                                       "BATCH-1A0CAF8D39",
+                                                       "BATCH-F7708A2BEC",
+                                                       "BATCH-ACEFE0701F",
+                                                       "BATCH-00769A9119"
+                                                   ],
+                                 "event_id":  "$Hpk4N1sCiH6l724l5Pxf_6xl1q2io5EefNZzDBKUHlU",
+                                 "timestamp_ms":  1785750793690,
                                  "recovered":  true
                              },
                              {
                                  "stage":  "VERIFYING",
                                  "action":  "request_close_approval",
                                  "worker":  "HUMAN",
-                                 "reason":  "Independent verification passed (100% coverage, 0 dup/missing/cross-scope); requesting human approval to close INC-33E802A300.",
-                                 "event_id":  "$NDIA4K4Nfq_Q5pDLQnMBBdvqW2RdxSR94gWdJtINPHs",
-                                 "timestamp_ms":  1785730863901,
+                                 "reason":  "Independent verification passed (100% coverage, 0 dup/missing/cross-scope); requesting human approval to close INC-D4B166F492.",
+                                 "evidence_refs":  [
+                                                       "VERIFY-97AEE3238E"
+                                                   ],
+                                 "event_id":  "$tAI31ame7XTEl3M3g0PGC3ka8pE3YrnJwYpZCj0wWRM",
+                                 "timestamp_ms":  1785750804846,
                                  "recovered":  true
                              }
                          ],
@@ -245,77 +332,77 @@
                                  "action":  "triage",
                                  "worker":  "ojguard-signal-aggregator",
                                  "tool":  "incident.triage_signals",
-                                 "event_id":  "$C4mR89QIuK0KHnakxgjskStBJsEda6slXFnhXE6eR8M",
-                                 "body":  "* WORKER_RESULT action=triage tool=incident.triage_signals incident_id=INC-33E802A300\n\nstage_after=INVESTIGATING\n\nNormalized timeline:\n- **Metric** (12:00Z): scoped failure rate 8.3%→41.4% (+0.3314, 2239 submissions).\n- **Deployment** (14:00Z): java-runtime v2.3.0→v2.3.1, scope=[java].\n- **Complaints** (14:21–14:40Z): 21 signals, all `same_code_different_result` (\"same Java code times out after image change\"), one per minute.\n\nAnomaly dimensions (correlation only, no root cause):\n- **Temporal**: metric precedes deployment by 2h; complaints begin 21 min after deployment, tightly clustered in a 20-min window.\n- **Affected scope**: 742/2239 submissions, 703 candidates; per-group failure rates elevated across all 5 judge nodes (38.9%–43.8%).\n- **Uniformity**: all complaints share one category/dimension;\n\nsingle component change (java-runtime) aligns with complaint narrative.\n- **Type**: incident_type runtime_regression.\n\nNo approvals executed; results are deterministic tool output.",
-                                 "timestamp_ms":  1785691820228,
+                                 "event_id":  "$y_VgyuqsJX0dAli4S4-VYKLGt7SFbbBD694tnFHPSlE",
+                                 "body":  "* WORKER_RESULT action=triage tool=incident.triage_signals incident_id=INC-D4B166F492\n\nstage_after=INVESTIGATING\n\nNormalized timeline:\n- **Metric** (12:00Z): scoped failure rate 8.3%→41.4% (+0.3314, 2239 submissions).\n- **Deployment** (14:00Z): java-runtime v2.3.0→v2.3.1, scope=[java] (DEPLOY-JAVA-001).\n- **Complaints** (14:21–14:40Z): 21 signals, all `same_code_different_result` (\"same Java code times out after image change\"), one per minute.\n\nAnomaly dimensions (correlation only, no root cause):\n- **Temporal**: metric precedes deployment by 2h; complaints begin 21 min after deployment, tightly clustered in a 20-min window.\n- **Affected scope**: 742/2239 submissions (703 candidates); per-group failure rates elevated across all 5 judge nodes (38.9%–43.8%).\n- **Uniformity**: all complaints share\n\na single category/dimension; single component change (java-runtime) aligns with the complaint narrative.\n- **Type**: incident_type runtime_regression.\n\nNo approvals executed; results are deterministic tool output.",
+                                 "timestamp_ms":  1785749520236,
                                  "recovered":  true
                              },
                              {
                                  "action":  "hypothesize",
                                  "worker":  "ojguard-root-cause-analyst",
                                  "tool":  "judge.replay_submission",
-                                 "event_id":  "$BmwSg0yaLExaf5kl3EqTIIVTT4TPraqi04DmZbByUwM",
-                                 "body":  "* WORKER_RESULT action=hypothesize tool=judge.replay_submission incident_id=INC-33E802A300\n\nstage_after=INVESTIGATING. Judge.replay_submission called exactly once (mode=hypotheses, repetitions=3); experiment_executed=false, so no cause was confirmed and no deterministic comparison was run. Persisted two falsifiable competing hypotheses, both PROPOSED (confidence 0.5, mutually competing):\n- HYP-84CA326A00 (runtime_image): Java runtime image or launch parameters cause the performance regression.\n- HYP-0B0830E3E6 (judge_node): some judge nodes are degraded, causing concentrated Java timeouts.\n\nBoth require experiment kind cross_image_and_node_replay, and both are falsifiable by that controlled node-by-image comparison. No approvals invented; no model judgment substituted for tool results. Awaiting\n\nexperiment stage before any cause confirmation.",
-                                 "timestamp_ms":  1785730731578,
+                                 "event_id":  "$kUgVlOQEs5Chm5Ng0nR9wCMvjuXdYzUJWI8Q2QC_7ig",
+                                 "body":  "* WORKER_RESULT action=hypothesize tool=judge.replay_submission incident_id=INC-D4B166F492\n\nstage_after=INVESTIGATING. Judge.replay_submission called exactly once (mode=hypotheses, repetitions=3); experiment_executed=false, so no experiment run and no cause confirmed. Persisted two falsifiable competing hypotheses, both PROPOSED (confidence 0.5), mutually competing:\n- HYP-9EC6B30FD5 (runtime_image): Java runtime image or launch parameters cause the performance regression.\n- HYP-A77B4BFFBA (judge_node): some judge nodes are degraded, causing concentrated Java timeouts.\n\nBoth require experiment kind cross_image_and_node_replay and are falsifiable by that controlled node-by-image comparison. No approvals invented; no model judgment substituted for tool results. Awaiting experiment stage before any\n\ncause confirmation.",
+                                 "timestamp_ms":  1785749656277,
                                  "recovered":  true
                              },
                              {
-                                 "action":  "experiment",
+                                 "action":  "experiment_two_dimensional",
                                  "worker":  "ojguard-root-cause-analyst",
                                  "tool":  "judge.replay_submission",
-                                 "event_id":  "$IVEWkjL6jG4sqzyQP4iEn10Kbnk5D8D-7ynolCQvFV8",
-                                 "body":  "* WORKER_RESULT action=experiment tool=judge.replay_submission incident_id=INC-33E802A300\n\nstage_after=IMPACT_ASSESSING. Judge.replay_submission called exactly once (mode=experiment, repetitions=3). Node-by-image comparison EXP-6CC58C053B (cross_image_and_node_replay) state=PASSED, conclusion: java-runtime:v2.3.1 execution parameter regression.\n\nHypothesis verdict — CONFIRMED: HYP-84CA326A00 (runtime_image). REJECTED: HYP-0B0830E3E6 (judge_node): failure rates near-uniform across nodes (judge-node-01..05: 0.388–0.438), so no node-specific degradation.\n\nEvidence: baseline_failure_rate 0.083 vs observed 0.414, delta 0.331 \u003e 0.15 criterion, scoped_submission_count 2239. Replay: normal 3/3 OK, degraded 3/3 TLE (pass_rate 1, timeout_rate 1), evidence_sha256 43df3e1a43b0f484adaf96aa5678f2926655ed86ac3de3cf15e7b0a81314186a.\n\nNo approvals invented; verdict from deterministic tool results only.",
-                                 "timestamp_ms":  1785730751582,
+                                 "event_id":  "$Xo0owiH5MTd8PZ3qD1dNrm4mk2aNWEc-G1jydeIsbpU",
+                                 "body":  "* WORKER_RESULT action=experiment_two_dimensional tool=judge.replay_submission incident_id=INC-D4B166F492\n\nstage_after=IMPACT_ASSESSING. Judge.replay_submission called exactly once (mode=experiment, experiment_kind=cross_image_and_node_replay, repetitions=3). Experiment EXP-601F00F005 returned state=PASSED — not inconclusive — so I did not force or fabricate a diagnosis; I report the deterministic tool result.\n\nVerdict: CONFIRMED HYP-9EC6B30FD5 (runtime_image); REJECTED HYP-A77B4BFFBA (judge_node) — failure rates near-uniform across nodes (judge-node-01..05: 0.388–0.438), no node-specific degradation. Conclusion: java-runtime:v2.3.1 execution parameter regression.\n\nEvidence: baseline_failure_rate 0.083 vs observed 0.414, delta 0.331 \u003e 0.15 criterion, scoped_submission_count 2239; replay normal\n\n3/3 OK, degraded 3/3 TLE, evidence_sha256 43df3e1a43b0f484adaf96aa5678f2926655ed86ac3de3cf15e7b0a81314186a.",
+                                 "timestamp_ms":  1785749676260,
                                  "recovered":  true
                              },
                              {
                                  "action":  "impact",
                                  "worker":  "ojguard-impact-analyst",
                                  "tool":  "impact.calculate_scope",
-                                 "event_id":  "$NuGVrosOrzJ8z4KzSVKekgXEPIVdcfqP87ejkNVciSA",
-                                 "body":  "* WORKER_RESULT action=impact tool=impact.calculate_scope incident_id=INC-33E802A300\n\nstage_after=REMEDIATION_PLANNING\n\nFrozen impact result IMPACT-74CA3BD1FD (created 2026-08-03T04:19:18Z), policy runtime-window-and-language:\n- Affected candidates: 703\n- Affected submissions: 742\n- Projected score changes: 703\n- Projected advancement changes: 72\n\nScope: problems PROB-01..04, language java, batch BACKEND-2026-A. Evidence_ids empty.",
-                                 "timestamp_ms":  1785730761238,
+                                 "event_id":  "$JGmI-aLkpzHxXfYzUjEu2bfZKmwuuSIXSEA4IUmkV4E",
+                                 "body":  "* WORKER_RESULT action=impact tool=impact.calculate_scope incident_id=INC-D4B166F492\n\nstage_after=REMEDIATION_PLANNING\n\nFrozen impact result IMPACT-6A162D5D66 (created 2026-08-03T09:34:44Z), policy runtime-window-and-language:\n- Affected candidates: 703\n- Affected submissions: 742\n- Projected score changes: 703\n- Projected advancement changes: 72\n\nScope: problems PROB-01..04, language java, batch BACKEND-2026-A. Evidence_ids empty.",
+                                 "timestamp_ms":  1785749686586,
                                  "recovered":  true
                              },
                              {
                                  "action":  "plan",
                                  "worker":  "ojguard-remediation-planner",
                                  "tool":  "rejudge.create_plan",
-                                 "event_id":  "$zWzZmm44C-QOnPGxcmxCspiTmM1_qfoKNjckIdJeXTw",
-                                 "body":  "* WORKER_RESULT action=plan tool=rejudge.create_plan incident_id=INC-33E802A300\nstage_after=APPROVAL_PENDING\n\nCreated PLAN-827E5CE4F6 for INC-33E802A300 against approved impact IMPACT-74CA3BD1FD. All four batches are PLANNED, none executed.\n\n- Control (BATCH-8CEF17194C, 20): success = baseline restored, no cross-scope regression; stop = new control errors or infra unavailable; rollback = restore verified image.\n- Canary (BATCH-0F3FF6EAF4, 38): success = zero failures, no drift beyond impact set; stop = canary failure rate \u003e 0.\n- Bulk (BATCH-5C2FAEF99F 500, BATCH-A114588EFA 184): requires technical approval, business approval before full rollout; success = 100% coverage, no duplicates/out-of-scope; stop = score changes exceed frozen impact set; rollback = pause batches, preserve original snapshots.\n\nPlan written to IncidentContext (shared/knowledge/IncidentContext.md) and synced to MinIO. No approvals claimed; awaiting approval before any batch execution.",
-                                 "timestamp_ms":  1785730789287,
+                                 "event_id":  "$zpThnlYzEJwgaZcqRSwFFsHiB1kSSmgebvu9-ZxVG8I",
+                                 "body":  "* WORKER_RESULT action=plan tool=rejudge.create_plan incident_id=INC-D4B166F492\nstage_after=APPROVAL_PENDING\n\nCreated PLAN-D8C0AFDE33 for INC-D4B166F492 against approved impact IMPACT-6A162D5D66. All four batches PLANNED; none executed.\n\n- Control (BATCH-1A0CAF8D39, 20): success = baseline restored, no cross-scope regression; stop = new control errors or infra unavailable; rollback = restore verified image.\n- Canary (BATCH-F7708A2BEC, 38): success = zero failures, no drift beyond impact set; stop = canary failure rate \u003e 0.\n- Bulk (BATCH-ACEFE0701F 500, BATCH-00769A9119 184): technical approval required, business approval before full rollout; success = 100% coverage, no duplicates/out-of-scope; stop = score changes exceed frozen impact set; rollback = pause batches, preserve original snapshots.\n\nPlan appended to IncidentContext (shared/knowledge/IncidentContext.md) and synced to MinIO. No approvals claimed; awaiting approval before any batch execution.",
+                                 "timestamp_ms":  1785749701974,
                                  "recovered":  true
                              },
                              {
                                  "action":  "control_canary",
                                  "worker":  "ojguard-rejudge-executor",
                                  "tool":  "rejudge.execute_batch",
-                                 "event_id":  "$rD6Vouc6jWb4V0wLjndarx3q0lo7jC1MXD97UvUetH0",
-                                 "body":  "* WORKER_RESULT action=control_canary tool=rejudge.execute_batch incident_id=INC-33E802A300\n\nstage_after=EXECUTING\n\nExecuted approved control and canary batches exactly once (phase=control_canary), with approvals present in IncidentContext (execute_plan=APPROVED, run_canary_rejudge=APPROVED).\n\nEvidence-backed results:\n- Control BATCH-8CEF17194C (kind=control): COMPLETED, 20/20, 0 failed, 0 skipped\n- Canary BATCH-0F3FF6EAF4 (kind=canary): COMPLETED, 38/38, 0 failed, 0 skipped\n- control_experiment_passed=true\n- canary_rejudge_passed=true\n\nNo policy or consistency failure observed; both gates passed cleanly. Bulk batches (BATCH-5C2FAEF99F seq3, BATCH-A114588EFA seq4) remain PLANNED and were not executed — they await the separate business gate for bulk. No approvals were invented; results are the\n\ndeterministic tool output.",
-                                 "timestamp_ms":  1785730814562,
+                                 "event_id":  "$P8PdmMrFGCbxUztN-QAHCVsw352KB_1oq1HtdYFu6WQ",
+                                 "body":  "* WORKER_RESULT action=control_canary tool=rejudge.execute_batch incident_id=INC-D4B166F492\n\nstage_after=EXECUTING\n\nExecuted approved control and canary batches (phase=control_canary) for INC-D4B166F492. Approvals present in IncidentContext (execute_plan=APPROVED, run_canary_rejudge=APPROVED).\n\nEvidence-backed results:\n- Control BATCH-1A0CAF8D39: COMPLETED, 20/20, 0 failed, 0 skipped\n- Canary BATCH-F7708A2BEC: COMPLETED, 38/38, 0 failed, 0 skipped\n- control_experiment_passed=true\n- canary_rejudge_passed=true\n\nNo policy or consistency failure; both gates passed cleanly. Bulk batches (BATCH-ACEFE0701F seq3, BATCH-00769A9119 seq4) remain PLANNED and were not executed — they await the separate business gate for bulk. No approvals invented; results are deterministic tool output.",
+                                 "timestamp_ms":  1785750707388,
                                  "recovered":  true
                              },
                              {
                                  "action":  "bulk",
                                  "worker":  "ojguard-rejudge-executor",
                                  "tool":  "rejudge.execute_batch",
-                                 "event_id":  "$9Mnw5K_c0PUrdnju6EVw7N_VApzWZ9oKCjabbYR1swc",
-                                 "body":  "* WORKER_RESULT action=bulk tool=rejudge.execute_batch incident_id=INC-33E802A300\n\nstage_after=REJUDGING\n\nExecuted approved bulk phase exactly once (phase=bulk). Business gate present: approval_state.run_bulk_rejudge=APPROVED.\n\nEvidence-backed deterministic results:\n- Bulk BATCH-5C2FAEF99F (seq3): COMPLETED, 500/500, 0 failed, 0 skipped\n- Bulk BATCH-A114588EFA (seq4): COMPLETED, 184/184, 0 failed, 0 skipped\n- Prior control (20/20) and canary (38/38) remain COMPLETED; control_experiment_passed=true, canary_rejudge_passed=true\n- rejudge_complete=true; score_change_ids now populated across all four batches\n\nNo policy or consistency failure observed. Results are the authoritative tool output; no approvals invented, no model judgment substituted.",
-                                 "timestamp_ms":  1785730839104,
+                                 "event_id":  "$skOfnQYw9sLKL3n-7dmsSrgkWnPEUS-BdM2G1oTEzUA",
+                                 "body":  "* WORKER_RESULT action=bulk tool=rejudge.execute_batch incident_id=INC-D4B166F492\n\nstage_after=REJUDGING\n\nExecuted approved bulk phase exactly once (phase=bulk). Business gate present: approval_state.run_bulk_rejudge=APPROVED.\n\nEvidence-backed deterministic results:\n- Bulk BATCH-ACEFE0701F (seq3): COMPLETED, 500/500, 0 failed, 0 skipped\n- Bulk BATCH-00769A9119 (seq4): COMPLETED, 184/184, 0 failed, 0 skipped\n- Prior control (20/20) and canary (38/38) remain COMPLETED; control_experiment_passed=true, canary_rejudge_passed=true\n- rejudge_complete=true\n\nNo policy or consistency failure observed. Results are the authoritative tool output; no approvals invented, no model judgment substituted.",
+                                 "timestamp_ms":  1785750785527,
                                  "recovered":  true
                              },
                              {
                                  "action":  "verify",
                                  "worker":  "ojguard-verification-auditor",
                                  "tool":  "verification.verify_incident",
-                                 "event_id":  "$L-MafIC1WCTANlsh-G-KSDIHmtVi4DDs99d_uKp2wxc",
-                                 "body":  "* WORKER_RESULT action=verify tool=verification.verify_incident incident_id=INC-33E802A300\n\nstage_after=REJUDGING→RESOLVED (tool status: RESOLVED)\n\nIndependent verification of INC-33E802A300 (VERIFY-E19B0A5963) confirms consistency:\n- Coverage: 100% (coverage_rate=1.0, impact_scope_covered=true)\n- Duplicates: 0 (duplicate_rejudge_count=0)\n- Missing: 0 (missing_rejudge_count=0)\n- Cross-scope: 0 (cross_scope_regression_count=0)\n\nAll checks passed: all_batches_completed, no_cross_scope_rejudge, no_duplicate_rejudge, score_changes_recalculated. Evidence IDs: none returned. I report these deterministic tool results without approving closure, score writeback, or evidence edits — those remain for the authorized owner.",
-                                 "timestamp_ms":  1785730857407,
+                                 "event_id":  "$HhhibHptiN6YJtrf8OPtmb4u1bY09SR7ralFZdgqR_Q",
+                                 "body":  "* WORKER_RESULT action=verify tool=verification.verify_incident incident_id=INC-D4B166F492\n\nstage_after=REJUDGING→RESOLVED (tool status: RESOLVED)\n\nIndependent verification of INC-D4B166F492 (VERIFY-97AEE3238E) confirms consistency:\n- Coverage: 100% (coverage_rate=1.0, impact_scope_covered=true)\n- Duplicates: 0 (duplicate_rejudge_count=0)\n- Missing: 0 (missing_rejudge_count=0)\n- Cross-scope: 0 (cross_scope_regression_count=0)\n\nAll checks passed: all_batches_completed, no_cross_scope_rejudge, no_duplicate_rejudge, score_changes_recalculated. Evidence IDs: none returned. I report these deterministic tool results without approving closure, score writeback, or evidence edits — those remain for the authorized owner.",
+                                 "timestamp_ms":  1785750798103,
                                  "recovered":  true
                              }
                          ],
     "leader_final":  {
-                         "event_id":  "$__jfqeGEHRuvn_CaXCfnEsUG_NqHp9mktMDEMFCJd9I",
-                         "body":  "* judge_node). Controlled `cross_image_and_node_replay` experiment EXP-6CC58C053B PASSED: replay normal 3/3 OK, degraded 3/3 TLE. **CONFIRMED** runtime_image; **REJECTED** judge_node (failure rates near-uniform across nodes 0.388–0.438).\n\n**Impact (IMPACT-74CA3BD1FD):** 703 candidates, 742 submissions, 703 projected score changes, 72 advancement changes (problems PROB-01..04, language java, batch BACKEND-2026-A).\n\n**Plan (PLAN-827E5CE4F6):** 4 batches — control (20), canary (38), bulk (500, 184).\n\n**Human approvals:** technical (execute_plan, run_canary_rejudge), business (run_bulk_rejudge), close (close_incident). ⚠️ **Caveat:** a single operator (demo-operator) switched technical/business role contexts — this is **not** real multi-person approval.\n\n**Batches executed:** Control 20/20, Canary\n\n38/38, Bulk 500/500 + 184/184 — all zero failed/skipped. control_experiment_passed=true, canary_rejudge_passed=true, rejudge_complete=true.\n\n**Independent verification (VERIFY-E19B0A5963):** RESOLVED — 100% coverage, 0 duplicates, 0 missing, 0 cross-scope; all checks passed.\n\n**Closure:** Human close approval recorded; incident RESOLVED.\n\nOJGUARD_DEMO_COMPLETE"
+                         "event_id":  "$k-kByJ1-yCgadXEt1-asSiQb-wXEoFMM662bcCdGGQA",
+                         "body":  "* FINAL_REPORT task_id=OJGUARD-FINAL-ACCEPT-20260803-B incident_id=INC-D4B166F492 initial_stage=TRIAGING final_stage=RESOLVED. Routing: triage→hypothesize→experiment_two_dimensional→impact→plan→tech-approval→control_canary→business-approval→bulk→verify→close-approval. Competing-hypothesis cross_image_and_node_replay confirmed runtime_image, rejected judge_node. Impact: 703 candidates, 742 submissions, 72 advancement changes. Approvals by single operator AzusaFish switching technical/business/close role contexts—not real multi-person approval. Batches: control 20/20, canary 38/38, bulk 500+184, zero failures. Independent verification 100% coverage, 0 dup/missing/cross-scope. OJGUARD_DEMO_COMPLETE"
                      }
 }

@@ -1,0 +1,39 @@
+Communication job
+By the end, Agent Infra judges should understand the business value, complete multi-Agent solution design, reusable Skill/tool integration, implementation feasibility, risk controls, landing path, and open-source plan of OJGuard.
+
+Required narrative
+1. Scene and value: incident stakes, target industries, generalization.
+2. Solution design: Agent roles, task decomposition, context transfer, routing/state, result validation, exception branches, security boundaries and risk control.
+3. Skill and tool integration: nine Skills, twelve MCP tools, contracts, context/RAG boundary.
+4. Feasibility and landing: implemented engineering base, phased landing plan, open/open-source plan.
+
+Explicit exclusions
+- No Demo route.
+- No recording advice.
+- No submission operation suggestions.
+- No version-upgrade narrative.
+
+Planned output: 23 slides
+01 Cover
+02 Project overview
+03 Section: scene and value
+04 Quantified incident stakes
+05 Business value and target scenarios
+06 Generalization across three incident types
+07 Section: solution design
+08 End-to-end architecture
+09 Agent roles and decision rights
+10 Task decomposition
+11 Context transfer
+12 Dynamic routing and state transition
+13 Result validation
+14 Exception branches and recovery
+15 Security boundaries and risk control
+16 Section: Skill and tool integration
+17 Nine Skills
+18 Twelve MCP tools
+19 Integration contracts and RAG boundary
+20 Section: feasibility and landing
+21 Implementation feasibility
+22 Landing plan
+23 Open/open-source plan

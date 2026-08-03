@@ -1,0 +1,66 @@
+# Safe local profile for OJGuard's AgentTeams v1.2.0 deployment.
+# Secrets are supplied through .runtime/agentteams-secrets.yaml by the setup script.
+global:
+  # The v1.2.0 registry images include the leading "v" even though the
+  # published Chart's appVersion omits it.
+  imageTag: "v1.2.0"
+
+gateway:
+  publicURL: http://localhost:18080
+  provider: higress
+  mode: managed
+  higress:
+    enabled: true
+
+matrix:
+  provider: tuwunel
+  mode: managed
+  tuwunel:
+    persistence:
+      enabled: true
+      size: 2Gi
+
+storage:
+  provider: minio
+  mode: managed
+  minio:
+    persistence:
+      enabled: true
+      size: 2Gi
+
+controller:
+  workerBackend: k8s
+  replicaCount: 1
+
+manager:
+  enabled: true
+  # AgentTeams v1.2.0's Kubernetes CoPaw Manager entrypoint looks for its
+  # workspace in a different path than the k8s backend mounts. Keep both the
+  # platform Manager and OJGuard team on the official OpenClaw default.
+  runtime: openclaw
+  model: deepseek-chat
+  resources:
+    requests:
+      cpu: 250m
+      memory: 512Mi
+    limits:
+      cpu: "1"
+      memory: 2Gi
+
+worker:
+  defaultRuntime: openclaw
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: "1"
+      memory: 1Gi
+
+elementWeb:
+  enabled: true
+
+preflight:
+  llm:
+    # Avoid spending the limited DeepSeek budget on an installer probe.
+    enabled: false

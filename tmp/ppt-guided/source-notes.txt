@@ -1,0 +1,19 @@
+All visible claims use local OJGuard implementation, tests and generated evidence.
+
+Primary sources
+- README.md
+- OJGuard_项目方案.md
+- materials/Agent_Identity_清单.md
+- materials/MCP_工具契约与迁移说明.md
+- materials/上下文与可观测性说明.md
+- materials/提交前检查清单.md
+- agents/identities/
+- agentteams/ojguard-team.yaml
+- skills/
+- mcp_server/
+- backend/app/
+- tests/
+- output/evidence/incidents/
+- output/evidence/agentteams/
+
+No new internet-sourced claims or external visual assets were introduced.

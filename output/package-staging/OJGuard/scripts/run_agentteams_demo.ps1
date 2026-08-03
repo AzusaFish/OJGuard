@@ -8,11 +8,14 @@ param(
     [string]$ApprovalActor = "demo-operator",
     [int]$MaxLlmResponses = 20,
     [switch]$InjectCanaryFailure,
+    [switch]$AutoApprove,
     [switch]$Resume
 )
 
 $ErrorActionPreference = "Stop"
 Set-StrictMode -Version Latest
+$env:PYTHONIOENCODING = "utf-8"
+$env:PYTHONUTF8 = "1"
 
 if ($InjectCanaryFailure -and $MaxLlmResponses -lt 30) {
     throw "A paid live failure-and-recovery run requires MaxLlmResponses>=30. Use deterministic recovery evidence for normal verification."
@@ -20,6 +23,7 @@ if ($InjectCanaryFailure -and $MaxLlmResponses -lt 30) {
 
 $RepoRoot = Split-Path -Parent $PSScriptRoot
 $RuntimeDir = Join-Path $RepoRoot ".runtime"
+$EnvFile = Join-Path $RepoRoot ".env"
 $KubeConfig = Join-Path $RuntimeDir "agentteams-kubeconfig"
 $Python = Join-Path $RepoRoot ".venv\Scripts\python.exe"
 $Namespace = "agentteams-system"
@@ -27,6 +31,16 @@ $MatrixBaseUrl = "http://127.0.0.1:18080"
 $ResultFile = Join-Path $RuntimeDir "agentteams-demo-result.json"
 $script:AgentRunId = ""
 $script:CanaryFailureInjected = $false
+
+$realCallsEnabled = $env:LLM_REAL_CALLS_ENABLED -match '^(?i:true|1|yes)$'
+if (-not $realCallsEnabled -and (Test-Path -LiteralPath $EnvFile)) {
+    $realCallsEnabled = [IO.File]::ReadAllLines($EnvFile) | Where-Object {
+        $_ -match '^\s*LLM_REAL_CALLS_ENABLED\s*=\s*true\s*$'
+    } | Select-Object -First 1
+}
+if (-not $realCallsEnabled) {
+    throw "Real AgentTeams model calls are disabled. Set LLM_REAL_CALLS_ENABLED=true only for an explicitly authorized paid run."
+}
 
 function Get-SecretText([string]$Key) {
     $encoded = & kubectl --kubeconfig $KubeConfig --namespace $Namespace `
@@ -91,9 +105,19 @@ function Send-MatrixMessage(
 }
 
 function Invoke-RuntimeControl([string[]]$ControlArgs) {
-    $output = @(& $Python -m scripts.agentteams_runtime_control `
-        --workspace-root $RepoRoot @ControlArgs 2>&1)
-    if ($LASTEXITCODE -ne 0) {
+    # Windows PowerShell promotes native stderr to an ErrorRecord. Capture the
+    # complete process output before restoring Stop semantics so diagnostics are
+    # not truncated to the first "Traceback" line.
+    $previousErrorAction = $ErrorActionPreference
+    $ErrorActionPreference = "Continue"
+    try {
+        $output = @(& $Python -m scripts.agentteams_runtime_control `
+            --workspace-root $RepoRoot @ControlArgs 2>&1)
+        $exitCode = $LASTEXITCODE
+    } finally {
+        $ErrorActionPreference = $previousErrorAction
+    }
+    if ($exitCode -ne 0) {
         throw "Runtime control failed: $($output -join "`n")"
     }
     return (($output -join "`n") | ConvertFrom-Json)
@@ -113,13 +137,19 @@ function Write-AgentRunEvent(
     [string]$MetadataJson = "{}"
 ) {
     if (-not $script:AgentRunId) { return $null }
+    $metadataBase64 = [Convert]::ToBase64String(
+        [Text.Encoding]::UTF8.GetBytes($MetadataJson)
+    )
+    $summaryBase64 = [Convert]::ToBase64String(
+        [Text.Encoding]::UTF8.GetBytes($Summary)
+    )
     $eventArgs = @(
         "event", "--run-id", $script:AgentRunId,
         "--event-id", $EventId,
         "--event-type", $EventType,
         "--agent", $Agent,
-        "--summary", $Summary,
-        "--metadata-json", $MetadataJson
+        "--summary-base64", $summaryBase64,
+        "--metadata-json-base64", $metadataBase64
     )
     if ($Action) { $eventArgs += @("--action", $Action) }
     if ($Worker) { $eventArgs += @("--worker", $Worker) }
@@ -135,6 +165,31 @@ function Get-ApprovalValue([object]$Status, [string]$Key) {
     $property = $Status.approval_state.PSObject.Properties[$Key]
     if ($null -eq $property) { return "" }
     return [string]$property.Value
+}
+
+function Wait-ApprovalGate(
+    [string]$Gate,
+    [string]$IncidentId,
+    [DateTime]$Deadline
+) {
+    $requiredKeys = switch ($Gate) {
+        "technical" { @("execute_plan", "run_canary_rejudge") }
+        "business" { @("run_bulk_rejudge") }
+        "close" { @("close_incident") }
+        default { throw "Unknown approval gate: $Gate" }
+    }
+    do {
+        $status = Invoke-RuntimeControl @("status", "--incident-id", $IncidentId)
+        $values = @($requiredKeys | ForEach-Object { Get-ApprovalValue $status $_ })
+        if ($values -contains "REJECTED") {
+            throw "Human approval gate '$Gate' was rejected."
+        }
+        if (@($values | Where-Object { $_ -ne "APPROVED" }).Count -eq 0) {
+            return $status
+        }
+        Start-Sleep -Seconds 2
+    } while ((Get-Date) -lt $Deadline)
+    throw "Timed out waiting for human approval gate '$Gate'."
 }
 
 function Repair-Text([string]$Text) {
@@ -379,10 +434,12 @@ if (-not $IncidentId) {
     if ($Resume) { $resumedFromStage = [string]$existing.stage }
 }
 
-Write-AgentRunEvent -EventId "$TaskId-RUN-STARTED" -EventType "RUN_STARTED" `
-    -Agent "ojguard-incident-manager" -Action "start" `
-    -Summary "AgentTeams Incident Manager started dynamic incident orchestration." `
-    -AfterStage "TRIAGING" | Out-Null
+$startEventType = if ($Resume) { "RUN_RESUMED" } else { "RUN_STARTED" }
+$startEventId = if ($Resume) { "$TaskId-RUN-RESUMED-$([Guid]::NewGuid().ToString('N'))" } else { "$TaskId-RUN-STARTED" }
+Write-AgentRunEvent -EventId $startEventId -EventType $startEventType `
+    -Agent "ojguard-incident-manager" -Action $(if ($Resume) { "resume" } else { "start" }) `
+    -Summary $(if ($Resume) { "AgentTeams resumed from persisted IncidentContext." } else { "AgentTeams Incident Manager started dynamic incident orchestration." }) `
+    -AfterStage $(if ($Resume) { $resumedFromStage } else { "TRIAGING" }) | Out-Null
 
 $accessToken = $null
 $startedAt = [DateTime]::UtcNow
@@ -471,40 +528,26 @@ try {
             }
             $previousResult = Get-EventBody $prior
         }
-        $encodedLeaderRoom = [Uri]::EscapeDataString([string]$leader.roomID)
-        $leaderMessages = Invoke-MatrixRequest -Method "Get" `
-            -Path "/_matrix/client/v3/rooms/$encodedLeaderRoom/messages?dir=b&limit=100" `
-            -Token $accessToken
-        $priorRouteEvents = @{}
-        foreach ($candidate in @($leaderMessages.chunk | Sort-Object origin_server_ts)) {
-            if ($candidate.sender -ne $leader.matrixUserID) { continue }
-            $candidateBody = Get-EventBody $candidate
-            $candidateMatch = [regex]::Match(
-                $candidateBody,
-                "ROUTE_DECISION\s+action=(\S+)\s+worker=(\S+)(?:\s+experiment=\S+\s+failure=\S+\s+evidence=\S+)?\s+reason=(.+)",
-                [Text.RegularExpressions.RegexOptions]::IgnoreCase
-            )
-            if (-not $candidateMatch.Success) { continue }
-            $candidateAction = $candidateMatch.Groups[1].Value.ToLowerInvariant()
-            if (-not $actionStages.Contains($candidateAction)) { continue }
-            $priorRouteEvents[$candidateAction] = [pscustomobject]@{
-                Event = $candidate
-                Worker = $candidateMatch.Groups[2].Value
-                Reason = $candidateMatch.Groups[3].Value.Trim()
-            }
-        }
-        foreach ($recoveredAction in $actionStages.Keys) {
-            if (-not $priorRouteEvents.ContainsKey($recoveredAction)) { continue }
-            $routeRecord = $priorRouteEvents[$recoveredAction]
-            $priorRoute = $routeRecord.Event
-            [void]$llmEventIds.Add([string]$priorRoute.event_id)
+        # Route decisions are recovered from this run's persisted events, never
+        # from the shared TeamLeader room where other incidents are present.
+        $persisted = Invoke-RuntimeControl @("events", "--run-id", $script:AgentRunId)
+        foreach ($priorRoute in @($persisted.events | Where-Object {
+            $_.event_type -eq "ROUTE_DECISION"
+        } | Sort-Object sequence)) {
+            $recoveredAction = [string]$priorRoute.action
+            if (-not $actionStages.Contains($recoveredAction)) { continue }
+            $routeTimestamp = [DateTimeOffset]::Parse(
+                [string]$priorRoute.created_at
+            ).ToUnixTimeMilliseconds()
+            [void]$llmEventIds.Add([string]$priorRoute.id)
             $leaderDecisions += [ordered]@{
                 stage = [string]$actionStages[$recoveredAction][0]
                 action = $recoveredAction
-                worker = [string]$routeRecord.Worker
-                reason = [string]$routeRecord.Reason
-                event_id = [string]$priorRoute.event_id
-                timestamp_ms = [long]$priorRoute.origin_server_ts
+                worker = [string]$priorRoute.worker
+                reason = [string]$priorRoute.summary
+                evidence_refs = @($priorRoute.evidence_refs)
+                event_id = [string]$priorRoute.id
+                timestamp_ms = $routeTimestamp
                 recovered = $true
             }
             if ($recoveredAction -like "request_*_approval") {
@@ -514,16 +557,27 @@ try {
                     actor = $ApprovalActor
                     actor_type = "human_role_context"
                     after_stage = [string]$actionStages[$recoveredAction][1]
-                    leader_event_id = [string]$priorRoute.event_id
-                    timestamp_ms = [long]$priorRoute.origin_server_ts
-                    recovered_after_transport_error = $true
+                    leader_event_id = [string]$priorRoute.id
+                    timestamp_ms = $routeTimestamp
+                    recovered_from_persisted_run = $true
                 }
             }
         }
-        $recoveredFinalEvent = $leaderMessages.chunk | Where-Object {
-            $_.sender -eq $leader.matrixUserID -and
-            (Get-EventBody $_) -match "OJGUARD_DEMO_COMPLETE"
-        } | Sort-Object origin_server_ts | Select-Object -Last 1
+        $persistedFinal = $persisted.events | Where-Object {
+            $_.event_type -eq "FINAL_REPORT" -and
+            ([string]$_.summary).Contains($IncidentId) -and
+            ([regex]::Matches([string]$_.summary, "FINAL_REPORT").Count -eq 1) -and
+            ([regex]::Matches([string]$_.summary, "OJGUARD_DEMO_COMPLETE").Count -eq 1)
+        } | Sort-Object sequence | Select-Object -Last 1
+        if ($persistedFinal) {
+            $recoveredFinalEvent = [pscustomobject]@{
+                event_id = [string]$persistedFinal.id
+                origin_server_ts = [DateTimeOffset]::Parse(
+                    [string]$persistedFinal.created_at
+                ).ToUnixTimeMilliseconds()
+                content = [pscustomobject]@{ body = [string]$persistedFinal.summary }
+            }
+        }
         if ($recoveredFinalEvent) {
             [void]$llmEventIds.Add([string]$recoveredFinalEvent.event_id)
         }
@@ -574,14 +628,15 @@ Current status: $statusJson
 Previous result: $previousResult
 Legal route contracts: $optionContractsJson
 Choose exactly one legal route from current evidence. When several experiments are legal, choose the one with the best expected discrimination; do not assume the host's preferred experiment. Use human_review if evidence is unsafe or inconsistent. Never call a specialist tool and never bypass an approval gate.
-Reply on one line exactly: ROUTE_DECISION action=<action> worker=<worker-name-or-HUMAN> experiment=<kind-or-none> failure=<human_review> evidence=<comma-separated-ids-or-none> reason=<short-reason>
+Reply on one line exactly: ROUTE_DECISION incident_id=$IncidentId action=<action> worker=<worker-name-or-HUMAN> experiment=<kind-or-none> failure=<human_review> evidence=<comma-separated-ids-or-none> reason=<short-reason>
 "@
         $leaderSentAt = [DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds()
         Send-MatrixMessage -RoomId ([string]$leader.roomID) `
             -MentionMxid ([string]$leader.matrixUserID) -Body $leaderPrompt.Trim() -Token $accessToken | Out-Null
         $leaderEvent = Wait-MemberEvent -RoomId ([string]$leader.roomID) `
             -Sender ([string]$leader.matrixUserID) -AfterTimestamp $leaderSentAt `
-            -Pattern "ROUTE_DECISION" -Deadline $deadline -Token $accessToken
+            -Pattern "ROUTE_DECISION\s+incident_id=$([regex]::Escape($IncidentId))" `
+            -Deadline $deadline -Token $accessToken
         [void]$llmEventIds.Add([string]$leaderEvent.event_id)
         if ($llmEventIds.Count -gt $MaxLlmResponses) {
             throw "LLM response budget exceeded: $($llmEventIds.Count)/$MaxLlmResponses"
@@ -589,7 +644,7 @@ Reply on one line exactly: ROUTE_DECISION action=<action> worker=<worker-name-or
         $leaderBody = [string]$leaderEvent.content.body
         $routeMatch = [regex]::Match(
             $leaderBody,
-            "ROUTE_DECISION\s+action=(\S+)\s+worker=(\S+)\s+experiment=(\S+)\s+failure=(\S+)\s+evidence=(\S+)\s+reason=(.+)",
+            "ROUTE_DECISION\s+incident_id=$([regex]::Escape($IncidentId))\s+action=(\S+)\s+worker=(\S+)\s+experiment=(\S+)\s+failure=(\S+)\s+evidence=(\S+)\s+reason=(.+)",
             [Text.RegularExpressions.RegexOptions]::IgnoreCase
         )
         if (-not $routeMatch.Success) { throw "Invalid TeamLeader routing response: $leaderBody" }
@@ -672,27 +727,38 @@ Reply on one line exactly: ROUTE_DECISION action=<action> worker=<worker-name-or
                 "request_business_approval" { "business" }
                 "request_close_approval" { "close" }
             }
-            $approval = Invoke-RuntimeControl @(
-                "approve", "--incident-id", $IncidentId,
-                "--gate", $gate, "--actor", $ApprovalActor
-            )
-            $after = Invoke-RuntimeControl @("status", "--incident-id", $IncidentId)
+            Write-AgentRunEvent -EventId "$([string]$leaderEvent.event_id)-GATE-WAIT" `
+                -EventType "HUMAN_GATE" -Agent "ojguard-incident-manager" `
+                -Action $selectedAction -Worker "HUMAN" `
+                -Summary "Waiting for an authorized human role to approve gate=$gate." `
+                -EvidenceRefs ($selectedEvidence -join ",") -BeforeStage $stage `
+                -AfterStage $stage | Out-Null
+            $approval = $null
+            if ($AutoApprove) {
+                $approval = Invoke-RuntimeControl @(
+                    "approve", "--incident-id", $IncidentId,
+                    "--gate", $gate, "--actor", $ApprovalActor
+                )
+                $after = Invoke-RuntimeControl @("status", "--incident-id", $IncidentId)
+            } else {
+                $after = Wait-ApprovalGate -Gate $gate -IncidentId $IncidentId -Deadline $deadline
+            }
             $stageHistory += [ordered]@{
                 before_stage = $stage
                 action = $selectedAction
-                actor = $ApprovalActor
+                actor = if ($AutoApprove) { $ApprovalActor } else { "external-authorized-user" }
                 actor_type = "human_role_context"
                 approval_gate = $gate
                 after_stage = [string]$after.stage
                 approval_result = $approval
                 leader_event_id = [string]$leaderEvent.event_id
             }
-            Write-AgentRunEvent -EventId "$([string]$leaderEvent.event_id)-GATE" `
-                -EventType "HUMAN_GATE" -Agent $ApprovalActor -Action $selectedAction `
-                -Worker "HUMAN" -Summary "Human role context approved gate=$gate." `
+            Write-AgentRunEvent -EventId "$([string]$leaderEvent.event_id)-GATE-APPROVED" `
+                -EventType "HUMAN_GATE" -Agent "authorized-human" -Action $selectedAction `
+                -Worker "HUMAN" -Summary "Authorized human approved gate=$gate." `
                 -EvidenceRefs ($selectedEvidence -join ",") -BeforeStage $stage `
                 -AfterStage ([string]$after.stage) | Out-Null
-            $previousResult = "Human gate $gate recorded by $ApprovalActor; stage=$($after.stage)."
+            $previousResult = "Human gate $gate approved; stage=$($after.stage)."
             continue
         }
 
@@ -799,16 +865,40 @@ Then report stage_after and evidence-backed results in no more than 180 English 
         $finalPrompt = @"
 $TaskId incident_id=$IncidentId is RESOLVED. Call report.generate_incident_report exactly once.
 Ordered execution history: $historyJson
-Return one English report under 350 words with task_id, incident_id, initial_stage=TRIAGING, final_stage=RESOLVED, routing decisions, competing-hypothesis experiment, impact, human approvals, batches and independent verification. Include: Single operator switched technical/business role contexts; this is not real multi-person approval.
-End with the exact marker OJGUARD_DEMO_COMPLETE.
+Return exactly one compact English line under 120 words. Begin exactly: FINAL_REPORT task_id=$TaskId incident_id=$IncidentId initial_stage=TRIAGING final_stage=RESOLVED. Then summarize routing, the competing-hypothesis experiment, impact, human approvals, batches and independent verification. Include: Single operator switched technical/business role contexts; this is not real multi-person approval. End with the exact marker OJGUARD_DEMO_COMPLETE.
 "@
         $finalSentAt = [DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds()
         Send-MatrixMessage -RoomId ([string]$leader.roomID) `
             -MentionMxid ([string]$leader.matrixUserID) -Body $finalPrompt.Trim() -Token $accessToken | Out-Null
-        $finalEvent = Wait-MemberEvent -RoomId ([string]$leader.roomID) `
+        $finalMarkerEvent = Wait-MemberEvent -RoomId ([string]$leader.roomID) `
             -Sender ([string]$leader.matrixUserID) -AfterTimestamp $finalSentAt `
             -Pattern "OJGUARD_DEMO_COMPLETE" -Deadline $deadline -Token $accessToken
-        [void]$llmEventIds.Add([string]$finalEvent.event_id)
+        $encodedLeaderRoom = [Uri]::EscapeDataString([string]$leader.roomID)
+        $finalMessages = Invoke-MatrixRequest -Method "Get" `
+            -Path "/_matrix/client/v3/rooms/$encodedLeaderRoom/messages?dir=b&limit=100" `
+            -Token $accessToken
+        $finalParts = @($finalMessages.chunk | Where-Object {
+            $_.sender -eq $leader.matrixUserID -and
+            [long]$_.origin_server_ts -ge $finalSentAt -and
+            [long]$_.origin_server_ts -le [long]$finalMarkerEvent.origin_server_ts
+        } | Sort-Object origin_server_ts | ForEach-Object { Get-EventBody $_ })
+        $completeFinalParts = @($finalParts | Where-Object {
+            $_.Contains($IncidentId) -and $_.Contains("OJGUARD_DEMO_COMPLETE")
+        })
+        if ($completeFinalParts.Count -eq 0) {
+            throw "Final report is not bound to the current incident_id=$IncidentId."
+        }
+        $finalBody = ([string]$completeFinalParts[-1]).Trim()
+        if ([regex]::Matches($finalBody, "FINAL_REPORT").Count -ne 1 -or
+            [regex]::Matches($finalBody, "OJGUARD_DEMO_COMPLETE").Count -ne 1) {
+            throw "Final report contains duplicated streaming fragments."
+        }
+        $finalEvent = [pscustomobject]@{
+            event_id = [string]$finalMarkerEvent.event_id
+            origin_server_ts = [long]$finalMarkerEvent.origin_server_ts
+            content = [pscustomobject]@{ body = $finalBody }
+        }
+        [void]$llmEventIds.Add([string]$finalMarkerEvent.event_id)
         if ($llmEventIds.Count -gt $MaxLlmResponses) {
             throw "LLM response budget exceeded: $($llmEventIds.Count)/$MaxLlmResponses"
         }

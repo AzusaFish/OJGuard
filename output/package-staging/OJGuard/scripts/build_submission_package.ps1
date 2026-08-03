@@ -69,7 +69,9 @@ Get-ChildItem -LiteralPath $evidenceRoot -Recurse -File | ForEach-Object {
 
 $submissionRoot = Join-Path $repoRoot "output\submission"
 Get-ChildItem -LiteralPath $submissionRoot -File | Where-Object {
-    $_.Extension -ne ".zip" -and $_.Name -notlike "*.inspect.ndjson"
+    $_.Extension -ne ".zip" -and
+    $_.Name -notlike "*.inspect.ndjson" -and
+    $_.Name -notlike '~$*'
 } | ForEach-Object {
     $relative = $_.FullName.Substring($repoRoot.Length + 1)
     $destination = Join-Path $stagingRoot $relative

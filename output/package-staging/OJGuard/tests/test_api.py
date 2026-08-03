@@ -1,9 +1,12 @@
 import unittest
+from types import SimpleNamespace
+from unittest.mock import patch
 from uuid import uuid4
 
 from fastapi.testclient import TestClient
 
 from backend.app.main import app
+from backend.app.services.agentteams_dispatcher import AgentTeamsDispatcherError
 
 
 class ApiTests(unittest.TestCase):
@@ -62,6 +65,21 @@ class ApiTests(unittest.TestCase):
         run_id = payload["run"]["run_id"]
         self.assertEqual(payload["incident"]["stage"], "TRIAGING")
         self.assertEqual(payload["legal_options"][0]["action"], "triage")
+        incident_id = payload["incident"]["incident_id"]
+
+        workspace = self.client.get(f"/api/v1/incidents/{incident_id}/workspace")
+        self.assertEqual(workspace.status_code, 200)
+        self.assertEqual(workspace.json()["hypotheses"], [])
+        self.assertEqual(workspace.json()["experiments"], [])
+        self.assertEqual(workspace.json()["impacts"], [])
+        self.assertEqual(workspace.json()["remediation_plans"], [])
+
+        by_incident = self.client.get(
+            "/api/v1/agent-runs",
+            params={"incident_id": incident_id},
+        )
+        self.assertEqual(by_incident.status_code, 200)
+        self.assertEqual(by_incident.json()[0]["run_id"], run_id)
 
         snapshot = self.client.get(f"/api/v1/agent-runs/{run_id}")
         self.assertEqual(snapshot.status_code, 200)
@@ -69,6 +87,48 @@ class ApiTests(unittest.TestCase):
         events = self.client.get(f"/api/v1/agent-runs/{run_id}/events")
         self.assertEqual(events.status_code, 200)
         self.assertEqual(events.json()[0]["event_type"], "RUN_CREATED")
+
+        with patch(
+            "backend.app.api.agent_runs.AgentTeamsDispatcher.launch",
+            side_effect=AgentTeamsDispatcherError("runtime not ready"),
+        ):
+            launch = self.client.post(
+                f"/api/v1/agent-runs/{run_id}/launch",
+                json={"approval_actor": "test-operator"},
+            )
+        self.assertEqual(launch.status_code, 409)
+        rolled_back = self.client.get(f"/api/v1/agent-runs/{run_id}")
+        self.assertEqual(rolled_back.json()["run"]["status"], "QUEUED")
+
+    def test_agent_run_launch_claim_prevents_duplicate_processes(self) -> None:
+        created = self.client.post(
+            "/api/v1/agent-runs",
+            json={
+                "incident_type": "runtime_regression",
+                "task_id": f"API-LAUNCH-CLAIM-{uuid4().hex[:8]}",
+                "max_model_responses": 8,
+            },
+        )
+        self.assertEqual(created.status_code, 201)
+        run_id = created.json()["run"]["run_id"]
+        with patch(
+            "backend.app.api.agent_runs.AgentTeamsDispatcher.launch",
+            return_value=SimpleNamespace(pid=12345),
+        ) as launch_process:
+            first = self.client.post(
+                f"/api/v1/agent-runs/{run_id}/launch",
+                json={"approval_actor": "test-operator"},
+            )
+            second = self.client.post(
+                f"/api/v1/agent-runs/{run_id}/launch",
+                json={"approval_actor": "test-operator"},
+            )
+        self.assertEqual(first.status_code, 200)
+        self.assertEqual(first.json()["status"], "STARTING")
+        self.assertEqual(second.status_code, 409)
+        self.assertEqual(launch_process.call_count, 1)
+        snapshot = self.client.get(f"/api/v1/agent-runs/{run_id}")
+        self.assertEqual(snapshot.json()["run"]["status"], "STARTING")
 
 
 if __name__ == "__main__":

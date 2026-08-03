@@ -93,7 +93,7 @@ function validateOutputSlides(map, sourceSlideCount) {
 function runContactSheet(previewPaths, outputPath) {
   if (!outputPath) return undefined;
   const scriptPath = path.join(path.dirname(fileURLToPath(import.meta.url)), "make_contact_sheet.py");
-  const python = process.env.PYTHON || "python3";
+  const python = process.env.OJGUARD_PPT_PYTHON || "C:\\Users\\AzusaFish\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe";
   const result = spawnSync(python, [scriptPath, "--output", outputPath, ...previewPaths], { encoding: "utf8" });
   if (result.status !== 0) {
     throw new Error(

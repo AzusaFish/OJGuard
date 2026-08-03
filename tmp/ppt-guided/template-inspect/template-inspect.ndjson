@@ -1,0 +1,461 @@
+{"kind":"slide","id":"sl/y90nupkv","slide":1,"title":"GOAI 世界人工智能开源大赛 · Agent Infra","textShapes":4}
+{"kind":"shape","id":"sh/547294r6","slide":1,"name":"Shape 0","bbox":[988.8,-134.4,432,432]}
+{"kind":"shape","id":"sh/k3yl0zql","slide":1,"name":"Shape 1","bbox":[1113.6,441.6,307.2,307.2]}
+{"kind":"shape","id":"sh/7qp4be9c","slide":1,"name":"Shape 2","bbox":[-86.4,518.4,288,288]}
+{"kind":"textbox","id":"sh/65g3298r","slide":1,"name":"Text 3","text":"GOAI 世界人工智能开源大赛 · Agent Infra","textPreview":"GOAI 世界人工智能开源大赛 · Agent Infra","textChars":29,"textLines":1,"bbox":[62.4,163.2,768,38.4]}
+{"kind":"textbox","id":"sh/ts7md4r2","slide":1,"name":"Text 4","text":"OJGuard | 在线测评事故响应与可信重评","textPreview":"OJGuard | 在线测评事故响应与可信重评","textChars":23,"textLines":1,"bbox":[62.4,206.4,912,182.4]}
+{"kind":"textbox","id":"sh/sfqdkrep","slide":1,"name":"Text 16","text":"单人团队 · 可运行开源作品","textPreview":"单人团队 · 可运行开源作品","textChars":14,"textLines":1,"bbox":[62.4,648,768,33.6]}
+{"kind":"textbox","id":"sh/dgzetcfa","slide":1,"name":"文本框 18","text":"让多 Agent 真正驱动事故闭环，而不是事后复述结果","textPreview":"让多 Agent 真正驱动事故闭环，而不是事后复述结果","textChars":27,"textLines":1,"bbox":[62.4,401.73,640,33.8]}
+{"kind":"slide","id":"sl/hwbqtkby","slide":2,"title":"P0 · 30 秒结论","textShapes":21}
+{"kind":"textbox","id":"sh/9072xkry","slide":2,"name":"Text 0","text":"P0 · 30 秒结论","textPreview":"P0 · 30 秒结论","textChars":11,"textLines":1,"bbox":[62.4,40.32,720,30.72]}
+{"kind":"textbox","id":"sh/ozy1ofad","slide":2,"name":"Text 1","text":"OJGuard 的核心不是聊天，而是可信处置","textPreview":"OJGuard 的核心不是聊天，而是可信处置","textChars":22,"textLines":1,"bbox":[62.4,69.12,787.2,67.2]}
+{"kind":"shape","id":"sh/a10jqpsj","slide":2,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/x4r21kru","slide":2,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/w3i1sfa9","slide":2,"name":"Text 5","text":"业务问题","textPreview":"业务问题","textChars":4,"textLines":1,"bbox":[115.2,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/r65knqtk","slide":2,"name":"Text 6","text":"批量误判会污染成绩与晋级","textPreview":"批量误判会污染成绩与晋级","textChars":12,"textLines":1,"bbox":[89.28,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/q5wjelsz","slide":2,"name":"Text 7","text":"事故影响必须被精确定界","textPreview":"事故影响必须被精确定界","textChars":11,"textLines":1,"bbox":[89.28,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/ove9o7yd","slide":2,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/9wnqhczy","slide":2,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/mtwrmxg7","slide":2,"name":"Text 10","text":"协同方式","textPreview":"协同方式","textChars":4,"textLines":1,"bbox":[509.86,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/nu58f2hs","slide":2,"name":"Text 11","text":"1 个 Manager + 6 个 Worker","textPreview":"1 个 Manager + 6 个 Worker","textChars":24,"textLines":1,"bbox":[483.94,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/wjy9sry9","slide":2,"name":"Text 12","text":"每个角色拥有独立边界","textPreview":"每个角色拥有独立边界","textChars":10,"textLines":1,"bbox":[483.94,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/xk7qlczu","slide":2,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/ahwrqhgj","slide":2,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/bip8jmho","slide":2,"name":"Text 15","text":"决策创新","textPreview":"决策创新","textChars":4,"textLines":1,"bbox":[904.51,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/cnupgny5","slide":2,"name":"Text 16","text":"多个合法实验可动态补选","textPreview":"多个合法实验可动态补选","textChars":11,"textLines":1,"bbox":[878.59,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/do3q9szq","slide":2,"name":"Text 17","text":"证据不足不会强行推进","textPreview":"证据不足不会强行推进","textChars":10,"textLines":1,"bbox":[878.59,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/t8byxkn2","slide":2,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/s72xofmh","slide":2,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/76twva5c","slide":2,"name":"Text 20","text":"失败恢复","textPreview":"失败恢复","textChars":4,"textLines":1,"bbox":[115.2,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/65kfmpor","slide":2,"name":"Text 21","text":"PAUSED → 新计划 → 重审批","textPreview":"PAUSED → 新计划 → 重审批","textChars":18,"textLines":1,"bbox":[89.28,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/hcvy14ne","slide":2,"name":"Text 22","text":"恢复灰度后才能继续全量","textPreview":"恢复灰度后才能继续全量","textChars":11,"textLines":1,"bbox":[89.28,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/gbmxszmt","slide":2,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/fadgzu58","slide":2,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/u94fqp4n","slide":2,"name":"Text 25","text":"工程底座","textPreview":"工程底座","textChars":4,"textLines":1,"bbox":[509.86,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/p0vy54na","slide":2,"name":"Text 26","text":"9 Skills / 12 MCP 工具","textPreview":"9 Skills / 12 MCP 工具","textChars":20,"textLines":1,"bbox":[483.94,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/4zmxwzmp","slide":2,"name":"Text 27","text":"AgentRun/Event 全链路留痕","textPreview":"AgentRun/Event 全链路留痕","textChars":20,"textLines":1,"bbox":[483.94,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/mlgvq147","slide":2,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/nmpcj6ls","slide":2,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/onydsbmd","slide":2,"name":"Text 30","text":"验证结果","textPreview":"验证结果","textChars":4,"textLines":1,"bbox":[904.51,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/9o7ulg3y","slide":2,"name":"Text 31","text":"63 项测试与两类证据","textPreview":"63 项测试与两类证据","textChars":11,"textLines":1,"bbox":[878.59,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/a9gvulkj","slide":2,"name":"Text 32","text":"三类事故均可重复复现","textPreview":"三类事故均可重复复现","textChars":10,"textLines":1,"bbox":[878.59,511.68,317.86,36.48]}
+{"kind":"textbox","id":"sh/ba9cn6l4","slide":2,"name":"Text 33","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"slide","id":"sl/ofy9wn61","slide":3,"title":"第一章 · 场景价值","textShapes":4}
+{"kind":"textbox","id":"sh/d0jax03i","slide":3,"name":"Text 0","text":"第一章 · 场景价值","textPreview":"第一章 · 场景价值","textChars":10,"textLines":1,"bbox":[35.73,28.85,720,30.72]}
+{"kind":"textbox","id":"sh/298ryl4v","slide":3,"name":"Text 1","text":"一次运行时回归，可能改写数百人的结果","textPreview":"一次运行时回归，可能改写数百人的结果","textChars":18,"textLines":1,"bbox":[35.73,57.65,787.2,67.2]}
+{"kind":"textbox","id":"sh/3ah8rqlg","slide":3,"name":"文本框 4","text":"主演示中错误率从 8.3% 升至 41.4%，影响 703 名候选人与 742 次提交；事故处理必须可复核、可暂停、可恢复。","textPreview":"主演示中错误率从 8.3% 升至 41.4%，影响 703 名候选人与 742 次提交；事故处理必须可复核、可暂停、可恢复。","textChars":62,"textLines":1,"bbox":[25.67,124.87,841.27,67.73]}
+{"kind":"textbox","id":"sh/pcjqtg36","slide":3,"name":"文本框 6","text":"固定种子 20260802 · Java Runner 真实 OK / TLE 对照","textPreview":"固定种子 20260802 · Java Runner 真实 OK / TLE 对照","textChars":42,"textLines":1,"bbox":[416.6,585.2,426.67,67.2]}
+{"kind":"image","id":"im/rqxozmh4","slide":3,"name":"","bbox":[35.73,251,583.73,328.33]}
+{"kind":"image","id":"im/qpon6hgj","slide":3,"name":"","bbox":[637.53,251,575.93,325.6]}
+{"kind":"slide","id":"sl/jyx0ra1s","slide":4,"title":"第一章 · 为什么现有方法不够","textShapes":21}
+{"kind":"textbox","id":"sh/1cj2d8b6","slide":4,"name":"Text 0","text":"第一章 · 为什么现有方法不够","textPreview":"第一章 · 为什么现有方法不够","textChars":15,"textLines":1,"bbox":[62.4,40.32,720,30.72]}
+{"kind":"textbox","id":"sh/0ba143al","slide":4,"name":"Text 1","text":"普通告警平台与单轮问答无法完成可信重评","textPreview":"普通告警平台与单轮问答无法完成可信重评","textChars":19,"textLines":1,"bbox":[62.4,69.12,787.2,67.2]}
+{"kind":"shape","id":"sh/ql8jytsj","slide":4,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/doj29oba","slide":4,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/sna103ap","slide":4,"name":"Text 5","text":"信号割裂","textPreview":"信号割裂","textChars":4,"textLines":1,"bbox":[115.2,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/3ihk3et8","slide":4,"name":"Text 6","text":"告警、日志、投诉彼此分散","textPreview":"告警、日志、投诉彼此分散","textChars":12,"textLines":1,"bbox":[89.28,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/ih8ju9sn","slide":4,"name":"Text 7","text":"缺少统一 IncidentContext","textPreview":"缺少统一 IncidentContext","textChars":20,"textLines":1,"bbox":[89.28,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/kbm987y5","slide":4,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/5cva1cfq","slide":4,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/i94r6xgz","slide":4,"name":"Text 10","text":"根因武断","textPreview":"根因武断","textChars":4,"textLines":1,"bbox":[509.86,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/jadsz2xk","slide":4,"name":"Text 11","text":"一次分析直接给出唯一答案","textPreview":"一次分析直接给出唯一答案","textChars":12,"textLines":1,"bbox":[483.94,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/w72947yt","slide":4,"name":"Text 12","text":"没有竞争假设与补充实验","textPreview":"没有竞争假设与补充实验","textChars":11,"textLines":1,"bbox":[483.94,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/x8vaxsfe","slide":4,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/a5kr2xg3","slide":4,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/v6tsv2xo","slide":4,"name":"Text 15","text":"事后复核","textPreview":"事后复核","textChars":4,"textLines":1,"bbox":[904.51,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/g36tgryd","slide":4,"name":"Text 16","text":"Agent 只解释已完成结果","textPreview":"Agent 只解释已完成结果","textChars":14,"textLines":1,"bbox":[878.59,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/h4fa9wfy","slide":4,"name":"Text 17","text":"没有驱动任务与状态推进","textPreview":"没有驱动任务与状态推进","textChars":11,"textLines":1,"bbox":[878.59,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/p0batw72","slide":4,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/oz29krqh","slide":4,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/3ytsrmpw","slide":4,"name":"Text 20","text":"盲目重试","textPreview":"盲目重试","textChars":4,"textLines":1,"bbox":[115.2,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/2xkrih8b","slide":4,"name":"Text 21","text":"灰度失败后原计划重跑","textPreview":"灰度失败后原计划重跑","textChars":10,"textLines":1,"bbox":[89.28,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/1wbapc7q","slide":4,"name":"Text 22","text":"没有回滚、版本与重审批","textPreview":"没有回滚、版本与重审批","textChars":11,"textLines":1,"bbox":[89.28,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/gv29g7q5","slide":4,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/fu9sn2p0","slide":4,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/et0reh8f","slide":4,"name":"Text 25","text":"证据缺口","textPreview":"证据缺口","textChars":4,"textLines":1,"bbox":[509.86,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/tsrqlc7u","slide":4,"name":"Text 26","text":"无法还原谁在何时做了什么","textPreview":"无法还原谁在何时做了什么","textChars":12,"textLines":1,"bbox":[483.94,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/sri9s7q9","slide":4,"name":"Text 27","text":"缺少顺序事件与决策依据","textPreview":"缺少顺序事件与决策依据","textChars":11,"textLines":1,"bbox":[483.94,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/ilwf69kv","slide":4,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/jm5gze1g","slide":4,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/knex8j21","slide":4,"name":"Text 30","text":"执行越权","textPreview":"执行越权","textChars":4,"textLines":1,"bbox":[904.51,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/5ony1oj6","slide":4,"name":"Text 31","text":"建议与高风险动作混在一起","textPreview":"建议与高风险动作混在一起","textChars":12,"textLines":1,"bbox":[878.59,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/axcf29kj","slide":4,"name":"Text 32","text":"缺少人工门禁和最小权限","textPreview":"缺少人工门禁和最小权限","textChars":11,"textLines":1,"bbox":[878.59,511.68,317.86,36.48]}
+{"kind":"textbox","id":"sh/vy5gbe14","slide":4,"name":"Text 33","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"slide","id":"sl/i107q5of","slide":5,"title":"第二章","textShapes":3}
+{"kind":"textbox","id":"sh/dgbulwnm","slide":5,"name":"Text 0","text":"第二章","textPreview":"第二章","textChars":3,"textLines":1,"bbox":[62.4,311.05,720,30.72]}
+{"kind":"textbox","id":"sh/cf2tcr61","slide":5,"name":"Text 1","text":"证据驱动的事故闭环","textPreview":"证据驱动的事故闭环","textChars":9,"textLines":1,"bbox":[62.4,339.85,787.2,67.2]}
+{"kind":"textbox","id":"sh/kjelony9","slide":5,"name":"Text 34","text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"slide","id":"sl/x8f69ofe","slide":6,"title":"第二章 · 系统总览","textShapes":4}
+{"kind":"textbox","id":"sh/yhg7epsj","slide":6,"name":"Text 0","text":"第二章 · 系统总览","textPreview":"第二章 · 系统总览","textChars":10,"textLines":1,"bbox":[62.4,40.32,720,30.72]}
+{"kind":"textbox","id":"sh/zi98nu94","slide":6,"name":"Text 1","text":"Agent 负责决策，确定性工具负责事实与执行","textPreview":"Agent 负责决策，确定性工具负责事实与执行","textChars":23,"textLines":1,"bbox":[62.4,69.12,787.2,67.2]}
+{"kind":"textbox","id":"sh/50bqpcj2","slide":6,"name":"Text 30","text":"6","textPreview":"6","textChars":1,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"textbox","id":"sh/7698f214","slide":6,"name":"文本框 37","text":"信号进入统一 IncidentContext；Manager 只从合法 RouteOption 中选择下一步，状态机校验每次 Worker、MCP、审批和重评结果。","textPreview":"信号进入统一 IncidentContext；Manager 只从合法 RouteOption 中选择下一步，状态机校验每次 Worker、MCP、审批和重评结果。","textChars":82,"textLines":1,"bbox":[55.2,126.47,841.27,67.2]}
+{"kind":"image","id":"im/pgv6tw72","slide":6,"name":"","bbox":[228.6,189.13,822.87,463.87]}
+{"kind":"slide","id":"sl/gnmp4jqx","slide":7,"title":"第二章 · 共同事实源","textShapes":21}
+{"kind":"textbox","id":"sh/cb2tkvap","slide":7,"name":"Text 0","text":"第二章 · 共同事实源","textPreview":"第二章 · 共同事实源","textChars":11,"textLines":1,"bbox":[62.4,40.32,720,30.72]}
+{"kind":"textbox","id":"sh/dcbud0ra","slide":7,"name":"Text 1","text":"事故状态机把协作从对话变成工程流程","textPreview":"事故状态机把协作从对话变成工程流程","textChars":17,"textLines":1,"bbox":[62.4,69.12,787.2,67.2]}
+{"kind":"shape","id":"sh/zedcfa9g","slide":7,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/kzmdova1","slide":7,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/l0vuh0rm","slide":7,"name":"Text 5","text":"发现与分诊","textPreview":"发现与分诊","textChars":5,"textLines":1,"bbox":[115.2,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/eh0ba1sr","slide":7,"name":"Text 6","text":"DETECTED → TRIAGING","textPreview":"DETECTED → TRIAGING","textChars":19,"textLines":1,"bbox":[89.28,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/fi9c369c","slide":7,"name":"Text 7","text":"聚合告警并建立事故上下文","textPreview":"聚合告警并建立事故上下文","textChars":12,"textLines":1,"bbox":[89.28,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/baxkjqlk","slide":7,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/a9ojq5kz","slide":7,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/xcz2l03q","slide":7,"name":"Text 10","text":"调查与定界","textPreview":"调查与定界","textChars":5,"textLines":1,"bbox":[509.86,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/cbq1sv25","slide":7,"name":"Text 11","text":"INVESTIGATING → IMPACT","textPreview":"INVESTIGATING → IMPACT","textChars":22,"textLines":1,"bbox":[483.94,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/n6x0fqlo","slide":7,"name":"Text 12","text":"实验不足时停留调查态","textPreview":"实验不足时停留调查态","textChars":10,"textLines":1,"bbox":[483.94,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/25ojml43","slide":7,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/p8fih03e","slide":7,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/o761ov2t","slide":7,"name":"Text 15","text":"计划与审批","textPreview":"计划与审批","textChars":5,"textLines":1,"bbox":[904.51,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/f2d0b6lc","slide":7,"name":"Text 16","text":"PLANNING → APPROVAL","textPreview":"PLANNING → APPROVAL","textChars":19,"textLines":1,"bbox":[878.59,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/eh4jil4r","slide":7,"name":"Text 17","text":"冻结范围并建立执行计划","textPreview":"冻结范围并建立执行计划","textChars":11,"textLines":1,"bbox":[878.59,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/id4ju1oz","slide":7,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/jedkn654","slide":7,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/4fm1wb6p","slide":7,"name":"Text 20","text":"受控执行","textPreview":"受控执行","textChars":4,"textLines":1,"bbox":[115.2,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/50v2pgna","slide":7,"name":"Text 21","text":"EXECUTING / PAUSED","textPreview":"EXECUTING / PAUSED","textChars":18,"textLines":1,"bbox":[89.28,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/q143ylov","slide":7,"name":"Text 22","text":"灰度失败立即暂停与回滚","textPreview":"灰度失败立即暂停与回滚","textChars":11,"textLines":1,"bbox":[89.28,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/r2dkrq5g","slide":7,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/s3ml0v61","slide":7,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/d4f2t0nm","slide":7,"name":"Text 25","text":"独立核验","textPreview":"独立核验","textChars":4,"textLines":1,"bbox":[509.86,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/e5o32lor","slide":7,"name":"Text 26","text":"VERIFYING","textPreview":"VERIFYING","textChars":9,"textLines":1,"bbox":[483.94,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/f6xkvq5c","slide":7,"name":"Text 27","text":"检查覆盖、重复、遗漏和越界","textPreview":"检查覆盖、重复、遗漏和越界","textChars":13,"textLines":1,"bbox":[483.94,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/p0zmlk7u","slide":7,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/ozq5szq9","slide":7,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/nyh4jupo","slide":7,"name":"Text 30","text":"可信关闭","textPreview":"可信关闭","textChars":4,"textLines":1,"bbox":[904.51,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/2x8nqp83","slide":7,"name":"Text 31","text":"RESOLVED","textPreview":"RESOLVED","textChars":8,"textLines":1,"bbox":[878.59,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/x4j6p47q","slide":7,"name":"Text 32","text":"只有全部断言通过才能关闭","textPreview":"只有全部断言通过才能关闭","textChars":12,"textLines":1,"bbox":[878.59,511.68,317.86,36.48]}
+{"kind":"textbox","id":"sh/c3a5wzq5","slide":7,"name":"Text 33","text":"7","textPreview":"7","textChars":1,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"slide","id":"sl/fu1gfa1s","slide":8,"title":"8","textShapes":6}
+{"kind":"textbox","id":"sh/07atgnmp","slide":8,"name":"Text 34","text":"8","textPreview":"8","textChars":1,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"textbox","id":"sh/6h0fypgb","slide":8,"name":"Text 0","text":"第三章","textPreview":"第三章","textChars":3,"textLines":1,"bbox":[62.4,311.52,720,30.72]}
+{"kind":"textbox","id":"sh/tkby9kzm","slide":8,"name":"Text 1","text":"多 Agent 协同不是堆角色，而是分离决策权","textPreview":"多 Agent 协同不是堆角色，而是分离决策权","textChars":23,"textLines":1,"bbox":[62.4,340.32,787.2,67.2]}
+{"kind":"shape","id":"sh/sjix0zy1","slide":8,"name":"Shape 2","bbox":[747.17,48,470.4,82.56]}
+{"kind":"textbox","id":"sh/je9g3ahk","slide":8,"name":"Text 3","text":"对应评分维度","textPreview":"对应评分维度","textChars":6,"textLines":1,"bbox":[768.29,57.6,326.4,24.96]}
+{"kind":"textbox","id":"sh/id0fu50z","slide":8,"name":"Text 4","text":"多 Agent 协同与自主闭环能力","textPreview":"多 Agent 协同与自主闭环能力","textChars":17,"textLines":1,"bbox":[768.29,80.64,326.4,42.24]}
+{"kind":"shape","id":"sh/o7ydoret","slide":8,"name":"Shape 5","bbox":[1107.17,65.28,91.2,48]}
+{"kind":"textbox","id":"sh/98rehwve","slide":8,"name":"Text 6","text":"25%","textPreview":"25%","textChars":3,"textLines":1,"bbox":[1107.17,65.28,91.2,48]}
+{"kind":"slide","id":"sl/udsvah03","slide":9,"title":"第三章 · 为什么不能只有一个 Agent","textShapes":21}
+{"kind":"textbox","id":"sh/1cfmhgne","slide":9,"name":"Text 0","text":"第三章 · 为什么不能只有一个 Agent","textPreview":"第三章 · 为什么不能只有一个 Agent","textChars":21,"textLines":1,"bbox":[62.4,40.32,720,30.72]}
+{"kind":"textbox","id":"sh/0b65obm9","slide":9,"name":"Text 1","text":"六类责任需要彼此制衡","textPreview":"六类责任需要彼此制衡","textChars":10,"textLines":1,"bbox":[62.4,69.12,787.2,67.2]}
+{"kind":"shape","id":"sh/mdonql4z","slide":9,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/9gzml0nq","slide":9,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/ofq5svm5","slide":9,"name":"Text 5","text":"信息整合","textPreview":"信息整合","textChars":4,"textLines":1,"bbox":[115.2,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/bih4na5w","slide":9,"name":"Text 6","text":"Signal Worker 只处理信号","textPreview":"Signal Worker 只处理信号","textChars":19,"textLines":1,"bbox":[89.28,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/ah8nu54b","slide":9,"name":"Text 7","text":"不直接决定根因或重评","textPreview":"不直接决定根因或重评","textChars":10,"textLines":1,"bbox":[89.28,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/oza1gfyh","slide":9,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/p0ji9kf2","slide":9,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/2xsjepgb","slide":9,"name":"Text 10","text":"实验设计","textPreview":"实验设计","textChars":4,"textLines":1,"bbox":[509.86,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/3y107axw","slide":9,"name":"Text 11","text":"Root Cause 提出竞争实验","textPreview":"Root Cause 提出竞争实验","textChars":17,"textLines":1,"bbox":[483.94,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/cnu1kzyd","slide":9,"name":"Text 12","text":"不拥有批量执行权限","textPreview":"不拥有批量执行权限","textChars":9,"textLines":1,"bbox":[483.94,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/do3id4fy","slide":9,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/qlcjipgn","slide":9,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/bml0buxs","slide":9,"name":"Text 15","text":"范围冻结","textPreview":"范围冻结","textChars":4,"textLines":1,"bbox":[904.51,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/0ru1ozyp","slide":9,"name":"Text 16","text":"Impact Worker 计算影响集","textPreview":"Impact Worker 计算影响集","textChars":19,"textLines":1,"bbox":[878.59,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/lsn2h4fa","slide":9,"name":"Text 17","text":"范围哈希进入后续计划","textPreview":"范围哈希进入后续计划","textChars":10,"textLines":1,"bbox":[878.59,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/98ji147e","slide":9,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/87a18zqt","slide":9,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/76h0zup8","slide":9,"name":"Text 20","text":"处置规划","textPreview":"处置规划","textChars":4,"textLines":1,"bbox":[115.2,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/ml8j6p8n","slide":9,"name":"Text 21","text":"Planner 生成版本化计划","textPreview":"Planner 生成版本化计划","textChars":15,"textLines":1,"bbox":[89.28,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/hcji5o7a","slide":9,"name":"Text 22","text":"失败后创建 revision 2","textPreview":"失败后创建 revision 2","textChars":16,"textLines":1,"bbox":[89.28,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/wba1cjqp","slide":9,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/va103ep4","slide":9,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/u9sja98z","slide":9,"name":"Text 25","text":"受控执行","textPreview":"受控执行","textChars":4,"textLines":1,"bbox":[509.86,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/xgzitk76","slide":9,"name":"Text 26","text":"Executor 只执行获批批次","textPreview":"Executor 只执行获批批次","textChars":16,"textLines":1,"bbox":[483.94,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/cf6h0fql","slide":9,"name":"Text 27","text":"幂等键阻止重复重评","textPreview":"幂等键阻止重复重评","textChars":9,"textLines":1,"bbox":[483.94,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/2l4faloj","slide":9,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/nmdg3q54","slide":9,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/onmxcv69","slide":9,"name":"Text 30","text":"独立验证","textPreview":"独立验证","textChars":4,"textLines":1,"bbox":[904.51,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/pofy50nu","slide":9,"name":"Text 31","text":"Verifier 不复用执行结论","textPreview":"Verifier 不复用执行结论","textChars":16,"textLines":1,"bbox":[878.59,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/apofe5of","slide":9,"name":"Text 32","text":"覆盖与边界必须重算","textPreview":"覆盖与边界必须重算","textChars":9,"textLines":1,"bbox":[878.59,511.68,317.86,36.48]}
+{"kind":"textbox","id":"sh/bqxg7q50","slide":9,"name":"Text 33","text":"9","textPreview":"9","textChars":1,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"slide","id":"sl/m90b6t0r","slide":10,"title":"第三章 · Agent Identity","textShapes":3}
+{"kind":"textbox","id":"sh/xc3mho32","slide":10,"name":"Text 0","text":"第三章 · Agent Identity","textPreview":"第三章 · Agent Identity","textChars":20,"textLines":1,"bbox":[62.4,40.32,720,30.72]}
+{"kind":"textbox","id":"sh/cbu58j2h","slide":10,"name":"Text 1","text":"Manager 编排 6 个专职 Worker","textPreview":"Manager 编排 6 个专职 Worker","textChars":23,"textLines":1,"bbox":[62.4,69.12,787.2,67.2]}
+{"kind":"textbox","id":"sh/u187adsv","slide":10,"name":"文本框 37","text":"Manager 决定“下一步调用谁”；Worker 只在能力边界内调用工具；确定性状态机拥有最终推进权，高风险动作由人工审批。","textPreview":"Manager 决定“下一步调用谁”；Worker 只在能力边界内调用工具；确定性状态机拥有最终推进权，高风险动作由人工审批。","textChars":63,"textLines":1,"bbox":[55.2,126.47,841.27,96]}
+{"kind":"image","id":"im/wb6dcval","slide":10,"name":"","bbox":[55.2,241.93,554.67,311.2]}
+{"kind":"image","id":"im/0rehk3ut","slide":10,"name":"","bbox":[670.8,241.93,554.93,311.2]}
+{"kind":"slide","id":"sl/jetc3ut0","slide":11,"title":"第三章 · 动态路由","textShapes":21}
+{"kind":"textbox","id":"sh/xcryxg7y","slide":11,"name":"Text 0","text":"第三章 · 动态路由","textPreview":"第三章 · 动态路由","textChars":10,"textLines":1,"bbox":[62.4,40.32,720,30.72]}
+{"kind":"textbox","id":"sh/wbih4b6d","slide":11,"name":"Text 1","text":"RouteOption 让下一步由现场证据决定","textPreview":"RouteOption 让下一步由现场证据决定","textChars":23,"textLines":1,"bbox":[62.4,69.12,787.2,67.2]}
+{"kind":"shape","id":"sh/250zy18b","slide":11,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/98rytw72","slide":11,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/o7ih0r6h","slide":11,"name":"Text 5","text":"状态约束","textPreview":"状态约束","textChars":4,"textLines":1,"bbox":[115.2,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/72t03qp0","slide":11,"name":"Text 6","text":"当前状态生成合法动作集合","textPreview":"当前状态生成合法动作集合","textChars":12,"textLines":1,"bbox":[89.28,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/61kzalof","slide":11,"name":"Text 7","text":"非法跨阶段路由会被拒绝","textPreview":"非法跨阶段路由会被拒绝","textChars":11,"textLines":1,"bbox":[89.28,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/ofqtgnyt","slide":11,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/9gza9sze","slide":11,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/mdobedg3","slide":11,"name":"Text 10","text":"多候选实验","textPreview":"多候选实验","textChars":5,"textLines":1,"bbox":[509.86,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/nehs7iho","slide":11,"name":"Text 11","text":"每类事故生成 3 个候选","textPreview":"每类事故生成 3 个候选","textChars":12,"textLines":1,"bbox":[483.94,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/0b6tc3yx","slide":11,"name":"Text 12","text":"Manager 选择最有信息量者","textPreview":"Manager 选择最有信息量者","textChars":16,"textLines":1,"bbox":[483.94,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/1cfa58zi","slide":11,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/epobatgr","slide":11,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/zaxs3yhc","slide":11,"name":"Text 15","text":"Worker 绑定","textPreview":"Worker 绑定","textChars":9,"textLines":1,"bbox":[904.51,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/cn6t83y1","slide":11,"name":"Text 16","text":"动作绑定专职 Agent","textPreview":"动作绑定专职 Agent","textChars":12,"textLines":1,"bbox":[878.59,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/dofa18z6","slide":11,"name":"Text 17","text":"避免角色越权和职责漂移","textPreview":"避免角色越权和职责漂移","textChars":11,"textLines":1,"bbox":[878.59,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/tsnip0ny","slide":11,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/87ehgv6d","slide":11,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/7650nq5s","slide":11,"name":"Text 20","text":"证据引用","textPreview":"证据引用","textChars":4,"textLines":1,"bbox":[115.2,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/65wzelo7","slide":11,"name":"Text 21","text":"每个决定携带 evidence refs","textPreview":"每个决定携带 evidence refs","textChars":20,"textLines":1,"bbox":[89.28,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/l43ilgn2","slide":11,"name":"Text 22","text":"结果可回溯至假设与批次","textPreview":"结果可回溯至假设与批次","textChars":11,"textLines":1,"bbox":[89.28,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/k3uhcb6h","slide":11,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/j2lgjq5w","slide":11,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/y1czalob","slide":11,"name":"Text 25","text":"预期结果","textPreview":"预期结果","textChars":4,"textLines":1,"bbox":[509.86,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/p07ixkn6","slide":11,"name":"Text 26","text":"路由声明 expected result","textPreview":"路由声明 expected result","textChars":20,"textLines":1,"bbox":[483.94,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/4zyhofml","slide":11,"name":"Text 27","text":"便于判断实验是否充分","textPreview":"便于判断实验是否充分","textChars":10,"textLines":1,"bbox":[483.94,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/m58fih43","slide":11,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/n61wbmlo","slide":11,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/o7axk7m9","slide":11,"name":"Text 30","text":"失败动作","textPreview":"失败动作","textChars":4,"textLines":1,"bbox":[904.51,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/98jedc3u","slide":11,"name":"Text 31","text":"统一 failure_action","textPreview":"统一 failure_action","textChars":17,"textLines":1,"bbox":[878.59,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/eh8fex47","slide":11,"name":"Text 32","text":"异常转人工或进入恢复链","textPreview":"异常转人工或进入恢复链","textChars":11,"textLines":1,"bbox":[878.59,511.68,317.86,36.48]}
+{"kind":"textbox","id":"sh/z2hw72lc","slide":11,"name":"Text 33","text":"11","textPreview":"11","textChars":2,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"slide","id":"sl/8f2psfyx","slide":12,"title":"第三章 · 证据不足时怎么办","textShapes":21}
+{"kind":"textbox","id":"sh/1gbm9s3a","slide":12,"name":"Text 0","text":"第三章 · 证据不足时怎么办","textPreview":"第三章 · 证据不足时怎么办","textChars":14,"textLines":1,"bbox":[62.4,40.32,720,30.72]}
+{"kind":"textbox","id":"sh/0f2lgnmp","slide":12,"name":"Text 1","text":"INCONCLUSIVE 不等于 PASSED","textPreview":"INCONCLUSIVE 不等于 PASSED","textChars":23,"textLines":1,"bbox":[62.4,69.12,787.2,67.2]}
+{"kind":"shape","id":"sh/q903ad4n","slide":12,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/dcbm583y","slide":12,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/sb2lcnmd","slide":12,"name":"Text 5","text":"候选一","textPreview":"候选一","textChars":3,"textLines":1,"bbox":[115.2,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/b6d4f2lc","slide":12,"name":"Text 6","text":"cross-image replay","textPreview":"cross-image replay","textChars":18,"textLines":1,"bbox":[89.28,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/a543mx4r","slide":12,"name":"Text 7","text":"比较基线与观测镜像","textPreview":"比较基线与观测镜像","textChars":9,"textLines":1,"bbox":[89.28,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/wvupgz6t","slide":12,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/xw3q94ne","slide":12,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/atc7epon","slide":12,"name":"Text 10","text":"候选二","textPreview":"候选二","textChars":3,"textLines":1,"bbox":[509.86,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/bulo7u58","slide":12,"name":"Text 11","text":"cross-node replay","textPreview":"cross-node replay","textChars":17,"textLines":1,"bbox":[483.94,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/orapcf6h","slide":12,"name":"Text 12","text":"比较健康与异常节点","textPreview":"比较健康与异常节点","textChars":9,"textLines":1,"bbox":[483.94,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/9sj65kn2","slide":12,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/mps7a5or","slide":12,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/nq1o3a5w","slide":12,"name":"Text 15","text":"候选三","textPreview":"候选三","textChars":3,"textLines":1,"bbox":[904.51,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/0nap8f6l","slide":12,"name":"Text 16","text":"control replay","textPreview":"control replay","textChars":14,"textLines":1,"bbox":[878.59,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/1oj61kn6","slide":12,"name":"Text 17","text":"验证健康控制组稳定性","textPreview":"验证健康控制组稳定性","textChars":10,"textLines":1,"bbox":[878.59,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/hkbm5wzu","slide":12,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/gj25cry9","slide":12,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/fit436ho","slide":12,"name":"Text 20","text":"首轮不足","textPreview":"首轮不足","textChars":4,"textLines":1,"bbox":[115.2,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/uh0na1g3","slide":12,"name":"Text 21","text":"第一实验返回 INCONCLUSIVE","textPreview":"第一实验返回 INCONCLUSIVE","textChars":19,"textLines":1,"bbox":[89.28,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/tgrm1wzy","slide":12,"name":"Text 22","text":"事故保持 INVESTIGATING","textPreview":"事故保持 INVESTIGATING","textChars":18,"textLines":1,"bbox":[89.28,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/sfi58ryd","slide":12,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/7u94zmhs","slide":12,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/6t0n6hg7","slide":12,"name":"Text 25","text":"Manager 改选","textPreview":"Manager 改选","textChars":10,"textLines":1,"bbox":[509.86,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/dcv6dgz2","slide":12,"name":"Text 26","text":"从剩余合法候选中补选","textPreview":"从剩余合法候选中补选","textChars":10,"textLines":1,"bbox":[483.94,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/cbm5kbyh","slide":12,"name":"Text 27","text":"第二实验确认节点退化","textPreview":"第二实验确认节点退化","textChars":10,"textLines":1,"bbox":[483.94,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/alwbitsn","slide":12,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/bm5sryt8","slide":12,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/wnetkjat","slide":12,"name":"Text 30","text":"状态推进","textPreview":"状态推进","textChars":4,"textLines":1,"bbox":[904.51,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/xonutobe","slide":12,"name":"Text 31","text":"只有充分证据才进入影响分析","textPreview":"只有充分证据才进入影响分析","textChars":13,"textLines":1,"bbox":[878.59,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/mhcbe9sr","slide":12,"name":"Text 32","text":"模型不能绕过确定性校验","textPreview":"模型不能绕过确定性校验","textChars":11,"textLines":1,"bbox":[878.59,511.68,317.86,36.48]}
+{"kind":"textbox","id":"sh/nilsnetc","slide":12,"name":"Text 33","text":"12","textPreview":"12","textChars":2,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"slide","id":"sl/hgzapcr6","slide":13,"title":"第三章 · 失败恢复","textShapes":21}
+{"kind":"textbox","id":"sh/q50nydsj","slide":13,"name":"Text 0","text":"第三章 · 失败恢复","textPreview":"第三章 · 失败恢复","textChars":10,"textLines":1,"bbox":[62.4,40.32,720,30.72]}
+{"kind":"textbox","id":"sh/bq9orito","slide":13,"name":"Text 1","text":"灰度失败触发新计划，而不是原地重试","textPreview":"灰度失败触发新计划，而不是原地重试","textChars":17,"textLines":1,"bbox":[62.4,69.12,787.2,67.2]}
+{"kind":"shape","id":"sh/p4r6p8by","slide":13,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/21gnuts7","slide":13,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/32ponyts","slide":13,"name":"Text 5","text":"发现异常","textPreview":"发现异常","textChars":4,"textLines":1,"bbox":[115.2,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/gzy5s3a1","slide":13,"name":"Text 6","text":"canary 出现结果不一致","textPreview":"canary 出现结果不一致","textChars":14,"textLines":1,"bbox":[89.28,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/1076lobm","slide":13,"name":"Text 7","text":"批次记录失败原因","textPreview":"批次记录失败原因","textChars":8,"textLines":1,"bbox":[89.28,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/hcfy9k3u","slide":13,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/gb6x0zm9","slide":13,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/vaxg7ulo","slide":13,"name":"Text 10","text":"立即暂停","textPreview":"立即暂停","textChars":4,"textLines":1,"bbox":[509.86,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/u9ofyp43","slide":13,"name":"Text 11","text":"事故进入 PAUSED","textPreview":"事故进入 PAUSED","textChars":11,"textLines":1,"bbox":[483.94,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/t8fy5k3i","slide":13,"name":"Text 12","text":"阻止后续全量执行","textPreview":"阻止后续全量执行","textChars":8,"textLines":1,"bbox":[483.94,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/876xwfmx","slide":13,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/7mdg3als","slide":13,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/6l4fu547","slide":13,"name":"Text 15","text":"回滚失败批次","textPreview":"回滚失败批次","textChars":6,"textLines":1,"bbox":[904.51,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/lkvy103m","slide":13,"name":"Text 16","text":"旧 canary 标记 ROLLED_BACK","textPreview":"旧 canary 标记 ROLLED_BACK","textChars":23,"textLines":1,"bbox":[878.59,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/kjmxsfm1","slide":13,"name":"Text 17","text":"保存替代批次关系","textPreview":"保存替代批次关系","textChars":8,"textLines":1,"bbox":[878.59,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/cnqh8fux","slide":13,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/xozyhkbi","slide":13,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/q18f65cr","slide":13,"name":"Text 20","text":"计划升级","textPreview":"计划升级","textChars":4,"textLines":1,"bbox":[115.2,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/bmhgfatc","slide":13,"name":"Text 21","text":"创建 remediation revision 2","textPreview":"创建 remediation revision 2","textChars":25,"textLines":1,"bbox":[89.28,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/oz6x4vul","slide":13,"name":"Text 22","text":"显式 supersedes revision 1","textPreview":"显式 supersedes revision 1","textChars":24,"textLines":1,"bbox":[89.28,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/p0zyd0b6","slide":13,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/2xof2lcv","slide":13,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/3yxgbqdg","slide":13,"name":"Text 25","text":"审批失效","textPreview":"审批失效","textChars":4,"textLines":1,"bbox":[509.86,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/8vahgzu5","slide":13,"name":"Text 26","text":"旧技术审批自动 REVOKED","textPreview":"旧技术审批自动 REVOKED","textChars":15,"textLines":1,"bbox":[483.94,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/9wjyp4bq","slide":13,"name":"Text 27","text":"新计划必须重新批准","textPreview":"新计划必须重新批准","textChars":9,"textLines":1,"bbox":[483.94,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/jqlkfyds","slide":13,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/ipcjmtw7","slide":13,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/5cn2h8vy","slide":13,"name":"Text 30","text":"恢复执行","textPreview":"恢复执行","textChars":4,"textLines":1,"bbox":[904.51,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/4re1o3ed","slide":13,"name":"Text 31","text":"canary_retry → bulk → verify","textPreview":"canary_retry → bulk → verify","textChars":28,"textLines":1,"bbox":[878.59,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/re5kjydo","slide":13,"name":"Text 32","text":"最终覆盖率重新计算","textPreview":"最终覆盖率重新计算","textChars":9,"textLines":1,"bbox":[878.59,511.68,317.86,36.48]}
+{"kind":"textbox","id":"sh/6dwjqtw3","slide":13,"name":"Text 33","text":"13","textPreview":"13","textChars":2,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"slide","id":"sl/6lsnupw7","slide":14,"title":"第三章 · 可观测协同","textShapes":21}
+{"kind":"textbox","id":"sh/xc7eds76","slide":14,"name":"Text 0","text":"第三章 · 可观测协同","textPreview":"第三章 · 可观测协同","textChars":11,"textLines":1,"bbox":[62.4,40.32,720,30.72]}
+{"kind":"textbox","id":"sh/wbydknq1","slide":14,"name":"Text 1","text":"AgentRun / Event 还原整条决策链","textPreview":"AgentRun / Event 还原整条决策链","textChars":24,"textLines":1,"bbox":[62.4,69.12,787.2,67.2]}
+{"kind":"shape","id":"sh/idgvmx8r","slide":14,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/5grehs7i","slide":14,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/kfidonqx","slide":14,"name":"Text 5","text":"运行快照","textPreview":"运行快照","textChars":4,"textLines":1,"bbox":[115.2,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/zi5c3y98","slide":14,"name":"Text 6","text":"AgentRun 保存状态与模型计数","textPreview":"AgentRun 保存状态与模型计数","textChars":18,"textLines":1,"bbox":[89.28,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/ehwvat8n","slide":14,"name":"Text 7","text":"支持按事故查询最新运行","textPreview":"支持按事故查询最新运行","textChars":11,"textLines":1,"bbox":[89.28,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/c3e1gjyd","slide":14,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/x4ni9ofy","slide":14,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/a1wze9g7","slide":14,"name":"Text 10","text":"顺序事件","textPreview":"顺序事件","textChars":4,"textLines":1,"bbox":[509.86,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/b2507exs","slide":14,"name":"Text 11","text":"sequence 单调递增","textPreview":"sequence 单调递增","textChars":13,"textLines":1,"bbox":[483.94,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/kre1k3y9","slide":14,"name":"Text 12","text":"事件 ID 幂等防止重复写入","textPreview":"事件 ID 幂等防止重复写入","textChars":14,"textLines":1,"bbox":[483.94,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/ls7idofu","slide":14,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/y5wjitgj","slide":14,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/z650byxo","slide":14,"name":"Text 15","text":"路由证据","textPreview":"路由证据","textChars":4,"textLines":1,"bbox":[904.51,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/0buh8zy5","slide":14,"name":"Text 16","text":"记录 action / worker / reason","textPreview":"记录 action / worker / reason","textChars":27,"textLines":1,"bbox":[878.59,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/1w3i14fq","slide":14,"name":"Text 17","text":"同时保存候选与证据引用","textPreview":"同时保存候选与证据引用","textChars":11,"textLines":1,"bbox":[878.59,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/hsvy50re","slide":14,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/grmxwvqt","slide":14,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/fqdg3q98","slide":14,"name":"Text 20","text":"执行证据","textPreview":"执行证据","textChars":4,"textLines":1,"bbox":[115.2,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/up4fal83","slide":14,"name":"Text 21","text":"Worker、工具和状态分别留痕","textPreview":"Worker、工具和状态分别留痕","textChars":16,"textLines":1,"bbox":[89.28,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/pwvy90rq","slide":14,"name":"Text 22","text":"失败、暂停与恢复均可查询","textPreview":"失败、暂停与恢复均可查询","textChars":12,"textLines":1,"bbox":[89.28,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/4vmh0vq5","slide":14,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/3udg7q9k","slide":14,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/2t4fyl8z","slide":14,"name":"Text 25","text":"人工门禁","textPreview":"人工门禁","textChars":4,"textLines":1,"bbox":[509.86,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/d0fydk7m","slide":14,"name":"Text 26","text":"审批事件独立保存","textPreview":"审批事件独立保存","textChars":8,"textLines":1,"bbox":[483.94,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/cz6h4fq1","slide":14,"name":"Text 27","text":"技术、业务与关闭职责可审计","textPreview":"技术、业务与关闭职责可审计","textChars":13,"textLines":1,"bbox":[483.94,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/atg3idk7","slide":14,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/bup4rils","slide":14,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/cvylkn2d","slide":14,"name":"Text 30","text":"实时消费","textPreview":"实时消费","textChars":4,"textLines":1,"bbox":[904.51,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/xw7mts3y","slide":14,"name":"Text 31","text":"快照、增量 API 与 SSE","textPreview":"快照、增量 API 与 SSE","textChars":15,"textLines":1,"bbox":[878.59,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/yxgnmxkj","slide":14,"name":"Text 32","text":"便于接入监控和评测平台","textPreview":"便于接入监控和评测平台","textChars":11,"textLines":1,"bbox":[878.59,511.68,317.86,36.48]}
+{"kind":"textbox","id":"sh/jyp4fil4","slide":14,"name":"Text 33","text":"14","textPreview":"14","textChars":2,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"slide","id":"sl/vaxsvy10","slide":15,"title":"15","textShapes":6}
+{"kind":"textbox","id":"sh/4n6d8z21","slide":15,"name":"Text 34","text":"15","textPreview":"15","textChars":2,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"textbox","id":"sh/547mhg3m","slide":15,"name":"Text 0","text":"第四章","textPreview":"第四章","textChars":3,"textLines":1,"bbox":[62.4,311.59,720,30.72]}
+{"kind":"textbox","id":"sh/k3y5ov21","slide":15,"name":"Text 1","text":"Skill 与 MCP：把经验沉淀成基础设施","textPreview":"Skill 与 MCP：把经验沉淀成基础设施","textChars":22,"textLines":1,"bbox":[62.4,340.39,787.2,67.2]}
+{"kind":"shape","id":"sh/76p4jqls","slide":15,"name":"Shape 2","bbox":[747.17,48,470.4,82.56]}
+{"kind":"textbox","id":"sh/upkrilwj","slide":15,"name":"Text 3","text":"对应评分维度","textPreview":"对应评分维度","textChars":6,"textLines":1,"bbox":[768.29,57.6,326.4,24.96]}
+{"kind":"textbox","id":"sh/vqdsrqx4","slide":15,"name":"Text 4","text":"Skill 工程体系与生态复用","textPreview":"Skill 工程体系与生态复用","textChars":15,"textLines":1,"bbox":[768.29,80.64,326.4,42.24]}
+{"kind":"shape","id":"sh/4vm9ovel","slide":15,"name":"Shape 5","bbox":[1107.17,65.28,91.2,48]}
+{"kind":"textbox","id":"sh/5wvax0f6","slide":15,"name":"Text 6","text":"25%","textPreview":"25%","textChars":3,"textLines":1,"bbox":[1107.17,65.28,91.2,48]}
+{"kind":"slide","id":"sl/gny5sjyp","slide":16,"title":"第四章 · 任务能力抽象","textShapes":4}
+{"kind":"textbox","id":"sh/8z2h8bq1","slide":16,"name":"Text 0","text":"第四章 · 任务能力抽象","textPreview":"第四章 · 任务能力抽象","textChars":12,"textLines":1,"bbox":[62.4,40.32,720,30.72]}
+{"kind":"textbox","id":"sh/9kby1g7m","slide":16,"name":"Text 1","text":"9 个 Skill 覆盖调查、处置与核验","textPreview":"9 个 Skill 覆盖调查、处置与核验","textChars":20,"textLines":1,"bbox":[62.4,69.12,787.2,67.2]}
+{"kind":"shape","id":"sh/lwbyxwra","slide":16,"name":"Shape 5","bbox":[1107.17,65.28,91.2,48]}
+{"kind":"textbox","id":"sh/ip4zel83","slide":16,"name":"Text 6","text":"25%","textPreview":"25%","textChars":3,"textLines":1,"bbox":[1107.17,65.28,91.2,48]}
+{"kind":"textbox","id":"sh/p4vmlwrm","slide":16,"name":"文本框 37","text":"每个 Skill 定义输入输出、依赖、失败处理、安全边界、幂等键、验收标准和协作关系。","textPreview":"每个 Skill 定义输入输出、依赖、失败处理、安全边界、幂等键、验收标准和协作关系。","textChars":43,"textLines":1,"bbox":[55.2,126.47,841.27,67.73]}
+{"kind":"image","id":"im/viloj6hg","slide":16,"name":"","bbox":[338.6,249.6,602.8,339.67]}
+{"kind":"slide","id":"sl/14bup87q","slide":17,"title":"第四章 · 工具接入契约","textShapes":21}
+{"kind":"textbox","id":"sh/1c7e50ni","slide":17,"name":"Text 0","text":"第四章 · 工具接入契约","textPreview":"第四章 · 工具接入契约","textChars":12,"textLines":1,"bbox":[62.4,40.32,720,30.72]}
+{"kind":"textbox","id":"sh/gbedwfmx","slide":17,"name":"Text 1","text":"12 个 MCP 工具提供确定性事实与受控动作","textPreview":"12 个 MCP 工具提供确定性事实与受控动作","textChars":23,"textLines":1,"bbox":[62.4,69.12,787.2,67.2]}
+{"kind":"shape","id":"sh/6lwvql4v","slide":17,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/t8ne10n6","slide":17,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/snedsvml","slide":17,"name":"Text 5","text":"信号与部署","textPreview":"信号与部署","textChars":5,"textLines":1,"bbox":[115.2,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/jilcvq54","slide":17,"name":"Text 6","text":"signal + deployment tools","textPreview":"signal + deployment tools","textChars":25,"textLines":1,"bbox":[89.28,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/ihcvml4j","slide":17,"name":"Text 7","text":"读取异常分布与变更记录","textPreview":"读取异常分布与变更记录","textChars":11,"textLines":1,"bbox":[89.28,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/4by9or6l","slide":17,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/pc7qhwn6","slide":17,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/29grm1of","slide":17,"name":"Text 10","text":"假设与重放","textPreview":"假设与重放","textChars":5,"textLines":1,"bbox":[509.86,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/3ap8fm50","slide":17,"name":"Text 11","text":"hypotheses / candidates / replay","textPreview":"hypotheses / candidates / replay","textChars":32,"textLines":1,"bbox":[483.94,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/gnepkr69","slide":17,"name":"Text 12","text":"支持多实验和明确结果状态","textPreview":"支持多实验和明确结果状态","textChars":12,"textLines":1,"bbox":[483.94,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/honqdwnu","slide":17,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/ulw7ihoj","slide":17,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/fm58bm54","slide":17,"name":"Text 15","text":"题包审计","textPreview":"题包审计","textChars":4,"textLines":1,"bbox":[904.51,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/0ji9wb6t","slide":17,"name":"Text 16","text":"problem package audit","textPreview":"problem package audit","textChars":21,"textLines":1,"bbox":[878.59,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/14rqpgne","slide":17,"name":"Text 17","text":"检查 Checker、数据与配置","textPreview":"检查 Checker、数据与配置","textChars":16,"textLines":1,"bbox":[878.59,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/90nq9gfi","slide":17,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/8ze9gbyx","slide":17,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/ny5876xc","slide":17,"name":"Text 20","text":"影响定界","textPreview":"影响定界","textChars":4,"textLines":1,"bbox":[115.2,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/mxw7e1gr","slide":17,"name":"Text 21","text":"candidate / submission scope","textPreview":"candidate / submission scope","textChars":28,"textLines":1,"bbox":[89.28,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/lwnq5gf6","slide":17,"name":"Text 22","text":"冻结集合并生成 SHA-256","textPreview":"冻结集合并生成 SHA-256","textChars":15,"textLines":1,"bbox":[89.28,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/0vepcbyl","slide":17,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/zul836xg","slide":17,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/ytc7a1gv","slide":17,"name":"Text 25","text":"计划与审批","textPreview":"计划与审批","textChars":5,"textLines":1,"bbox":[509.86,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/d83q1wfa","slide":17,"name":"Text 26","text":"plan + approval tools","textPreview":"plan + approval tools","textChars":21,"textLines":1,"bbox":[483.94,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/c7up8ryp","slide":17,"name":"Text 27","text":"计划版本与审批对象绑定","textPreview":"计划版本与审批对象绑定","textChars":11,"textLines":1,"bbox":[483.94,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/2dsn2xwn","slide":17,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/3e1ob2d8","slide":17,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/oza547ed","slide":17,"name":"Text 30","text":"执行与验证","textPreview":"执行与验证","textChars":5,"textLines":1,"bbox":[904.51,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/p0j6dcvy","slide":17,"name":"Text 31","text":"batch / verify / report","textPreview":"batch / verify / report","textChars":23,"textLines":1,"bbox":[878.59,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/e98nydwb","slide":17,"name":"Text 32","text":"幂等重评与独立一致性检查","textPreview":"幂等重评与独立一致性检查","textChars":12,"textLines":1,"bbox":[878.59,511.68,317.86,36.48]}
+{"kind":"textbox","id":"sh/fah47idw","slide":17,"name":"Text 33","text":"17","textPreview":"17","textChars":2,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"slide","id":"sl/y5wne50z","slide":18,"title":"第四章 · 上下文增强","textShapes":21}
+{"kind":"textbox","id":"sh/wrelszu9","slide":18,"name":"Text 0","text":"第四章 · 上下文增强","textPreview":"第四章 · 上下文增强","textChars":11,"textLines":1,"bbox":[62.4,40.32,720,30.72]}
+{"kind":"textbox","id":"sh/hsn2l4bu","slide":18,"name":"Text 1","text":"当前能力可运行，RAG 作为可替换扩展","textPreview":"当前能力可运行，RAG 作为可替换扩展","textChars":19,"textLines":1,"bbox":[62.4,69.12,787.2,67.2]}
+{"kind":"shape","id":"sh/je5knut0","slide":18,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/4felwzu5","slide":18,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/5gnmp4bq","slide":18,"name":"Text 5","text":"共享上下文","textPreview":"共享上下文","textChars":5,"textLines":1,"bbox":[115.2,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/6hw3y9sb","slide":18,"name":"Text 6","text":"IncidentContext 贯穿全流程","textPreview":"IncidentContext 贯穿全流程","textChars":21,"textLines":1,"bbox":[89.28,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/rip4retw","slide":18,"name":"Text 7","text":"保存状态、范围、计划与证据","textPreview":"保存状态、范围、计划与证据","textChars":13,"textLines":1,"bbox":[89.28,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/fapkr6pw","slide":18,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/upg3i18r","slide":18,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/1cr2tg72","slide":18,"name":"Text 10","text":"历史记忆","textPreview":"历史记忆","textChars":4,"textLines":1,"bbox":[509.86,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/gbylkbqh","slide":18,"name":"Text 11","text":"AgentRun/Event 提供事件历史","textPreview":"AgentRun/Event 提供事件历史","textChars":21,"textLines":1,"bbox":[483.94,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/7mpknmp0","slide":18,"name":"Text 12","text":"支持按序恢复与增量消费","textPreview":"支持按序恢复与增量消费","textChars":11,"textLines":1,"bbox":[483.94,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/6lg3e18f","slide":18,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/to72pw76","slide":18,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/snylgrql","slide":18,"name":"Text 15","text":"Skill 封装","textPreview":"Skill 封装","textChars":8,"textLines":1,"bbox":[904.51,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/bi94zqp4","slide":18,"name":"Text 16","text":"检索与工具结果写回上下文","textPreview":"检索与工具结果写回上下文","textChars":12,"textLines":1,"bbox":[878.59,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/qh03ql8j","slide":18,"name":"Text 17","text":"Agent 不依赖隐式聊天记忆","textPreview":"Agent 不依赖隐式聊天记忆","textChars":15,"textLines":1,"bbox":[878.59,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/md4nipsr","slide":18,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/nedoru9c","slide":18,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/8zm5kzax","slide":18,"name":"Text 20","text":"确定性事实","textPreview":"确定性事实","textChars":5,"textLines":1,"bbox":[115.2,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/90v6t4ri","slide":18,"name":"Text 21","text":"SQL、Runner、MCP 作为事实源","textPreview":"SQL、Runner、MCP 作为事实源","textChars":20,"textLines":1,"bbox":[89.28,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/a14nm9s3","slide":18,"name":"Text 22","text":"模型不替代数值与状态判断","textPreview":"模型不替代数值与状态判断","textChars":12,"textLines":1,"bbox":[89.28,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/v2xovu9o","slide":18,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/w36poza9","slide":18,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/x4f6x4re","slide":18,"name":"Text 25","text":"RAG 边界","textPreview":"RAG 边界","textChars":6,"textLines":1,"bbox":[509.86,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/q5kna5sz","slide":18,"name":"Text 26","text":"保留知识检索适配器契约","textPreview":"保留知识检索适配器契约","textChars":11,"textLines":1,"bbox":[483.94,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/b6toja94","slide":18,"name":"Text 27","text":"当前不宣称已实现知识库 RAG","textPreview":"当前不宣称已实现知识库 RAG","textChars":15,"textLines":1,"bbox":[483.94,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/t0zqp8bm","slide":18,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/szq9g3uh","slide":18,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/7yh8nytw","slide":18,"name":"Text 30","text":"迁移路径","textPreview":"迁移路径","textChars":4,"textLines":1,"bbox":[904.51,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/6x8retcb","slide":18,"name":"Text 31","text":"可接 Runbook 与历史事故库","textPreview":"可接 Runbook 与历史事故库","textChars":17,"textLines":1,"bbox":[878.59,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/h4jqtsby","slide":18,"name":"Text 32","text":"无需改写 Agent/Skill 协作链","textPreview":"无需改写 Agent/Skill 协作链","textChars":20,"textLines":1,"bbox":[878.59,511.68,317.86,36.48]}
+{"kind":"textbox","id":"sh/g3a9knud","slide":18,"name":"Text 33","text":"18","textPreview":"18","textChars":2,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"slide","id":"sl/nid43ytk","slide":19,"title":"19","textShapes":6}
+{"kind":"textbox","id":"sh/0jux03yp","slide":19,"name":"Text 34","text":"19","textPreview":"19","textChars":2,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"textbox","id":"sh/ahk7qls3","slide":19,"name":"Text 0","text":"第五章","textPreview":"第五章","textChars":3,"textLines":1,"bbox":[62.4,314.12,720,30.72]}
+{"kind":"textbox","id":"sh/xkbq10be","slide":19,"name":"Text 1","text":"工程落地与可验证证据","textPreview":"工程落地与可验证证据","textChars":10,"textLines":1,"bbox":[62.4,342.92,787.2,67.2]}
+{"kind":"shape","id":"sh/wj2psvat","slide":19,"name":"Shape 2","bbox":[747.17,48,470.4,82.56]}
+{"kind":"textbox","id":"sh/jmd83atk","slide":19,"name":"Text 3","text":"对应评分维度","textPreview":"对应评分维度","textChars":6,"textLines":1,"bbox":[768.29,57.6,326.4,24.96]}
+{"kind":"textbox","id":"sh/il47u5sz","slide":19,"name":"Text 4","text":"工程落地与安全可审计","textPreview":"工程落地与安全可审计","textChars":10,"textLines":1,"bbox":[768.29,80.64,326.4,42.24]}
+{"kind":"shape","id":"sh/cri1gnql","slide":19,"name":"Shape 5","bbox":[1107.17,65.28,91.2,48]}
+{"kind":"textbox","id":"sh/dsri9sr6","slide":19,"name":"Text 6","text":"20%","textPreview":"20%","textChars":3,"textLines":1,"bbox":[1107.17,65.28,91.2,48]}
+{"kind":"slide","id":"sl/zyxsni5k","slide":20,"title":"第五章 · 可运行实现","textShapes":21}
+{"kind":"textbox","id":"sh/qpwjmh8n","slide":20,"name":"Text 0","text":"第五章 · 可运行实现","textPreview":"第五章 · 可运行实现","textChars":11,"textLines":1,"bbox":[62.4,40.32,720,30.72]}
+{"kind":"textbox","id":"sh/rq50vmp8","slide":20,"name":"Text 1","text":"从浏览器工作台到受控重评执行器","textPreview":"从浏览器工作台到受控重评执行器","textChars":15,"textLines":1,"bbox":[62.4,69.12,787.2,67.2]}
+{"kind":"shape","id":"sh/po3itc72","slide":20,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/2lczih8r","slide":20,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/3ml0rmpw","slide":20,"name":"Text 5","text":"业务前端","textPreview":"业务前端","textChars":4,"textLines":1,"bbox":[115.2,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/gjuhg7ql","slide":20,"name":"Text 6","text":"Vue 3 事故工作台","textPreview":"Vue 3 事故工作台","textChars":11,"textLines":1,"bbox":[89.28,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/hk3ipcr6","slide":20,"name":"Text 7","text":"总览、详情、审批与重评","textPreview":"总览、详情、审批与重评","textChars":11,"textLines":1,"bbox":[89.28,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/dkfmp4zy","slide":20,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/cj65wzyd","slide":20,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/rid4nuhs","slide":20,"name":"Text 10","text":"服务后端","textPreview":"服务后端","textChars":4,"textLines":1,"bbox":[509.86,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/qh4nupg7","slide":20,"name":"Text 11","text":"FastAPI + 领域状态机","textPreview":"FastAPI + 领域状态机","textChars":15,"textLines":1,"bbox":[483.94,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/pwvmlkzm","slide":20,"name":"Text 12","text":"事故、路由、事件和报告 API","textPreview":"事故、路由、事件和报告 API","textChars":15,"textLines":1,"bbox":[483.94,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/4vm5sfy1","slide":20,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/3ud4juhg","slide":20,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/2t4nqpgb","slide":20,"name":"Text 15","text":"数据台账","textPreview":"数据台账","textChars":4,"textLines":1,"bbox":[904.51,223.68,293.86,34.56]}
+{"kind":"textbox","id":"sh/hsvmhkzq","slide":20,"name":"Text 16","text":"SQLite 可审计存储","textPreview":"SQLite 可审计存储","textChars":12,"textLines":1,"bbox":[878.59,264,317.86,57.6]}
+{"kind":"textbox","id":"sh/grm5ofy5","slide":20,"name":"Text 17","text":"状态、审批、批次与 Agent 事件","textPreview":"状态、审批、批次与 Agent 事件","textChars":18,"textLines":1,"bbox":[878.59,321.6,317.86,36.48]}
+{"kind":"shape","id":"sh/8b654f61","slide":20,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/tcz6dk7m","slide":20,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/69on25ov","slide":20,"name":"Text 20","text":"Agent Infra","textPreview":"Agent Infra","textChars":11,"textLines":1,"bbox":[115.2,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/7ax4bapg","slide":20,"name":"Text 21","text":"AgentTeams + 9 Skills","textPreview":"AgentTeams + 9 Skills","textChars":21,"textLines":1,"bbox":[89.28,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/k7650f6p","slide":20,"name":"Text 22","text":"12 个 MCP 工具受状态约束","textPreview":"12 个 MCP 工具受状态约束","textChars":16,"textLines":1,"bbox":[89.28,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/l8fm907a","slide":20,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/y5ony58z","slide":20,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/j6x47ap4","slide":20,"name":"Text 25","text":"执行证据","textPreview":"执行证据","textChars":4,"textLines":1,"bbox":[509.86,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/43q5cz69","slide":20,"name":"Text 26","text":"Java Runner + 固定种子","textPreview":"Java Runner + 固定种子","textChars":18,"textLines":1,"bbox":[483.94,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/54j6l47e","slide":20,"name":"Text 27","text":"真实 OK/TLE 与三类事故报告","textPreview":"真实 OK/TLE 与三类事故报告","textChars":17,"textLines":1,"bbox":[483.94,511.68,317.86,36.48]}
+{"kind":"shape","id":"sh/za50r2ds","slide":20,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/e9wzyxcn","slide":20,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/1cnitsvy","slide":20,"name":"Text 30","text":"质量门禁","textPreview":"质量门禁","textChars":4,"textLines":1,"bbox":[904.51,413.76,293.86,34.56]}
+{"kind":"textbox","id":"sh/0beh07ud","slide":20,"name":"Text 31","text":"63 tests + Ruff + build","textPreview":"63 tests + Ruff + build","textChars":23,"textLines":1,"bbox":[878.59,454.08,317.86,57.6]}
+{"kind":"textbox","id":"sh/ny50v2d4","slide":20,"name":"Text 32","text":"秘密扫描与提交包审计通过","textPreview":"秘密扫描与提交包审计通过","textChars":12,"textLines":1,"bbox":[878.59,511.68,317.86,36.48]}
+{"kind":"textbox","id":"sh/mdwz2xcj","slide":20,"name":"Text 33","text":"20","textPreview":"20","textChars":2,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"slide","id":"sl/m1wvqtk3","slide":21,"title":"第五章 · 证据分级","textShapes":3}
+{"kind":"textbox","id":"sh/1gbmxs7a","slide":21,"name":"Text 0","text":"第五章 · 证据分级","textPreview":"第五章 · 证据分级","textChars":10,"textLines":1,"bbox":[62.4,40.32,720,30.72]}
+{"kind":"textbox","id":"sh/0f2lon6p","slide":21,"name":"Text 1","text":"真实协作与异常恢复分别证明不同能力","textPreview":"真实协作与异常恢复分别证明不同能力","textChars":17,"textLines":1,"bbox":[62.4,69.12,787.2,67.2]}
+{"kind":"textbox","id":"sh/ehwje1cf","slide":21,"name":"文本框 37","text":"真实协作：6 个 Worker、20 条模型响应；异常恢复：3 候选补选、PAUSED、revision 2、重审批与恢复灰度。","textPreview":"真实协作：6 个 Worker、20 条模型响应；异常恢复：3 候选补选、PAUSED、revision 2、重审批与恢复灰度。","textChars":64,"textLines":1,"bbox":[55.2,126.47,841.27,96]}
+{"kind":"image","id":"im/kfq9gr25","slide":21,"name":"","bbox":[221.33,209.02,402.11,226.33]}
+{"kind":"image","id":"im/07i90ry5","slide":21,"name":"","bbox":[649.4,209.61,402.86,226.75]}
+{"kind":"image","id":"im/lsrq9wza","slide":21,"name":"","bbox":[221.37,450.2,402.9,226.77]}
+{"kind":"image","id":"im/y5gry1gz","slide":21,"name":"","bbox":[649.4,451.8,402.29,226.77]}
+{"kind":"slide","id":"sl/5onypobq","slide":22,"title":"第六章 · 泛化与差异化","textShapes":4}
+{"kind":"textbox","id":"sh/7a18rydc","slide":22,"name":"Text 0","text":"第六章 · 泛化与差异化","textPreview":"第六章 · 泛化与差异化","textChars":12,"textLines":1,"bbox":[35.73,28.85,720,30.72]}
+{"kind":"textbox","id":"sh/k7qpgjul","slide":22,"name":"Text 1","text":"同一闭环覆盖三类 OJ 事故","textPreview":"同一闭环覆盖三类 OJ 事故","textChars":14,"textLines":1,"bbox":[35.73,57.65,787.2,67.2]}
+{"kind":"textbox","id":"sh/58zqpov6","slide":22,"name":"文本框 4","text":"运行时回归、节点退化和 Checker 缺陷共享状态机与证据契约；核心差异是受控执行和可验证结果。","textPreview":"运行时回归、节点退化和 Checker 缺陷共享状态机与证据契约；核心差异是受控执行和可验证结果。","textChars":49,"textLines":1,"bbox":[25.67,124.87,841.27,67.73]}
+{"kind":"textbox","id":"sh/jmh8nyd0","slide":22,"name":"文本框 6","text":"三类场景覆盖率 100% · 可迁移多种 OJ","textPreview":"三类场景覆盖率 100% · 可迁移多种 OJ","textChars":23,"textLines":1,"bbox":[416.6,585.2,426.67,67.2]}
+{"kind":"image","id":"im/d476hgja","slide":22,"name":"","bbox":[35.73,251,583.73,328.33]}
+{"kind":"image","id":"im/c3ypob2p","slide":22,"name":"","bbox":[637.53,251,575.93,325.6]}
+{"kind":"slide","id":"sl/c7uhcr6t","slide":23,"title":"第七章 · Demo 路线","textShapes":4}
+{"kind":"textbox","id":"sh/90vqdczq","slide":23,"name":"Text 0","text":"第七章 · Demo 路线","textPreview":"第七章 · Demo 路线","textChars":13,"textLines":1,"bbox":[62.4,40.32,720,30.72]}
+{"kind":"textbox","id":"sh/8zm9k7y5","slide":23,"name":"Text 1","text":"让评委在一次演示中看到完整闭环","textPreview":"让评委在一次演示中看到完整闭环","textChars":15,"textLines":1,"bbox":[62.4,69.12,787.2,67.2]}
+{"kind":"textbox","id":"sh/d0j6pkbe","slide":23,"name":"Text 31","text":"23","textPreview":"23","textChars":2,"textLines":1,"bbox":[1183.97,672,57.6,28.8]}
+{"kind":"textbox","id":"sh/u58n6lcv","slide":23,"name":"文本框 37","text":"创建事故 → 动态选择实验 → 冻结影响范围 → 人工审批 → 控制/灰度/全量重评 → 关闭核验；同时展示灰度失败后的暂停与恢复证据。","textPreview":"创建事故 → 动态选择实验 → 冻结影响范围 → 人工审批 → 控制/灰度/全量重评 → 关闭核验；同时展示灰度失败后的暂停与恢复证据。","textChars":68,"textLines":1,"bbox":[62.4,136.33,841.27,96]}
+{"kind":"image","id":"im/wre14ne5","slide":23,"name":"","bbox":[97.6,244.68,515.67,290.24]}
+{"kind":"image","id":"im/0nm5svyt","slide":23,"name":"","bbox":[669.73,258.13,559.27,260.6]}
