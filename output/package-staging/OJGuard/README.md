@@ -34,6 +34,14 @@ python -m pip install -e ".[dev]"
 npm --prefix frontend install
 ```
 
+也可以使用锁定依赖安装：
+
+```powershell
+uv sync --locked --extra dev
+```
+
+从提交 ZIP 解压后必须先执行上述任一安装方式，再运行测试。`mcp` 是声明在 `pyproject.toml` 和 `uv.lock` 中的外部传输依赖；不要在未安装依赖的裸 Python 环境中直接执行完整测试。
+
 启动后端：
 
 ```powershell
@@ -99,6 +107,15 @@ npm --prefix frontend run build
 ```
 
 当前 66 项测试覆盖事故状态门禁、多候选路由合同、AgentTeams 主入口、重复启动互斥、事件幂等与顺序、人工审批门禁、灰度失败恢复、场景生成、影响计算、幂等重评、越界/重复检查、MCP 工具、Skill 合约、AgentTeams 配置和 Java Runner。
+
+重建并检查提交 ZIP：
+
+```powershell
+.\scripts\build_submission_package.ps1
+.\.venv\Scripts\python.exe -m scripts.verify_submission_package output\submission\OJGuard_submission.zip
+```
+
+检查器会验证 `benchmark/cases.yaml`、中文文件名、README 本地链接、必需证据、路径分隔符和密钥排除规则。
 
 ## AgentTeams 与 DeepSeek
 

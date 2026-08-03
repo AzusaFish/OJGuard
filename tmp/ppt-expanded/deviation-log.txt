@@ -1,6 +1,6 @@
-Intentional departures from the 17-slide source deck
-- Expanded the narrative to 23 slides because the user explicitly allowed the deck to go beyond the supplied template structure and asked for more content.
-- Reused the source deck's chapter-divider, six-card, architecture, AgentTeams, Skill, evidence and closing layouts multiple times.
-- Rewrote only inherited text slots. Existing diagrams and screenshots are preserved as inherited media.
-- The title slide and all template chrome remain visually unchanged except for audience-facing copy and page numbering.
-- Slides 1 and 8 may retain decorative circles that extend beyond the slide canvas because they are inherited source-template artwork, not content overflow.
+1. Reduced the source deck from 23 to 12 slides at the user's request.
+2. Removed chapter-divider-only slides; no master, theme or geometry changes.
+3. Consolidated repeated six-card topics into broader high-information pages.
+4. Corrected test count from 63 to 66.
+5. Replaced legacy/abbreviated state labels with the implemented state sequence.
+6. Added a dedicated Evidence Index using the inherited six-card frame.

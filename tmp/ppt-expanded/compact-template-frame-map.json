@@ -1,0 +1,17 @@
+{
+  "sourceDeck": "output/submission/OJGuard_项目介绍.pptx",
+  "outputSlides": [
+    {"outputSlide": 1, "sourceSlide": 1, "role": "cover"},
+    {"outputSlide": 2, "sourceSlide": 2, "role": "executive summary"},
+    {"outputSlide": 3, "sourceSlide": 4, "role": "scenario and value"},
+    {"outputSlide": 4, "sourceSlide": 6, "role": "generalization"},
+    {"outputSlide": 5, "sourceSlide": 8, "role": "architecture and exact state machine"},
+    {"outputSlide": 6, "sourceSlide": 9, "role": "agent division and collaboration"},
+    {"outputSlide": 7, "sourceSlide": 12, "role": "dynamic routing and exception branches"},
+    {"outputSlide": 8, "sourceSlide": 18, "role": "skills and MCP tools"},
+    {"outputSlide": 9, "sourceSlide": 19, "role": "context observability safety and RAG boundary"},
+    {"outputSlide": 10, "sourceSlide": 21, "role": "feasibility landing and open source"},
+    {"outputSlide": 11, "sourceSlide": 22, "role": "live AgentTeams acceptance"},
+    {"outputSlide": 12, "sourceSlide": 23, "role": "evidence index"}
+  ]
+}
