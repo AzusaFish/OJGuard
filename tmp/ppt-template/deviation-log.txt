@@ -1,3 +1,9 @@
 Output slide 15 intentionally maps to source slide 2 instead of source slide 15 because source slide 15 contains no inherited content frame. The six inherited cells support the open-source scope without adding new primitives.
 
 All other output slides duplicate their matching source slide. Content images will be replaced only with authentic OJGuard outputs and diagrams generated from project data.
+
+Final live-evidence refresh changes inherited text only on slides 2, 7, 9, 11, 13, 15 and 17. These edits replace earlier summary wording with verified run facts: start at TRIAGING, 11 Team Leader routes, 8 Worker tool writes, 20 logical model responses, separated hypothesis/experiment phases and three human gates. No template primitive, master, layout or decorative element was added or replaced.
+
+Final dynamic-routing and recovery refresh again edits only inherited text on slides 2, 7, 9, 11, 13, 15 and 17. It adds verified facts from the zero-cost deterministic evidence: three legal experiment candidates, an inconclusive first choice, a second discriminating choice, PAUSED canary failure, revision-2 recovery plan, fresh approval, successful canary retry and 63 passing tests. Real AgentTeams evidence and deterministic policy evidence remain explicitly separated. No primitive, master, layout, image or decoration is added or replaced.
+
+Slides 1 and 3 retain the source template's intentionally cropped decorative circles outside the slide frame. The slide overflow detector reports those two source shapes; full-size renders confirm that no text, evidence image, or audience-facing content crosses the canvas.

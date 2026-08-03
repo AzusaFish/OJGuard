@@ -16,7 +16,7 @@ async def smoke() -> None:
         expected = {
             "deployment.list_changes",
             "impact.calculate_scope",
-            "incident.list_signals",
+            "incident.triage_signals",
             "judge.replay_submission",
             "problem.audit_package",
             "rejudge.create_plan",

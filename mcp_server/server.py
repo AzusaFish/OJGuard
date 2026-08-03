@@ -33,9 +33,13 @@ mcp = FastMCP(
 )
 
 
-@mcp.tool(name="incident.list_signals", title="List incident signals", structured_output=True)
-def incident_list_signals(incident_id: str) -> dict[str, Any]:
-    return tools.incident_list_signals(incident_id)
+@mcp.tool(
+    name="incident.triage_signals",
+    title="Triage incident signals",
+    structured_output=True,
+)
+def incident_triage_signals(incident_id: str) -> dict[str, Any]:
+    return tools.incident_triage_signals(incident_id)
 
 
 @mcp.tool(
@@ -57,8 +61,18 @@ def deployment_list_changes(incident_id: str) -> dict[str, Any]:
 @mcp.tool(
     name="judge.replay_submission", title="Replay controlled submission", structured_output=True
 )
-def judge_replay_submission(incident_id: str, repetitions: int = 3) -> dict[str, Any]:
-    return tools.judge_replay_submission(incident_id, repetitions)
+def judge_replay_submission(
+    incident_id: str,
+    repetitions: int = 3,
+    mode: str = "experiment",
+    experiment_kind: str | None = None,
+) -> dict[str, Any]:
+    return tools.judge_replay_submission(
+        incident_id,
+        repetitions,
+        mode,
+        experiment_kind,
+    )
 
 
 @mcp.tool(name="problem.audit_package", title="Audit problem package", structured_output=True)
@@ -72,13 +86,17 @@ def impact_calculate_scope(incident_id: str) -> dict[str, Any]:
 
 
 @mcp.tool(name="rejudge.create_plan", title="Get controlled rejudge plan", structured_output=True)
-def rejudge_create_plan(incident_id: str) -> dict[str, Any]:
-    return tools.rejudge_create_plan(incident_id)
+def rejudge_create_plan(incident_id: str, mode: str = "initial") -> dict[str, Any]:
+    return tools.rejudge_create_plan(incident_id, mode)
 
 
 @mcp.tool(name="rejudge.execute_batch", title="Execute approved rejudge phase", structured_output=True)
-def rejudge_execute_batch(incident_id: str, phase: str) -> dict[str, Any]:
-    return tools.rejudge_execute_batch(incident_id, phase)
+def rejudge_execute_batch(
+    incident_id: str,
+    phase: str,
+    inject_canary_failure: bool = False,
+) -> dict[str, Any]:
+    return tools.rejudge_execute_batch(incident_id, phase, inject_canary_failure)
 
 
 @mcp.tool(name="rejudge.pause_batch", title="Pause rejudge batch", structured_output=True)

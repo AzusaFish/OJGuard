@@ -61,7 +61,7 @@ function metricsSvg() {
     <text x="56" y="68" class="h">一次运行时回归，污染的不只是判题</text>
     <text x="56" y="102" class="s">固定种子 20260802 · Java 运行时对照实验</text>
     <rect x="56" y="146" width="250" height="178" rx="18" class="card"/><text x="82" y="194" class="t">参赛规模</text><text x="82" y="260" class="h">5,000</text><text x="82" y="294" class="s">20,000 次提交</text>
-    <rect x="330" y="146" width="250" height="178" rx="18" class="card"/><text x="356" y="194" class="t">影响范围</text><text x="356" y="260" class="h">703 / 742</text><text x="356" y="294" class="s">提交 / 候选提交</text>
+    <rect x="330" y="146" width="250" height="178" rx="18" class="card"/><text x="356" y="194" class="t">影响范围</text><text x="356" y="260" class="h">703 / 742</text><text x="356" y="294" class="s">候选人 / 受影响提交</text>
     <rect x="56" y="350" width="250" height="178" rx="18" class="card"/><text x="82" y="398" class="t">成绩变化</text><text x="82" y="464" class="h">703</text><text x="82" y="498" class="s">预计晋级变化 72</text>
     <rect x="330" y="350" width="250" height="178" rx="18" class="card"/><text x="356" y="398" class="t">可信核验</text><text x="356" y="464" class="h">100%</text><text x="356" y="498" class="s">重/漏/越界均为 0</text>
     <path d="M650 165 H1135" class="line"/><circle cx="695" cy="165" r="17" class="orange"/><circle cx="835" cy="165" r="17" class="blue"/><circle cx="975" cy="165" r="17" class="purple"/><circle cx="1115" cy="165" r="17" class="green"/>
@@ -127,10 +127,10 @@ function governanceSvg() {
 
 function skillsSvg() {
   const groups = [
-    ['研判','signal-fusion\nroot-cause-analysis\nimpact-scoping','#2F6BFF'],
-    ['治理','approval-gate\nrisk-control','#8A4FFF'],
-    ['执行','rejudge-planning\ntrusted-rejudge','#FF6B35'],
-    ['核验','verification\nincident-reporting','#0AA37F']
+    ['信号与定界','信号归一\n事件关联\n影响定界','#2F6BFF'],
+    ['根因审查','控制复现\n题包审计','#8A4FFF'],
+    ['处置执行','处置规划\n受控重评','#FF6B35'],
+    ['独立核验','一致性核验\n事故报告','#0AA37F']
   ];
   let body = `<text x="50" y="66" class="h">9 个 Skill，把经验沉淀为可复用能力</text><text x="50" y="103" class="s">统一输入输出、依赖、失败处理与审批边界</text>`;
   groups.forEach(([title, lines, color], i) => {
@@ -138,7 +138,7 @@ function skillsSvg() {
     body += `<rect x="${x}" y="155" width="270" height="350" rx="22" class="card"/><rect x="${x}" y="155" width="270" height="72" rx="22" fill="${color}"/><text x="${x+28}" y="201" class="t white">${title}</text>`;
     lines.split('\n').forEach((line,j)=> body += `<rect x="${x+22}" y="${255+j*70}" width="226" height="48" rx="12" fill="#F2F5FA"/><text x="${x+37}" y="${286+j*70}" class="b">${line}</text>`);
   });
-  body += `<rect x="50" y="550" width="1170" height="76" rx="18" class="navy"/><text x="78" y="598" class="b white">12 个 MCP 工具提供确定性事实：incident.* / judge.* / approval.* / report.*</text>`;
+  body += `<rect x="50" y="550" width="1170" height="76" rx="18" class="navy"/><text x="78" y="598" class="b white">12 个 MCP 工具：信号 / 部署 / 重放 / 题包 / 影响 / 重评 / 成绩 / 核验 / 报告</text>`;
   return svgShell(body);
 }
 
@@ -154,7 +154,7 @@ function finalSvg() {
   return svgShell(`
     <text x="54" y="70" class="h">从事故创建到可信关闭：全链路已跑通</text>
     <rect x="54" y="132" width="250" height="150" rx="20" class="card"/><text x="80" y="180" class="t">AgentTeams</text><text x="80" y="238" class="h">6 / 6</text><text x="80" y="266" class="s">Worker 完成协作</text>
-    <rect x="330" y="132" width="250" height="150" rx="20" class="card"/><text x="356" y="180" class="t">影响提交</text><text x="356" y="238" class="h">703</text><text x="356" y="266" class="s">限定于 742 候选</text>
+    <rect x="330" y="132" width="250" height="150" rx="20" class="card"/><text x="356" y="180" class="t">影响范围</text><text x="356" y="238" class="h">703 / 742</text><text x="356" y="266" class="s">候选人 / 提交</text>
     <rect x="606" y="132" width="250" height="150" rx="20" class="card"/><text x="632" y="180" class="t">批次</text><text x="632" y="238" class="h">4 / 4</text><text x="632" y="266" class="s">控制 / 灰度 / 全量</text>
     <rect x="882" y="132" width="294" height="150" rx="20" class="card"/><text x="908" y="180" class="t">最终状态</text><text x="908" y="238" class="h">RESOLVED</text><text x="908" y="266" class="s">覆盖率 100%</text>
     <path d="M80 370 H1150" class="line"/><circle cx="110" cy="370" r="18" class="orange"/><circle cx="330" cy="370" r="18" class="purple"/><circle cx="550" cy="370" r="18" class="blue"/><circle cx="770" cy="370" r="18" class="green"/><circle cx="990" cy="370" r="18" class="navy"/>
@@ -193,15 +193,15 @@ const textMap = {
   4: {2:'第一章',3:'场景与价值',5:'对应评分维度',6:'场景价值与行业可复制性',8:'25%'},
   5: {3:'第一章',4:'真实事故：Java 运行时回归',5:'镜像切换后错误率从 8.3% 升至 41.4%。OJGuard 将异常还原为可复核证据、精确影响范围与可信重评任务。',7:'固定种子 20260802 · 三类场景均可复现'},
   6: {2:'第二章',3:'方案总览'},
-  7: {2:'第二章 · 承上启下',3:'方案总览',38:'从异常信号到 RESOLVED：Agent 负责协同与解释，确定性工具负责事实与执行。'},
+  7: {2:'第二章 · 承上启下',3:'方案总览',38:'共享 IncidentContext 与全链路 Trace 传递上下文；Agent 负责协同，确定性工具负责事实与执行。'},
   8: {5:'第三章',6:'AgentTeams 协同设计',8:'对应评分维度',9:'多 Agent 协同与自主闭环能力',11:'25%'},
   9: {2:'第三章',3:'AgentTeams 协同设计',38:'Team Leader 编排 6 个专职 Worker；共享事故状态，证据冲突则回退，高风险执行必须经过人工批准。'},
   10: {2:'第四章',3:'Skill / MCP 工程体系',12:'对应评分维度',13:'Skill 工程体系与生态复用',15:'25%'},
-  11: {2:'第四章 · 本赛题必选项',3:'9 个可复用 Skill',8:'25%',38:'Skill 统一声明输入输出、依赖、失败处理与审批边界；12 个 MCP 工具提供可测试的确定性事实与动作。'},
+  11: {2:'第四章 · 本赛题必选项',3:'9 个可复用 Skill',8:'25%',38:'每个 Skill 均声明输入输出、依赖工具、失败、安全、复用和 Agent 协作；12 个 MCP 工具具备 Schema、门禁、幂等与迁移契约。'},
   12: {5:'第五章',6:'工程落地与运行证据',8:'对应评分维度',9:'工程落地与安全可审计',11:'20%'},
   13: {2:'第五章',3:'可复现证据链',38:'真实 Java Runner 对照、审批轨迹、分批重评与关闭核验共同组成可审计证据；报告可导出 JSON / HTML。'},
   14: {2:'第六章',3:'开放 / 开源贡献',17:'对应评分维度',18:'开放 / 开源贡献',20:'5%'},
-  15: {2:'第六章 · Apache-2.0',3:'开放 / 开源贡献',7:'代码仓库',8:'完整源码与运行说明',9:'github.com/AzusaFish/OJGuard',12:'可复用资产',13:'9 Skills、12 MCP 工具、三类场景',14:'可单独接入其他 OJ',17:'扩展边界',18:'适配器契约预留',19:'队列 / 配置类事故可新增 Playbook',22:'运行方式',23:'Docker Compose 或本地启动',24:'演示数据一键生成',27:'证据包',28:'Runner、AgentTeams、事故报告',29:'均随提交附件提供',32:'完成状态',33:'前后端与闭环已可运行',34:'Demo 由参赛者现场录制'},
+  15: {2:'第六章 · Apache-2.0',3:'开放 / 开源贡献',7:'代码仓库',8:'完整源码与运行说明',9:'github.com/AzusaFish/OJGuard',12:'可复用资产',13:'9 Skills、12 MCP 工具、三类场景',14:'可单独接入其他 OJ',17:'扩展边界',18:'适配器契约预留',19:'队列 / 配置类事故可新增 Playbook',22:'运行方式',23:'PowerShell 脚本或本地启动',24:'演示数据一键生成',27:'证据包',28:'Runner、AgentTeams、事故报告',29:'均随提交附件提供',32:'完成状态',33:'前后端与闭环已可运行',34:'Demo 由参赛者现场录制'},
   16: {4:'第七章 · 对应「当前进展」与整体可行性',5:'Demo 与提交状态'},
   17: {2:'第七章 · 可运行成果',3:'已完成的闭环证据',38:'创建事故 → 角色审批 → 控制组 → 灰度 → 全量重评 → 关闭核验；浏览器端已完成全链路实测。'},
 };

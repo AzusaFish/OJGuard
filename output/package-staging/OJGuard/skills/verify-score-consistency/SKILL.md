@@ -19,4 +19,8 @@ Invocation condition: all approved rejudge batches have reached a terminal state
 4. Validate evidence and approval completeness.
 5. Return `RESOLVED`, `RESOLVED_WITH_WARNING`, `ROLLBACK_REQUIRED`, or `HUMAN_REVIEW_REQUIRED`; do not close the incident.
 
+## Dependencies and collaboration
+
+Dependent tools: `verification.verify_incident`, `score.calculate_changes`, the approval ledger, batch records, snapshots, and evidence index. Agent collaboration: the Verification Auditor independently consumes the Impact Analyst's frozen set and the Rejudge Executor's results, reports discrepancies to the Incident Manager, and cannot edit the evidence it verifies or close the incident. Reuse value: exact set equality, independent recomputation, and evidence-completeness checks can validate other governed batch workflows and score-like business results.
+
 Errors: `INCOMPLETE_BATCH`, `SCOPE_MISMATCH`, `SCORE_MISMATCH`, `EVIDENCE_MISSING`. Safety: read-only verification. Idempotency key: hashes of impact, batch, score, and approval snapshots. Acceptance: a resolved result requires 100% coverage, zero duplicates, zero cross-scope execution, and exact score agreement.

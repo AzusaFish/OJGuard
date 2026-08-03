@@ -19,4 +19,8 @@ Invocation condition: a persisted incident exists; final wording additionally re
 4. Disclose single-operator role simulation in the demo report.
 5. Do not claim closure unless the state machine is `RESOLVED`.
 
+## Dependencies and collaboration
+
+Dependent tools: `report.generate_incident_report`, the SQLite incident workspace, the evidence index, and the JSON/HTML renderer. Agent collaboration: the Incident Manager requests the consolidated report, while the Verification Auditor supplies an independent status and checks that every conclusion cites persisted evidence rather than another Agent's unsupported statement. Reuse value: the stable report schema can be exported to audit, compliance, support, and post-incident review systems across OJ deployments.
+
 Errors: `INCIDENT_NOT_FOUND`, `REPORT_INCOMPLETE`, `VERIFICATION_REQUIRED`. Safety: escape rendered text and omit secrets or unrestricted personal data. Idempotency key: incident updated timestamp plus report schema version. Acceptance: JSON validates, HTML renders without external assets, and every conclusion is supported by persisted records.

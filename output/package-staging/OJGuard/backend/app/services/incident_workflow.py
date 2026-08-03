@@ -5,6 +5,7 @@ from uuid import uuid4
 
 from backend.app.domain import (
     ApprovalLevel,
+    ExperimentCandidate,
     ExperimentState,
     HypothesisState,
     IncidentApprovalAction,
@@ -15,6 +16,7 @@ from backend.app.domain import (
     IncidentSeverity,
     IncidentStage,
     IncidentType,
+    RejudgeBatchState,
     RemediationPlan,
     RemediationStep,
     VerificationStatus,
@@ -28,6 +30,8 @@ from backend.app.services.trusted_rejudge import (
     assess_impact,
     calculate_score_changes,
     complete_batch,
+    fail_batch,
+    plan_recovery_canary_batch,
     plan_rejudge_batches,
     verify_rejudge,
 )
@@ -80,7 +84,8 @@ class IncidentWorkflowService:
             raise IncidentWorkflowError("incident not found")
         return incident
 
-    def prepare_demo(self, incident_type: IncidentType) -> IncidentContext:
+    def start_triage_demo(self, incident_type: IncidentType) -> IncidentContext:
+        """Create only the observable incident input used by live AgentTeams orchestration."""
         dataset = self.generator.generate(incident_type)
         playbook = default_playbook_for(incident_type)
         incident_id = f"INC-{uuid4().hex[:10].upper()}"
@@ -108,39 +113,171 @@ class IncidentWorkflowService:
             self.repository.save_incident_signal(signal)
         incident.signal_ids = [item.id for item in signals]
         incident = transition_incident(incident, IncidentStage.TRIAGING)
-        incident = transition_incident(incident, IncidentStage.INVESTIGATING)
+        self.repository.save_incident(incident)
+        return incident
 
-        hypotheses = self.analyzer.competing_hypotheses(incident_id, dataset)
-        experiment = self.analyzer.run_comparison(incident_id, dataset, hypotheses)
+    def begin_investigation(self, incident_id: str) -> IncidentContext:
+        """Advance normalized signals into investigation without precomputing a diagnosis."""
+        incident = self._require_incident(incident_id)
+        if incident.stage == IncidentStage.TRIAGING:
+            incident = transition_incident(incident, IncidentStage.INVESTIGATING)
+            self.repository.save_incident(incident)
+        elif incident.stage != IncidentStage.INVESTIGATING:
+            raise IncidentWorkflowError("signal triage requires TRIAGING or INVESTIGATING")
+        return incident
+
+    def list_experiment_candidates(self, incident_id: str) -> list[ExperimentCandidate]:
+        incident = self._require_incident(incident_id)
+        if incident.stage != IncidentStage.INVESTIGATING:
+            return []
+        hypotheses = self.repository.list_root_cause_hypotheses(incident_id)
+        if not hypotheses:
+            return []
+        dataset = self.generator.generate(incident.profile.incident_type)
+        executed = {
+            item.kind for item in self.repository.list_incident_experiments(incident_id)
+        }
+        return [
+            item
+            for item in self.analyzer.experiment_candidates(dataset, hypotheses)
+            if item.kind not in executed
+        ]
+
+    def run_root_cause_analysis(
+        self,
+        incident_id: str,
+        experiment_kind: str | None = None,
+    ) -> IncidentContext:
+        """Persist competing hypotheses and their deterministic comparison experiment."""
+        incident = self._require_incident(incident_id)
+        if incident.stage not in {
+            IncidentStage.INVESTIGATING,
+            IncidentStage.IMPACT_ASSESSING,
+        }:
+            existing = self.repository.list_incident_experiments(incident_id)
+            if existing and incident.confirmed_root_cause_ids:
+                return incident
+            raise IncidentWorkflowError(
+                "root-cause analysis requires INVESTIGATING"
+            )
+
+        if incident.confirmed_root_cause_ids:
+            return incident
+
+        hypotheses = self.repository.list_root_cause_hypotheses(incident_id)
+        if not hypotheses:
+            incident = self.propose_root_cause_hypotheses(incident_id)
+            hypotheses = self.repository.list_root_cause_hypotheses(incident_id)
+
+        dataset = self.generator.generate(incident.profile.incident_type)
+        selected_kind = experiment_kind or self.analyzer._experiment_kind(
+            incident.profile.incident_type
+        )
+        existing_experiment = next(
+            (
+                item
+                for item in self.repository.list_incident_experiments(incident_id)
+                if item.kind == selected_kind
+            ),
+            None,
+        )
+        if existing_experiment is not None:
+            return incident
+        experiment = self.analyzer.run_comparison(
+            incident_id,
+            dataset,
+            hypotheses,
+            selected_kind,
+        )
         primary_category = {
             IncidentType.RUNTIME_REGRESSION: "runtime_image",
             IncidentType.NODE_DEGRADATION: "judge_node",
             IncidentType.CHECKER_DEFECT: "checker",
-        }[incident_type]
+        }[incident.profile.incident_type]
         for hypothesis in hypotheses:
-            hypothesis.state = (
-                HypothesisState.CONFIRMED
-                if hypothesis.category == primary_category
-                and experiment.state == ExperimentState.PASSED
-                else HypothesisState.REJECTED
-            )
-            hypothesis.confidence = 0.96 if hypothesis.state == HypothesisState.CONFIRMED else 0.08
+            if experiment.state == ExperimentState.PASSED:
+                hypothesis.state = (
+                    HypothesisState.CONFIRMED
+                    if hypothesis.category == primary_category
+                    else HypothesisState.REJECTED
+                )
+                hypothesis.confidence = (
+                    0.96 if hypothesis.state == HypothesisState.CONFIRMED else 0.08
+                )
+            else:
+                hypothesis.state = HypothesisState.INCONCLUSIVE
+                hypothesis.confidence = 0.5
             hypothesis.updated_at = datetime.now(UTC)
             self.repository.save_root_cause_hypothesis(hypothesis)
+        experiment.started_at = datetime.now(UTC)
+        experiment.completed_at = datetime.now(UTC)
         self.repository.save_incident_experiment(experiment)
         incident.active_hypothesis_ids = [item.id for item in hypotheses]
         incident.confirmed_root_cause_ids = [
             item.id for item in hypotheses if item.state == HypothesisState.CONFIRMED
         ]
-        incident.experiment_ids = [experiment.id]
+        incident.experiment_ids = [*incident.experiment_ids, experiment.id]
         incident.control_experiment_passed = experiment.state == ExperimentState.PASSED
-        incident = transition_incident(incident, IncidentStage.IMPACT_ASSESSING)
+        if experiment.state == ExperimentState.PASSED:
+            incident = transition_incident(incident, IncidentStage.IMPACT_ASSESSING)
+        else:
+            question = f"实验 {selected_kind} 无法区分竞争假设，需要选择补充实验"
+            if question not in incident.open_questions:
+                incident.open_questions.append(question)
+        self.repository.save_incident(incident)
+        return incident
 
+    def propose_root_cause_hypotheses(self, incident_id: str) -> IncidentContext:
+        """Persist competing hypotheses without executing or precomputing the experiment."""
+        incident = self._require_incident(incident_id)
+        if incident.stage != IncidentStage.INVESTIGATING:
+            raise IncidentWorkflowError("hypothesis proposal requires INVESTIGATING")
+        existing = self.repository.list_root_cause_hypotheses(incident_id)
+        if existing:
+            return incident
+
+        dataset = self.generator.generate(incident.profile.incident_type)
+        hypotheses = self.analyzer.competing_hypotheses(incident_id, dataset)
+        for hypothesis in hypotheses:
+            self.repository.save_root_cause_hypothesis(hypothesis)
+        incident.active_hypothesis_ids = [item.id for item in hypotheses]
+        incident.updated_at = datetime.now(UTC)
+        self.repository.save_incident(incident)
+        return incident
+
+    def calculate_impact(self, incident_id: str) -> IncidentContext:
+        """Calculate and freeze the exact impact set only after root-cause confirmation."""
+        incident = self._require_incident(incident_id)
+        if incident.impact_assessment_id:
+            return incident
+        if incident.stage != IncidentStage.IMPACT_ASSESSING:
+            raise IncidentWorkflowError("impact calculation requires IMPACT_ASSESSING")
+
+        dataset = self.generator.generate(incident.profile.incident_type)
+        playbook = default_playbook_for(incident.profile.incident_type)
         impact = assess_impact(incident_id, dataset, playbook.impact_policy)
         self.repository.save_impact_assessment(impact)
         incident.impact_assessment_id = impact.id
         incident = transition_incident(incident, IncidentStage.REMEDIATION_PLANNING)
+        self.repository.save_incident(incident)
+        return incident
 
+    def create_remediation_plan(self, incident_id: str) -> IncidentContext:
+        """Create a gated plan and batches without granting execution permission."""
+        incident = self._require_incident(incident_id)
+        if incident.remediation_plan_ids:
+            return incident
+        if incident.stage != IncidentStage.REMEDIATION_PLANNING:
+            raise IncidentWorkflowError(
+                "remediation planning requires REMEDIATION_PLANNING"
+            )
+        if not incident.impact_assessment_id:
+            raise IncidentWorkflowError("remediation planning requires frozen impact")
+
+        impacts = self.repository.list_impact_assessments(incident_id)
+        if not impacts:
+            raise IncidentWorkflowError("remediation planning requires frozen impact")
+        impact = impacts[-1]
         plan = self._build_remediation_plan(incident, impact.id)
         self.repository.save_remediation_plan(plan)
         incident.remediation_plan_ids = [plan.id]
@@ -148,6 +285,49 @@ class IncidentWorkflowService:
         for batch in batches:
             self.repository.save_rejudge_batch(batch)
         incident.rejudge_batch_ids = [item.id for item in batches]
+        incident = transition_incident(incident, IncidentStage.APPROVAL_PENDING)
+        self.repository.save_incident(incident)
+        return incident
+
+    def prepare_demo(self, incident_type: IncidentType) -> IncidentContext:
+        """Build the deterministic browser demo while reusing incremental operations."""
+        incident = self.start_triage_demo(incident_type)
+        incident = self.begin_investigation(incident.incident_id)
+        incident = self.run_root_cause_analysis(incident.incident_id)
+        incident = self.calculate_impact(incident.incident_id)
+        return self.create_remediation_plan(incident.incident_id)
+
+    def revise_plan_after_canary_failure(self, incident_id: str) -> IncidentContext:
+        incident = self._require_incident(incident_id)
+        if incident.stage != IncidentStage.PAUSED:
+            raise IncidentWorkflowError("recovery planning requires PAUSED")
+        failed_batches = [
+            item
+            for item in self.repository.list_rejudge_batches(incident_id)
+            if item.kind in {"canary", "canary_retry"}
+            and item.state == RejudgeBatchState.FAILED
+        ]
+        if not failed_batches:
+            raise IncidentWorkflowError("no failed canary batch requires recovery")
+        failed = failed_batches[-1]
+        previous_plan = self.repository.list_remediation_plans(incident_id)[-1]
+        recovery_plan = self._build_recovery_plan(incident, previous_plan, failed.id)
+        recovery_batch = plan_recovery_canary_batch(
+            incident_id,
+            recovery_plan.id,
+            failed,
+        )
+        failed.state = RejudgeBatchState.ROLLED_BACK
+        failed.superseded_by_batch_id = recovery_batch.id
+        failed.updated_at = datetime.now(UTC)
+        self.repository.save_rejudge_batch(failed)
+        self.repository.save_remediation_plan(recovery_plan)
+        self.repository.save_rejudge_batch(recovery_batch)
+        incident.remediation_plan_ids.append(recovery_plan.id)
+        incident.rejudge_batch_ids.append(recovery_batch.id)
+        incident.approval_state["execute_plan"] = IncidentApprovalDecision.REVOKED
+        incident.approval_state["run_canary_rejudge"] = IncidentApprovalDecision.REVOKED
+        incident.canary_rejudge_passed = False
         incident = transition_incident(incident, IncidentStage.APPROVAL_PENDING)
         self.repository.save_incident(incident)
         return incident
@@ -184,6 +364,43 @@ class IncidentWorkflowService:
                     success_checks=["覆盖率 100%", "无重复且无越界"],
                     stop_conditions=["灰度失败率大于 0", "成绩变化超出影响集合"],
                     rollback_action="暂停后续批次并保留原始成绩快照",
+                ),
+            ],
+        )
+
+    @staticmethod
+    def _build_recovery_plan(
+        incident: IncidentContext,
+        previous_plan: RemediationPlan,
+        failed_batch_id: str,
+    ) -> RemediationPlan:
+        plan_id = f"PLAN-{uuid4().hex[:10].upper()}"
+        return RemediationPlan(
+            id=plan_id,
+            incident_id=incident.incident_id,
+            title="灰度失败后的隔离、复核与受控恢复",
+            approved_impact_id=previous_plan.approved_impact_id,
+            revision=previous_plan.revision + 1,
+            supersedes_plan_id=previous_plan.id,
+            reason=f"灰度批次 {failed_batch_id} 触发停止条件",
+            steps=[
+                RemediationStep(
+                    id=f"{plan_id}-01",
+                    action="隔离失败执行环境并保留原始证据",
+                    risk_level=ApprovalLevel.L2,
+                    preconditions=["灰度批次已暂停", "失败样本和环境指纹已保存"],
+                    success_checks=["失败环境已隔离", "影响集合哈希未变化"],
+                    stop_conditions=["无法确认隔离边界", "影响集合发生漂移"],
+                    rollback_action="保持 PAUSED 并转人工复核",
+                ),
+                RemediationStep(
+                    id=f"{plan_id}-02",
+                    action="在修复环境重试原灰度集合",
+                    risk_level=ApprovalLevel.L2,
+                    preconditions=["新计划重新获得技术审批"],
+                    success_checks=["重试批次零失败", "未产生重复或越界执行"],
+                    stop_conditions=["任一重试提交失败", "幂等键或范围不一致"],
+                    rollback_action="撤销恢复批次并维持原始结果",
                 ),
             ],
         )
@@ -227,7 +444,12 @@ class IncidentWorkflowService:
         self.repository.save_incident(incident)
         return approval
 
-    def execute_control_and_canary(self, incident_id: str) -> IncidentContext:
+    def execute_control_and_canary(
+        self,
+        incident_id: str,
+        *,
+        inject_canary_failure: bool = False,
+    ) -> IncidentContext:
         incident = self._require_incident(incident_id)
         if incident.stage == IncidentStage.APPROVAL_PENDING:
             incident = transition_incident(incident, IncidentStage.EXECUTING)
@@ -240,13 +462,41 @@ class IncidentWorkflowService:
             raise IncidentWorkflowError("canary rejudge requires technical approval")
 
         batches = self.repository.list_rejudge_batches(incident_id)
-        selected = [item for item in batches if item.kind in {"control", "canary"}]
+        active_plan_id = incident.remediation_plan_ids[-1]
+        selected = [
+            item
+            for item in batches
+            if item.plan_id == active_plan_id
+            and item.kind in {"control", "canary", "canary_retry"}
+            and item.state not in {RejudgeBatchState.COMPLETED, RejudgeBatchState.ROLLED_BACK}
+        ]
         if not selected:
-            raise IncidentWorkflowError("no control or canary batches were planned")
+            if incident.canary_rejudge_passed:
+                return incident
+            raise IncidentWorkflowError("no active control or canary batches were planned")
         for batch in selected:
+            if inject_canary_failure and batch.kind in {"canary", "canary_retry"}:
+                self.repository.save_rejudge_batch(
+                    fail_batch(batch, "injected canary mismatch for recovery verification")
+                )
+                incident.canary_rejudge_passed = False
+                incident = transition_incident(incident, IncidentStage.PAUSED)
+                incident.open_questions.append(
+                    "灰度结果与控制组不一致，需要隔离失败环境并生成恢复计划"
+                )
+                incident.updated_at = datetime.now(UTC)
+                self.repository.save_incident(incident)
+                return incident
             self.repository.save_rejudge_batch(complete_batch(batch))
-        incident.canary_rejudge_passed = all(
-            complete_batch(item).state.value == "COMPLETED" for item in selected
+        active_batches = [
+            item
+            for item in self.repository.list_rejudge_batches(incident_id)
+            if item.plan_id == active_plan_id
+            and item.kind in {"control", "canary", "canary_retry"}
+            and item.state != RejudgeBatchState.ROLLED_BACK
+        ]
+        incident.canary_rejudge_passed = bool(active_batches) and all(
+            item.state == RejudgeBatchState.COMPLETED for item in active_batches
         )
         incident.updated_at = datetime.now(UTC)
         self.repository.save_incident(incident)
@@ -261,9 +511,13 @@ class IncidentWorkflowService:
 
         batches = self.repository.list_rejudge_batches(incident_id)
         for batch in batches:
-            self.repository.save_rejudge_batch(complete_batch(batch))
+            if batch.kind == "bulk":
+                self.repository.save_rejudge_batch(complete_batch(batch))
         completed_batches = self.repository.list_rejudge_batches(incident_id)
-        incident.rejudge_complete = all(item.state.value == "COMPLETED" for item in completed_batches)
+        incident.rejudge_complete = all(
+            item.state in {RejudgeBatchState.COMPLETED, RejudgeBatchState.ROLLED_BACK}
+            for item in completed_batches
+        )
 
         dataset = self.generator.generate(incident.profile.incident_type)
         impact = self.repository.list_impact_assessments(incident_id)[-1]

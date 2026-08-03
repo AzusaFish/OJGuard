@@ -2,7 +2,7 @@
 
 > 面向大规模在线编程测评的多智能体事故响应与可信重评平台
 >
-> 文档日期：2026 年 8 月 2 日
+> 文档日期：2026 年 8 月 3 日
 
 ---
 
@@ -193,6 +193,10 @@ OJGuard 由以下可复用工程能力构成，已完成的能力必须以代码
 - 同一镜像跨节点运行，同一节点跨镜像运行；
 - 最终由实验区分“节点故障”和“镜像回归”。
 
+当前实现不是由宿主提前固定“下一步必须执行二维实验”。后端会按事故类型和已执行历史返回 2～3 个合法 `RouteOption`，每个候选包含 action、Worker、`experiment_kind`、允许引用的证据、预期结果、可能的后续状态和失败出口；Incident Manager 必须从候选中选择并输出结构化 `ROUTE_DECISION`，宿主只负责验证合同。若所选实验不能区分竞争假设，结果持久化为 `INCONCLUSIVE`，事故保持 `INVESTIGATING`，下一轮会移除已执行实验并继续提供剩余候选。
+
+灰度阶段还实现一条独立动态分支：`control_canary` 可因一致性失败进入 `PAUSED`；此时唯一自动合法动作是由 Remediation Planner 创建 revision 2 恢复计划。旧失败灰度标记为 `ROLLED_BACK` 并关联新的 `canary_retry`，旧技术审批被撤销，重新审批后才能恢复执行。该链路由零成本确定性证据完整验证，不把测试冒充真实模型协作。
+
 ### 4.5 已验证输出
 
 ```text
@@ -344,14 +348,15 @@ AgentTeams Platform Manager
 
 负责：
 
-- 创建 Incident ID 和结构化共享上下文；
-- 根据异常类型拆分和并行派发任务；
+- 从仅含原始信号的 `TRIAGING` 事故开始，禁止预计算根因、影响集合或处置计划；
+- 每轮读取最新 IncidentContext，并输出一个可审计的 `ROUTE_DECISION`；
+- 根据异常类型、当前状态和前序工具结果，从后端给出的多个合法路由合同中选择下一名 Worker 与实验；
 - 管理依赖、超时、失败和重试；
 - 在 Agent 结论冲突时设计补充实验；
 - 控制状态流转与审批节点；
 - 汇总最终事故报告。
 
-它无权自行批准批量重评或成绩写回。
+根因阶段至少分为两个独立回合：Root Cause Analyst 先持久化竞争假设但不执行实验；后端根据 Playbook 返回多个尚未执行的实验候选；Incident Manager 选择其中一个，Analyst 只执行指定 `experiment_kind`。只有实验通过并确认/否定假设后，才能派发 Impact Analyst；不充分实验不会强行推进状态。Incident Manager 无权自行批准批量重评或成绩写回；证据冲突、非法状态、合同外引用或工具失败必须转入人工复核或停止出口。
 
 ### 6.3 Signal Aggregator
 
@@ -456,6 +461,14 @@ DETECTED
 HUMAN_REVIEW_REQUIRED / PAUSED / ROLLED_BACK / FAILED
 ```
 
+已实现恢复子链：
+
+```text
+EXECUTING --灰度失败--> PAUSED
+PAUSED --新版本恢复计划--> APPROVAL_PENDING
+APPROVAL_PENDING --重新技术审批 + canary_retry 通过--> EXECUTING
+```
+
 关键转换必须由确定性条件触发：
 
 - 没有确认根因或明确风险接受，不能进入处置；
@@ -482,13 +495,13 @@ HUMAN_REVIEW_REQUIRED / PAUSED / ROLLED_BACK / FAILED
 | `verify-score-consistency` | 核验覆盖率、成绩和排名变化 | 独立重算 |
 | `generate-incident-audit-report` | 生成完整事故报告 | 证据引用完整率 |
 
-每个 Skill 必须定义版本、输入、输出、调用条件、错误状态、安全边界、幂等键和验收方法。
+每个 Skill 定义版本、输入、输出、调用条件、依赖工具、错误状态、安全边界、幂等键、验收方法、复用价值和多 Agent 协作关系。逐项契约位于 `skills/*/SKILL.md`。
 
 ### 8.2 核心 MCP 工具
 
 建议提供以下稳定工具，而不是模拟任意 Shell：
 
-1. `incident.list_signals`
+1. `incident.triage_signals`
 2. `submission.aggregate_verdicts`
 3. `deployment.list_changes`
 4. `judge.replay_submission`
@@ -502,6 +515,14 @@ HUMAN_REVIEW_REQUIRED / PAUSED / ROLLED_BACK / FAILED
 12. `report.generate_incident_report`
 
 每次调用保存工具版本、参数摘要、结果摘要、耗时、错误和 Evidence ID。
+
+### 8.3 MCP 集成与迁移边界
+
+OJGuard MCP 使用 Streamable HTTP 和结构化 JSON 返回，默认仅监听本机地址并启用 Host 白名单和 DNS Rebinding Protection。工具只接受持久化业务标识，不接受任意路径、Shell 或 Docker 参数；状态变更同时受状态机、审批、范围集合和幂等键约束。协议、错误处理、重试、审计、生产鉴权建议和替换成本见 `materials/MCP_工具契约与迁移说明.md`。
+
+### 8.4 非 RAG 上下文与可观测性
+
+当前不把 RAG 声明为已实现能力。赛题要求的上下文能力由共享 `IncidentContext` 与全链路 Trace 两项共同满足，AgentTeams 历史消息作为辅助记忆。SQLite 持久化 `AgentRun` 及递增序号的 `AgentRunEvent`，事件覆盖路由、Worker、工具结果、状态转换、人工门禁、暂停、恢复、报告和错误，并提供快照、增量查询与 SSE 订阅。观测证据覆盖 Trace、Log、Metrics，详见 `materials/上下文与可观测性说明.md`。
 
 ---
 
@@ -592,6 +613,8 @@ HUMAN_REVIEW_REQUIRED / PAUSED / ROLLED_BACK / FAILED
 - 影响范围与隐藏标准答案一致；
 - 控制、灰度和全量重评真实执行；
 - 暂停、失败或回滚路径至少验证一条；
+- 同一调查状态至少提供两个可行实验候选，并验证一次不充分实验后的重新选择；
+- 灰度失败后必须生成新计划版本、撤销旧审批并通过恢复灰度，不能原批次原地改写为成功；
 - 成绩和晋级变化由程序独立重算；
 - 高风险动作不能绕过审批；
 - 最终报告能够引用并校验全部关键证据；
@@ -763,7 +786,7 @@ Java 镜像回归必须完整运行；节点退化与 Checker 缺陷只验证泛
 
 ### 14.3 多 Agent 退化为固定流水线
 
-加入节点与镜像冲突假设，由 Incident Manager 动态创建二维对照实验；至少验证一次失败、重试或人工接管。
+后端只给出带边界的多个合法路由合同，不指定唯一首选动作；Incident Manager 选择实验，Root Cause Analyst 返回 `PASSED` 或 `INCONCLUSIVE`，后续候选随已执行历史动态变化。确定性证据已验证“3 候选 → 不充分实验 → 改选实验”和“灰度失败 → 新计划 → 重新审批 → 恢复灰度”，真实 AgentTeams 记录则证明 TeamLeader 与六个 Worker 均被实际调用。
 
 ### 14.4 Java 性能差异不稳定
 
@@ -820,12 +843,13 @@ OJGuard 基于 AgentTeams 构建独立 Incident Manager 和六个专业 Worker�
 | 企业级复杂场景 | 大规模测评事故，横跨技术、成绩和招聘业务 |
 | 至少 3 个不同职能 Agent | 1 个 TeamLeader + 6 个专业 Worker |
 | AgentTeams 为设计基点 | 平台 Manager 管理 Team，独立业务 TeamLeader 调度 Worker |
-| Skill 必选 | 9 个有输入、输出、失败和验证契约的 Skill |
-| 上下文能力至少两项 | 共享 Incident 状态 + 全链路 Trace |
-| 工具调用 | MCP 封装查询、实验、影响计算和重评工具 |
+| 动态协同而非固定流水线 | 多个合法 RouteOption、Manager 选择、合同校验、不充分实验补选、PAUSED 恢复分支 |
+| Skill 必选 | 9 个具有输入输出、调用条件、依赖工具、失败、安全、复用和协作契约的 Skill |
+| 上下文能力至少两项 | 不启用 RAG；使用共享 Incident 状态 + 全链路 Trace，并以 AgentTeams 历史作为辅助记忆 |
+| 工具调用 | 12 个 MCP 工具封装查询、实验、影响计算和重评，具有结构化 Schema、错误、审批、幂等和迁移契约 |
 | 结果验证 | 对照实验、标准答案、重评覆盖率和成绩独立重算 |
-| 审批与回滚 | 分级审批、灰度门槛、暂停、临时结果和模拟写回 |
-| 执行证据 | 查询、实验、批次、差异、审批和报告均可追溯 |
+| 审批与回滚 | 分级审批、灰度门槛、暂停、版本化恢复计划、旧审批撤销、恢复灰度、临时结果和模拟写回 |
+| 执行证据 | 查询、实验、批次、差异、审批和报告均可追溯；AgentRun/Event 支持增量查询和 SSE 回放 |
 | 开放与复用 | Agent、Skill、Schema、适配器、Runner 和数据生成器 |
 
 ### 审阅结论

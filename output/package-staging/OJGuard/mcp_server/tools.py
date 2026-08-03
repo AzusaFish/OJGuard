@@ -59,14 +59,27 @@ class OJGuardTools:
         except ValueError as exc:
             raise MCPToolError("incident type has no executable adapter") from exc
 
-    def incident_list_signals(self, incident_id: str) -> dict[str, Any]:
-        incident = self._incident(incident_id)
+    def incident_triage_signals(self, incident_id: str) -> dict[str, Any]:
+        self._incident(incident_id)
+        try:
+            incident = self.workflow.begin_investigation(incident_id)
+        except (IncidentWorkflowError, ValueError) as exc:
+            raise MCPToolError(str(exc)) from exc
         signals = self.repository.list_incident_signals(incident_id)
+        _, dataset = self._dataset(incident_id)
         return {
             "incident_id": incident_id,
             "stage": incident.stage.value,
             "signals": [item.model_dump(mode="json") for item in signals],
+            "metrics": self.analyzer.metrics(dataset).model_dump(mode="json"),
+            "deployment_changes": [
+                item.model_dump(mode="json") for item in dataset.deployments
+            ],
         }
+
+    def incident_list_signals(self, incident_id: str) -> dict[str, Any]:
+        """Backward-compatible Python alias; MCP exposes incident.triage_signals."""
+        return self.incident_triage_signals(incident_id)
 
     def submission_aggregate_verdicts(self, incident_id: str) -> dict[str, Any]:
         _, dataset = self._dataset(incident_id)
@@ -80,11 +93,57 @@ class OJGuardTools:
         }
 
     def judge_replay_submission(
-        self, incident_id: str, repetitions: int = 3
+        self,
+        incident_id: str,
+        repetitions: int = 3,
+        mode: str = "experiment",
+        experiment_kind: str | None = None,
     ) -> dict[str, Any]:
         incident, _ = self._dataset(incident_id)
         if not 1 <= repetitions <= 5:
             raise MCPToolError("repetitions must be between 1 and 5")
+        if mode == "hypotheses":
+            try:
+                incident = self.workflow.propose_root_cause_hypotheses(incident_id)
+            except (IncidentWorkflowError, ValueError) as exc:
+                raise MCPToolError(str(exc)) from exc
+            return {
+                "incident_id": incident_id,
+                "mode": "competing_hypotheses",
+                "stage": incident.stage.value,
+                "hypotheses": [
+                    item.model_dump(mode="json")
+                    for item in self.repository.list_root_cause_hypotheses(incident_id)
+                ],
+                "experiment_executed": False,
+                "experiment_candidates": [
+                    item.model_dump(mode="json")
+                    for item in self.workflow.list_experiment_candidates(incident_id)
+                ],
+            }
+        if mode == "candidates":
+            return {
+                "incident_id": incident_id,
+                "stage": incident.stage.value,
+                "experiment_candidates": [
+                    item.model_dump(mode="json")
+                    for item in self.workflow.list_experiment_candidates(incident_id)
+                ],
+                "experiment_executed": False,
+            }
+        if mode != "experiment":
+            raise MCPToolError("mode must be hypotheses, candidates, or experiment")
+        try:
+            incident = self.workflow.run_root_cause_analysis(
+                incident_id,
+                experiment_kind=experiment_kind,
+            )
+        except (IncidentWorkflowError, ValueError) as exc:
+            raise MCPToolError(str(exc)) from exc
+        experiments = self.repository.list_incident_experiments(incident_id)
+        if not experiments:
+            raise MCPToolError("root-cause experiment was not persisted")
+        experiment = experiments[-1]
         if incident.profile.incident_type == IncidentType.RUNTIME_REGRESSION:
             evidence_path = (
                 self.workspace_root / "output" / "evidence" / "java-runtime-comparison.json"
@@ -94,10 +153,15 @@ class OJGuardTools:
                 result = json.loads(evidence_bytes.decode("utf-8"))
                 result.update(
                     {
+                        "passed": experiment.state.value == "PASSED",
                         "incident_id": incident_id,
                         "replay_mode": "recorded_real_runner_evidence",
                         "evidence_sha256": sha256(evidence_bytes).hexdigest(),
                         "requested_repetitions": repetitions,
+                        "selected_experiment_kind": experiment.kind,
+                        "experiment_state": experiment.state.value,
+                        "experiment": experiment.model_dump(mode="json"),
+                        "stage": incident.stage.value,
                     }
                 )
                 return result
@@ -106,12 +170,12 @@ class OJGuardTools:
                 sessions_root=self.workspace_root / ".runtime" / "java-sessions",
             )
             result = JavaRegressionExperiment(runner).run(repetitions=repetitions)
-            return result.model_dump(mode="json")
+            return result.model_dump(mode="json") | {
+                "experiment": experiment.model_dump(mode="json"),
+                "stage": incident.stage.value,
+            }
 
-        experiments = self.repository.list_incident_experiments(incident_id)
-        if not experiments:
-            raise MCPToolError("incident has no comparison experiment")
-        return experiments[-1].model_dump(mode="json")
+        return experiment.model_dump(mode="json") | {"stage": incident.stage.value}
 
     def problem_audit_package(self, package_id: str) -> dict[str, Any]:
         package_id = self._validate_id(package_id, "package_id")
@@ -144,6 +208,10 @@ class OJGuardTools:
 
     def impact_calculate_scope(self, incident_id: str) -> dict[str, Any]:
         self._incident(incident_id)
+        try:
+            incident = self.workflow.calculate_impact(incident_id)
+        except (IncidentWorkflowError, ValueError) as exc:
+            raise MCPToolError(str(exc)) from exc
         impacts = self.repository.list_impact_assessments(incident_id)
         if not impacts:
             raise MCPToolError("incident impact has not been calculated")
@@ -154,10 +222,24 @@ class OJGuardTools:
         ) | {
             "candidate_id_sample": impact.candidate_ids[:10],
             "submission_id_sample": impact.submission_ids[:10],
+            "stage": incident.stage.value,
         }
 
-    def rejudge_create_plan(self, incident_id: str) -> dict[str, Any]:
+    def rejudge_create_plan(
+        self,
+        incident_id: str,
+        mode: str = "initial",
+    ) -> dict[str, Any]:
         self._incident(incident_id)
+        try:
+            if mode == "initial":
+                incident = self.workflow.create_remediation_plan(incident_id)
+            elif mode == "recovery":
+                incident = self.workflow.revise_plan_after_canary_failure(incident_id)
+            else:
+                raise MCPToolError("mode must be initial or recovery")
+        except (IncidentWorkflowError, ValueError) as exc:
+            raise MCPToolError(str(exc)) from exc
         plans = self.repository.list_remediation_plans(incident_id)
         if not plans:
             raise MCPToolError("incident remediation plan does not exist")
@@ -167,13 +249,22 @@ class OJGuardTools:
                 item.model_dump(mode="json", exclude={"submission_ids"})
                 for item in self.repository.list_rejudge_batches(incident_id)
             ],
+            "stage": incident.stage.value,
         }
 
-    def rejudge_execute_batch(self, incident_id: str, phase: str) -> dict[str, Any]:
+    def rejudge_execute_batch(
+        self,
+        incident_id: str,
+        phase: str,
+        inject_canary_failure: bool = False,
+    ) -> dict[str, Any]:
         self._incident(incident_id)
         try:
             if phase == "control_canary":
-                incident = self.workflow.execute_control_and_canary(incident_id)
+                incident = self.workflow.execute_control_and_canary(
+                    incident_id,
+                    inject_canary_failure=inject_canary_failure,
+                )
             elif phase == "bulk":
                 incident = self.workflow.execute_bulk(incident_id)
             else:

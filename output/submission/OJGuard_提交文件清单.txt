@@ -13,8 +13,11 @@ OJGuard 提交文件清单
 - OJGuard_赛题符合性报告.md：赛题维度、证据与边界自检
 - README.md：安装、启动、体验与复现说明
 - OJGuard_项目方案.md：完整项目方案
+- materials/Agent_Identity_清单.md：7 个 Agent 的身份、边界、Skill、工具与协作关系
+- materials/MCP_工具契约与迁移说明.md：12 个 MCP 工具的接入、权限、失败、审计与迁移契约
+- materials/上下文与可观测性说明.md：非 RAG 上下文方案及 Trace/Log/Metrics 证据
 - materials/OJGuard_演示脚本.md：7—9 分钟录屏脚本
-- output/evidence/：Java Runner、AgentTeams、三类事故报告与界面截图
+- output/evidence/：Java Runner、真实 AgentTeams、零成本动态路由/失败恢复、三类事故报告与界面截图
 
 需要参赛者完成：
 1. 在平台填写个人/队伍信息。

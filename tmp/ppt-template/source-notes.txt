@@ -6,3 +6,9 @@ Use: scoring weights, AgentTeams requirement, Skill requirement, context capabil
 
 Project evidence source: D:\AzusaFish\Codes\Development\OJGuard
 Use: implemented architecture, tests, screenshots, traces, metrics, open-source scope and demo results. Only verified outputs may appear as completed results.
+
+Live AgentTeams evidence: D:\AzusaFish\Codes\Development\OJGuard\output\evidence\agentteams\agentteams-demo-result.json
+Use: verified dynamic-routing counts, state transition, Worker participation, human-gate history and final resolution status used on slides 9, 13 and 17.
+
+Deterministic routing and recovery evidence: D:\AzusaFish\Codes\Development\OJGuard\output\evidence\agentteams\deterministic-recovery-evidence.json
+Use: zero-cost verified multi-option routing, inconclusive experiment retry, canary pause, plan revision, fresh approval, recovery canary and final verification facts used on slides 9, 11, 13, 15 and 17. This source is not represented as a real LLM run.
