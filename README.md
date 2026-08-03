@@ -63,8 +63,6 @@ npm --prefix frontend run dev
 5. Rejudge Executor 通过受控工具执行控制组、灰度和全量批次，Verification Worker 独立验证后才能关闭事故；
 6. 在“重评与成绩”“闭环验证”和事故报告中复核最终证据。
 
-单人参赛时，同一操作者会切换技术审批与业务审批角色上下文；系统记录这一事实，不将其表述为真实多人签批。确定性后端只作为 Agent 调用的实验、计算、执行和验证工具，不再作为前端默认编排器。
-
 ## 可复现证据
 
 生成三类场景的完整闭环 JSON/HTML：
@@ -146,17 +144,9 @@ tests/         自动化测试
 output/        运行证据与提交材料
 ```
 
-## 边界
+第三方边界见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
-- 演示数据均为固定种子生成的脱敏模拟数据，不连接真实 OJ、招聘系统或成绩库；
-- “成绩写回”只作用于模拟临时结果，不覆盖真实成绩；
-- 队列拥塞和配置漂移提供 Playbook/接口契约，但不宣称已有完整执行器；
-- 知识检索仅保留后端扩展契约，不作为当前已实现功能；
-- DeepSeek 是外部商业服务，不属于 Apache-2.0 开源范围。
-
-完整方案见 [OJGuard_项目方案.md](OJGuard_项目方案.md)，第三方边界见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
-
-赛题技术材料：
+技术材料：
 
 - [Agent Identity 清单](materials/Agent_Identity_清单.md)
 - [MCP 工具契约与迁移说明](materials/MCP_工具契约与迁移说明.md)
