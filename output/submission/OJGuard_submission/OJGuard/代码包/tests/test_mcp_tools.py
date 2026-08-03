@@ -1,4 +1,5 @@
 import asyncio
+import importlib.util
 import tempfile
 import unittest
 import zipfile
@@ -149,6 +150,10 @@ class MCPToolsTests(unittest.TestCase):
                 incident_id,
             )
 
+    @unittest.skipUnless(
+        importlib.util.find_spec("mcp"),
+        "MCP transport dependency is not installed; run pip install -e '.[dev]'",
+    )
     def test_server_exposes_exactly_twelve_bounded_incident_tools(self) -> None:
         from mcp_server.server import mcp
 
