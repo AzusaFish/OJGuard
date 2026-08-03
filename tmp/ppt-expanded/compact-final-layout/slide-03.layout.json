@@ -1,0 +1,473 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/jyx0ra1s",
+    "id": "jyx0ra1s",
+    "slide": 3,
+    "layoutId": "/ppt/slideLayouts/slideLayout1.xml",
+    "layoutName": "DEFAULT",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Office",
+    "colors": {
+      "accent1": "#4472C4",
+      "accent2": "#ED7D31",
+      "accent3": "#A5A5A5",
+      "accent4": "#FFC000",
+      "accent5": "#5B9BD5",
+      "accent6": "#70AD47",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#44546A",
+      "lt2": "#E7E6E6",
+      "hlink": "#0563C1",
+      "folHlink": "#954F72"
+    },
+    "fontScheme": {
+      "name": "Office",
+      "majorFont": {
+        "latinTypeface": "Calibri Light"
+      },
+      "minorFont": {
+        "latinTypeface": "Calibri"
+      }
+    },
+    "typefaces": [
+      "Calibri",
+      "Calibri Light",
+      "微软雅黑"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout1.xml",
+      "name": "DEFAULT",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster1.xml",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0ba143al",
+      "id": "3",
+      "name": "Text 0",
+      "bbox": [
+        35.73,
+        28.85,
+        720,
+        30.72
+      ],
+      "geometry": "rect",
+      "text": "场景与价值 · 运行时回归",
+      "textPreview": "场景与价值 · 运行时回归",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "场景与价值 · 运行时回归"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "场景与价值 · 运行时回归",
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "场景与价值 · 运行时回归",
+              "fontSize": 16,
+              "typeface": "微软雅黑",
+              "color": "#FF6B35",
+              "bold": true
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/rm1k7yt4",
+      "id": "4",
+      "name": "Text 1",
+      "bbox": [
+        35.73,
+        57.65,
+        787.2,
+        67.2
+      ],
+      "geometry": "rect",
+      "text": "一次环境回归，可能改写数百人的成绩与晋级",
+      "textPreview": "一次环境回归，可能改写数百人的成绩与晋级",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "一次环境回归，可能改写数百人的成绩与晋级"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "一次环境回归，可能改写数百人的成绩与晋级",
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "一次环境回归，可能改写数百人的成绩与晋级",
+              "fontSize": 38.67,
+              "typeface": "微软雅黑",
+              "color": "#1B1F3B",
+              "bold": true
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ql8jytsj",
+      "id": "5",
+      "name": "文本框 4",
+      "bbox": [
+        25.67,
+        124.87,
+        841.27,
+        96
+      ],
+      "geometry": "rect",
+      "text": "错误率 8.3% → 41.4%，影响 703 名候选人、742 条提交和 72 个晋级结果；OJGuard 将异常转为可复核根因、冻结范围、受控批次和关闭证据。",
+      "textPreview": "错误率 8.3% → 41.4%，影响 703 名候选人、742 条提交和 72 个晋级结果；OJGuard 将异常转为可复核根因、冻结范围、受控批次和关闭证据。",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "resizeShapeToFitText",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "错误率 8.3% → 41.4%，影响 703 名候选人、742 条提交和 72 个晋级结果；OJGuard"
+          },
+          {
+            "index": 2,
+            "text": "将异常转为可复核根因、冻结范围、受控批次和关闭证据。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "错误率 8.3% → 41.4%，影响 703 名候选人、742 条提交和 72 个晋级结果；OJGuard 将异常转为可复核根因、冻结范围、受控批次和关闭证据。",
+          "resolvedTextStyle": {
+            "fontSize": 15
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "错误率 8.3% → 41.4%，影响 703 名候选人、742 条提交和 72 个晋级结果；OJGuard 将异常转为可复核根因、冻结范围、受控批次和关闭证据。",
+              "fontSize": 15,
+              "typeface": "微软雅黑"
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/sna103ap",
+      "id": "7",
+      "name": "文本框 6",
+      "bbox": [
+        416.6,
+        585.2,
+        426.67,
+        67.2
+      ],
+      "geometry": "rect",
+      "text": "固定种子 20260802 · Java Runner：正常 3/3 OK，退化 3/3 TLE",
+      "textPreview": "固定种子 20260802 · Java Runner：正常 3/3 OK，退化 3/3 TLE",
+      "resolvedFontSize": 13,
+      "resolvedTextStyle": {
+        "fontSize": 13,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "resizeShapeToFitText",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "固定种子 20260802 · Java Runner：正常 3/3 OK，退化 3/3 TLE"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "固定种子 20260802 · Java Runner：正常 3/3 OK，退化 3/3 TLE",
+          "resolvedTextStyle": {
+            "fontSize": 13,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "固定种子 20260802 · Java Runner：正常 3/3 OK，退化 3/3 TLE",
+              "fontSize": 13,
+              "alignment": "center"
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/y5cbel0j",
+      "id": "8",
+      "bbox": [
+        35.73,
+        251,
+        583.73,
+        328.33
+      ],
+      "contentType": "image/svg+xml",
+      "asset": {
+        "assetId": "/ppt/media/image.svg",
+        "contentType": "image/svg+xml",
+        "byteLength": 4417
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image.svg",
+        "contentType": "image/svg+xml",
+        "byteLength": 4417
+      }
+    },
+    {
+      "order": 6,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/z6lc7q1o",
+      "id": "9",
+      "bbox": [
+        637.53,
+        251,
+        575.93,
+        325.6
+      ],
+      "contentType": "image/svg+xml",
+      "asset": {
+        "assetId": "/ppt/media/image2.svg",
+        "contentType": "image/svg+xml",
+        "byteLength": 4010
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image2.svg",
+        "contentType": "image/svg+xml",
+        "byteLength": 4010
+      }
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kbm987y5",
+      "id": "10",
+      "bbox": [
+        637.5,
+        521,
+        576,
+        43
+      ],
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5cva1cfq",
+      "id": "11",
+      "bbox": [
+        649,
+        523,
+        552,
+        38
+      ],
+      "geometry": "rect",
+      "text": "TRIAGING → INVESTIGATING → IMPACT_ASSESSING → REMEDIATION_PLANNING\nAPPROVAL_PENDING → EXECUTING → REJUDGING → VERIFYING → RESOLVED",
+      "textPreview": "TRIAGING → INVESTIGATING → IMPACT_ASSESSING → REMEDIATION_PLANNING | APPROVAL_PENDING → EXECUTING → REJUDGING → VERIFYING → RESOLVED",
+      "resolvedFontSize": 8.51,
+      "resolvedTextStyle": {
+        "fontSize": 8.51,
+        "typeface": "Calibri",
+        "color": "#17203F",
+        "bold": true,
+        "alignment": "center",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "TRIAGING → INVESTIGATING → IMPACT_ASSESSING → REMEDIATION_PLANNING"
+          },
+          {
+            "index": 2,
+            "text": "APPROVAL_PENDING → EXECUTING → REJUDGING → VERIFYING → RESOLVED"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "TRIAGING → INVESTIGATING → IMPACT_ASSESSING → REMEDIATION_PLANNING",
+          "resolvedTextStyle": {
+            "fontSize": 8.51,
+            "color": "#17203F",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "TRIAGING → INVESTIGATING → IMPACT_ASSESSING → REMEDIATION_PLANNING",
+              "fontSize": 8.51,
+              "color": "#17203F",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "APPROVAL_PENDING → EXECUTING → REJUDGING → VERIFYING → RESOLVED",
+          "resolvedTextStyle": {
+            "fontSize": 8.51,
+            "color": "#17203F",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "APPROVAL_PENDING → EXECUTING → REJUDGING → VERIFYING → RESOLVED",
+              "fontSize": 8.51,
+              "color": "#17203F",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

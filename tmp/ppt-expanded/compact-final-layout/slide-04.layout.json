@@ -1,0 +1,477 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/x8f69ofe",
+    "id": "x8f69ofe",
+    "slide": 4,
+    "layoutId": "/ppt/slideLayouts/slideLayout1.xml",
+    "layoutName": "DEFAULT",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Office",
+    "colors": {
+      "accent1": "#4472C4",
+      "accent2": "#ED7D31",
+      "accent3": "#A5A5A5",
+      "accent4": "#FFC000",
+      "accent5": "#5B9BD5",
+      "accent6": "#70AD47",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#44546A",
+      "lt2": "#E7E6E6",
+      "hlink": "#0563C1",
+      "folHlink": "#954F72"
+    },
+    "fontScheme": {
+      "name": "Office",
+      "majorFont": {
+        "latinTypeface": "Calibri Light"
+      },
+      "minorFont": {
+        "latinTypeface": "Calibri"
+      }
+    },
+    "typefaces": [
+      "Calibri",
+      "Calibri Light",
+      "微软雅黑"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout1.xml",
+      "name": "DEFAULT",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster1.xml",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zi98nu94",
+      "id": "3",
+      "name": "Text 0",
+      "bbox": [
+        35.73,
+        28.85,
+        720,
+        30.72
+      ],
+      "geometry": "rect",
+      "text": "场景泛化 · 三类事故",
+      "textPreview": "场景泛化 · 三类事故",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "场景泛化 · 三类事故"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "场景泛化 · 三类事故",
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "场景泛化 · 三类事故",
+              "fontSize": 16,
+              "typeface": "微软雅黑",
+              "color": "#FF6B35",
+              "bold": true
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/87ipkzal",
+      "id": "4",
+      "name": "Text 1",
+      "bbox": [
+        35.73,
+        57.65,
+        787.2,
+        67.2
+      ],
+      "geometry": "rect",
+      "text": "同一 AgentTeams 闭环覆盖三类 OJ 故障",
+      "textPreview": "同一 AgentTeams 闭环覆盖三类 OJ 故障",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "同一 AgentTeams 闭环覆盖三类 OJ 故障"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "同一 AgentTeams 闭环覆盖三类 OJ 故障",
+          "resolvedTextStyle": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "同一 AgentTeams 闭环覆盖三类 OJ 故障",
+              "fontSize": 38.67,
+              "typeface": "微软雅黑",
+              "color": "#1B1F3B",
+              "bold": true
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/98rqt4r6",
+      "id": "5",
+      "name": "文本框 4",
+      "bbox": [
+        25.67,
+        124.87,
+        841.27,
+        96
+      ],
+      "geometry": "rect",
+      "text": "运行时回归 703 人 / 742 条 / 72 个晋级变化；节点退化 118 人 / 119 条 / 14 个变化；Checker 缺陷 71 人 / 73 条 / 8 个变化。三类场景均完成 100% 覆盖核验。",
+      "textPreview": "运行时回归 703 人 / 742 条 / 72 个晋级变化；节点退化 118 人 / 119 条 / 14 个变化；Checker 缺陷 71 人 / 73 条 / 8 个变化。三类场景均完成 100% 覆盖核验。",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "fontSize": 14,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "resizeShapeToFitText",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "运行时回归 703 人 / 742 条 / 72 个晋级变化；节点退化 118 人 / 119 条 / 14 个变化；Checker 缺陷 71 人 / 73 条 / 8"
+          },
+          {
+            "index": 2,
+            "text": "个变化。三类场景均完成 100% 覆盖核验。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "运行时回归 703 人 / 742 条 / 72 个晋级变化；节点退化 118 人 / 119 条 / 14 个变化；Checker 缺陷 71 人 / 73 条 / 8 个变化。三类场景均完成 100% 覆盖核验。",
+          "resolvedTextStyle": {
+            "fontSize": 14
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "运行时回归 703 人 / 742 条 / 72 个晋级变化；节点退化 118 人 / 119 条 / 14 个变化；Checker 缺陷 71 人 / 73 条 / 8 个变化。三类场景均完成 100% 覆盖核验。",
+              "fontSize": 14,
+              "typeface": "微软雅黑"
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7m98ru9g",
+      "id": "7",
+      "name": "文本框 6",
+      "bbox": [
+        416.6,
+        585.2,
+        426.67,
+        67.2
+      ],
+      "geometry": "rect",
+      "text": "复用状态机、证据契约和重评引擎；新增场景只扩展 Playbook 与 Adapter",
+      "textPreview": "复用状态机、证据契约和重评引擎；新增场景只扩展 Playbook 与 Adapter",
+      "resolvedFontSize": 13,
+      "resolvedTextStyle": {
+        "fontSize": 13,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "resizeShapeToFitText",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "复用状态机、证据契约和重评引擎；新增场景只扩展 Playbook 与"
+          },
+          {
+            "index": 2,
+            "text": "Adapter"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "复用状态机、证据契约和重评引擎；新增场景只扩展 Playbook 与 Adapter",
+          "resolvedTextStyle": {
+            "fontSize": 13,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "复用状态机、证据契约和重评引擎；新增场景只扩展 Playbook 与 Adapter",
+              "fontSize": 13,
+              "alignment": "center"
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/lwn2dc3m",
+      "id": "8",
+      "bbox": [
+        35.73,
+        251,
+        583.73,
+        328.33
+      ],
+      "contentType": "image/svg+xml",
+      "asset": {
+        "assetId": "/ppt/media/image.svg",
+        "contentType": "image/svg+xml",
+        "byteLength": 4417
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image.svg",
+        "contentType": "image/svg+xml",
+        "byteLength": 4417
+      }
+    },
+    {
+      "order": 6,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/0vel47m1",
+      "id": "9",
+      "bbox": [
+        637.53,
+        251,
+        575.93,
+        325.6
+      ],
+      "contentType": "image/svg+xml",
+      "asset": {
+        "assetId": "/ppt/media/image2.svg",
+        "contentType": "image/svg+xml",
+        "byteLength": 4010
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image2.svg",
+        "contentType": "image/svg+xml",
+        "byteLength": 4010
+      }
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/h4bupgn6",
+      "id": "10",
+      "bbox": [
+        637.5,
+        521,
+        576,
+        43
+      ],
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/w32twb6l",
+      "id": "11",
+      "bbox": [
+        649,
+        523,
+        552,
+        38
+      ],
+      "geometry": "rect",
+      "text": "TRIAGING → INVESTIGATING → IMPACT_ASSESSING → REMEDIATION_PLANNING\nAPPROVAL_PENDING → EXECUTING → REJUDGING → VERIFYING → RESOLVED",
+      "textPreview": "TRIAGING → INVESTIGATING → IMPACT_ASSESSING → REMEDIATION_PLANNING | APPROVAL_PENDING → EXECUTING → REJUDGING → VERIFYING → RESOLVED",
+      "resolvedFontSize": 8.51,
+      "resolvedTextStyle": {
+        "fontSize": 8.51,
+        "typeface": "Calibri",
+        "color": "#17203F",
+        "bold": true,
+        "alignment": "center",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "TRIAGING → INVESTIGATING → IMPACT_ASSESSING → REMEDIATION_PLANNING"
+          },
+          {
+            "index": 2,
+            "text": "APPROVAL_PENDING → EXECUTING → REJUDGING → VERIFYING → RESOLVED"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "TRIAGING → INVESTIGATING → IMPACT_ASSESSING → REMEDIATION_PLANNING",
+          "resolvedTextStyle": {
+            "fontSize": 8.51,
+            "color": "#17203F",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "TRIAGING → INVESTIGATING → IMPACT_ASSESSING → REMEDIATION_PLANNING",
+              "fontSize": 8.51,
+              "color": "#17203F",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "APPROVAL_PENDING → EXECUTING → REJUDGING → VERIFYING → RESOLVED",
+          "resolvedTextStyle": {
+            "fontSize": 8.51,
+            "color": "#17203F",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "APPROVAL_PENDING → EXECUTING → REJUDGING → VERIFYING → RESOLVED",
+              "fontSize": 8.51,
+              "color": "#17203F",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

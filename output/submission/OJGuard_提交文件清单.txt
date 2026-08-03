@@ -7,8 +7,8 @@ OJGuard 提交文件清单
 - 作品附件：OJGuard_submission.zip
 
 附件中的主要材料：
-- OJGuard_项目介绍.pptx：23 页可编辑项目介绍
-- OJGuard_项目介绍.pdf：23 页便于预览的项目介绍
+- OJGuard_项目介绍.pptx：12 页高信息密度可编辑项目介绍
+- OJGuard_项目介绍.pdf：12 页便于预览的项目介绍
 - OJGuard_作品简介.txt：可直接粘贴到报名页面
 - OJGuard_赛题符合性报告.md：赛题维度、证据与边界自检
 - OJGuard_DeepSeek最终验收报告.md：真实 AgentTeams 闭环、问题修复与最终审查结果
