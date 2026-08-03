@@ -111,6 +111,7 @@ class IncidentApprovalDecision(StrEnum):
 
 class AgentRunStatus(StrEnum):
     QUEUED = "QUEUED"
+    STARTING = "STARTING"
     RUNNING = "RUNNING"
     PAUSED = "PAUSED"
     HUMAN_REVIEW_REQUIRED = "HUMAN_REVIEW_REQUIRED"

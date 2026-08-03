@@ -1,0 +1,7 @@
+interface:
+  display_name: Reproduce Judge Failure
+  short_description: Run a controlled judge-environment comparison
+  default_prompt: Use $reproduce-judge-failure to test the assigned root-cause hypothesis with fixed controls.
+dependencies:
+  tools:
+    - {type: mcp, value: ojguard, description: Locked-down OJGuard replay tools, transport: streamable_http, url: "http://ojguard-mcp:8020/mcp"}

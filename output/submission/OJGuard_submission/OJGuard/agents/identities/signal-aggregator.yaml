@@ -1,0 +1,13 @@
+id: signal-aggregator
+name: OJGuard Signal Aggregator
+role: incident-signal-worker
+capabilities: [signal_normalization, timeline_construction, anomaly_dimension_detection]
+inputs: [monitoring_signals, submission_events, deployment_changes, complaints]
+outputs: [normalized_signals, incident_timeline, anomaly_dimensions]
+dependencies: [ojguard_mcp]
+allowed_skills: [normalize-judge-signals, correlate-incident-events]
+allowed_tools: [incident.triage_signals, submission.aggregate_verdicts, deployment.list_changes]
+decision_boundary: Cannot label correlation as root cause or execute any remediation.
+human_intervention: Missing source provenance or inconsistent timestamps.
+failure_escalation: Return PARTIAL with missing sources and open questions.
+trace: Record source, time window, normalized dimensions, and evidence IDs.

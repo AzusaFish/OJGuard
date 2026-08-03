@@ -161,73 +161,9 @@ class IncidentApiTests(unittest.TestCase):
         )
         self.assertEqual(response.status_code, 422)
 
-    def test_demo_api_enforces_dual_approval_and_completes_rejudge(self) -> None:
-        prepared = self.client.post("/api/v1/incidents/demo/checker_defect")
-        self.assertEqual(prepared.status_code, 201)
-        incident_id = prepared.json()["incident"]["incident_id"]
-        self.assertEqual(prepared.json()["incident"]["stage"], "APPROVAL_PENDING")
-
-        for action in ("APPROVE_REMEDIATION", "RUN_CANARY_REJUDGE"):
-            approval = self.client.post(
-                f"/api/v1/incidents/{incident_id}/approvals",
-                json={
-                    "action": action,
-                    "role_context": "technical_approver",
-                    "actor": "demo-operator",
-                    "decision": "APPROVED",
-                },
-            )
-            self.assertEqual(approval.status_code, 200)
-
-        canary = self.client.post(
-            f"/api/v1/incidents/{incident_id}/execute/control-canary"
-        )
-        self.assertEqual(canary.status_code, 200)
-        self.assertTrue(canary.json()["incident"]["canary_rejudge_passed"])
-
-        blocked = self.client.post(f"/api/v1/incidents/{incident_id}/execute/bulk")
-        self.assertEqual(blocked.status_code, 409)
-
-        bulk_approval = self.client.post(
-            f"/api/v1/incidents/{incident_id}/approvals",
-            json={
-                "action": "RUN_BULK_REJUDGE",
-                "role_context": "business_approver",
-                "actor": "demo-operator",
-                "decision": "APPROVED",
-            },
-        )
-        self.assertEqual(bulk_approval.status_code, 200)
-        bulk = self.client.post(f"/api/v1/incidents/{incident_id}/execute/bulk")
-        self.assertEqual(bulk.status_code, 200)
-        self.assertTrue(bulk.json()["incident"]["rejudge_complete"])
-
-        verified = self.client.post(f"/api/v1/incidents/{incident_id}/verify")
-        self.assertEqual(verified.status_code, 200)
-        self.assertEqual(verified.json()["verifications"][-1]["coverage_rate"], 1)
-
-        close_approval = self.client.post(
-            f"/api/v1/incidents/{incident_id}/approvals",
-            json={
-                "action": "CLOSE_INCIDENT",
-                "role_context": "business_approver",
-                "actor": "demo-operator",
-                "decision": "APPROVED",
-            },
-        )
-        self.assertEqual(close_approval.status_code, 200)
-        closed = self.client.post(f"/api/v1/incidents/{incident_id}/close")
-        self.assertEqual(closed.status_code, 200)
-        self.assertEqual(closed.json()["incident"]["stage"], "RESOLVED")
-
-        report = self.client.get(f"/api/v1/incidents/{incident_id}/report")
-        self.assertEqual(report.status_code, 200)
-        self.assertEqual(report.json()["rejudge"]["coverage_rate"], 1)
-        self.assertEqual(report.json()["verification"]["status"], "RESOLVED")
-        html = self.client.get(f"/api/v1/incidents/{incident_id}/report.html")
-        self.assertEqual(html.status_code, 200)
-        self.assertIn("text/html", html.headers["content-type"])
-        self.assertIn(incident_id, html.text)
+    def test_precomputed_demo_is_not_exposed_as_public_api(self) -> None:
+        response = self.client.post("/api/v1/incidents/demo/checker_defect")
+        self.assertEqual(response.status_code, 404)
 
 
 if __name__ == "__main__":

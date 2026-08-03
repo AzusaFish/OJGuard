@@ -2,7 +2,7 @@
   "evidence_class": "deterministic_policy_and_recovery_test",
   "model_calls": 0,
   "paid_api_cost": 0,
-  "incident_id": "INC-C1CE2A171D",
+  "incident_id": "INC-33965D5B33",
   "scenario": "node_degradation",
   "initial_experiment_candidate_count": 3,
   "route_decisions": [
@@ -11,8 +11,8 @@
       "worker": "ojguard-root-cause-analyst",
       "reason": "Deterministic test selects cross_image_replay.",
       "evidence_refs": [
-        "HYP-95990735F3",
-        "HYP-0829E64D4D"
+        "HYP-98B64FE1AC",
+        "HYP-920A5E32D0"
       ],
       "experiment_kind": "cross_image_replay",
       "expected_result": "在固定节点上比较基线镜像与观测镜像",
@@ -23,8 +23,8 @@
       "worker": "ojguard-root-cause-analyst",
       "reason": "Deterministic test selects cross_node_replay.",
       "evidence_refs": [
-        "HYP-95990735F3",
-        "HYP-0829E64D4D"
+        "HYP-98B64FE1AC",
+        "HYP-920A5E32D0"
       ],
       "experiment_kind": "cross_node_replay",
       "expected_result": "在固定运行环境下比较健康节点与异常节点",
@@ -44,7 +44,7 @@
     }
   ],
   "impact": {
-    "assessment_id": "IMPACT-73785D9B70",
+    "assessment_id": "IMPACT-A7EB109010",
     "submission_count": 119,
     "candidate_count": 118,
     "scope_sha256": "ed5ba007017f3ff1cfaa2d23752bd308532783b7db3cd332ed2bd37bf343f17a",
@@ -53,21 +53,21 @@
   "canary_failure": {
     "stage_after": "PAUSED",
     "rolled_back_failed_batches": [
-      "BATCH-34D7C78660"
+      "BATCH-15DDDBA352"
     ],
     "recovery_route": {
       "action": "recovery_plan",
       "worker": "ojguard-remediation-planner",
       "tool": "rejudge.create_plan",
       "arguments": {
-        "incident_id": "INC-C1CE2A171D",
+        "incident_id": "INC-33965D5B33",
         "mode": "recovery"
       },
       "expected_stages": [
         "APPROVAL_PENDING"
       ],
       "evidence_refs": [
-        "BATCH-34D7C78660"
+        "BATCH-15DDDBA352"
       ],
       "experiment_kind": null,
       "expected_result": "隔离失败环境并创建需要重新审批的恢复计划",
@@ -76,14 +76,14 @@
   },
   "plan_versions": [
     {
-      "id": "PLAN-1B0460D318",
+      "id": "PLAN-01C37596AC",
       "revision": 1,
       "supersedes_plan_id": null
     },
     {
-      "id": "PLAN-E606A5DDDC",
+      "id": "PLAN-004331AEB6",
       "revision": 2,
-      "supersedes_plan_id": "PLAN-1B0460D318"
+      "supersedes_plan_id": "PLAN-01C37596AC"
     }
   ],
   "fresh_technical_approval": {
@@ -98,12 +98,12 @@
   },
   "batch_results": [
     {
-      "id": "BATCH-BF02DA553A",
-      "incident_id": "INC-C1CE2A171D",
-      "plan_id": "PLAN-1B0460D318",
+      "id": "BATCH-1192748121",
+      "incident_id": "INC-33965D5B33",
+      "plan_id": "PLAN-01C37596AC",
       "sequence": 1,
       "kind": "control",
-      "idempotency_key": "INC-C1CE2A171D:control:6441e304f5712e56",
+      "idempotency_key": "INC-33965D5B33:control:6441e304f5712e56",
       "state": "COMPLETED",
       "planned_count": 20,
       "completed_count": 20,
@@ -114,16 +114,16 @@
       "supersedes_batch_id": null,
       "superseded_by_batch_id": null,
       "failure_reason": null,
-      "created_at": "2026-08-03T06:21:51.774308Z",
-      "updated_at": "2026-08-03T06:21:51.894456Z"
+      "created_at": "2026-08-03T09:05:03.517801Z",
+      "updated_at": "2026-08-03T09:05:03.637188Z"
     },
     {
-      "id": "BATCH-34D7C78660",
-      "incident_id": "INC-C1CE2A171D",
-      "plan_id": "PLAN-1B0460D318",
+      "id": "BATCH-15DDDBA352",
+      "incident_id": "INC-33965D5B33",
+      "plan_id": "PLAN-01C37596AC",
       "sequence": 2,
       "kind": "canary",
-      "idempotency_key": "INC-C1CE2A171D:canary:e64291a3c5668c19",
+      "idempotency_key": "INC-33965D5B33:canary:e64291a3c5668c19",
       "state": "ROLLED_BACK",
       "planned_count": 10,
       "completed_count": 9,
@@ -132,18 +132,18 @@
       "evidence_ids": [],
       "attempt": 1,
       "supersedes_batch_id": null,
-      "superseded_by_batch_id": "BATCH-00E8908D54",
+      "superseded_by_batch_id": "BATCH-F736664907",
       "failure_reason": "injected canary mismatch for recovery verification",
-      "created_at": "2026-08-03T06:21:51.774329Z",
-      "updated_at": "2026-08-03T06:21:51.942118Z"
+      "created_at": "2026-08-03T09:05:03.517823Z",
+      "updated_at": "2026-08-03T09:05:03.684954Z"
     },
     {
-      "id": "BATCH-6ED198C52A",
-      "incident_id": "INC-C1CE2A171D",
-      "plan_id": "PLAN-1B0460D318",
+      "id": "BATCH-50891E4956",
+      "incident_id": "INC-33965D5B33",
+      "plan_id": "PLAN-01C37596AC",
       "sequence": 3,
       "kind": "bulk",
-      "idempotency_key": "INC-C1CE2A171D:bulk:4ffcd0f3c8ad9f3e",
+      "idempotency_key": "INC-33965D5B33:bulk:4ffcd0f3c8ad9f3e",
       "state": "COMPLETED",
       "planned_count": 89,
       "completed_count": 89,
@@ -154,16 +154,16 @@
       "supersedes_batch_id": null,
       "superseded_by_batch_id": null,
       "failure_reason": null,
-      "created_at": "2026-08-03T06:21:51.774340Z",
-      "updated_at": "2026-08-03T06:21:52.148634Z"
+      "created_at": "2026-08-03T09:05:03.517834Z",
+      "updated_at": "2026-08-03T09:05:03.887449Z"
     },
     {
-      "id": "BATCH-00E8908D54",
-      "incident_id": "INC-C1CE2A171D",
-      "plan_id": "PLAN-E606A5DDDC",
+      "id": "BATCH-F736664907",
+      "incident_id": "INC-33965D5B33",
+      "plan_id": "PLAN-004331AEB6",
       "sequence": 2,
       "kind": "canary_retry",
-      "idempotency_key": "INC-C1CE2A171D:canary-retry-2:e64291a3c5668c19",
+      "idempotency_key": "INC-33965D5B33:canary-retry-2:e64291a3c5668c19",
       "state": "COMPLETED",
       "planned_count": 10,
       "completed_count": 10,
@@ -171,17 +171,17 @@
       "skipped_count": 0,
       "evidence_ids": [],
       "attempt": 2,
-      "supersedes_batch_id": "BATCH-34D7C78660",
+      "supersedes_batch_id": "BATCH-15DDDBA352",
       "superseded_by_batch_id": null,
       "failure_reason": null,
-      "created_at": "2026-08-03T06:21:51.942093Z",
-      "updated_at": "2026-08-03T06:21:52.063305Z"
+      "created_at": "2026-08-03T09:05:03.684933Z",
+      "updated_at": "2026-08-03T09:05:03.810157Z"
     }
   ],
   "recovery_canary_passed": true,
   "verification": {
-    "id": "VERIFY-BCD0EBC2E3",
-    "incident_id": "INC-C1CE2A171D",
+    "id": "VERIFY-BDD3D02AC0",
+    "incident_id": "INC-33965D5B33",
     "status": "RESOLVED",
     "checks": {
       "all_batches_completed": true,
@@ -196,7 +196,7 @@
     "cross_scope_regression_count": 0,
     "summary": "影响集合已完整、无重复且无越界地完成可信重评，成绩与晋级变化已重算。",
     "evidence_ids": [],
-    "created_at": "2026-08-03T06:21:53.610294Z"
+    "created_at": "2026-08-03T09:05:05.283844Z"
   },
   "final_stage": "RESOLVED",
   "assertions": {

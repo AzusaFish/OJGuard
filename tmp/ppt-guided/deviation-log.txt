@@ -1,0 +1,5 @@
+- Reorganized the previous 23-slide deck around the user-specified competition structure.
+- Removed the previous Demo-route closing slide and all recording/submission suggestions.
+- Added dedicated content for task decomposition, context transfer, result validation, exception branches, safety boundaries, landing plan and open-source plan by reusing inherited six-card layouts.
+- Retained the source deck's official-template visual language and inherited media.
+- The cover's decorative circles intentionally extend beyond the slide canvas as inherited template artwork.

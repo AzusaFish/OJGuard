@@ -1,0 +1,21 @@
+Visual source
+- output/submission/OJGuard_项目介绍.pptx, 23 slides, 1280 × 720.
+- The source already preserves the official competition template hierarchy and current OJGuard visual language.
+
+Reusable patterns
+- Dark navy cover.
+- Chapter dividers with optional contest-score callout.
+- Six-card text layout for structured design details.
+- Architecture, Agent roles, Skill catalog and two-image scenario layouts.
+
+Editing contract
+- All 23 output slides are duplicated from mapped source slides.
+- Only inherited text objects listed in template-frame-map.json are rewritten.
+- No new shapes, overlays, charts, generated visuals or external images are introduced.
+- Existing diagrams are preserved only where they directly support the requested section.
+- Page numbers are rewritten for the new sequence; all source notes are replaced with relevant local repository sources.
+
+Typography and layout
+- Preserve inherited font family, size, alignment, line spacing and box geometry.
+- Shorten copy rather than shrink fonts.
+- Preserve original slide masters, layouts, decorative chrome and image placement.

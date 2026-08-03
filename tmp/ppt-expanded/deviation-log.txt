@@ -1,0 +1,6 @@
+Intentional departures from the 17-slide source deck
+- Expanded the narrative to 23 slides because the user explicitly allowed the deck to go beyond the supplied template structure and asked for more content.
+- Reused the source deck's chapter-divider, six-card, architecture, AgentTeams, Skill, evidence and closing layouts multiple times.
+- Rewrote only inherited text slots. Existing diagrams and screenshots are preserved as inherited media.
+- The title slide and all template chrome remain visually unchanged except for audience-facing copy and page numbering.
+- Slides 1 and 8 may retain decorative circles that extend beyond the slide canvas because they are inherited source-template artwork, not content overflow.

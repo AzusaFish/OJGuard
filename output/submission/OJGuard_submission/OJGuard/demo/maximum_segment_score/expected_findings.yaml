@@ -1,0 +1,11 @@
+package_id: maximum-segment-score
+clean_package: false
+expected_findings:
+  - category: statement_validator_mismatch
+    severity: high
+  - category: integer_overflow
+    severity: critical
+  - category: missing_negative_cases
+    severity: high
+  - category: checker_trailing_output
+    severity: critical

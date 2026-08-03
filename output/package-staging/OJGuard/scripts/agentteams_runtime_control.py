@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import base64
 import json
 from datetime import UTC, datetime
 from pathlib import Path
@@ -40,6 +41,14 @@ def ensure_run(
     if existing is not None:
         if existing.incident_id != incident_id:
             raise ValueError("task_id already belongs to another incident")
+        if max_model_responses > existing.max_model_responses:
+            existing = existing.model_copy(
+                update={
+                    "max_model_responses": max_model_responses,
+                    "updated_at": datetime.now(UTC),
+                }
+            )
+            repository.save_agent_run(existing)
         return existing
     run = AgentRun(
         run_id=f"ARUN-{uuid4().hex[:12].upper()}",
@@ -266,6 +275,9 @@ def main() -> None:
     status_parser.add_argument("--incident-id", required=True)
     status_parser.add_argument("--run-id")
 
+    events_parser = subparsers.add_parser("events")
+    events_parser.add_argument("--run-id", required=True)
+
     ensure_parser = subparsers.add_parser("ensure-run")
     ensure_parser.add_argument("--incident-id", required=True)
     ensure_parser.add_argument("--task-id", required=True)
@@ -278,7 +290,8 @@ def main() -> None:
         "--event-type", required=True, choices=[item.value for item in AgentRunEventType]
     )
     event_parser.add_argument("--agent", required=True)
-    event_parser.add_argument("--summary", required=True)
+    event_parser.add_argument("--summary")
+    event_parser.add_argument("--summary-base64")
     event_parser.add_argument("--action")
     event_parser.add_argument("--worker")
     event_parser.add_argument("--tool")
@@ -286,6 +299,7 @@ def main() -> None:
     event_parser.add_argument("--before-stage", choices=[item.value for item in IncidentStage])
     event_parser.add_argument("--after-stage", choices=[item.value for item in IncidentStage])
     event_parser.add_argument("--metadata-json", default="{}")
+    event_parser.add_argument("--metadata-json-base64")
 
     approve_parser = subparsers.add_parser("approve")
     approve_parser.add_argument("--incident-id", required=True)
@@ -305,6 +319,16 @@ def main() -> None:
     elif args.command == "status":
         repository, _ = _runtime(args.workspace_root)
         payload = status(repository, args.incident_id, args.run_id)
+    elif args.command == "events":
+        repository, _ = _runtime(args.workspace_root)
+        if repository.get_agent_run(args.run_id) is None:
+            raise ValueError("agent run not found")
+        payload = {
+            "events": [
+                event.model_dump(mode="json")
+                for event in repository.list_agent_run_events(args.run_id)
+            ]
+        }
     elif args.command == "ensure-run":
         repository, _ = _runtime(args.workspace_root)
         run = ensure_run(
@@ -315,20 +339,32 @@ def main() -> None:
         )
         payload = status(repository, args.incident_id, run.run_id)
     elif args.command == "event":
+        summary = (
+            base64.b64decode(args.summary_base64).decode("utf-8")
+            if args.summary_base64
+            else args.summary
+        )
+        if not summary:
+            parser.error("event requires --summary or --summary-base64")
+        metadata_json = (
+            base64.b64decode(args.metadata_json_base64).decode("utf-8")
+            if args.metadata_json_base64
+            else args.metadata_json
+        )
         payload = record_event(
             args.workspace_root,
             run_id=args.run_id,
             event_id=args.event_id,
             event_type=AgentRunEventType(args.event_type),
             agent=args.agent,
-            summary=args.summary,
+            summary=summary,
             action=args.action,
             worker=args.worker,
             tool=args.tool,
             evidence_refs=[item for item in args.evidence_refs.split(",") if item],
             before_stage=(IncidentStage(args.before_stage) if args.before_stage else None),
             after_stage=(IncidentStage(args.after_stage) if args.after_stage else None),
-            metadata=json.loads(args.metadata_json),
+            metadata=json.loads(metadata_json),
         )
     else:
         payload = approve(args.workspace_root, args.incident_id, args.gate, args.actor)

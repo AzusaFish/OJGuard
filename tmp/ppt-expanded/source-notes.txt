@@ -1,0 +1,20 @@
+All visible claims and screenshots are sourced from the local OJGuard repository and its generated evidence package.
+
+Primary local sources
+- README.md
+- OJGuard_项目方案.md
+- materials/Agent_Identity_清单.md
+- materials/MCP_工具契约与迁移说明.md
+- materials/上下文与可观测性说明.md
+- materials/evidence/AgentTeams_真实运行证据.md
+- output/evidence/agentteams/agentteams-demo-result.json
+- output/evidence/agentteams/deterministic-recovery-evidence.json
+- output/evidence/java-runtime-comparison.json
+- output/evidence/incidents/runtime-regression-report.json
+- output/evidence/incidents/node-degradation-report.json
+- output/evidence/incidents/checker-defect-report.json
+- tests/ and backend/app/ implementation
+
+External assets
+- No new external visual assets or internet-sourced claims were introduced.
+- The visual source is the existing OJGuard deck derived from the official competition PPTX supplied by the user.

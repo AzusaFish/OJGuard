@@ -14,7 +14,7 @@ const search = ref('')
 const stage = ref('all')
 const starting = ref<IncidentType | ''>('')
 const executable = [
-  { type: 'runtime_regression' as IncidentType, name: 'Java 运行时回归', detail: '镜像变更后 Java 提交超时率异常上升', tag: '主演示 · 20,000 提交' },
+  { type: 'runtime_regression' as IncidentType, name: 'Java 运行时回归', detail: '镜像变更后 Java 提交超时率异常上升', tag: '核心场景 · 20,000 提交' },
   { type: 'node_degradation' as IncidentType, name: '评测节点退化', detail: '单个评测节点出现集中运行错误', tag: '泛化验证 · 3,000 提交' },
   { type: 'checker_defect' as IncidentType, name: 'Checker 缺陷', detail: 'Checker 版本变更导致判定结果漂移', tag: '泛化验证 · 1,600 提交' },
 ]
@@ -29,9 +29,9 @@ const filtered = computed(() => store.incidents.filter((item) => {
 async function start(type: IncidentType) {
   starting.value = type
   try {
-    const workspace = await store.prepareDemo(type)
-    ElMessage.success('事故数据、根因分析和处置计划已准备完成')
-    await router.push(`/incidents/${workspace.incident.incident_id}`)
+    const snapshot = await store.startAgentIncident(type)
+    ElMessage.success('原始事故信号已创建，等待启动 AgentTeams 协同处置')
+    await router.push(`/incidents/${snapshot.incident.incident_id}`)
   } catch (error) {
     ElMessage.error(error instanceof Error ? error.message : '演练启动失败')
   } finally {
@@ -44,11 +44,11 @@ onMounted(() => store.loadIncidents())
 
 <template>
   <section class="page" v-loading="store.loading">
-    <div class="page-head"><div><span class="section-kicker">事故入口</span><h2>创建演练或继续处理</h2><p>三个场景使用固定种子生成可复现数据；队列拥塞与配置漂移仅提供流程契约，不标记为已实现演练。</p></div></div>
+    <div class="page-head"><div><span class="section-kicker">事故入口</span><h2>创建事故或继续协同处置</h2><p>创建后只保留原始信号，由 AgentTeams 的 Incident Manager 拆解任务并调度专业 Worker。</p></div></div>
     <div class="scenario-grid">
       <article v-for="item in executable" :key="item.type" class="panel scenario-card">
         <span>{{ item.tag }}</span><h3>{{ item.name }}</h3><p>{{ item.detail }}</p>
-        <button class="primary-button" :disabled="Boolean(starting)" @click="start(item.type)">{{ starting === item.type ? '正在准备…' : '启动演练' }}</button>
+        <button class="primary-button" :disabled="Boolean(starting)" @click="start(item.type)">{{ starting === item.type ? '正在创建…' : '创建事故' }}</button>
       </article>
     </div>
     <div class="contract-note"><b>已预留流程类型</b><span v-for="item in contractOnly" :key="item">{{ item }}</span><small>待接入真实适配器后启用</small></div>

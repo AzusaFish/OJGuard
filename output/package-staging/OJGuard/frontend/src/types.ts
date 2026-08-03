@@ -183,3 +183,79 @@ export interface IncidentWorkspace {
   score_changes: ScoreChange[]
   verifications: IncidentVerification[]
 }
+
+export type AgentRunStatus =
+  | 'QUEUED'
+  | 'STARTING'
+  | 'RUNNING'
+  | 'PAUSED'
+  | 'HUMAN_REVIEW_REQUIRED'
+  | 'COMPLETED'
+  | 'FAILED'
+  | 'CANCELLED'
+
+export interface RouteOption {
+  action: string
+  worker: string
+  tool?: string
+  arguments: Record<string, string | number | boolean>
+  expected_stages: IncidentStage[]
+  evidence_refs: string[]
+  experiment_kind?: string
+  expected_result: string
+  failure_action: string
+}
+
+export interface AgentRun {
+  run_id: string
+  task_id: string
+  incident_id: string
+  status: AgentRunStatus
+  orchestration_mode: string
+  model: string
+  max_model_responses: number
+  model_response_count: number
+  current_agent?: string
+  current_action?: string
+  last_event_sequence: number
+  failure_reason?: string
+  created_at: string
+  started_at?: string
+  completed_at?: string
+  updated_at: string
+}
+
+export interface AgentRunEvent {
+  id: string
+  run_id: string
+  incident_id: string
+  sequence: number
+  event_type: string
+  agent: string
+  action?: string
+  worker?: string
+  tool?: string
+  summary: string
+  evidence_refs: string[]
+  before_stage?: IncidentStage
+  after_stage?: IncidentStage
+  metadata: Record<string, unknown>
+  created_at: string
+}
+
+export interface AgentRunSnapshot {
+  run: AgentRun
+  incident: IncidentContext
+  legal_options: RouteOption[]
+}
+
+export interface AgentTeamsRuntimeStatus {
+  ready: boolean
+  real_calls_enabled: boolean
+  api_key_configured: boolean
+  kubeconfig_present: boolean
+  launcher_present: boolean
+  python_present: boolean
+  gateway_reachable: boolean
+  message: string
+}

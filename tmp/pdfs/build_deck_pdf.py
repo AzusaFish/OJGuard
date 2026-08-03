@@ -5,7 +5,7 @@ from reportlab.pdfgen import canvas
 
 
 ROOT = Path(__file__).resolve().parents[2]
-SLIDES = ROOT / "tmp" / "ppt-template" / "qa-live-final-render"
+SLIDES = ROOT / "tmp" / "ppt-guided" / "final-render"
 OUTPUT = ROOT / "output" / "submission" / "OJGuard_项目介绍.pdf"
 PAGE_WIDTH = 960.0
 PAGE_HEIGHT = 540.0
@@ -13,8 +13,8 @@ PAGE_HEIGHT = 540.0
 
 def main() -> None:
     images = sorted(SLIDES.glob("slide-*.png"), key=lambda path: int(path.stem.split("-")[-1]))
-    if len(images) != 17:
-        raise ValueError(f"Expected 17 rendered slides, found {len(images)}")
+    if len(images) != 23:
+        raise ValueError(f"Expected 23 rendered slides, found {len(images)}")
     pdf = canvas.Canvas(str(OUTPUT), pagesize=(PAGE_WIDTH, PAGE_HEIGHT), pageCompression=1)
     pdf.setTitle("OJGuard - 在线测评事故响应与可信重评")
     for image_path in images:

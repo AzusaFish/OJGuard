@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "checkedAt": "2026-08-03T08:01:09.560Z",
+  "workspace": "D:\\AzusaFish\\Codes\\Development\\OJGuard\\tmp\\ppt-guided",
+  "finalPptx": "D:\\AzusaFish\\Codes\\Development\\OJGuard\\output\\submission\\OJGuard_项目介绍_定稿.pptx",
+  "starterPptx": "D:\\AzusaFish\\Codes\\Development\\OJGuard\\tmp\\ppt-guided\\template-starter.pptx",
+  "mapPath": "D:\\AzusaFish\\Codes\\Development\\OJGuard\\tmp\\ppt-guided\\template-frame-map.json",
+  "starterLayoutDir": "D:\\AzusaFish\\Codes\\Development\\OJGuard\\tmp\\ppt-guided\\template-starter-layout",
+  "finalLayoutDir": "D:\\AzusaFish\\Codes\\Development\\OJGuard\\tmp\\ppt-guided\\final-layout",
+  "editDir": "D:\\AzusaFish\\Codes\\Development\\OJGuard\\tmp\\ppt-guided",
+  "issueCount": 0,
+  "issues": []
+}

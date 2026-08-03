@@ -1,0 +1,542 @@
+{"kind":"layout","layoutId":"/ppt/slideMasters/slideMaster1.xml","name":"","type":"master"}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout1.xml","name":"DEFAULT"}
+{"kind":"layout","layoutId":"/ppt/slideMasters/slideMaster2.xml","name":"","type":"master"}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout2.xml","name":"DEFAULT"}
+{"kind":"slide","id":"sl/y90nupkv","slide":1,"title":"GOAI 世界人工智能开源大赛 · Agent Infra","textShapes":4}
+{"kind":"shape","id":"sh/547294r6","slide":1,"name":"Shape 0","bbox":[988.8,-134.4,432,432]}
+{"kind":"shape","id":"sh/k3yl0zql","slide":1,"name":"Shape 1","bbox":[1113.6,441.6,307.2,307.2]}
+{"kind":"shape","id":"sh/7qp4be9c","slide":1,"name":"Shape 2","bbox":[-86.4,518.4,288,288]}
+{"kind":"textbox","id":"sh/65g3298r","slide":1,"textChars":29,"textLines":1}
+{"kind":"textbox","id":"sh/ts7md4r2","slide":1,"textChars":23,"textLines":1}
+{"kind":"textbox","id":"sh/sfqdkrep","slide":1,"textChars":14,"textLines":1}
+{"kind":"textbox","id":"sh/dgzetcfa","slide":1,"textChars":23,"textLines":1}
+{"kind":"notes","id":"nt/y90nupkv","slide":1,"text":"[Sources] | OJGuard README.md"}
+{"kind":"slide","id":"sl/hwbqtkby","slide":2,"title":"P0 · 项目概览","textShapes":21}
+{"kind":"textbox","id":"sh/9072xkry","slide":2,"textChars":9,"textLines":1}
+{"kind":"textbox","id":"sh/ozy1ofad","slide":2,"textChars":23,"textLines":1}
+{"kind":"shape","id":"sh/a10jqpsj","slide":2,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/x4r21kru","slide":2,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/w3i1sfa9","slide":2,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/r65knqtk","slide":2,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/q5wjelsz","slide":2,"textChars":13,"textLines":1}
+{"kind":"shape","id":"sh/ove9o7yd","slide":2,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/9wnqhczy","slide":2,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/mtwrmxg7","slide":2,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/nu58f2hs","slide":2,"textChars":11,"textLines":1}
+{"kind":"textbox","id":"sh/wjy9sry9","slide":2,"textChars":11,"textLines":1}
+{"kind":"shape","id":"sh/xk7qlczu","slide":2,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/ahwrqhgj","slide":2,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/bip8jmho","slide":2,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/cnupgny5","slide":2,"textChars":15,"textLines":1}
+{"kind":"textbox","id":"sh/do3q9szq","slide":2,"textChars":12,"textLines":1}
+{"kind":"shape","id":"sh/t8byxkn2","slide":2,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/s72xofmh","slide":2,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/76twva5c","slide":2,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/65kfmpor","slide":2,"textChars":24,"textLines":1}
+{"kind":"textbox","id":"sh/hcvy14ne","slide":2,"textChars":13,"textLines":1}
+{"kind":"shape","id":"sh/gbmxszmt","slide":2,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/fadgzu58","slide":2,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/u94fqp4n","slide":2,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/p0vy54na","slide":2,"textChars":20,"textLines":1}
+{"kind":"textbox","id":"sh/4zmxwzmp","slide":2,"textChars":12,"textLines":1}
+{"kind":"shape","id":"sh/mlgvq147","slide":2,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/nmpcj6ls","slide":2,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/onydsbmd","slide":2,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/9o7ulg3y","slide":2,"textChars":16,"textLines":1}
+{"kind":"textbox","id":"sh/a9gvulkj","slide":2,"textChars":13,"textLines":1}
+{"kind":"textbox","id":"sh/ba9cn6l4","slide":2,"textChars":1,"textLines":1}
+{"kind":"notes","id":"nt/hwbqtkby","slide":2,"text":"[Sources] | OJGuard README.md | OJGuard OJGuard_项目方案.md"}
+{"kind":"slide","id":"sl/ofy9wn61","slide":3,"title":"第一章","textShapes":3}
+{"kind":"textbox","id":"sh/cza94vmx","slide":3,"textChars":3,"textLines":1}
+{"kind":"textbox","id":"sh/d0jax03i","slide":3,"textChars":5,"textLines":1}
+{"kind":"textbox","id":"sh/byd032h8","slide":3,"textChars":1,"textLines":1}
+{"kind":"notes","id":"nt/ofy9wn61","slide":3,"text":"[Sources] | OJGuard OJGuard_项目方案.md"}
+{"kind":"slide","id":"sl/jyx0ra1s","slide":4,"title":"第一章 · 事故代价","textShapes":4}
+{"kind":"textbox","id":"sh/0ba143al","slide":4,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/rm1k7yt4","slide":4,"textChars":16,"textLines":1}
+{"kind":"textbox","id":"sh/ql8jytsj","slide":4,"textChars":62,"textLines":1}
+{"kind":"textbox","id":"sh/sna103ap","slide":4,"textChars":42,"textLines":1}
+{"kind":"image","id":"im/y5cbel0j","slide":4,"name":"","bbox":[35.73,251,583.73,328.33]}
+{"kind":"image","id":"im/z6lc7q1o","slide":4,"name":"","bbox":[637.53,251,575.93,325.6]}
+{"kind":"notes","id":"nt/jyx0ra1s","slide":4,"text":"[Sources] | OJGuard output/evidence/incidents/runtime-regression-report.json ..."}
+{"kind":"slide","id":"sl/i107q5of","slide":5,"title":"第一章 · 业务价值","textShapes":21}
+{"kind":"textbox","id":"sh/dgbulwnm","slide":5,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/cf2tcr61","slide":5,"textChars":18,"textLines":1}
+{"kind":"shape","id":"sh/yhkbe1o7","slide":5,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/l4bupwny","slide":5,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/032tgr6d","slide":5,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/n6dcr65o","slide":5,"textChars":12,"textLines":1}
+{"kind":"textbox","id":"sh/m5kbi1oj","slide":5,"textChars":11,"textLines":1}
+{"kind":"shape","id":"sh/w32dkbuh","slide":5,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/x4vedgvm","slide":5,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/ahkvi1cb","slide":5,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/v2twb6dw","slide":5,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/k7mxovud","slide":5,"textChars":11,"textLines":1}
+{"kind":"shape","id":"sh/58vehgvy","slide":5,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/i54fmlc7","slide":5,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/j6dwfqds","slide":5,"textChars":5,"textLines":1}
+{"kind":"textbox","id":"sh/sb6xsvu9","slide":5,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/tcfel0vu","slide":5,"textChars":11,"textLines":1}
+{"kind":"shape","id":"sh/hgrmpwj2","slide":5,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/gfi5grih","slide":5,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/fe94nm1w","slide":5,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/ud0ne10b","slide":5,"textChars":12,"textLines":1}
+{"kind":"textbox","id":"sh/pkr6tgjy","slide":5,"textChars":10,"textLines":1}
+{"kind":"shape","id":"sh/4ji5kbid","slide":5,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/3i94r61s","slide":5,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/2h0ni107","slide":5,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/5o7mhcju","slide":5,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/kny587i9","slide":5,"textChars":11,"textLines":1}
+{"kind":"shape","id":"sh/atcjidg7","slide":5,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/vu5kbihc","slide":5,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/wve1knyx","slide":5,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/xwn2dszi","slide":5,"textChars":11,"textLines":1}
+{"kind":"textbox","id":"sh/ihw3mxg3","slide":5,"textChars":11,"textLines":1}
+{"kind":"textbox","id":"sh/ji5kf2ho","slide":5,"textChars":1,"textLines":1}
+{"kind":"notes","id":"nt/i107q5of","slide":5,"text":"[Sources] | OJGuard OJGuard_项目方案.md"}
+{"kind":"slide","id":"sl/x8f69ofe","slide":6,"title":"第一章 · 场景泛化","textShapes":4}
+{"kind":"textbox","id":"sh/zi98nu94","slide":6,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/87ipkzal","slide":6,"textChars":14,"textLines":1}
+{"kind":"textbox","id":"sh/98rqt4r6","slide":6,"textChars":60,"textLines":1}
+{"kind":"textbox","id":"sh/7m98ru9g","slide":6,"textChars":18,"textLines":1}
+{"kind":"image","id":"im/lwn2dc3m","slide":6,"name":"","bbox":[35.73,251,583.73,328.33]}
+{"kind":"image","id":"im/0vel47m1","slide":6,"name":"","bbox":[637.53,251,575.93,325.6]}
+{"kind":"notes","id":"nt/x8f69ofe","slide":6,"text":"[Sources] | OJGuard output/evidence/incidents/scenario-summary.json"}
+{"kind":"slide","id":"sl/gnmp4jqx","slide":7,"title":"7","textShapes":6}
+{"kind":"textbox","id":"sh/b2h4nupk","slide":7,"textChars":1,"textLines":1}
+{"kind":"textbox","id":"sh/zedcfa9g","slide":7,"textChars":3,"textLines":1}
+{"kind":"textbox","id":"sh/kzmdova1","slide":7,"textChars":4,"textLines":1}
+{"kind":"shape","id":"sh/l0vuh0rm","slide":7,"name":"Shape 2","bbox":[747.17,48,470.4,82.56]}
+{"kind":"textbox","id":"sh/eh0ba1sr","slide":7,"textChars":6,"textLines":1}
+{"kind":"textbox","id":"sh/fi9c369c","slide":7,"textChars":17,"textLines":1}
+{"kind":"shape","id":"sh/baxkjqlk","slide":7,"name":"Shape 5","bbox":[1107.17,65.28,91.2,48]}
+{"kind":"textbox","id":"sh/a9ojq5kz","slide":7,"textChars":3,"textLines":1}
+{"kind":"notes","id":"nt/gnmp4jqx","slide":7,"text":"[Sources] | OJGuard agentteams/ojguard-team.yaml"}
+{"kind":"slide","id":"sl/fu1gfa1s","slide":8,"title":"第二章 · 总体架构","textShapes":4}
+{"kind":"textbox","id":"sh/18byd4zy","slide":8,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/g72x4zyd","slide":8,"textChars":23,"textLines":1}
+{"kind":"textbox","id":"sh/8bat47ml","slide":8,"textChars":1,"textLines":1}
+{"kind":"textbox","id":"sh/q18bad4n","slide":8,"textChars":82,"textLines":1}
+{"kind":"image","id":"im/0jedovmp","slide":8,"name":"","bbox":[228.6,189.13,822.87,463.87]}
+{"kind":"notes","id":"nt/fu1gfa1s","slide":8,"text":"[Sources] | OJGuard backend/app/services/incident_workflow.py | OJGuard backe..."}
+{"kind":"slide","id":"sl/udsvah03","slide":9,"title":"第二章 · Agent 分工","textShapes":3}
+{"kind":"textbox","id":"sh/1cfmhgne","slide":9,"textChars":14,"textLines":1}
+{"kind":"textbox","id":"sh/0b65obm9","slide":9,"textChars":27,"textLines":1}
+{"kind":"textbox","id":"sh/qtkf21ob","slide":9,"textChars":81,"textLines":1}
+{"kind":"image","id":"im/47atkjyh","slide":9,"name":"","bbox":[55.2,241.93,554.67,311.2]}
+{"kind":"image","id":"im/03edcnip","slide":9,"name":"","bbox":[670.8,241.93,554.93,311.2]}
+{"kind":"notes","id":"nt/udsvah03","slide":9,"text":"[Sources] | OJGuard materials/Agent_Identity_清单.md | OJGuard agents/identities/"}
+{"kind":"slide","id":"sl/m90b6t0r","slide":10,"title":"第二章 · 任务拆解","textShapes":21}
+{"kind":"textbox","id":"sh/xc3mho32","slide":10,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/cbu58j2h","slide":10,"textChars":13,"textLines":1}
+{"kind":"shape","id":"sh/ydcnatkn","slide":10,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/l036l83y","slide":10,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/kzu5c32t","slide":10,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/725onyl4","slide":10,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/m1cnetkj","slide":10,"textChars":20,"textLines":1}
+{"kind":"shape","id":"sh/s7yt4b21","slide":10,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/d87uxg3m","slide":10,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/q5gb21kb","slide":10,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/r6pcv6lw","slide":10,"textChars":11,"textLines":1}
+{"kind":"textbox","id":"sh/0bit8b2d","slide":10,"textChars":17,"textLines":1}
+{"kind":"shape","id":"sh/1cru1g3y","slide":10,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/e9gb61k7","slide":10,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/fapcz6ls","slide":10,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/ozitcv29","slide":10,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/p0ru503u","slide":10,"textChars":15,"textLines":1}
+{"kind":"shape","id":"sh/xwnupgvy","slide":10,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/wvetgbud","slide":10,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/bu5cnqd8","slide":10,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/atwbelcn","slide":10,"textChars":12,"textLines":1}
+{"kind":"textbox","id":"sh/lk7ut0va","slide":10,"textChars":15,"textLines":1}
+{"kind":"shape","id":"sh/kjytkvup","slide":10,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/jypcrqd4","slide":10,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/yxgbilcj","slide":10,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/1o3ahwvq","slide":10,"textChars":8,"textLines":1}
+{"kind":"textbox","id":"sh/0nut8rul","slide":10,"textChars":18,"textLines":1}
+{"kind":"shape","id":"sh/q9srixs3","slide":10,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/ru18r2to","slide":10,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/cva9k7a9","slide":10,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/dwjqtcbu","slide":10,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/exsrmhsf","slide":10,"textChars":17,"textLines":1}
+{"kind":"textbox","id":"sh/zyl8vmt0","slide":10,"textChars":2,"textLines":1}
+{"kind":"notes","id":"nt/m90b6t0r","slide":10,"text":"[Sources] | OJGuard agentteams/ojguard-team.yaml | OJGuard skills/"}
+{"kind":"slide","id":"sl/jetc3ut0","slide":11,"title":"第二章 · 上下文传递","textShapes":21}
+{"kind":"textbox","id":"sh/xcryxg7y","slide":11,"textChars":11,"textLines":1}
+{"kind":"textbox","id":"sh/wbih4b6d","slide":11,"textChars":28,"textLines":1}
+{"kind":"shape","id":"sh/250zy18b","slide":11,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/98rytw72","slide":11,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/o7ih0r6h","slide":11,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/72t03qp0","slide":11,"textChars":11,"textLines":1}
+{"kind":"textbox","id":"sh/61kzalof","slide":11,"textChars":11,"textLines":1}
+{"kind":"shape","id":"sh/ofqtgnyt","slide":11,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/9gza9sze","slide":11,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/mdobedg3","slide":11,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/nehs7iho","slide":11,"textChars":19,"textLines":1}
+{"kind":"textbox","id":"sh/0b6tc3yx","slide":11,"textChars":14,"textLines":1}
+{"kind":"shape","id":"sh/1cfa58zi","slide":11,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/epobatgr","slide":11,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/zaxs3yhc","slide":11,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/cn6t83y1","slide":11,"textChars":15,"textLines":1}
+{"kind":"textbox","id":"sh/dofa18z6","slide":11,"textChars":18,"textLines":1}
+{"kind":"shape","id":"sh/tsnip0ny","slide":11,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/87ehgv6d","slide":11,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/7650nq5s","slide":11,"textChars":5,"textLines":1}
+{"kind":"textbox","id":"sh/65wzelo7","slide":11,"textChars":15,"textLines":1}
+{"kind":"textbox","id":"sh/l43ilgn2","slide":11,"textChars":14,"textLines":1}
+{"kind":"shape","id":"sh/k3uhcb6h","slide":11,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/j2lgjq5w","slide":11,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/y1czalob","slide":11,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/p07ixkn6","slide":11,"textChars":12,"textLines":1}
+{"kind":"textbox","id":"sh/4zyhofml","slide":11,"textChars":10,"textLines":1}
+{"kind":"shape","id":"sh/m58fih43","slide":11,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/n61wbmlo","slide":11,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/o7axk7m9","slide":11,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/98jedc3u","slide":11,"textChars":9,"textLines":1}
+{"kind":"textbox","id":"sh/eh8fex47","slide":11,"textChars":12,"textLines":1}
+{"kind":"textbox","id":"sh/z2hw72lc","slide":11,"textChars":2,"textLines":1}
+{"kind":"notes","id":"nt/jetc3ut0","slide":11,"text":"[Sources] | OJGuard materials/上下文与可观测性说明.md | OJGuard backend/app/services/re..."}
+{"kind":"slide","id":"sl/8f2psfyx","slide":12,"title":"第二章 · 协同执行","textShapes":21}
+{"kind":"textbox","id":"sh/1gbm9s3a","slide":12,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/0f2lgnmp","slide":12,"textChars":15,"textLines":1}
+{"kind":"shape","id":"sh/q903ad4n","slide":12,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/dcbm583y","slide":12,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/sb2lcnmd","slide":12,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/b6d4f2lc","slide":12,"textChars":18,"textLines":1}
+{"kind":"textbox","id":"sh/a543mx4r","slide":12,"textChars":10,"textLines":1}
+{"kind":"shape","id":"sh/wvupgz6t","slide":12,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/xw3q94ne","slide":12,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/atc7epon","slide":12,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/bulo7u58","slide":12,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/orapcf6h","slide":12,"textChars":16,"textLines":1}
+{"kind":"shape","id":"sh/9sj65kn2","slide":12,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/mps7a5or","slide":12,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/nq1o3a5w","slide":12,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/0nap8f6l","slide":12,"textChars":18,"textLines":1}
+{"kind":"textbox","id":"sh/1oj61kn6","slide":12,"textChars":10,"textLines":1}
+{"kind":"shape","id":"sh/hkbm5wzu","slide":12,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/gj25cry9","slide":12,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/fit436ho","slide":12,"textChars":5,"textLines":1}
+{"kind":"textbox","id":"sh/uh0na1g3","slide":12,"textChars":12,"textLines":1}
+{"kind":"textbox","id":"sh/tgrm1wzy","slide":12,"textChars":10,"textLines":1}
+{"kind":"shape","id":"sh/sfi58ryd","slide":12,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/7u94zmhs","slide":12,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/6t0n6hg7","slide":12,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/dcv6dgz2","slide":12,"textChars":20,"textLines":1}
+{"kind":"textbox","id":"sh/cbm5kbyh","slide":12,"textChars":10,"textLines":1}
+{"kind":"shape","id":"sh/alwbitsn","slide":12,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/bm5sryt8","slide":12,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/wnetkjat","slide":12,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/xonutobe","slide":12,"textChars":9,"textLines":1}
+{"kind":"textbox","id":"sh/mhcbe9sr","slide":12,"textChars":11,"textLines":1}
+{"kind":"textbox","id":"sh/nilsnetc","slide":12,"textChars":2,"textLines":1}
+{"kind":"notes","id":"nt/8f2psfyx","slide":12,"text":"[Sources] | OJGuard backend/app/services/agent_routing.py | OJGuard tests/tes..."}
+{"kind":"slide","id":"sl/hgzapcr6","slide":13,"title":"第二章 · 结果验证","textShapes":21}
+{"kind":"textbox","id":"sh/q50nydsj","slide":13,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/bq9orito","slide":13,"textChars":15,"textLines":1}
+{"kind":"shape","id":"sh/p4r6p8by","slide":13,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/21gnuts7","slide":13,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/32ponyts","slide":13,"textChars":5,"textLines":1}
+{"kind":"textbox","id":"sh/gzy5s3a1","slide":13,"textChars":13,"textLines":1}
+{"kind":"textbox","id":"sh/1076lobm","slide":13,"textChars":18,"textLines":1}
+{"kind":"shape","id":"sh/hcfy9k3u","slide":13,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/gb6x0zm9","slide":13,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/vaxg7ulo","slide":13,"textChars":5,"textLines":1}
+{"kind":"textbox","id":"sh/u9ofyp43","slide":13,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/t8fy5k3i","slide":13,"textChars":9,"textLines":1}
+{"kind":"shape","id":"sh/876xwfmx","slide":13,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/7mdg3als","slide":13,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/6l4fu547","slide":13,"textChars":5,"textLines":1}
+{"kind":"textbox","id":"sh/lkvy103m","slide":13,"textChars":11,"textLines":1}
+{"kind":"textbox","id":"sh/kjmxsfm1","slide":13,"textChars":11,"textLines":1}
+{"kind":"shape","id":"sh/cnqh8fux","slide":13,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/xozyhkbi","slide":13,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/q18f65cr","slide":13,"textChars":5,"textLines":1}
+{"kind":"textbox","id":"sh/bmhgfatc","slide":13,"textChars":11,"textLines":1}
+{"kind":"textbox","id":"sh/oz6x4vul","slide":13,"textChars":9,"textLines":1}
+{"kind":"shape","id":"sh/p0zyd0b6","slide":13,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/2xof2lcv","slide":13,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/3yxgbqdg","slide":13,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/8vahgzu5","slide":13,"textChars":11,"textLines":1}
+{"kind":"textbox","id":"sh/9wjyp4bq","slide":13,"textChars":15,"textLines":1}
+{"kind":"shape","id":"sh/jqlkfyds","slide":13,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/ipcjmtw7","slide":13,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/5cn2h8vy","slide":13,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/4re1o3ed","slide":13,"textChars":16,"textLines":1}
+{"kind":"textbox","id":"sh/re5kjydo","slide":13,"textChars":16,"textLines":1}
+{"kind":"textbox","id":"sh/6dwjqtw3","slide":13,"textChars":2,"textLines":1}
+{"kind":"notes","id":"nt/hgzapcr6","slide":13,"text":"[Sources] | OJGuard backend/app/services/trusted_rejudge.py | OJGuard tests/t..."}
+{"kind":"slide","id":"sl/6lsnupw7","slide":14,"title":"第二章 · 异常分支","textShapes":21}
+{"kind":"textbox","id":"sh/xc7eds76","slide":14,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/wbydknq1","slide":14,"textChars":17,"textLines":1}
+{"kind":"shape","id":"sh/idgvmx8r","slide":14,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/5grehs7i","slide":14,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/kfidonqx","slide":14,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/zi5c3y98","slide":14,"textChars":17,"textLines":1}
+{"kind":"textbox","id":"sh/ehwvat8n","slide":14,"textChars":10,"textLines":1}
+{"kind":"shape","id":"sh/c3e1gjyd","slide":14,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/x4ni9ofy","slide":14,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/a1wze9g7","slide":14,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/b2507exs","slide":14,"textChars":15,"textLines":1}
+{"kind":"textbox","id":"sh/kre1k3y9","slide":14,"textChars":10,"textLines":1}
+{"kind":"shape","id":"sh/ls7idofu","slide":14,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/y5wjitgj","slide":14,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/z650byxo","slide":14,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/0buh8zy5","slide":14,"textChars":14,"textLines":1}
+{"kind":"textbox","id":"sh/1w3i14fq","slide":14,"textChars":10,"textLines":1}
+{"kind":"shape","id":"sh/hsvy50re","slide":14,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/grmxwvqt","slide":14,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/fqdg3q98","slide":14,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/up4fal83","slide":14,"textChars":13,"textLines":1}
+{"kind":"textbox","id":"sh/pwvy90rq","slide":14,"textChars":11,"textLines":1}
+{"kind":"shape","id":"sh/4vmh0vq5","slide":14,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/3udg7q9k","slide":14,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/2t4fyl8z","slide":14,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/d0fydk7m","slide":14,"textChars":8,"textLines":1}
+{"kind":"textbox","id":"sh/cz6h4fq1","slide":14,"textChars":11,"textLines":1}
+{"kind":"shape","id":"sh/atg3idk7","slide":14,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/bup4rils","slide":14,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/cvylkn2d","slide":14,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/xw7mts3y","slide":14,"textChars":16,"textLines":1}
+{"kind":"textbox","id":"sh/yxgnmxkj","slide":14,"textChars":11,"textLines":1}
+{"kind":"textbox","id":"sh/jyp4fil4","slide":14,"textChars":2,"textLines":1}
+{"kind":"notes","id":"nt/6lsnupw7","slide":14,"text":"[Sources] | OJGuard output/evidence/agentteams/deterministic-recovery-evidenc..."}
+{"kind":"slide","id":"sl/vaxsvy10","slide":15,"title":"第二章 · 安全边界","textShapes":21}
+{"kind":"textbox","id":"sh/547mhg3m","slide":15,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/k3y5ov21","slide":15,"textChars":17,"textLines":1}
+{"kind":"shape","id":"sh/65gnqlk7","slide":15,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/t87ml0ji","slide":15,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/s7y5sv2x","slide":15,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/na5476l8","slide":15,"textChars":15,"textLines":1}
+{"kind":"textbox","id":"sh/m9c3e1kn","slide":15,"textChars":11,"textLines":1}
+{"kind":"shape","id":"sh/wrm9kvep","slide":15,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/hsvat0fa","slide":15,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/upkrilwj","slide":15,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/vqdsrqx4","slide":15,"textChars":11,"textLines":1}
+{"kind":"textbox","id":"sh/4vm9ovel","slide":15,"textChars":11,"textLines":1}
+{"kind":"shape","id":"sh/5wvax0f6","slide":15,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/it4rm5wv","slide":15,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/judsvqxg","slide":15,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/0z29cbyh","slide":15,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/l0bqlgf2","slide":15,"textChars":10,"textLines":1}
+{"kind":"shape","id":"sh/1kjyt83e","slide":15,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/gjax03m9","slide":15,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/fi1grylo","slide":15,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/ehsfyt43","slide":15,"textChars":11,"textLines":1}
+{"kind":"textbox","id":"sh/p8jyx83q","slide":15,"textChars":10,"textLines":1}
+{"kind":"shape","id":"sh/o7ah4nm5","slide":15,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/361gvilk","slide":15,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/25sf2d4z","slide":15,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/dc3y1s3m","slide":15,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/cbuh8nmh","slide":15,"textChars":10,"textLines":1}
+{"kind":"shape","id":"sh/uh4v2pkj","slide":15,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/vixcvu14","slide":15,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/wj6d4z2p","slide":15,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/hkfexkja","slide":15,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/ilov6pkv","slide":15,"textChars":12,"textLines":1}
+{"kind":"textbox","id":"sh/jmxwzu1g","slide":15,"textChars":2,"textLines":1}
+{"kind":"notes","id":"nt/vaxsvy10","slide":15,"text":"[Sources] | OJGuard materials/MCP_工具契约与迁移说明.md | OJGuard scripts/run_agenttea..."}
+{"kind":"slide","id":"sl/gny5sjyp","slide":16,"title":"16","textShapes":6}
+{"kind":"textbox","id":"sh/j6947i9w","slide":16,"textChars":2,"textLines":1}
+{"kind":"textbox","id":"sh/8z2h8bq1","slide":16,"textChars":3,"textLines":1}
+{"kind":"textbox","id":"sh/9kby1g7m","slide":16,"textChars":11,"textLines":1}
+{"kind":"shape","id":"sh/ytkf2h8j","slide":16,"name":"Shape 2","bbox":[747.17,48,470.4,82.56]}
+{"kind":"textbox","id":"sh/1ojy10ne","slide":16,"textChars":6,"textLines":1}
+{"kind":"textbox","id":"sh/gnax8v6t","slide":16,"textChars":15,"textLines":1}
+{"kind":"shape","id":"sh/nqlg3a5k","slide":16,"name":"Shape 5","bbox":[1107.17,65.28,91.2,48]}
+{"kind":"textbox","id":"sh/2pcfa5oz","slide":16,"textChars":3,"textLines":1}
+{"kind":"notes","id":"nt/gny5sjyp","slide":16,"text":"[Sources] | OJGuard skills/ | OJGuard mcp_server/"}
+{"kind":"slide","id":"sl/14bup87q","slide":17,"title":"第三章 · Skill 工程","textShapes":4}
+{"kind":"textbox","id":"sh/1c7e50ni","slide":17,"textChars":14,"textLines":1}
+{"kind":"textbox","id":"sh/gbedwfmx","slide":17,"textChars":20,"textLines":1}
+{"kind":"shape","id":"sh/snedsvml","slide":17,"name":"Shape 5","bbox":[1107.17,65.28,91.2,48]}
+{"kind":"textbox","id":"sh/jilcvq54","slide":17,"textChars":3,"textLines":1}
+{"kind":"textbox","id":"sh/658nudwf","slide":17,"textChars":55,"textLines":1}
+{"kind":"image","id":"im/orudgnqh","slide":17,"name":"","bbox":[338.6,249.6,602.8,339.67]}
+{"kind":"notes","id":"nt/14bup87q","slide":17,"text":"[Sources] | OJGuard skills/ | OJGuard materials/MCP_工具契约与迁移说明.md"}
+{"kind":"slide","id":"sl/y5wne50z","slide":18,"title":"第三章 · MCP 工具集","textShapes":21}
+{"kind":"textbox","id":"sh/wrelszu9","slide":18,"textChars":13,"textLines":1}
+{"kind":"textbox","id":"sh/hsn2l4bu","slide":18,"textChars":18,"textLines":1}
+{"kind":"shape","id":"sh/je5knut0","slide":18,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/4felwzu5","slide":18,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/5gnmp4bq","slide":18,"textChars":5,"textLines":1}
+{"kind":"textbox","id":"sh/6hw3y9sb","slide":18,"textChars":11,"textLines":1}
+{"kind":"textbox","id":"sh/rip4retw","slide":18,"textChars":9,"textLines":1}
+{"kind":"shape","id":"sh/fapkr6pw","slide":18,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/upg3i18r","slide":18,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/1cr2tg72","slide":18,"textChars":5,"textLines":1}
+{"kind":"textbox","id":"sh/gbylkbqh","slide":18,"textChars":11,"textLines":1}
+{"kind":"textbox","id":"sh/7mpknmp0","slide":18,"textChars":24,"textLines":1}
+{"kind":"shape","id":"sh/6lg3e18f","slide":18,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/to72pw76","slide":18,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/snylgrql","slide":18,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/bi94zqp4","slide":18,"textChars":16,"textLines":1}
+{"kind":"textbox","id":"sh/qh03ql8j","slide":18,"textChars":10,"textLines":1}
+{"kind":"shape","id":"sh/md4nipsr","slide":18,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/nedoru9c","slide":18,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/8zm5kzax","slide":18,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/90v6t4ri","slide":18,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/a14nm9s3","slide":18,"textChars":15,"textLines":1}
+{"kind":"shape","id":"sh/v2xovu9o","slide":18,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/w36poza9","slide":18,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/x4f6x4re","slide":18,"textChars":5,"textLines":1}
+{"kind":"textbox","id":"sh/q5kna5sz","slide":18,"textChars":9,"textLines":1}
+{"kind":"textbox","id":"sh/b6toja94","slide":18,"textChars":17,"textLines":1}
+{"kind":"shape","id":"sh/t0zqp8bm","slide":18,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/szq9g3uh","slide":18,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/7yh8nytw","slide":18,"textChars":5,"textLines":1}
+{"kind":"textbox","id":"sh/6x8retcb","slide":18,"textChars":9,"textLines":1}
+{"kind":"textbox","id":"sh/h4jqtsby","slide":18,"textChars":12,"textLines":1}
+{"kind":"textbox","id":"sh/g3a9knud","slide":18,"textChars":2,"textLines":1}
+{"kind":"notes","id":"nt/y5wne50z","slide":18,"text":"[Sources] | OJGuard mcp_server/tools.py | OJGuard materials/MCP_工具契约与迁移说明.md"}
+{"kind":"slide","id":"sl/nid43ytk","slide":19,"title":"第三章 · 集成契约","textShapes":21}
+{"kind":"textbox","id":"sh/9gb6xgbi","slide":19,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/8v2pobax","slide":19,"textChars":21,"textLines":1}
+{"kind":"shape","id":"sh/ahk7qls3","slide":19,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/xkbq10be","slide":19,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/wj2psvat","slide":19,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/jmd83atk","slide":19,"textChars":16,"textLines":1}
+{"kind":"textbox","id":"sh/il47u5sz","slide":19,"textChars":14,"textLines":1}
+{"kind":"shape","id":"sh/cri1gnql","slide":19,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/dsri9sr6","slide":19,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/qpgjex8f","slide":19,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/rqp07290","slide":19,"textChars":12,"textLines":1}
+{"kind":"textbox","id":"sh/0vi1k7qx","slide":19,"textChars":11,"textLines":1}
+{"kind":"shape","id":"sh/1gridcr2","slide":19,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/et0jix8r","slide":19,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/zu90b29c","slide":19,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/oj21o7qt","slide":19,"textChars":11,"textLines":1}
+{"kind":"textbox","id":"sh/9kb2hcre","slide":19,"textChars":10,"textLines":1}
+{"kind":"shape","id":"sh/x07i1cji","slide":19,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/wfy1s7ix","slide":19,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/vep0z21c","slide":19,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/adgjqx0r","slide":19,"textChars":11,"textLines":1}
+{"kind":"textbox","id":"sh/54ri5wje","slide":19,"textChars":12,"textLines":1}
+{"kind":"shape","id":"sh/k3y1wri9","slide":19,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/j2p03m1o","slide":19,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/i1gjuh03","slide":19,"textChars":5,"textLines":1}
+{"kind":"textbox","id":"sh/l8nitsja","slide":19,"textChars":22,"textLines":1}
+{"kind":"textbox","id":"sh/07ehknip","slide":19,"textChars":15,"textLines":1}
+{"kind":"shape","id":"sh/qdsfutgn","slide":19,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/belg3yh8","slide":19,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/cfuxw3yt","slide":19,"textChars":6,"textLines":1}
+{"kind":"textbox","id":"sh/dg3y58zy","slide":19,"textChars":11,"textLines":1}
+{"kind":"textbox","id":"sh/yhcfydgj","slide":19,"textChars":17,"textLines":1}
+{"kind":"textbox","id":"sh/zilg7yh4","slide":19,"textChars":2,"textLines":1}
+{"kind":"notes","id":"nt/nid43ytk","slide":19,"text":"[Sources] | OJGuard materials/上下文与可观测性说明.md"}
+{"kind":"slide","id":"sl/zyxsni5k","slide":20,"title":"20","textShapes":6}
+{"kind":"textbox","id":"sh/907ixcva","slide":20,"textChars":2,"textLines":1}
+{"kind":"textbox","id":"sh/po3itc72","slide":20,"textChars":3,"textLines":1}
+{"kind":"textbox","id":"sh/2lczih8r","slide":20,"textChars":8,"textLines":1}
+{"kind":"shape","id":"sh/3ml0rmpw","slide":20,"name":"Shape 2","bbox":[747.17,48,470.4,82.56]}
+{"kind":"textbox","id":"sh/gjuhg7ql","slide":20,"textChars":6,"textLines":1}
+{"kind":"textbox","id":"sh/hk3ipcr6","slide":20,"textChars":10,"textLines":1}
+{"kind":"shape","id":"sh/dkfmp4zy","slide":20,"name":"Shape 5","bbox":[1107.17,65.28,91.2,48]}
+{"kind":"textbox","id":"sh/cj65wzyd","slide":20,"textChars":3,"textLines":1}
+{"kind":"notes","id":"nt/zyxsni5k","slide":20,"text":"[Sources] | OJGuard README.md"}
+{"kind":"slide","id":"sl/m1wvqtk3","slide":21,"title":"第四章 · 工程可行性","textShapes":21}
+{"kind":"textbox","id":"sh/1gbmxs7a","slide":21,"textChars":11,"textLines":1}
+{"kind":"textbox","id":"sh/0f2lon6p","slide":21,"textChars":16,"textLines":1}
+{"kind":"shape","id":"sh/qp03yt8n","slide":21,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/dcb2t87y","slide":21,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/sb2lk36t","slide":21,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/b6d432pc","slide":21,"textChars":11,"textLines":1}
+{"kind":"textbox","id":"sh/al43uxor","slide":21,"textChars":11,"textLines":1}
+{"kind":"shape","id":"sh/4jax4nqd","slide":21,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/5kjydsri","slide":21,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/ixsf2d87","slide":21,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/jy1gbi9s","slide":21,"textChars":15,"textLines":1}
+{"kind":"textbox","id":"sh/wvax03q1","slide":21,"textChars":15,"textLines":1}
+{"kind":"shape","id":"sh/hwjy98rm","slide":21,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/utsfyt8v","slide":21,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/vu1w7y9g","slide":21,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/8rqxw3q5","slide":21,"textChars":12,"textLines":1}
+{"kind":"textbox","id":"sh/9sze58rq","slide":21,"textChars":13,"textLines":1}
+{"kind":"shape","id":"sh/porutkje","slide":21,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/onid0f2t","slide":21,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/nm9cru18","slide":21,"textChars":11,"textLines":1}
+{"kind":"textbox","id":"sh/2l0vypkn","slide":21,"textChars":25,"textLines":1}
+{"kind":"textbox","id":"sh/1kru5kj2","slide":21,"textChars":12,"textLines":1}
+{"kind":"shape","id":"sh/0jidwf2x","slide":21,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/fi9c3a1c","slide":21,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/ehgvu5kr","slide":21,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/lgbe14jm","slide":21,"textChars":18,"textLines":1}
+{"kind":"textbox","id":"sh/kf2d8zi1","slide":21,"textChars":17,"textLines":1}
+{"kind":"shape","id":"sh/ipcjmhw7","slide":21,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/jqlkfmds","slide":21,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/4ru1o7ed","slide":21,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/5c32hcvy","slide":21,"textChars":27,"textLines":1}
+{"kind":"textbox","id":"sh/ulcjixwb","slide":21,"textChars":12,"textLines":1}
+{"kind":"textbox","id":"sh/vml0b2dw","slide":21,"textChars":2,"textLines":1}
+{"kind":"notes","id":"nt/m1wvqtk3","slide":21,"text":"[Sources] | OJGuard README.md | OJGuard materials/提交前检查清单.md"}
+{"kind":"slide","id":"sl/5onypobq","slide":22,"title":"第四章 · 落地计划","textShapes":21}
+{"kind":"textbox","id":"sh/6987itcr","slide":22,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/7a18rydc","slide":22,"textChars":14,"textLines":1}
+{"kind":"shape","id":"sh/58zqpov6","slide":22,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/il87etcv","slide":22,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/jmh8nyd0","slide":22,"textChars":3,"textLines":1}
+{"kind":"textbox","id":"sh/43u9snu5","slide":22,"textChars":12,"textLines":1}
+{"kind":"textbox","id":"sh/p43q1sva","slide":22,"textChars":12,"textLines":1}
+{"kind":"shape","id":"sh/p4z6tcri","slide":22,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/436507qx","slide":22,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/3ixor29c","slide":22,"textChars":3,"textLines":1}
+{"kind":"textbox","id":"sh/2honyx8r","slide":22,"textChars":11,"textLines":1}
+{"kind":"textbox","id":"sh/hgf6pcr6","slide":22,"textChars":12,"textLines":1}
+{"kind":"shape","id":"sh/gf65w7ql","slide":22,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/fexon290","slide":22,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/udonux8v","slide":22,"textChars":3,"textLines":1}
+{"kind":"textbox","id":"sh/1cj61w7q","slide":22,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/0bap8rq5","slide":22,"textChars":12,"textLines":1}
+{"kind":"shape","id":"sh/krihkz2d","slide":22,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/lsrit4jy","slide":22,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/yp0zipk7","slide":22,"textChars":3,"textLines":1}
+{"kind":"textbox","id":"sh/jq90ru1s","slide":22,"textChars":9,"textLines":1}
+{"kind":"textbox","id":"sh/wnihgf2h","slide":22,"textChars":10,"textLines":1}
+{"kind":"shape","id":"sh/xoripkj2","slide":22,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/al0zepkb","slide":22,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/bm9gnu1w","slide":22,"textChars":3,"textLines":1}
+{"kind":"textbox","id":"sh/ozyhcf25","slide":22,"textChars":16,"textLines":1}
+{"kind":"textbox","id":"sh/907ylkjq","slide":22,"textChars":11,"textLines":1}
+{"kind":"shape","id":"sh/rup0va5s","slide":22,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/qtwz2547","slide":22,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/dw7ixkni","slide":22,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/cvy14fmx","slide":22,"textChars":13,"textLines":1}
+{"kind":"textbox","id":"sh/zyp0za5o","slide":22,"textChars":13,"textLines":1}
+{"kind":"textbox","id":"sh/exgj6p43","slide":22,"textChars":2,"textLines":1}
+{"kind":"notes","id":"nt/5onypobq","slide":22,"text":"[Sources] | OJGuard OJGuard_项目方案.md"}
+{"kind":"slide","id":"sl/c7uhcr6t","slide":23,"title":"第四章 · 开放 / 开源计划","textShapes":21}
+{"kind":"textbox","id":"sh/90vqdczq","slide":23,"textChars":15,"textLines":1}
+{"kind":"textbox","id":"sh/8zm9k7y5","slide":23,"textChars":19,"textLines":1}
+{"kind":"shape","id":"sh/a14rmhgb","slide":23,"name":"Shape 3","bbox":[62.4,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/xovqhcz2","slide":23,"name":"Shape 4","bbox":[89.28,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/w3m9o7yh","slide":23,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/jqd8jmhs","slide":23,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/ip4rqhgn","slide":23,"textChars":11,"textLines":1}
+{"kind":"shape","id":"sh/sby90zm1","slide":23,"name":"Shape 8","bbox":[457.06,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/tc7at436","slide":23,"name":"Shape 9","bbox":[483.94,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/69gry94v","slide":23,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/rapsrelg","slide":23,"textChars":15,"textLines":1}
+{"kind":"textbox","id":"sh/0fi94jmx","slide":23,"textChars":11,"textLines":1}
+{"kind":"shape","id":"sh/1graxo3i","slide":23,"name":"Shape 13","bbox":[851.71,206.4,365.86,163.2]}
+{"kind":"shape","id":"sh/edgr294r","slide":23,"name":"Shape 14","bbox":[878.59,233.28,15.36,15.36]}
+{"kind":"textbox","id":"sh/fepsvelc","slide":23,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/oji9832t","slide":23,"textChars":20,"textLines":1}
+{"kind":"textbox","id":"sh/p4ra1o3e","slide":23,"textChars":11,"textLines":1}
+{"kind":"shape","id":"sh/x0nalovi","slide":23,"name":"Shape 18","bbox":[62.4,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/wze9cjud","slide":23,"name":"Shape 19","bbox":[89.28,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/by58jeds","slide":23,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/axwratc7","slide":23,"textChars":27,"textLines":1}
+{"kind":"textbox","id":"sh/l47ap8vu","slide":23,"textChars":12,"textLines":1}
+{"kind":"shape","id":"sh/k3y9g3u9","slide":23,"name":"Shape 23","bbox":[457.06,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/j2psnydo","slide":23,"name":"Shape 24","bbox":[483.94,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/y1gretc3","slide":23,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/183qd4vq","slide":23,"textChars":12,"textLines":1}
+{"kind":"textbox","id":"sh/07u94ze5","slide":23,"textChars":13,"textLines":1}
+{"kind":"shape","id":"sh/qds7e5sn","slide":23,"name":"Shape 28","bbox":[851.71,396.48,365.86,163.2]}
+{"kind":"shape","id":"sh/re1onat8","slide":23,"name":"Shape 29","bbox":[878.59,423.36,15.36,15.36]}
+{"kind":"textbox","id":"sh/szapgfat","slide":23,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/d0j6pkbe","slide":23,"textChars":12,"textLines":1}
+{"kind":"textbox","id":"sh/e1s7ipsz","slide":23,"textChars":12,"textLines":1}
+{"kind":"textbox","id":"sh/f2lorutk","slide":23,"textChars":2,"textLines":1}
+{"kind":"notes","id":"nt/c7uhcr6t","slide":23,"text":"[Sources] | OJGuard README.md | OJGuard LICENSE"}
+{"kind":"notice","message":"Truncated: omitted 0 lines. Increase maxChars or narrow target."}

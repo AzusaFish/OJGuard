@@ -365,6 +365,7 @@ class SQLiteRepository:
             elif stored.event_type == AgentRunEventType.RUN_RESUMED:
                 updated.status = AgentRunStatus.RUNNING
                 updated.failure_reason = None
+                updated.completed_at = None
             elif stored.event_type == AgentRunEventType.FINAL_REPORT:
                 updated.status = AgentRunStatus.COMPLETED
                 updated.completed_at = stored.created_at

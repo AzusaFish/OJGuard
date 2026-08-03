@@ -130,22 +130,6 @@ def get_incident_playbooks() -> list[DiagnosticPlaybook]:
     return list_playbooks()
 
 
-@router.post(
-    "/demo/{incident_type}",
-    response_model=IncidentWorkspace,
-    status_code=status.HTTP_201_CREATED,
-)
-def prepare_demo_incident(
-    incident_type: IncidentType,
-    repository: SQLiteRepository = Depends(get_repository),
-) -> IncidentWorkspace:
-    try:
-        incident = IncidentWorkflowService(repository).prepare_demo(incident_type)
-    except (ValueError, KeyError) as exc:
-        raise HTTPException(status_code=422, detail=str(exc)) from exc
-    return _workspace(repository, incident)
-
-
 @router.post("", response_model=IncidentContext, status_code=status.HTTP_201_CREATED)
 def create_incident(
     request: CreateIncidentRequest,

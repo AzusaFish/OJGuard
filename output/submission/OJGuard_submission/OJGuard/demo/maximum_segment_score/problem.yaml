@@ -1,0 +1,24 @@
+name: Maximum Segment Score
+format_version: 1
+language: cpp17
+time_limit_ms: 1000
+memory_limit_mb: 256
+input:
+  n:
+    type: integer
+    min: 1
+    max: 200000
+  a_i:
+    type: integer
+    min: -1000000000
+    max: 1000000000
+output:
+  type: integer
+  theoretical_min: -200000000000000
+  theoretical_max: 200000000000000
+checker: checker/checker.cpp
+validator: validators/validator.cpp
+oracle: solutions/oracle.cpp
+reference_solution: solutions/reference.cpp
+known_wrong_solutions:
+  - solutions/wrong_positive_sum.cpp
